@@ -6,7 +6,7 @@ main:
     url: "/services/"
     weight: 2
   - name: "Device as a Service"
-    url: "/daas/"
+    url: "/device-as-a-service/"
     weight: 3
   - name: "Repairs"
     url: "/repairs/"
@@ -32,7 +32,7 @@ footer:
     url: "/services/"
     weight: 2
   - name: "Device as a Service"
-    url: "/daas/"
+    url: "/device-as-a-service/"
     weight: 3
   - name: "Repairs"
     url: "/repairs/"
