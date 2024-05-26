@@ -1,0 +1,83 @@
+[
+    {
+      "title": "Device Management",
+      "description": "Setup, manage, and secure your devices. Covering Apple's device suite as well as Linux and Windows devices.",
+      "image": {
+        "url": "images/services/device-management.png",
+        "width": 80,
+        "height": 80
+      }
+    },
+    {
+        "title": "Networking",
+        "description": "No matter the space, we can help you get connected. With FORTINET and RUCKUS hardware, you'll be secure and reliable.",
+        "image": {
+          "url": "images/services/networking.png",
+          "width": 80,
+          "height": 80
+        }
+    },
+    {
+        "title": "Office 365 Administration",
+        "description": "Everything you need to keep your business running smoothly.",
+        "image": {
+          "url": "images/features/office.png",
+          "width": 80,
+          "height": 80
+        }
+    },
+    {
+        "title": "On-Site and Remote  Support",
+        "description": "Serving Calgary and surrounding areas, as well as international clients. We're here to help you wherever you are.",
+        "image": {
+          "url": "images/services/onsite.png",
+          "width": 80,
+          "height": 80
+        }
+    },
+    {
+        "title": "In-house Repairs",
+        "description": "We can fix your hardware in-house, no need to send it away. Includes complementary loaner devices.",
+        "image": {
+          "url": "images/services/repair.png",
+          "width": 80,
+          "height": 80
+        }
+    },
+    {
+        "title": "Device as a Service",
+        "description": "Deploying hardware's expensive, we make it easy with our DaaS program. One monthly fee, all inclusive.",
+        "image": {
+          "url": "images/services/daas.png",
+          "width": 80,
+          "height": 80
+        }
+    },
+    {
+        "title": "Compliance & Security",
+        "description": "Whether you need to meet compliance or want to keep your clients and employees safe, we have the tools to help.",
+        "image": {
+          "url": "images/services/security.png",
+          "width": 80,
+          "height": 80
+        }
+    },
+    {
+        "title": "Automated Backups",
+        "description": "Both local and offsite backups, we make sure your data is safe regardless of what happens.",
+        "image": {
+          "url": "images/services/backups.png",
+          "width": 80,
+          "height": 80
+        }
+    },
+    {
+        "title": "New location setup",
+        "description": "Whether setting up a new office or moving, we can help you get your new location up and running.",
+        "image": {
+          "url": "images/services/new-office.png",
+          "width": 80,
+          "height": 80
+        }
+    }
+]

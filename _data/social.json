@@ -1,0 +1,22 @@
+[
+  {
+    "name": "Email",
+    "link": "mailto:info@ripeda.com",
+    "image": "images/social/email.svg"
+  },
+  {
+    "name": "Github",
+    "link": "https://www.github.com/ripeda",
+    "image": "images/social/github.svg"
+  },
+  {
+    "name": "X",
+    "link": "https://www.twitter.com/ripeda",
+    "image": "images/social/x.svg"
+  },
+  {
+    "name": "LinkedIn",
+    "link": "https://www.linkedin.com/company/ripeda-consulting/",
+    "image": "images/social/linkedin.svg"
+  }
+]

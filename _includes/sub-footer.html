@@ -1,0 +1,30 @@
+<div class="sub-footer">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <div class="sub-footer-inner">
+          {% if site.data.social %}
+            {% include social.html %}
+          {% endif %}
+          {% if site.data.seo.copyright_text %}
+          <div align="right" class="copyright">{{ site.data.seo.copyright_text }}</div>
+          {% endif %}
+        </div>
+        {% if site.data.seo.address %}
+        <div align="right" class="address">{{ site.data.seo.address }}</div>
+        {% endif %}
+        <div align="right" class="address">
+          {% if site.data.seo.apple_maps_url %}
+          <a href="{{ site.data.seo.apple_maps_url }}" target="_blank" rel="noreferrer">Apple Maps</a>
+          {% endif %}
+          {% if site.data.seo.apple_maps_url and site.data.seo.google_maps_url %}
+          &nbsp;
+          {% endif %}
+          {% if site.data.seo.google_maps_url %}
+          <a href="{{ site.data.seo.google_maps_url }}" target="_blank" rel="noreferrer">Google Maps</a>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,83 @@
+[
+  {
+    "title": "Managed Service Provider",
+    "description": "From device management, software deployments, network administration, security and more, we have you covered.",
+    "image": {
+      "url": "images/features/managed-services.png",
+      "width": 80,
+      "height": 80
+    }
+  },
+  {
+    "title": "Apple Consultants Network",
+    "description": "Certified since 2012, we ensure your devices are managed and supported by Apple Certified Professionals.",
+    "image": {
+      "url": "images/features/apple-consultants-network.png",
+      "width": 80,
+      "height": 80
+    }
+  },
+  {
+    "title": "Apple Authorized Repair Provider",
+    "description": "Have your Apple devices repaired by Apple Certified Technicians without the Apple Store wait.",
+    "image": {
+      "url": "images/features/apple-repair.png",
+      "width": 80,
+      "height": 80
+    }
+  },
+  {
+    "title": "Office 365",
+    "description": "Office suite, email, collaboration, security and more. We make sure you get the most out of Office 365.",
+    "image": {
+      "url": "images/features/office.png",
+      "width": 80,
+      "height": 80
+    }
+  },
+  {
+    "title": "FORTINET Authorized Partner",
+    "description": "Best in class network security solutions.",
+    "image": {
+      "url": "images/features/fortinet.png",
+      "width": 180,
+      "height": 40
+    }
+  },
+  {
+    "title": "RUCKUS Authorized Partner",
+    "description": "Best in class wireless networking solutions.",
+    "image": {
+      "url": "images/features/ruckus.png",
+      "width": 180,
+      "height": 80
+    }
+  },
+  {
+    "title": "In-house engineering",
+    "description": "We have the expertise to design, implement and support your IT infrastructure.",
+    "image": {
+      "url": "images/features/engineering.png",
+      "width": 180,
+      "height": 80
+    }
+  },
+  {
+    "title": "Client portfolio of over 70 businesses",
+    "description": "Medical, Education, Marketing, Retail, Engineering and more. We have the experience to support your business.",
+    "image": {
+      "url": "images/features/business.png",
+      "width": 180,
+      "height": 80
+    }
+  },
+  {
+    "title": "Free initial consulting",
+    "description": "We want to make sure we're the right fit for your business. Let's chat and see how we can help.",
+    "image": {
+      "url": "images/features/time.png",
+      "width": 180,
+      "height": 80
+    }
+  }
+]

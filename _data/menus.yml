@@ -1,0 +1,51 @@
+main:
+  - name: "Home"
+    url: "/"
+    weight: 1
+  - name: "Managed Services"
+    url: "/services/"
+    weight: 2
+  - name: "Device as a Service"
+    url: "/daas/"
+    weight: 3
+  - name: "Repairs"
+    url: "/repairs/"
+    weight: 4
+  - name: "Engineering"
+    url: "/engineering/"
+    weight: 5
+  - name: "Security"
+    url: "/security/"
+    weight: 6
+  - name: "Team"
+    url: "/team/"
+    weight: 7
+  - name: "Contact"
+    url: "/contact/"
+    weight: 8
+
+footer:
+  - name: "Home"
+    url: "/"
+    weight: 1
+  - name: "Managed Services"
+    url: "/services/"
+    weight: 2
+  - name: "Device as a Service"
+    url: "/daas/"
+    weight: 3
+  - name: "Repairs"
+    url: "/repairs/"
+    weight: 4
+  - name: "Engineering"
+    url: "/engineering/"
+    weight: 5
+  - name: "Security"
+    url: "/security/"
+    weight: 6
+  - name: "Team"
+    url: "/team/"
+    weight: 7
+  - name: "Contact"
+    url: "/contact/"
+    weight: 8
