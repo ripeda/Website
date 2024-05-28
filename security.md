@@ -15,20 +15,20 @@ Here's a small sample of our recent vulnerability research:
 | Reference ID | Product | Affected Versions | Description |
 | --- | --- | --- | --- |
 | ________________________________________________ | ____________________________________________________________________________________ | ____________________________________________________________ | ____________________________________________________________ |
-| [CVE-2024-27822](https://support.apple.com/en-ca/HT214106) | macOS | 14.4.1 and older | Local Privilege Escalation |
-| [CVE-2024-4395](https://www.cve.org/CVERecord?id=CVE-2024-4395) | Jamf Compliance Editor | 1.3.0 and older | Local Privilege Escalation |
-| [CVE-2024-25545](https://www.cve.org/CVERecord?id=CVE-2024-25545) | Weave Desktop | Unresolved | Arbitrary Code Execution |
-| [Synology-SA-24:05](https://www.synology.com/en-us/security/advisory/Synology_SA_24_05) | Synology Surveillance Station Client | 2.1.3-2474 and older | Arbitrary Code Execution |
-| [CVE-2024-23755](https://www.cve.org/CVERecord?id=CVE-2024-23755) | ClickUp Desktop App | 3.3.76 and older | Arbitrary Code Execution |
-| [CVE-2023-50975](https://www.cve.org/CVERecord?id=CVE-2023-50975) | TD Advanced Dashboard | 3.0.3 and older | Arbitrary Code Execution |
-| [CVE-2023-7245](https://www.cve.org/CVERecord?id=CVE-2023-7245) | OpenVPN | 3.4.7 and older | Arbitrary Code Execution |
-| [CVE-2023-44077](https://www.cve.org/CVERecord?id=CVE-2023-44077) | ShareBrowser XPC Services | 6.1.5.27 and older | Local Privilege Escalation |
+| [CVE-2024-27822](https://support.apple.com/en-ca/HT214106){:target="_blank"} | macOS | 14.4.1 and older | Local Privilege Escalation |
+| [CVE-2024-4395](https://www.cve.org/CVERecord?id=CVE-2024-4395){:target="_blank"} | Jamf Compliance Editor | 1.3.0 and older | Local Privilege Escalation |
+| [CVE-2024-25545](https://www.cve.org/CVERecord?id=CVE-2024-25545){:target="_blank"} | Weave Desktop | Unresolved | Arbitrary Code Execution |
+| [Synology-SA-24:05](https://www.synology.com/en-us/security/advisory/Synology_SA_24_05){:target="_blank"} | Synology Surveillance Station Client | 2.1.3-2474 and older | Arbitrary Code Execution |
+| [CVE-2024-23755](https://www.cve.org/CVERecord?id=CVE-2024-23755){:target="_blank"} | ClickUp Desktop App | 3.3.76 and older | Arbitrary Code Execution |
+| [CVE-2023-50975](https://www.cve.org/CVERecord?id=CVE-2023-50975){:target="_blank"} | TD Advanced Dashboard | 3.0.3 and older | Arbitrary Code Execution |
+| [CVE-2023-7245](https://www.cve.org/CVERecord?id=CVE-2023-7245){:target="_blank"} | OpenVPN | 3.4.7 and older | Arbitrary Code Execution |
+| [CVE-2023-44077](https://www.cve.org/CVERecord?id=CVE-2023-44077){:target="_blank"} | ShareBrowser XPC Services | 6.1.5.27 and older | Local Privilege Escalation |
 | | | | |
 
 
 # Responsible Disclosures
 
-RIPEDA Consulting is committed to responsible disclosures of security vulnerabilities we discover. This is why we follow [Google's Project Zero guidelines](https://googleprojectzero.blogspot.com/p/vulnerability-disclosure-policy.html) for responsible disclosures, specifically the 90+30 disclosure deadline policy.
+RIPEDA Consulting is committed to responsible disclosures of security vulnerabilities we discover. This is why we follow [Google's Project Zero guidelines](https://googleprojectzero.blogspot.com/p/vulnerability-disclosure-policy.html){:target="_blank"} for responsible disclosures, specifically the 90+30 disclosure deadline policy.
 
 What this means is that a vendor has 90 days after being initially notified about a security vulnerability to make a patch available to users. If they make a patch available within 90 days, RIPEDA will publicly disclose details of the vulnerability 30 days after the patch has been made available to users. If a vendor cannot patch an issue within the initial 90 days, RIPEDA will make the details of the vulnerability public at the end of the 90 days.
 

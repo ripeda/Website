@@ -23,10 +23,10 @@ Our entire infrastructure is built with resiliency and automation in mind throug
 
 As a company, we greatly benefit from open-source projects to get our work done. And in return, we make contributions back to many of these same projects as well as open-sourcing some of our utilities right on [GitHub](https://github.com/ripeda)!
 
-| - [macOS-Pkg-Builder](https://github.com/ripeda/macOS-Pkg-Builder) |
-| - [Baseline-Builder](https://github.com/ripeda/Baseline-Builder) |
-| - [VPP-Detection](https://github.com/ripeda/VPP-Detection) |
-| - [Identify-your-Mac-Scraper](https://github.com/ripeda/Identify-your-Mac-Scraper) |
+| - [macOS-Pkg-Builder](https://github.com/ripeda/macOS-Pkg-Builder){:target="_blank"} |
+| - [Baseline-Builder](https://github.com/ripeda/Baseline-Builder){:target="_blank"} |
+| - [VPP-Detection](https://github.com/ripeda/VPP-Detection){:target="_blank"} |
+| - [Identify-your-Mac-Scraper](https://github.com/ripeda/Identify-your-Mac-Scraper){:target="_blank"} |
 | |
 
-Even this website is built with open source tools, like [Jekyll](https://jekyllrb.com) and [Serif](https://github.com/zerostaticthemes/jekyll-serif-theme), and deployed with [GitHub Pages](https://pages.github.com). And the best part? It's open source! Check it out [here](https://github.com/ripeda/website).
+Even this website is built with open source tools, like [Jekyll](https://jekyllrb.com){:target="_blank"} and [Serif](https://github.com/zerostaticthemes/jekyll-serif-theme){:target="_blank"}, and deployed with [GitHub Pages](https://pages.github.com){:target="_blank"}. And the best part? It's open source! Check it out [here](https://github.com/ripeda/website){:target="_blank"}.
