@@ -1,7 +1,7 @@
 ---
 title: "Mykola Grymalyuk"
 image: "images/team/mykola.jpeg"
-jobtitle: "Security and Development Technician"
+jobtitle: "Lead Security and Software Engineer"
 promoted: true
 weight: 4
 email: "mykola@ripeda.com"
