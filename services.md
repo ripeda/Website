@@ -11,7 +11,7 @@ intro_image_hide_on_mobile: true
 Whatever your business may need, we have you covered. See how both managed devices and managed services can help you and your business.
 
 
-<div class="video-container" style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+<div class="video-container" style="position: relative; padding-bottom: 56%; height: 0; overflow: hidden;">
   <video autoplay controls width="100%" height="auto" poster="/images/services/RIPEDA-Managed-Macs.png">
     <source src="/images/services/RIPEDA-Managed-Macs.mov" type="video/mp4">
     Your browser does not support the video tag.
