@@ -107,6 +107,9 @@ $sub-footer-text-color: $white;
 @import "pages/page-teams";
 @import "pages/page-service";
 
+// Webform Contact
+@import "components/form";
+
 body {
   font-size: 16px;
   line-height: 1.2;
@@ -119,4 +122,16 @@ body {
 
 .video-container {
   box-shadow: -1px 5px 10px #000000;
+}
+
+// Calculator Sidebar Styles
+@import "calculators";
+
+.mobile-calculator-sidebar {
+    margin-top: 2rem;
+}
+
+.mobile-calculator-sidebar .calculator-sidebar {
+    max-width: 100%;
+    /* Any other mobile-specific styling */
 }

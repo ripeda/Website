@@ -1,0 +1,42 @@
+<!-- Calculator Sidebar -->
+<aside class="calculator-sidebar">
+    <div class="sidebar-header">
+        <div class="sidebar-title">Business Calculators</div>
+        <div class="sidebar-subtitle">Assess your IT investment</div>
+    </div>
+    
+    <!-- IT Downtime Calculator -->
+    <div class="calculator-item">
+        <div class="calc-header">
+            <div class="calc-icon">⚠️</div>
+            <div class="calc-title">IT Downtime Impact</div>
+        </div>
+        <div class="calc-description">
+            Calculate how much IT outages actually cost your business per hour. Get the real numbers behind downtime.
+        </div>
+        <button class="calc-button" onclick="openModal('mspModal')">
+            Calculate Downtime Cost
+        </button>
+    </div>
+
+    <!-- Mac vs PC Calculator -->
+    <div class="calculator-item">
+        <div class="calc-header">
+            <div class="calc-icon">🍎</div>
+            <div class="calc-title">Mac TCO Analysis</div>
+        </div>
+        <div class="calc-description">
+            See your potential 3-year savings by switching to Mac. Based on real enterprise deployment data.
+        </div>
+        <button class="calc-button" onclick="openModal('macModal')">
+            Calculate Mac Savings
+        </button>
+        <a href="{{ '/assets/downloads/forrester-mac-tco-study.pdf' | relative_url }}" class="pdf-link" target="_blank">
+            Download Forrester Study
+        </a>
+    </div>
+
+    <div class="ripeda-badge">
+        <span>Powered by RIPEDA Consulting</span>
+    </div>
+</aside>

@@ -1,0 +1,232 @@
+---
+layout: none
+permalink: /business-resources/
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Business Resources - RIPEDA Consulting</title>
+    <meta name="robots" content="noindex, nofollow, noarchive, nosnippet">
+    <meta name="googlebot" content="noindex, nofollow">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="{{ '/assets/css/style.css' | relative_url }}" rel="stylesheet">
+    <style>
+        .auth-container {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #609bc3 0%, #416bd8 100%);
+        }
+        .auth-card {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            max-width: 400px;
+            width: 100%;
+        }
+        .auth-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        .auth-header h2 {
+            color: #333;
+            margin-bottom: 0.5rem;
+        }
+        .auth-header p {
+            color: #666;
+            font-size: 0.9rem;
+        }
+        .form-control {
+            border-radius: 8px;
+            padding: 0.75rem;
+            border: 2px solid #e9ecef;
+            transition: border-color 0.3s;
+        }
+        .form-control:focus {
+            border-color: #609bc3;
+            box-shadow: 0 0 0 0.2rem rgba(96, 155, 195, 0.25);
+        }
+        .btn-access {
+            background: linear-gradient(135deg, #609bc3 0%, #416bd8 100%);
+            border: none;
+            border-radius: 8px;
+            padding: 0.75rem;
+            color: white;
+            font-weight: 500;
+            transition: transform 0.2s;
+        }
+        .btn-access:hover {
+            transform: translateY(-2px);
+            color: white;
+        }
+        .error-message {
+            color: #dc3545;
+            font-size: 0.875rem;
+            margin-top: 0.5rem;
+            display: none;
+        }
+        .loading {
+            display: none;
+        }
+        .apple-logo {
+            width: 40px;
+            height: 40px;
+            margin-bottom: 1rem;
+            opacity: 0.8;
+        }
+    </style>
+</head>
+<body>
+    <div class="auth-container">
+        <div class="auth-card">
+            <div class="auth-header">
+                <div class="apple-logo mx-auto">🍎</div>
+                <h2>Business Resources</h2>
+                <p>Enter your Apple Store R# to access resources</p>
+            </div>
+            
+            <form id="authForm">
+                <div class="mb-3">
+                    <label for="storeCode" class="form-label">Store R Number</label>
+                    <input type="text" class="form-control" id="storeCode" placeholder="e.g., R209" required>
+                    <div class="error-message" id="errorMessage">
+                        Invalid store number. Please try again.
+                    </div>
+                </div>
+                
+                <button type="submit" class="btn btn-access w-100">
+                    <span class="normal-text">Access Resources</span>
+                    <span class="loading">
+                        <span class="spinner-border spinner-border-sm me-2"></span>
+                        Verifying...
+                    </span>
+                </button>
+            </form>
+            
+            <div class="text-center mt-3">
+                <small class="text-muted">
+                    Need help? Contact <a href="mailto:support@ripeda.com">support@ripeda.com</a>
+                </small>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Encrypted R numbers (Base64 encoded for basic obfuscation)
+        const encryptedStores = [
+            'UjYwMQ==', 'UjUxNQ==', 'UjUxMg==', 'UjQ5MA==', 'UjQ4OA==', 'UjUxNA==',
+            'UjQ4OQ==', 'UjQ2MA==', 'UjQ0Nw==', 'UjQ2NA==', 'UjQxMg==', 'UjIwOQ==',
+            'UjQyMQ==', 'UjQyOQ==', 'UjQxMQ==', 'UjM5MQ==', 'UjM2OQ==', 'UjM1MA==',
+            'UjMzMg==', 'UjMwMQ==', 'UjMzMw==', 'UjI0OA==', 'UjI3Mw==', 'UjI4MA==',
+            'UjIwNw==', 'UjIwOA==', 'UjEyMQ==', 'UjEyMA=='
+        ];
+
+        function decryptStore(encrypted) {
+            return atob(encrypted);
+        }
+
+        function validateStoreCode(code) {
+            const cleanCode = code.toUpperCase().trim();
+            return encryptedStores.some(encrypted => decryptStore(encrypted) === cleanCode);
+        }
+
+        async function logAccess(storeCode) {
+            try {
+                // This would call your serverless function
+                const response = await fetch('/api/log-access', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        storeCode: storeCode,
+                        timestamp: new Date().toISOString(),
+                        userAgent: navigator.userAgent,
+                        ip: '' // Will be filled by server
+                    })
+                });
+                
+                if (!response.ok) {
+                    console.warn('Logging failed, but proceeding with access');
+                }
+            } catch (error) {
+                console.warn('Logging unavailable, but proceeding with access');
+            }
+        }
+
+        function setSession(storeCode) {
+            const sessionData = {
+                storeCode: storeCode,
+                timestamp: Date.now(),
+                expires: Date.now() + (4 * 60 * 60 * 1000) // 4 hours
+            };
+            localStorage.setItem('businessResourcesAuth', JSON.stringify(sessionData));
+        }
+
+        function checkExistingSession() {
+            const saved = localStorage.getItem('businessResourcesAuth');
+            if (saved) {
+                const sessionData = JSON.parse(saved);
+                if (Date.now() < sessionData.expires) {
+                    // Valid session exists, redirect to dashboard
+                    window.location.href = '/business-resources/dashboard/';
+                    return true;
+                }
+                localStorage.removeItem('businessResourcesAuth');
+            }
+            return false;
+        }
+
+        document.getElementById('authForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            const storeCode = document.getElementById('storeCode').value.trim();
+            const errorDiv = document.getElementById('errorMessage');
+            const submitBtn = this.querySelector('button[type="submit"]');
+            const normalText = submitBtn.querySelector('.normal-text');
+            const loadingText = submitBtn.querySelector('.loading');
+            
+            // Reset error state
+            errorDiv.style.display = 'none';
+            
+            // Show loading
+            normalText.style.display = 'none';
+            loadingText.style.display = 'inline';
+            submitBtn.disabled = true;
+            
+            // Validate store code (now case-insensitive)
+            if (validateStoreCode(storeCode)) {
+                try {
+                    // Log the access (always uppercase for consistency)
+                    await logAccess(storeCode.toUpperCase().trim());
+                    
+                    // Set session (always uppercase for consistency)
+                    setSession(storeCode.toUpperCase().trim());
+                    
+                    // Redirect to dashboard
+                    window.location.href = '/business-resources/dashboard/';
+                } catch (error) {
+                    console.error('Access error:', error);
+                    errorDiv.textContent = 'System error. Please try again.';
+                    errorDiv.style.display = 'block';
+                }
+            } else {
+                errorDiv.style.display = 'block';
+            }
+            
+            // Reset button state
+            normalText.style.display = 'inline';
+            loadingText.style.display = 'none';
+            submitBtn.disabled = false;
+        });
+
+        // Check for existing session on page load
+        window.addEventListener('load', checkExistingSession);
+    </script>
+</body>
+</html>

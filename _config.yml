@@ -2,6 +2,10 @@ baseurl: '/'
 permalink: pretty
 title: 'RIPEDA Consulting'
 
+# Site metadata
+description: "Calgary's Apple Certified Consultants. Over 13 years managing Apple devices for businesses, education, and enterprises."
+url: "https://ripeda.com"
+
 logo:
   mobile: "images/logo/logo-mobile.svg"
   mobile_height: "32px"
@@ -12,31 +16,22 @@ logo:
 home:
   limit_services: 6
 
+# Collections
 collections:
   services:
     output: true
     sort_by: weight
   team:
     output: true
+  business_resources:
+    output: false
 
-defaults:
-  - scope:
-      path: ""
-      type: "services"
-    values:
-      layout: "service"
-  - scope:
-      path: ""
-      type: "team"
-    values:
-      layout: "team"
+# Files to include
+include:
+  - "*.html"
+  - "business-resources"
 
-sass:
-  style: compressed # possible values: nested expanded compact compressed
-
-plugins:
-  - jekyll-environment-variables
-
+# Files and folders to exclude from processing
 exclude:
   - Gemfile
   - Gemfile.lock
@@ -48,3 +43,50 @@ exclude:
   - LICENSE.md
   - LICENSE
   - README.md
+  - "business-resources/assets/logs/"
+  - "*.log"
+  - "package*.json"
+
+# Security: Keep certain files
+keep_files:
+  - "business-resources/assets"
+
+# Default layouts
+defaults:
+  - scope:
+      path: ""
+      type: "services"
+    values:
+      layout: "service"
+  - scope:
+      path: ""
+      type: "team"
+    values:
+      layout: "team"
+  - scope:
+      path: "business-resources"
+    values:
+      layout: "none"
+
+# Plugins
+plugins:
+  - jekyll-environment-variables
+  - jekyll-sitemap
+  - jekyll-seo-tag
+
+# Sass configuration
+sass:
+  style: compressed
+
+# Site navigation
+navigation:
+  - title: "Services"
+    url: "#services"
+  - title: "Device as a Service"
+    url: "/daas/"
+  - title: "Repairs"
+    url: "/repairs/"
+  - title: "About" 
+    url: "/team/"
+  - title: "Contact"
+    url: "/contact/"

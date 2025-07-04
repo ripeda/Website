@@ -1,0 +1,639 @@
+---
+layout: none
+permalink: /calculators/mac_vs_pc_calculator.html
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mac vs PC TCO Calculator - RIPEDA Consulting</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #609bc3 0%, #79c5f8 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .calculator-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #609bc3, #4282ae);
+            color: white;
+            padding: 40px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.8em;
+            margin-bottom: 15px;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .header p {
+            font-size: 1.2em;
+            opacity: 0.9;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            font-size: 1em;
+            opacity: 0.8;
+            font-weight: 300;
+        }
+
+        .form-container {
+            padding: 40px;
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-group.full-width {
+            grid-column: 1 / -1;
+        }
+
+        label {
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 8px;
+            font-size: 1.1em;
+        }
+
+        input, select {
+            padding: 15px;
+            border: 2px solid #e0e0e0;
+            border-radius: 12px;
+            font-size: 1.1em;
+            transition: all 0.3s ease;
+            background-color: #f8f9fa;
+        }
+
+        input:focus, select:focus {
+            outline: none;
+            border-color: #609bc3;
+            background-color: white;
+            box-shadow: 0 0 0 3px rgba(96, 155, 195, 0.1);
+        }
+
+        .calculate-btn {
+            background: linear-gradient(135deg, #609bc3, #79c5f8);
+            color: white;
+            border: none;
+            padding: 20px 50px;
+            font-size: 1.3em;
+            font-weight: 600;
+            border-radius: 15px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 6px 25px rgba(96, 155, 195, 0.3);
+        }
+
+        .calculate-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 35px rgba(96, 155, 195, 0.4);
+        }
+
+        .results-container {
+            margin-top: 30px;
+            display: none;
+        }
+
+        .savings-summary {
+            background: linear-gradient(135deg, #609bc3, #4282ae);
+            color: white;
+            padding: 40px;
+            border-radius: 20px;
+            text-align: center;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(96, 155, 195, 0.3);
+        }
+
+        .savings-amount {
+            font-size: 3.5em;
+            font-weight: bold;
+            margin-bottom: 10px;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .savings-subtitle {
+            font-size: 1.3em;
+            opacity: 0.9;
+            margin-bottom: 5px;
+        }
+
+        .savings-per-device {
+            font-size: 1.1em;
+            opacity: 0.8;
+        }
+
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+            margin-bottom: 30px;
+        }
+
+        .cost-breakdown {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .cost-breakdown.mac {
+            border-left: 5px solid #609bc3;
+        }
+
+        .cost-breakdown.pc {
+            border-left: 5px solid #79c5f8;
+        }
+
+        .cost-breakdown h3 {
+            font-size: 1.5em;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .cost-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 0;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .cost-item:last-child {
+            border-bottom: none;
+            font-weight: bold;
+            font-size: 1.1em;
+            color: #333;
+        }
+
+        .break-even {
+            background: linear-gradient(135deg, #79c5f8, #609bc3);
+            color: white;
+            padding: 25px;
+            border-radius: 15px;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .break-even h3 {
+            font-size: 1.5em;
+            margin-bottom: 10px;
+        }
+
+        .selling-points {
+            background: #f8f9fa;
+            padding: 40px;
+            border-radius: 15px;
+            margin-top: 30px;
+        }
+
+        .selling-points h3 {
+            color: #333;
+            font-size: 1.8em;
+            margin-bottom: 25px;
+            text-align: center;
+        }
+
+        .points-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .point-item {
+            display: flex;
+            align-items: flex-start;
+            padding: 20px;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 3px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.2s ease;
+            border-left: 3px solid #609bc3;
+        }
+
+        .point-item:hover {
+            transform: translateY(-2px);
+        }
+
+        .point-icon {
+            font-size: 1.5em;
+            margin-right: 15px;
+            color: #609bc3;
+        }
+
+        .point-text {
+            flex: 1;
+        }
+
+        .point-text strong {
+            color: #333;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .point-text span {
+            color: #666;
+            font-size: 0.95em;
+        }
+
+        .cost-examples {
+            margin-top: 5px;
+            font-size: 0.9em;
+            color: #666;
+            font-style: italic;
+        }
+
+        .ripeda-highlight {
+            background: linear-gradient(135deg, #609bc3, #79c5f8);
+            color: white;
+            padding: 30px;
+            border-radius: 15px;
+            margin-top: 30px;
+            text-align: center;
+        }
+
+        .ripeda-highlight h3 {
+            color: white;
+            margin-bottom: 15px;
+        }
+
+        @media (max-width: 768px) {
+            .form-grid, .comparison-grid, .points-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .header h1 {
+                font-size: 2.2em;
+            }
+            
+            .savings-amount {
+                font-size: 2.5em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="calculator-container">
+        <div class="header">
+            <h1>🍎 Mac vs PC TCO Calculator</h1>
+            <p>Calculate the true cost savings of switching to Mac</p>
+            <div class="subtitle">Based on Forrester Research and IBM's enterprise deployment data</div>
+        </div>
+
+        <div class="form-container">
+            <div class="form-grid">
+                <div class="form-group">
+                    <label for="workstations">Number of Workstations</label>
+                    <input type="number" id="workstations" min="1" max="10000" value="50" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="businessType">Business Type</label>
+                    <select id="businessType" required>
+                        <option value="">Select business type</option>
+                        <option value="small">Small Business (1-50 employees)</option>
+                        <option value="medium">Medium Business (51-250 employees)</option>
+                        <option value="enterprise">Enterprise (250+ employees)</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="currentPCCost">Current PC Cost per Unit (CAD)</label>
+                    <input type="number" id="currentPCCost" min="500" max="5000" value="1200" required>
+                    <div class="cost-examples">
+                        <small>Examples: Basic business laptop (~$1,200) • High-performance workstation (~$2,400)</small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="itSupportCost">Annual IT Support Cost per User (CAD)</label>
+                    <input type="number" id="itSupportCost" min="100" max="2000" value="600" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="windowsLicense">Windows License Cost per User (CAD)</label>
+                    <input type="number" id="windowsLicense" min="0" max="500" value="150" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="antivirusCost">Antivirus License per User/Year (CAD)</label>
+                    <input type="number" id="antivirusCost" min="0" max="200" value="45" required>
+                </div>
+            </div>
+
+            <div style="text-align: center;">
+                <button class="calculate-btn" onclick="calculateTCO()">
+                    Calculate Mac vs PC Savings
+                </button>
+            </div>
+
+            <div id="results" class="results-container">
+                <div class="savings-summary">
+                    <div class="savings-amount" id="totalSavings">$0</div>
+                    <div class="savings-subtitle">Total 3-Year Savings with Mac</div>
+                    <div class="savings-per-device" id="perDeviceSavings">$0 savings per device</div>
+                </div>
+
+                <div class="break-even" id="breakEven">
+                    <h3>Break-Even Point</h3>
+                    <p id="breakEvenText">Your Mac investment pays for itself in X months</p>
+                </div>
+
+                <div class="comparison-grid">
+                    <div class="cost-breakdown pc">
+                        <h3>💻 Current PC Setup (3 Years)</h3>
+                        <div class="cost-item">
+                            <span>Hardware Cost:</span>
+                            <span id="pcHardware">$0</span>
+                        </div>
+                        <div class="cost-item">
+                            <span>Windows Licenses:</span>
+                            <span id="pcWindows">$0</span>
+                        </div>
+                        <div class="cost-item">
+                            <span>Antivirus Licenses:</span>
+                            <span id="pcAntivirus">$0</span>
+                        </div>
+                        <div class="cost-item">
+                            <span>IT Support (3 years):</span>
+                            <span id="pcSupport">$0</span>
+                        </div>
+                        <div class="cost-item">
+                            <span>Total PC Cost:</span>
+                            <span id="pcTotal">$0</span>
+                        </div>
+                    </div>
+
+                    <div class="cost-breakdown mac">
+                        <h3>🍎 Mac Setup (3 Years)</h3>
+                        <div class="cost-item">
+                            <span>Hardware Cost:</span>
+                            <span id="macHardware">$0</span>
+                        </div>
+                        <div class="cost-item">
+                            <span>macOS (Included):</span>
+                            <span>$0</span>
+                        </div>
+                        <div class="cost-item">
+                            <span>Antivirus (Built-in):</span>
+                            <span>$0</span>
+                        </div>
+                        <div class="cost-item">
+                            <span>IT Support (3 years):</span>
+                            <span id="macSupport">$0</span>
+                        </div>
+                        <div class="cost-item">
+                            <span>Total Mac Cost:</span>
+                            <span id="macTotal">$0</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="ripeda-highlight">
+                    <h3>🚀 Ready to Make the Switch?</h3>
+                    <p>RIPEDA Consulting specializes in seamless Mac migrations for Calgary businesses. We'll handle everything from procurement to deployment, ensuring your team gets the most out of their new Apple devices from day one.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="selling-points">
+            <h3>🎯 Why Mac Wins for Business</h3>
+            <div class="points-grid">
+                <div class="point-item">
+                    <div class="point-icon">🎫</div>
+                    <div class="point-text">
+                        <strong>60% Fewer IT Tickets</strong>
+                        <span>Mac users create significantly fewer support requests, reducing IT workload</span>
+                    </div>
+                </div>
+
+                <div class="point-item">
+                    <div class="point-icon">💰</div>
+                    <div class="point-text">
+                        <strong>20% Lower Resolution Costs</strong>
+                        <span>Mac issues are easier and faster to resolve when they do occur</span>
+                    </div>
+                </div>
+
+                <div class="point-item">
+                    <div class="point-icon">🛡️</div>
+                    <div class="point-text">
+                        <strong>Built-in Enterprise Security</strong>
+                        <span>No separate antivirus licensing needed - saves $45+ per user annually</span>
+                    </div>
+                </div>
+
+                <div class="point-item">
+                    <div class="point-icon">⚡</div>
+                    <div class="point-text">
+                        <strong>Higher Employee Productivity</strong>
+                        <span>Studies show 5-10% productivity gains from fewer crashes and interruptions</span>
+                    </div>
+                </div>
+
+                <div class="point-item">
+                    <div class="point-icon">🔄</div>
+                    <div class="point-text">
+                        <strong>Longer Device Lifespan</strong>
+                        <span>Macs typically last 4-5 years vs 3-4 years for PCs in business use</span>
+                    </div>
+                </div>
+
+                <div class="point-item">
+                    <div class="point-icon">📈</div>
+                    <div class="point-text">
+                        <strong>Higher Resale Value</strong>
+                        <span>Macs retain 60-70% value after 3 years vs 30-40% for comparable PCs</span>
+                    </div>
+                </div>
+
+                <div class="point-item">
+                    <div class="point-icon">🎯</div>
+                    <div class="point-text">
+                        <strong>Simplified IT Management</strong>
+                        <span>Apple Business Manager streamlines deployment and device management</span>
+                    </div>
+                </div>
+
+                <div class="point-item">
+                    <div class="point-icon">🚀</div>
+                    <div class="point-text">
+                        <strong>IBM Saved $543 Per Mac</strong>
+                        <span>Real enterprise data: IBM's 300,000+ Mac deployment showed measurable savings</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Canadian pricing data (2024)
+        const macPricing = {
+            macBookAir: 1499,      // CAD - M2 MacBook Air base model
+            macBookPro: 2499,      // CAD - 14" MacBook Pro base
+            iMac: 1799,            // CAD - 24" iMac base
+            macMini: 799           // CAD - Mac Mini base (for desktop setups)
+        };
+
+        // Support cost multipliers based on research
+        const supportMultipliers = {
+            small: 1.0,      // Baseline support costs
+            medium: 0.9,     // Slightly more efficient support
+            enterprise: 0.8  // Most efficient support operations
+        };
+
+        function calculateTCO() {
+            // Get form values
+            const workstations = parseInt(document.getElementById('workstations').value);
+            const businessType = document.getElementById('businessType').value;
+            const currentPCCost = parseFloat(document.getElementById('currentPCCost').value);
+            const itSupportCost = parseFloat(document.getElementById('itSupportCost').value);
+            const windowsLicense = parseFloat(document.getElementById('windowsLicense').value);
+            const antivirusCost = parseFloat(document.getElementById('antivirusCost').value);
+
+            // Validation
+            if (!workstations || !businessType || !currentPCCost || !itSupportCost || !windowsLicense || !antivirusCost) {
+                alert('Please fill in all fields');
+                return;
+            }
+
+            // Determine Mac model based on PC cost
+            let macCost;
+            if (currentPCCost < 1000) {
+                macCost = macPricing.macBookAir; // Budget option
+            } else if (currentPCCost < 1800) {
+                macCost = macPricing.macBookAir; // Standard option
+            } else if (currentPCCost < 2500) {
+                macCost = macPricing.macBookPro; // Professional option
+            } else {
+                macCost = macPricing.macBookPro; // High-end option
+            }
+
+            // Support cost multiplier
+            const supportMultiplier = supportMultipliers[businessType];
+
+            // Calculate 3-year costs
+            // PC Costs
+            const pcHardwareCost = currentPCCost * workstations;
+            const pcWindowsCost = windowsLicense * workstations;
+            const pcAntivirusCost = antivirusCost * workstations * 3; // 3 years
+            const pcSupportCost = itSupportCost * workstations * 3 * supportMultiplier;
+            const totalPCCost = pcHardwareCost + pcWindowsCost + pcAntivirusCost + pcSupportCost;
+
+            // Mac Costs
+            const macHardwareCost = macCost * workstations;
+            const macSupportCost = itSupportCost * workstations * 3 * supportMultiplier * 0.4; // 60% fewer tickets
+            const totalMacCost = macHardwareCost + macSupportCost;
+
+            // Calculate savings
+            const totalSavings = totalPCCost - totalMacCost;
+            const savingsPerDevice = totalSavings / workstations;
+
+            // Calculate break-even point (in months)
+            const additionalUpfront = Math.max(0, macHardwareCost - pcHardwareCost - pcWindowsCost);
+            const monthlySavings = (pcAntivirusCost + (pcSupportCost - macSupportCost)) / 36;
+            const breakEvenMonths = additionalUpfront > 0 ? Math.ceil(additionalUpfront / monthlySavings) : 0;
+
+            // Display results
+            displayResults({
+                totalSavings,
+                savingsPerDevice,
+                breakEvenMonths,
+                pcHardwareCost,
+                pcWindowsCost,
+                pcAntivirusCost,
+                pcSupportCost,
+                totalPCCost,
+                macHardwareCost,
+                macSupportCost,
+                totalMacCost
+            });
+        }
+
+        function displayResults(data) {
+            // Format as Canadian currency
+            const formatCAD = (amount) => new Intl.NumberFormat('en-CA', {
+                style: 'currency',
+                currency: 'CAD',
+                minimumFractionDigits: 0,
+                maximumFractionDigits: 0
+            }).format(amount);
+
+            // Update savings summary
+            document.getElementById('totalSavings').textContent = formatCAD(data.totalSavings);
+            document.getElementById('perDeviceSavings').textContent = formatCAD(data.savingsPerDevice) + ' savings per device';
+
+            // Update break-even
+            if (data.breakEvenMonths > 0) {
+                document.getElementById('breakEvenText').textContent = 
+                    `Your Mac investment pays for itself in ${data.breakEvenMonths} months`;
+            } else {
+                document.getElementById('breakEvenText').textContent = 
+                    'Immediate savings - Mac costs less from day one!';
+            }
+
+            // Update PC breakdown
+            document.getElementById('pcHardware').textContent = formatCAD(data.pcHardwareCost);
+            document.getElementById('pcWindows').textContent = formatCAD(data.pcWindowsCost);
+            document.getElementById('pcAntivirus').textContent = formatCAD(data.pcAntivirusCost);
+            document.getElementById('pcSupport').textContent = formatCAD(data.pcSupportCost);
+            document.getElementById('pcTotal').textContent = formatCAD(data.totalPCCost);
+
+            // Update Mac breakdown
+            document.getElementById('macHardware').textContent = formatCAD(data.macHardwareCost);
+            document.getElementById('macSupport').textContent = formatCAD(data.macSupportCost);
+            document.getElementById('macTotal').textContent = formatCAD(data.totalMacCost);
+
+            // Show results
+            document.getElementById('results').style.display = 'block';
+            document.getElementById('results').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // Set reasonable defaults based on Canadian business data
+        document.addEventListener('DOMContentLoaded', function() {
+            // Auto-update some fields based on business type selection
+            document.getElementById('businessType').addEventListener('change', function() {
+                const businessType = this.value;
+                const supportCostField = document.getElementById('itSupportCost');
+                
+                // Adjust IT support costs based on business size
+                if (businessType === 'small') {
+                    supportCostField.value = 750; // Higher per-employee cost for small business
+                } else if (businessType === 'medium') {
+                    supportCostField.value = 600; // Standard cost
+                } else if (businessType === 'enterprise') {
+                    supportCostField.value = 450; // Economies of scale
+                }
+            });
+        });
+    </script>
+</body>
+</html>

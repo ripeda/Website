@@ -1,0 +1,432 @@
+---
+layout: none
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Business Resources Dashboard - RIPEDA Consulting</title>
+    <meta name="robots" content="noindex, nofollow, noarchive, nosnippet">
+    <meta name="googlebot" content="noindex, nofollow">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="{{ '/assets/css/style.css' | relative_url }}" rel="stylesheet">
+    <style>
+        .dashboard-header {
+            background: linear-gradient(135deg, #609bc3 0%, #416bd8 100%);
+            color: white;
+            padding: 2rem 0;
+            margin-bottom: 2rem;
+        }
+        .resource-tile {
+            background: white;
+            border-radius: 10px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: transform 0.2s, box-shadow 0.2s;
+            cursor: pointer;
+            border: 2px solid transparent;
+        }
+        .resource-tile:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 15px rgba(0,0,0,0.15);
+            border-color: #609bc3;
+        }
+        .resource-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: #609bc3;
+        }
+        .resource-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: #333;
+        }
+        .resource-description {
+            color: #666;
+            font-size: 0.9rem;
+            line-height: 1.4;
+        }
+        .user-info {
+            background: rgba(255,255,255,0.1);
+            border-radius: 8px;
+            padding: 0.5rem 1rem;
+            display: inline-block;
+        }
+        .logout-btn {
+            background: rgba(255,255,255,0.2);
+            border: 1px solid rgba(255,255,255,0.3);
+            color: white;
+            border-radius: 6px;
+            padding: 0.375rem 0.75rem;
+            font-size: 0.875rem;
+            transition: background-color 0.2s;
+        }
+        .logout-btn:hover {
+            background: rgba(255,255,255,0.3);
+            color: white;
+        }
+        .modal-content {
+            border-radius: 15px;
+            border: none;
+            position: relative;
+            z-index: 1055;
+        }
+        .modal-header {
+            background: linear-gradient(135deg, #609bc3 0%, #416bd8 100%);
+            color: white;
+            border-radius: 15px 15px 0 0;
+            position: relative;
+            z-index: 1056;
+        }
+        .modal-backdrop {
+            z-index: 1050;
+        }
+        .modal {
+            z-index: 1055;
+        }
+        .modal-body {
+            padding: 2rem;
+            line-height: 1.6;
+        }
+        .modal-body ul {
+            padding-left: 2rem;
+            margin-bottom: 1.5rem;
+        }
+        .modal-body li {
+            margin-bottom: 0.5rem;
+        }
+        .modal-body h6 {
+            color: #2f2f41;
+            font-weight: 600;
+            margin-top: 1.5rem;
+            margin-bottom: 1rem;
+            border-bottom: 2px solid #609bc3;
+            padding-bottom: 0.5rem;
+        }
+        .modal-body h6:first-child {
+            margin-top: 0;
+        }
+        .modal-body a {
+            color: #609bc3;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        .modal-body a:hover {
+            color: #416bd8;
+            text-decoration: underline;
+        }
+        .resource-grid {
+            margin-top: 2rem;
+        }
+        .coming-soon {
+            opacity: 0.6;
+            pointer-events: none;
+        }
+        .coming-soon-badge {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: #ffc107;
+            color: #333;
+            padding: 0.25rem 0.5rem;
+            border-radius: 12px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+    <!-- Dashboard Header -->
+    <div class="dashboard-header">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-8">
+                    <h1 class="mb-2">Business Resources</h1>
+                    <div class="user-info">
+                        <span id="userStore">Loading...</span> • Last Access: <span id="lastAccess">Now</span>
+                    </div>
+                </div>
+                <div class="col-md-4 text-md-end">
+                    <button type="button" class="btn logout-btn" onclick="logout()">
+                        🚪 Logout
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="container">
+        <div class="row">
+            <!-- Quick Access Section -->
+            <div class="col-12">
+                <h3 class="mb-3">Quick Access Resources</h3>
+                <div class="row resource-grid">
+                    
+                    <!-- Sales Tools -->
+                    <div class="col-md-4">
+                        <div class="resource-tile" onclick="openResourceModal('sales-tools')">
+                            <div class="text-center">
+                                <div class="resource-icon">💼</div>
+                                <div class="resource-title">Sales Tools & Scripts</div>
+                                <div class="resource-description">
+                                    Conversation starters, objection handling scripts, and sales methodologies for Apple business solutions.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Technical Resources -->
+                    <div class="col-md-4">
+                        <div class="resource-tile" onclick="openResourceModal('technical')">
+                            <div class="text-center">
+                                <div class="resource-icon">⚙️</div>
+                                <div class="resource-title">Technical Resources</div>
+                                <div class="resource-description">
+                                    Setup guides, deployment checklists, and troubleshooting resources for business environments.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Marketing Materials -->
+                    <div class="col-md-4">
+                        <div class="resource-tile" onclick="openResourceModal('marketing')">
+                            <div class="text-center">
+                                <div class="resource-icon">📊</div>
+                                <div class="resource-title">Marketing Materials</div>
+                                <div class="resource-description">
+                                    Business case templates, ROI calculators, and presentation materials for client meetings.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Training Materials -->
+                    <div class="col-md-4">
+                        <div class="resource-tile coming-soon position-relative">
+                            <div class="coming-soon-badge">Coming Soon</div>
+                            <div class="text-center">
+                                <div class="resource-icon">🎓</div>
+                                <div class="resource-title">Training Materials</div>
+                                <div class="resource-description">
+                                    Educational content, certification guides, and best practices for business consultations.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Client Success Stories -->
+                    <div class="col-md-4">
+                        <div class="resource-tile coming-soon position-relative">
+                            <div class="coming-soon-badge">Coming Soon</div>
+                            <div class="text-center">
+                                <div class="resource-icon">🏆</div>
+                                <div class="resource-title">Success Stories</div>
+                                <div class="resource-description">
+                                    Real-world case studies and customer testimonials to strengthen your business proposals.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Industry Insights -->
+                    <div class="col-md-4">
+                        <div class="resource-tile coming-soon position-relative">
+                            <div class="coming-soon-badge">Coming Soon</div>
+                            <div class="text-center">
+                                <div class="resource-icon">📈</div>
+                                <div class="resource-title">Industry Insights</div>
+                                <div class="resource-description">
+                                    Market trends, competitive analysis, and industry-specific talking points for various sectors.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <!-- Recent Updates Section -->
+        <div class="row mt-5">
+            <div class="col-12">
+                <h3 class="mb-3">Recent Updates</h3>
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Welcome to Business Resources!</h5>
+                        <p class="card-text">
+                            This new platform provides Apple Business Teams with curated resources, tools, and materials 
+                            to enhance customer conversations and close more business deals. Check back regularly for 
+                            new content and updates.
+                        </p>
+                        <small class="text-muted">Published: July 3, 2025</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Resource Modal -->
+    <div class="modal fade" id="resourceModal" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modalTitle">Resource Details</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body" id="modalBody">
+                    <!-- Content will be loaded here -->
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Authentication check
+        function checkAuth() {
+            const saved = localStorage.getItem('businessResourcesAuth');
+            if (!saved) {
+                window.location.href = '/business-resources/';
+                return false;
+            }
+            
+            const sessionData = JSON.parse(saved);
+            if (Date.now() > sessionData.expires) {
+                localStorage.removeItem('businessResourcesAuth');
+                window.location.href = '/business-resources/';
+                return false;
+            }
+            
+            // Update UI with user info
+            document.getElementById('userStore').textContent = sessionData.storeCode;
+            document.getElementById('lastAccess').textContent = new Date(sessionData.timestamp).toLocaleDateString();
+            
+            return true;
+        }
+
+        function logout() {
+            localStorage.removeItem('businessResourcesAuth');
+            window.location.href = '/business-resources/';
+        }
+
+        function openResourceModal(resourceType) {
+            console.log('Opening modal for:', resourceType);
+            
+            // Remove any existing modal backdrops
+            document.querySelectorAll('.modal-backdrop').forEach(backdrop => backdrop.remove());
+            
+            const modalElement = document.getElementById('resourceModal');
+            const modal = new bootstrap.Modal(modalElement, {
+                backdrop: true,
+                keyboard: true,
+                focus: true
+            });
+            
+            const modalTitle = document.getElementById('modalTitle');
+            const modalBody = document.getElementById('modalBody');
+            
+            const resources = {
+                'sales-tools': {
+                    title: 'Sales Tools & Scripts',
+                    content: `
+                        <h6>Conversation Starters</h6>
+                        <ul>
+                            <li><a href="/business-resources/assets/pdfs/conversation-starters.pdf" target="_blank">Business Conversation Openers</a></li>
+                            <li><a href="/business-resources/assets/pdfs/discovery-questions.pdf" target="_blank">Discovery Questions Guide</a></li>
+                        </ul>
+                        
+                        <h6>Objection Handling</h6>
+                        <ul>
+                            <li><a href="/business-resources/assets/pdfs/objection-handling.pdf" target="_blank">Common Objections &amp; Responses</a></li>
+                            <li><a href="/business-resources/assets/pdfs/price-justification.pdf" target="_blank">Price Justification Scripts</a></li>
+                        </ul>
+                        
+                        <h6>Closing Techniques</h6>
+                        <ul>
+                            <li><a href="/business-resources/assets/pdfs/closing-techniques.pdf" target="_blank">Proven Closing Methods</a></li>
+                            <li><a href="/business-resources/assets/pdfs/follow-up-strategies.pdf" target="_blank">Follow-up Strategies</a></li>
+                        </ul>
+                    `
+                },
+                'technical': {
+                    title: 'Technical Resources',
+                    content: `
+                        <h6>Setup & Deployment</h6>
+                        <ul>
+                            <li><a href="/business-resources/assets/pdfs/mdm-setup-guide.pdf" target="_blank">MDM Setup Guide</a></li>
+                            <li><a href="/business-resources/assets/pdfs/deployment-checklist.pdf" target="_blank">Enterprise Deployment Checklist</a></li>
+                        </ul>
+                        
+                        <h6>Troubleshooting</h6>
+                        <ul>
+                            <li><a href="/business-resources/assets/pdfs/common-issues.pdf" target="_blank">Common Issues & Solutions</a></li>
+                            <li><a href="/business-resources/assets/pdfs/escalation-procedures.pdf" target="_blank">Escalation Procedures</a></li>
+                        </ul>
+                        
+                        <h6>Integration Guides</h6>
+                        <ul>
+                            <li><a href="/business-resources/assets/pdfs/office365-integration.pdf" target="_blank">Office 365 Integration</a></li>
+                            <li><a href="/business-resources/assets/pdfs/security-compliance.pdf" target="_blank">Security & Compliance Guide</a></li>
+                        </ul>
+                    `
+                },
+                'marketing': {
+                    title: 'Marketing Materials',
+                    content: `
+                        <h6>Presentation Templates</h6>
+                        <ul>
+                            <li><a href="/business-resources/assets/templates/business-case-template.pptx" target="_blank">Business Case Template</a></li>
+                            <li><a href="/business-resources/assets/templates/roi-presentation.pptx" target="_blank">ROI Presentation Template</a></li>
+                        </ul>
+                        
+                        <h6>Marketing Flyers</h6>
+                        <ul>
+                            <li><a href="/business-resources/assets/marketing/apple-business-overview.pdf" target="_blank">Apple for Business Overview</a></li>
+                            <li><a href="/business-resources/assets/marketing/security-benefits.pdf" target="_blank">Security Benefits Flyer</a></li>
+                        </ul>
+                        
+                        <h6>Calculators & Tools</h6>
+                        <ul>
+                            <li><a href="/calculators/mac_vs_pc_calculator.html" target="_blank">Mac vs PC Cost Calculator</a></li>
+                            <li><a href="/calculators/msp_cost_calculator.html" target="_blank">MSP Cost Calculator</a></li>
+                        </ul>
+                    `
+                }
+            };
+            
+            const resource = resources[resourceType];
+            if (resource) {
+                modalTitle.textContent = resource.title;
+                modalBody.innerHTML = resource.content;
+                console.log('Showing modal...');
+                modal.show();
+            } else {
+                console.error('Resource not found:', resourceType);
+            }
+        }
+
+        // Check authentication on page load
+        window.addEventListener('load', function() {
+            console.log('Page loaded, checking auth...');
+            if (!checkAuth()) {
+                return;
+            }
+            console.log('Auth successful');
+        });
+
+        // Test modal functionality
+        window.addEventListener('load', function() {
+            console.log('Bootstrap version:', bootstrap);
+            console.log('Modal element:', document.getElementById('resourceModal'));
+        });
+    </script>
+</body>
+</html>

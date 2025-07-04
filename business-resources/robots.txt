@@ -1,0 +1,97 @@
+# File: robots.txt (place in root directory)
+User-agent: *
+Allow: /
+Disallow: /business-resources/
+Disallow: /business-resources/*
+
+# Additional security - block specific bots
+User-agent: GPTBot
+Disallow: /
+
+User-agent: ChatGPT-User
+Disallow: /
+
+User-agent: CCBot
+Disallow: /
+
+User-agent: anthropic-ai
+Disallow: /
+
+User-agent: Claude-Web
+Disallow: /
+
+# Crawl delay for allowed bots
+Crawl-delay: 1
+
+# Sitemap location
+Sitemap: https://ripeda.com/sitemap.xml
+
+---
+
+# File: .htaccess (if using Apache server)
+# Additional protection for business-resources directory
+
+<Directory "/business-resources">
+    # Disable directory browsing
+    Options -Indexes
+    
+    # Prevent access to certain file types
+    <FilesMatch "\.(log|txt|md)$">
+        Order allow,deny
+        Deny from all
+    </FilesMatch>
+    
+    # Add security headers
+    Header always set X-Content-Type-Options nosniff
+    Header always set X-Frame-Options DENY
+    Header always set X-XSS-Protection "1; mode=block"
+    Header always set Referrer-Policy "strict-origin-when-cross-origin"
+</Directory>
+
+---
+
+# File: _headers (for Netlify)
+/business-resources/*
+  X-Robots-Tag: noindex, nofollow, noarchive, nosnippet
+  X-Content-Type-Options: nosniff
+  X-Frame-Options: DENY
+  X-XSS-Protection: 1; mode=block
+  Referrer-Policy: strict-origin-when-cross-origin
+
+---
+
+# File: vercel.json (for Vercel hosting)
+{
+  "headers": [
+    {
+      "source": "/business-resources/(.*)",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex, nofollow, noarchive, nosnippet"
+        },
+        {
+          "key": "X-Content-Type-Options",
+          "value": "nosniff"
+        },
+        {
+          "key": "X-Frame-Options",
+          "value": "DENY"
+        },
+        {
+          "key": "X-XSS-Protection",
+          "value": "1; mode=block"
+        },
+        {
+          "key": "Referrer-Policy",
+          "value": "strict-origin-when-cross-origin"
+        }
+      ]
+    }
+  ],
+  "functions": {
+    "api/log-access.js": {
+      "maxDuration": 10
+    }
+  }
+}
