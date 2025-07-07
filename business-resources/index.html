@@ -135,28 +135,87 @@ permalink: /business-resources/
             return encryptedStores.some(encrypted => decryptStore(encrypted) === cleanCode);
         }
 
-        async function logAccess(storeCode) {
-            try {
-                // This would call your serverless function
-                const response = await fetch('/api/log-access', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify({
-                        storeCode: storeCode,
-                        timestamp: new Date().toISOString(),
-                        userAgent: navigator.userAgent,
-                        ip: '' // Will be filled by server
-                    })
-                });
-                
-                if (!response.ok) {
-                    console.warn('Logging failed, but proceeding with access');
-                }
-            } catch (error) {
-                console.warn('Logging unavailable, but proceeding with access');
-            }
+        // Replace the existing logAccess function with this:
+async function logAccess(storeCode) {
+    try {
+        // Your Supabase credentials (replace with your actual values)
+        const SUPABASE_URL = 'https://benqofspsbmhaotikzyr.supabase.co';
+        const SUPABASE_ANON_KEY = 'benqofspsbmhaotikzyr';
+        
+        // Get user's IP address (optional - Supabase can capture this server-side)
+        let userIP = null;
+        try {
+            const ipResponse = await fetch('https://api.ipify.org?format=json');
+            const ipData = await ipResponse.json();
+            userIP = ipData.ip;
+        } catch (ipError) {
+            console.log('Could not get IP address');
+        }
+        
+        // Log the access to Supabase
+        const response = await fetch(`${SUPABASE_URL}/rest/v1/access_logs`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'apikey': SUPABASE_ANON_KEY,
+                'Authorization': `Bearer ${SUPABASE_ANON_KEY}`,
+                'Prefer': 'return=minimal'
+            },
+            body: JSON.stringify({
+                store_code: storeCode,
+                access_time: new Date().toISOString(),
+                user_agent: navigator.userAgent.substring(0, 250), // Truncate to prevent issues
+                ip_address: userIP
+            })
+        });
+        
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        
+        console.log('✅ Access logged successfully to Supabase');
+        
+    } catch (error) {
+        console.warn('⚠️ Logging failed, but proceeding with access:', error);
+        // Don't block user access if logging fails
+    }
+}
+
+// Optional: Function to log page visits within the dashboard
+async function logPageVisit(pageName) {
+    try {
+        const SUPABASE_URL = 'https://your-project-ref.supabase.co';
+        const SUPABASE_ANON_KEY = 'your-public-anon-key-here';
+        
+        const sessionData = JSON.parse(localStorage.getItem('businessResourcesAuth'));
+        if (!sessionData) return;
+        
+        // You could either create a separate table for page visits
+        // Or append to the pages_visited array in the existing access log
+        // For simplicity, let's create a new log entry for each page visit
+        
+        const response = await fetch(`${SUPABASE_URL}/rest/v1/access_logs`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'apikey': SUPABASE_ANON_KEY,
+                'Authorization': `Bearer ${SUPABASE_ANON_KEY}`,
+                'Prefer': 'return=minimal'
+            },
+            body: JSON.stringify({
+                store_code: sessionData.storeCode,
+                access_time: new Date().toISOString(),
+                user_agent: navigator.userAgent.substring(0, 250),
+                pages_visited: [pageName]
+            })
+        });
+        
+        console.log(`📄 Page visit logged: ${pageName}`);
+        
+    } catch (error) {
+        console.warn('Page visit logging failed:', error);
+    }
+}
         }
 
         function setSession(storeCode) {
