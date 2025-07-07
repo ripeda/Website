@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apple Business Team Access Dashboard - RIPEDA</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            margin: 0;
+            padding: 20px;
+            background: #f5f5f7;
+        }
+        .dashboard {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+        .header {
+            background: linear-gradient(135deg, #609bc3, #416bd8);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            padding: 30px;
+            background: #f8f9fa;
+        }
+        .stat-card {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+        .stat-number {
+            font-size: 2em;
+            font-weight: bold;
+            color: #609bc3;
+        }
+        .logs-container {
+            padding: 30px;
+        }
+        .log-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        .log-table th,
+        .log-table td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #eee;
+        }
+        .log-table th {
+            background: #f8f9fa;
+            font-weight: 600;
+        }
+        .store-code {
+            font-weight: bold;
+            color: #609bc3;
+        }
+        .timestamp {
+            font-family: monospace;
+            font-size: 0.9em;
+        }
+        .refresh-btn {
+            background: #609bc3;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 6px;
+            cursor: pointer;
+            margin-bottom: 20px;
+        }
+        .loading {
+            text-align: center;
+            padding: 40px;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+    <div class="dashboard">
+        <div class="header">
+            <h1>🍎 Apple Business Team Access Dashboard</h1>
+            <p>Real-time tracking of business resources usage</p>
+        </div>
+
+        <div class="stats">
+            <div class="stat-card">
+                <div class="stat-number" id="totalAccesses">-</div>
+                <div>Total Accesses</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number" id="uniqueStores">-</div>
+                <div>Unique Stores</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number" id="todayAccesses">-</div>
+                <div>Today's Accesses</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number" id="thisWeekAccesses">-</div>
+                <div>This Week</div>
+            </div>
+        </div>
+
+        <div class="logs-container">
+            <button class="refresh-btn" onclick="loadData()">🔄 Refresh Data</button>
+            
+            <div id="loading" class="loading">
+                Loading access logs...
+            </div>
+
+            <table class="log-table" id="logsTable" style="display: none;">
+                <thead>
+                    <tr>
+                        <th>Store Code</th>
+                        <th>Access Time</th>
+                        <th>Browser</th>
+                        <th>Location (IP)</th>
+                    </tr>
+                </thead>
+                <tbody id="logsTableBody">
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script>
+        // Your Supabase credentials
+        const SUPABASE_URL = 'https://your-project-ref.supabase.co';
+        const SUPABASE_ANON_KEY = 'your-public-anon-key-here';
+
+        async function loadData() {
+            try {
+                document.getElementById('loading').style.display = 'block';
+                document.getElementById('logsTable').style.display = 'none';
+
+                // Fetch all access logs
+                const response = await fetch(`${SUPABASE_URL}/rest/v1/access_logs?select=*&order=access_time.desc`, {
+                    headers: {
+                        'apikey': SUPABASE_ANON_KEY,
+                        'Authorization': `Bearer ${SUPABASE_ANON_KEY}`
+                    }
+                });
+
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+
+                const logs = await response.json();
+                
+                // Update statistics
+                updateStats(logs);
+                
+                // Update table
+                updateTable(logs);
+
+                document.getElementById('loading').style.display = 'none';
+                document.getElementById('logsTable').style.display = 'table';
+
+            } catch (error) {
+                console.error('Error loading data:', error);
+                document.getElementById('loading').innerHTML = '❌ Error loading data. Check console for details.';
+            }
+        }
+
+        function updateStats(logs) {
+            const totalAccesses = logs.length;
+            const uniqueStores = new Set(logs.map(log => log.store_code)).size;
+            
+            const today = new Date().toDateString();
+            const todayAccesses = logs.filter(log => 
+                new Date(log.access_time).toDateString() === today
+            ).length;
+
+            const oneWeekAgo = new Date();
+            oneWeekAgo.setDate(oneWeekAgo.getDate() - 7);
+            const thisWeekAccesses = logs.filter(log => 
+                new Date(log.access_time) >= oneWeekAgo
+            ).length;
+
+            document.getElementById('totalAccesses').textContent = totalAccesses;
+            document.getElementById('uniqueStores').textContent = uniqueStores;
+            document.getElementById('todayAccesses').textContent = todayAccesses;
+            document.getElementById('thisWeekAccesses').textContent = thisWeekAccesses;
+        }
+
+        function updateTable(logs) {
+            const tbody = document.getElementById('logsTableBody');
+            tbody.innerHTML = '';
+
+            logs.slice(0, 50).forEach(log => { // Show last 50 entries
+                const row = tbody.insertRow();
+                
+                // Store Code
+                const storeCell = row.insertCell();
+                storeCell.innerHTML = `<span class="store-code">${log.store_code}</span>`;
+                
+                // Access Time
+                const timeCell = row.insertCell();
+                const accessTime = new Date(log.access_time);
+                timeCell.innerHTML = `<span class="timestamp">${accessTime.toLocaleString()}</span>`;
+                
+                // Browser (simplified user agent)
+                const browserCell = row.insertCell();
+                const userAgent = log.user_agent || 'Unknown';
+                const browser = getBrowserName(userAgent);
+                browserCell.textContent = browser;
+                
+                // IP Address
+                const ipCell = row.insertCell();
+                ipCell.textContent = log.ip_address || 'Unknown';
+            });
+        }
+
+        function getBrowserName(userAgent) {
+            if (userAgent.includes('Chrome')) return 'Chrome';
+            if (userAgent.includes('Firefox')) return 'Firefox';
+            if (userAgent.includes('Safari') && !userAgent.includes('Chrome')) return 'Safari';
+            if (userAgent.includes('Edge')) return 'Edge';
+            return 'Other';
+        }
+
+        // Load data when page loads
+        window.addEventListener('load', loadData);
+    </script>
+</body>
+</html>
