@@ -184,8 +184,8 @@ async function logAccess(storeCode) {
 // Optional: Function to log page visits within the dashboard
 async function logPageVisit(pageName) {
     try {
-        const SUPABASE_URL = 'https://your-project-ref.supabase.co';
-        const SUPABASE_ANON_KEY = 'your-public-anon-key-here';
+        const SUPABASE_URL = 'https://benqofspsbmhaotikzyr.supabase.co';
+        const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJlbnFvZnNwc2JtaGFvdGlrenlyIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTE5MDQ1MjgsImV4cCI6MjA2NzQ4MDUyOH0.bGqty1a-WLFkXbfoVhO1_rcCS6PzAOpqj60QyWPSnF8';
         
         const sessionData = JSON.parse(localStorage.getItem('businessResourcesAuth'));
         if (!sessionData) return;
@@ -216,7 +216,7 @@ async function logPageVisit(pageName) {
         console.warn('Page visit logging failed:', error);
     }
 }
-        }
+        
 
         function setSession(storeCode) {
             const sessionData = {
