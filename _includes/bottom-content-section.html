@@ -102,12 +102,12 @@
 
 .carousel-container {
     position: relative;
-    min-height: 140px; /* Slightly taller for comfortable reading */
+    min-height: 180px; /* Slightly taller for comfortable reading */
     overflow: hidden;
     background: white;
     border-radius: 12px;
     box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-    padding: 30px 40px;
+    padding: 25px 35px;
 }
 
 .testimonial-slide {
@@ -120,7 +120,7 @@
     transition: opacity 0.8s ease-in-out;
     display: flex;
     flex-direction: column;
-    justify-content: center; /* Centers content vertically */
+    justify-content: flex-start; /* Centers content vertically */
 }
 
 .testimonial-slide.active {
@@ -135,6 +135,7 @@
     color: #333;
     border: none;
     padding: 0;
+    flex-grow: 1; /* Takes up available space */
 }
 
 .testimonial-slide cite {
@@ -143,6 +144,8 @@
     font-weight: 600;
     color: #609bc3;
     font-size: 0.95rem;
+    margin-top: auto; /* Pushes citation to bottom */
+    flex-shrink: 0; /* Prevents citation from shrinking */
 }
 
 /* Calculator Grid */
