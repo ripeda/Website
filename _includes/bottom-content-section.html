@@ -348,20 +348,11 @@ document.addEventListener('DOMContentLoaded', function() {
 
 // Calculator Functions (connect to your existing modal system)
 function openCalculator(type) {
-    if (window.innerWidth <= 768) {
-        // Mobile: Open in new tab
-        if (type === 'mac') {
-            window.open('/calculators/mac_vs_pc_calculator.html', '_blank');
-        } else if (type === 'msp') {
-            window.open('/calculators/msp_cost_calculator.html', '_blank');
-        }
-    } else {
-        // Desktop: Open in modal (assuming you have existing modal functions)
-        if (typeof openMacModal === 'function' && type === 'mac') {
-            openMacModal();
-        } else if (typeof openMSPModal === 'function' && type === 'msp') {
-            openMSPModal();
-        }
+    if (type === 'mac') {
+        openModal('macModal');
+    } else if (type === 'msp') {
+        openModal('mspModal');
     }
 }
+
 </script>
