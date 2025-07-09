@@ -112,11 +112,15 @@
 
 .testimonial-slide {
     position: absolute;
-    top: 30px;
+    top: 20px;
     left: 40px;
     right: 40px;
+    bottom: 20px; /* Add this - ensures content fits */
     opacity: 0;
     transition: opacity 0.8s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Centers content vertically */
 }
 
 .testimonial-slide.active {
