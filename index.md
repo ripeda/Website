@@ -1,7 +1,7 @@
 ---
 title: RIPEDA Consulting
 layout: home
-show_sidebar: true
+show_sidebar: false
 description: IT that knows what makes your Apple devices tick.
 intro_image: "images/index/main-site.png"
 intro_image_absolute: true
