@@ -40,7 +40,7 @@ jobs:
           bundler-cache: true # runs 'bundle install' and caches installed gems automatically
           cache-version: 1 # Increment this number if you need to re-download cached gems July 2025 increased to 1
       - name: Cache Gems                                 #July 2025
-        uses: actions/cache@v2                            #July 2025
+        uses: actions/cache@v4                            #July 2025
         with:                                             #July 2025
           path: vendor/bundle                             #July 2025
           key: ${{ runner.os }}-gems-${{ hashFiles('**/Gemfile.lock') }}   #July 2025
