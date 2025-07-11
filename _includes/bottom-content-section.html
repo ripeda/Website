@@ -1,0 +1,367 @@
+<!-- Bottom Content Section: Testimonials + Calculators -->
+<section class="bottom-content-section py-5 bg-light">
+    <div class="container">
+        
+        <!-- Testimonials Carousel (Full Width) -->
+        <div class="row mb-5">
+            <div class="col-12">
+                <div class="testimonials-wrapper">
+                    <h3 class="text-center mb-4">What Our Clients Say</h3>
+                    <div class="carousel-container">
+                        <div class="testimonial-slide active">
+                            <blockquote>
+                                "As an Apple Consultant, they carried forward what every Apple experience should be."
+                            </blockquote>
+                            <cite>— Chris Chivers, Identity Ink</cite>
+                        </div>
+                        
+                        <div class="testimonial-slide">
+                            <blockquote>
+                                "During the last two years I have had a fantastic business relationship with RIPEDA. They have been professional, knowledgable and available. When my business has technology issues, Roy and staff are always available right away. I can't comment enough on the high level of service and knowledge that they offer. I feel very lucky to work with RIPEDA and consider them an integral part of my Interior Design Business."
+                            </blockquote>
+                            <cite>— Karen</cite>
+                        </div>
+                        
+                        <div class="testimonial-slide">
+                            <blockquote>
+                                "Transitioning our Medical office from PC to Mac over a weekend, with no down time, and no interruption in patient care was unbelievable. Roy worked diligently in accommodating our needs, and recognized the extreme importance we place on security and confidentiality. I would gladly recommend Roy from RIPEDA to any small Business interested in his services."
+                            </blockquote>
+                            <cite>— Circle Medical</cite>
+                        </div>
+                        
+                        <div class="testimonial-slide">
+                            <blockquote>
+                                "The team at RIPEDA Consulting answer the phones and are the most responsive IT team I've had the pleasure to work with! They are a breath of fresh air in the web development and managed services industry, especially with Apple devices. Tami, Roy and the RIPEDA team are a critical part of our growing business, keeping us online and productive so we can focus on getting results."
+                            </blockquote>
+                            <cite>— Laura, ProVision Business Advisors</cite>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Business Calculators Section -->
+        <div class="row mb-5">
+            <div class="col-12" style="text-align: center;">
+                <h3 style="text-align: center; margin-bottom: 2rem;">Business Planning Tools</h3>
+                <div class="calculators-grid">
+                    
+                    <!-- Mac vs PC Calculator -->
+                    <div class="calculator-card" onclick="openCalculator('mac')">
+                        <div class="calculator-icon">
+                            <img src="/images/icons/RIPEDA-MacVsPC.png" alt="Mac vs PC" width="48" height="48">
+                        </div>
+                        <h4>Mac vs PC Calculator</h4>
+                        <p>Calculate the true cost savings of switching your business to Mac</p>
+                        <div class="study-reference">
+                            <small>Based on IBM & Forrester Study</small>
+                            <br>
+                            <a href="/assets/downloads/forrester-mac-tco-study.pdf" target="_blank" class="study-link">
+                                Download Study →
+                            </a>
+                        </div>
+                        <div class="calculator-cta">Calculate Savings →</div>
+                    </div>
+
+                    <!-- IT Downtime Calculator -->
+                    <div class="calculator-card" onclick="openCalculator('msp')">
+                        <div class="calculator-icon">
+                            <img src="/images/icons/RIPEDA-DowntimeCost.png" alt="Downtime Cost" width="48" height="48">
+                        </div>
+                        <h4>IT Downtime Cost Calculator</h4>
+                        <p>Discover how much IT outages are really costing your business</p>
+                        <div class="calculator-cta">Calculate Costs →</div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+/* Section Styling */
+.bottom-content-section {
+    background: #f8f9fa;
+    border-top: 1px solid #e9ecef;
+}
+
+.bottom-content-section h3 {
+    color: #333;
+    font-weight: 600;
+    margin-bottom: 2rem;
+    font-size: 1.8rem;
+}
+
+/* Testimonials Styling */
+.testimonials-wrapper {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.carousel-container {
+    position: relative;
+    min-height: 200px; /* Slightly taller for comfortable reading */
+    overflow: hidden;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    padding: 25px 20px;
+}
+
+.testimonial-slide {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    right: 20px;
+    bottom: 25px; /* Add this - ensures content fits */
+    opacity: 0;
+    transition: opacity 0.8s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; /* Centers content vertically */
+}
+
+.testimonial-slide.active {
+    opacity: 1;
+}
+
+.testimonial-slide blockquote {
+    font-style: italic;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin: 0 0 15px 0;
+    color: #333;
+    border: none;
+    padding: 0;
+    flex-grow: 1; /* Takes up available space */
+}
+
+.testimonial-slide cite {
+    display: block;
+    font-style: normal;
+    font-weight: 600;
+    color: #609bc3;
+    font-size: 0.95rem;
+    margin-top: auto; /* Pushes citation to bottom */
+    flex-shrink: 0; /* Prevents citation from shrinking */
+}
+
+/* Calculator Grid */
+.calculators-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.calculator-card {
+    background: white;
+    border-radius: 15px;
+    padding: 30px;
+    text-align: center;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+}
+
+.calculator-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(96, 155, 195, 0.2);
+    border-color: #609bc3;
+}
+
+.calculator-icon {
+    font-size: 3rem;
+    margin-bottom: 15px;
+    color: #609bc3;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.calculator-icon img {
+    width: 72px; /* Bigger than 48px */
+    height: 72px;
+    border-radius: 12px; /* Rounded corners like services */
+    object-fit: contain;
+}
+
+.calculator-icon.sf-symbol {
+    position: relative;
+}
+
+.calculator-icon.sf-symbol::before {
+    content: "SF:" attr(data-symbol);
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", sans-serif;
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: #609bc3;
+    border: 2px dashed #609bc3;
+    border-radius: 8px;
+    padding: 8px 12px;
+    background: rgba(96, 155, 195, 0.1);
+}
+
+.calculator-card h4 {
+    color: #333;
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+
+.calculator-card p {
+    color: #666;
+    font-size: 0.95rem;
+    line-height: 1.5;
+    margin-bottom: 20px;
+}
+
+.calculator-cta {
+    color: #609bc3;
+    font-weight: 600;
+    font-size: 1rem;
+}
+
+.calculator-card:hover .calculator-cta {
+    color: #416bd8;
+}
+
+.study-reference {
+    margin-bottom: 15px;
+    padding: 12px 0;
+    border-top: 1px solid #f0f0f0;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.study-reference small {
+    color: #666;
+    font-size: 0.85rem;
+    font-style: italic;
+}
+
+.study-link {
+    color: #609bc3;
+    font-size: 0.9rem;
+    font-weight: 500;
+    text-decoration: none;
+}
+
+.study-link:hover {
+    color: #416bd8;
+    text-decoration: underline;
+}
+
+/* Hover effects */
+.carousel-container:hover .testimonial-slide {
+    animation-play-state: paused;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .calculators-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .carousel-container {
+        height: 160px;
+        padding: 20px 25px;
+    }
+    
+    .testimonial-slide {
+        top: 20px;
+        left: 25px;
+        right: 25px;
+    }
+    
+    .testimonial-slide blockquote {
+        font-size: 1rem;
+    }
+    
+    .calculator-card {
+        padding: 25px;
+    }
+    
+    .calculator-icon {
+        font-size: 2.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .carousel-container {
+        height: 180px;
+        padding: 15px 20px;
+    }
+    
+    .testimonial-slide {
+        top: 15px;
+        left: 20px;
+        right: 20px;
+    }
+}
+</style>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Testimonials Carousel
+    const slides = document.querySelectorAll('.testimonial-slide');
+    let currentSlide = 0;
+    let isHovered = false;
+    
+    function showSlide(index) {
+        slides.forEach(slide => slide.classList.remove('active'));
+        slides[index].classList.add('active');
+    }
+    
+    function nextSlide() {
+        if (!isHovered) {
+            currentSlide = (currentSlide + 1) % slides.length;
+            showSlide(currentSlide);
+        }
+    }
+    
+    // Auto-advance every 9 seconds
+    const interval = setInterval(nextSlide, 9000);
+    
+    // Pause on hover
+    const container = document.querySelector('.carousel-container');
+    if (container) {
+        container.addEventListener('mouseenter', () => {
+            isHovered = true;
+        });
+        
+        container.addEventListener('mouseleave', () => {
+            isHovered = false;
+        });
+    }
+    
+    // Initialize first slide
+    if (slides.length > 0) {
+        showSlide(0);
+    }
+});
+
+// Calculator Functions (connect to your existing modal system)
+function openCalculator(type) {
+    if (window.innerWidth <= 768) {
+        // Mobile: Open in new tab
+        if (type === 'mac') {
+            window.open('/calculators/mac_vs_pc_calculator.html', '_blank');
+        } else if (type === 'msp') {
+            window.open('/calculators/msp_cost_calculator.html', '_blank');
+        }
+    } else {
+        // Desktop: Open in modal (assuming you have existing modal functions)
+        if (typeof openMacModal === 'function' && type === 'mac') {
+            openMacModal();
+        } else if (typeof openMSPModal === 'function' && type === 'msp') {
+            openMSPModal();
+        }
+    }
+}
+</script>

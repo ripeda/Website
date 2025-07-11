@@ -4,9 +4,9 @@ bodyClass: "page-home"
 ---
 
 <!-- Main Layout with Sidebar -->
-<div class="main-content-with-sidebar">
+<div class="main-content-full-width">
   <!-- Main Content Area -->
-  <div class="main-content-column">
+  <div class="main-content-full">
     
     <div class="intro">
       <div class="container">
@@ -34,6 +34,9 @@ bodyClass: "page-home"
       </div>
     </div>
 
+    <!-- Bottom Content: Testimonials + Calculators -->
+    {% include bottom-content-section.html %}
+
     {% if site.data.features %}
     <div class="strip strip-grey">
       <div class="container pt-6 pb-6 pt-md-10 pb-md-10">
@@ -56,10 +59,5 @@ bodyClass: "page-home"
 
   </div>
 
-  <!-- Calculator Sidebar - Show on desktop only -->
-  {% if page.show_sidebar %}
-  <div class="sidebar-column d-none d-lg-block">
-    {% include calculator-sidebar.html %}
-  </div>
-  {% endif %}
+
 </div>
