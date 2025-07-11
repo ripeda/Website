@@ -37,7 +37,6 @@ jobs:
         uses: ruby/setup-ruby@bbda85882f33075a3727c01e3c8d0de0be6146ce # v1.161.0
         with:
           ruby-version: '3.1.6' # Not needed with a .ruby-version file
-                                # July 2025 updated to 3.1.6 with July 2025 updated website
           bundler-cache: true # runs 'bundle install' and caches installed gems automatically
           cache-version: 1 # Increment this number if you need to re-download cached gems July 2025 increased to 1
        - name: Cache Gems                                 #July 2025
