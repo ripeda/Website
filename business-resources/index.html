@@ -77,6 +77,16 @@ permalink: /business-resources/
             height: 40px;
             margin-bottom: 1rem;
             opacity: 0.8;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", sans-serif;
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: #609bc3;
+            border: 2px dashed #609bc3;
+            border-radius: 8px;
+            background: rgba(96, 155, 195, 0.1);
         }
     </style>
 </head>
@@ -84,15 +94,17 @@ permalink: /business-resources/
     <div class="auth-container">
         <div class="auth-card">
             <div class="auth-header">
-                <div class="apple-logo mx-auto">🍎</div>
+                <div class="apple-logo mx-auto">
+                    <img src="/images/icons/RIPEDA - AppleLogo.png" alt="Downtime Cost" width="48" height="48">
+                </div>
                 <h2>Business Resources</h2>
-                <p>Enter your Apple Store R# to access resources</p>
+                <p>Enter your store # to access resources</p>
             </div>
             
             <form id="authForm">
                 <div class="mb-3">
-                    <label for="storeCode" class="form-label">Store R Number</label>
-                    <input type="text" class="form-control" id="storeCode" placeholder="e.g., R209" required>
+                    <label for="storeCode" class="form-label">Store Number</label>
+                    <input type="text" class="form-control" id="storeCode" placeholder="e.g., Rxxx" required>
                     <div class="error-message" id="errorMessage">
                         Invalid store number. Please try again.
                     </div>
@@ -109,7 +121,7 @@ permalink: /business-resources/
             
             <div class="text-center mt-3">
                 <small class="text-muted">
-                    Need help? Contact <a href="mailto:support@ripeda.com">support@ripeda.com</a>
+                    Need help? Contact <a href="mailto:info@ripeda.com">info@ripeda.com</a>
                 </small>
             </div>
         </div>
@@ -135,67 +147,38 @@ permalink: /business-resources/
             return encryptedStores.some(encrypted => decryptStore(encrypted) === cleanCode);
         }
 
-        // Replace the existing logAccess function with this:
-async function logAccess(storeCode) {
-    try {
-        const SUPABASE_URL = 'https://benqofspsbmhaotikzyr.supabase.co';
-        const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJlbnFvZnNwc2JtaGFvdGlrenlyIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTE5MDQ1MjgsImV4cCI6MjA2NzQ4MDUyOH0.bGqty1a-WLFkXbfoVhO1_rcCS6PzAOpqj60QyWPSnF8';
-        
-        const response = await fetch(`${SUPABASE_URL}/rest/v1/access_logs`, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-                'apikey': SUPABASE_ANON_KEY,
-                'Authorization': `Bearer ${SUPABASE_ANON_KEY}`,
-                'Prefer': 'return=minimal'
-            },
-            body: JSON.stringify({
-                store_code: storeCode,
-                access_time: new Date().toISOString(),
-                user_agent: navigator.userAgent.substring(0, 250)
-            })
-        });
-        
-        if (!response.ok) {
-            throw new Error(`HTTP error! status: ${response.status}`);
+        // Fixed logAccess function
+        async function logAccess(storeCode) {
+            try {
+                const SUPABASE_URL = 'https://benqofspsbmhaotikzyr.supabase.co';
+                const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJlbnFvZnNwc2JtaGFvdGlrenlyIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTE5MDQ1MjgsImV4cCI6MjA2NzQ4MDUyOH0.bGqty1a-WLFkXbfoVhO1_rcCS6PzAOpqj60QyWPSnF8';
+                
+                const response = await fetch(`${SUPABASE_URL}/rest/v1/access_logs`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'apikey': SUPABASE_ANON_KEY,
+                        'Authorization': `Bearer ${SUPABASE_ANON_KEY}`,
+                        'Prefer': 'return=minimal'
+                    },
+                    body: JSON.stringify({
+                        store_code: storeCode,
+                        access_time: new Date().toISOString(),
+                        user_agent: navigator.userAgent.substring(0, 250)
+                    })
+                });
+                
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                
+                console.log('✅ Access logged successfully');
+                
+            } catch (error) {
+                console.warn('Logging failed, but proceeding with access:', error);
+                // Don't block user access if logging fails
+            }
         }
-        
-    } catch (error) {
-        console.warn('Logging failed, but proceeding with access:', error);
-        // Don't block user access if logging fails
-    }
-}
-        
-        const sessionData = JSON.parse(localStorage.getItem('businessResourcesAuth'));
-        if (!sessionData) return;
-        
-        // You could either create a separate table for page visits
-        // Or append to the pages_visited array in the existing access log
-        // For simplicity, let's create a new log entry for each page visit
-        
-        const response = await fetch(`${SUPABASE_URL}/rest/v1/access_logs`, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-                'apikey': SUPABASE_ANON_KEY,
-                'Authorization': `Bearer ${SUPABASE_ANON_KEY}`,
-                'Prefer': 'return=minimal'
-            },
-            body: JSON.stringify({
-                store_code: sessionData.storeCode,
-                access_time: new Date().toISOString(),
-                user_agent: navigator.userAgent.substring(0, 250),
-                pages_visited: [pageName]
-            })
-        });
-        
-        console.log(`📄 Page visit logged: ${pageName}`);
-        
-    } catch (error) {
-        console.warn('Page visit logging failed:', error);
-    }
-}
-        
 
         function setSession(storeCode) {
             const sessionData = {
@@ -229,6 +212,8 @@ async function logAccess(storeCode) {
             const normalText = submitBtn.querySelector('.normal-text');
             const loadingText = submitBtn.querySelector('.loading');
             
+            console.log('🔍 Form submitted with store code:', storeCode);
+            
             // Reset error state
             errorDiv.style.display = 'none';
             
@@ -239,6 +224,7 @@ async function logAccess(storeCode) {
             
             // Validate store code (now case-insensitive)
             if (validateStoreCode(storeCode)) {
+                console.log('✅ Store code validated');
                 try {
                     // Log the access (always uppercase for consistency)
                     await logAccess(storeCode.toUpperCase().trim());
@@ -246,14 +232,17 @@ async function logAccess(storeCode) {
                     // Set session (always uppercase for consistency)
                     setSession(storeCode.toUpperCase().trim());
                     
+                    console.log('🚀 Redirecting to dashboard...');
+                    
                     // Redirect to dashboard
                     window.location.href = '/business-resources/dashboard/';
                 } catch (error) {
-                    console.error('Access error:', error);
+                    console.error('❌ Access error:', error);
                     errorDiv.textContent = 'System error. Please try again.';
                     errorDiv.style.display = 'block';
                 }
             } else {
+                console.log('❌ Invalid store code');
                 errorDiv.style.display = 'block';
             }
             
@@ -264,7 +253,10 @@ async function logAccess(storeCode) {
         });
 
         // Check for existing session on page load
-        window.addEventListener('load', checkExistingSession);
+        window.addEventListener('load', function() {
+            console.log('📄 Page loaded, checking existing session...');
+            checkExistingSession();
+        });
     </script>
 </body>
 </html>

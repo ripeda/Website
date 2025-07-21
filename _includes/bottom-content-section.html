@@ -79,6 +79,33 @@
     </div>
 </section>
 
+<!-- Calculator Modals -->
+<!-- Mac Calculator Modal -->
+<div id="macModal" class="modal">
+    <div class="modal-content-custom">
+        <div class="modal-header-custom">
+            <h2>Mac vs PC Cost Calculator</h2>
+            <button class="modal-close" onclick="closeModal('macModal')">&times;</button>
+        </div>
+        <div class="modal-body-custom">
+            <iframe id="macFrame" src=""></iframe>
+        </div>
+    </div>
+</div>
+
+<!-- MSP Calculator Modal -->
+<div id="mspModal" class="modal">
+    <div class="modal-content-custom">
+        <div class="modal-header-custom">
+            <h2>IT Downtime Cost Calculator</h2>
+            <button class="modal-close" onclick="closeModal('mspModal')">&times;</button>
+        </div>
+        <div class="modal-body-custom">
+            <iframe id="mspFrame" src=""></iframe>
+        </div>
+    </div>
+</div>
+
 <style>
 /* Section Styling */
 .bottom-content-section {
@@ -191,22 +218,6 @@
     object-fit: contain;
 }
 
-.calculator-icon.sf-symbol {
-    position: relative;
-}
-
-.calculator-icon.sf-symbol::before {
-    content: "SF:" attr(data-symbol);
-    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", sans-serif;
-    font-size: 0.8rem;
-    font-weight: 500;
-    color: #609bc3;
-    border: 2px dashed #609bc3;
-    border-radius: 8px;
-    padding: 8px 12px;
-    background: rgba(96, 155, 195, 0.1);
-}
-
 .calculator-card h4 {
     color: #333;
     font-size: 1.3rem;
@@ -254,6 +265,74 @@
 .study-link:hover {
     color: #416bd8;
     text-decoration: underline;
+}
+
+/* Modal Styles */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1050;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.8);
+    backdrop-filter: blur(5px);
+}
+
+.modal-content-custom {
+    position: relative;
+    background-color: white;
+    margin: 2% auto;
+    padding: 0;
+    border-radius: 16px;
+    width: 95%;
+    max-width: 1200px;
+    max-height: 90vh;
+    overflow: hidden;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+}
+
+.modal-header-custom {
+    background: linear-gradient(135deg, #609bc3, #79c5f8);
+    color: white;
+    padding: 20px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.modal-header-custom h2 {
+    margin: 0;
+    font-size: 1.3rem;
+    font-weight: 600;
+}
+
+.modal-close {
+    color: white;
+    font-size: 24px;
+    font-weight: 300;
+    cursor: pointer;
+    background: none;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 50%;
+    transition: background 0.3s ease;
+}
+
+.modal-close:hover {
+    background: rgba(255,255,255,0.2);
+}
+
+.modal-body-custom {
+    height: calc(90vh - 80px);
+    overflow: auto;
+}
+
+.modal-body-custom iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
 }
 
 /* Hover effects */
@@ -346,7 +425,69 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });
 
-// Calculator Functions (connect to your existing modal system)
+// Calculator Modal Functions - FIXED VERSION
+function openModal(modalId) {
+    const modal = document.getElementById(modalId);
+    if (!modal) {
+        console.error('Modal not found:', modalId);
+        return;
+    }
+    
+    modal.style.display = 'block';
+    
+    // Check if mobile device
+    const isMobile = window.innerWidth <= 768;
+    
+    if (isMobile) {
+        // On mobile, redirect to calculator page directly
+        let calculatorUrl;
+        if (modalId === 'mspModal') {
+            calculatorUrl = '/calculators/msp_cost_calculator.html';
+        } else if (modalId === 'macModal') {
+            calculatorUrl = '/calculators/mac_vs_pc_calculator.html';
+        }
+        
+        // Open in new tab/window on mobile for better experience
+        if (calculatorUrl) {
+            window.open(calculatorUrl, '_blank');
+        }
+        
+        // Close the modal immediately
+        closeModal(modalId);
+        return;
+    }
+    
+    // Desktop behavior - load in iframe
+    if (modalId === 'mspModal') {
+        document.getElementById('mspFrame').src = '/calculators/msp_cost_calculator.html';
+    } else if (modalId === 'macModal') {
+        document.getElementById('macFrame').src = '/calculators/mac_vs_pc_calculator.html';
+    }
+    
+    // Prevent body scroll
+    document.body.style.overflow = 'hidden';
+}
+
+function closeModal(modalId) {
+    const modal = document.getElementById(modalId);
+    if (!modal) return;
+    
+    modal.style.display = 'none';
+    
+    // Clear iframe src to stop any ongoing processes
+    if (modalId === 'mspModal') {
+        const frame = document.getElementById('mspFrame');
+        if (frame) frame.src = '';
+    } else if (modalId === 'macModal') {
+        const frame = document.getElementById('macFrame');
+        if (frame) frame.src = '';
+    }
+    
+    // Restore body scroll
+    document.body.style.overflow = 'auto';
+}
+
+// Fixed Calculator Functions
 function openCalculator(type) {
     if (window.innerWidth <= 768) {
         // Mobile: Open in new tab
@@ -356,12 +497,52 @@ function openCalculator(type) {
             window.open('/calculators/msp_cost_calculator.html', '_blank');
         }
     } else {
-        // Desktop: Open in modal (assuming you have existing modal functions)
-        if (typeof openMacModal === 'function' && type === 'mac') {
-            openMacModal();
-        } else if (typeof openMSPModal === 'function' && type === 'msp') {
-            openMSPModal();
+        // Desktop: Use the modal system
+        if (type === 'mac') {
+            openModal('macModal');
+        } else if (type === 'msp') {
+            openModal('mspModal');
         }
     }
 }
+
+// Close modal when clicking outside of it (desktop only)
+window.onclick = function(event) {
+    const isMobile = window.innerWidth <= 768;
+    
+    // Skip this behavior on mobile since we redirect anyway
+    if (isMobile) return;
+    
+    const mspModal = document.getElementById('mspModal');
+    const macModal = document.getElementById('macModal');
+    
+    if (event.target == mspModal) {
+        closeModal('mspModal');
+    } else if (event.target == macModal) {
+        closeModal('macModal');
+    }
+}
+
+// Close modal with Escape key (desktop only)
+document.addEventListener('keydown', function(event) {
+    const isMobile = window.innerWidth <= 768;
+    
+    // Skip this behavior on mobile since we redirect anyway
+    if (isMobile) return;
+    
+    if (event.key === 'Escape') {
+        closeModal('mspModal');
+        closeModal('macModal');
+    }
+});
+
+// Handle window resize - if user resizes from desktop to mobile, close any open modals
+window.addEventListener('resize', function() {
+    const isMobile = window.innerWidth <= 768;
+    
+    if (isMobile) {
+        closeModal('mspModal');
+        closeModal('macModal');
+    }
+});
 </script>

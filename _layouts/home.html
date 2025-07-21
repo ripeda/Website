@@ -17,12 +17,6 @@ bodyClass: "page-home"
               {% include call.html show_button=true %}
             {% endif %}
             
-            <!-- Calculator Sidebar - Show on mobile here, hidden on desktop -->
-            {% if page.show_sidebar %}
-            <div class="mobile-calculator-sidebar d-block d-lg-none mt-4">
-              {% include calculator-sidebar.html %}
-            </div>
-            {% endif %}
             
           </div>
           {% if page.intro_image %}

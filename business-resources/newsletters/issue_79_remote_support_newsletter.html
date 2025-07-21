@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RIPEDA Newsletter - Business Technology Insights</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f8f9fa;
+        }
+
+        .newsletter-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+        }
+
+        /* Header Section */
+        .header-section {
+            background: linear-gradient(135deg, #d32f2f 0%, #E03A3E 100%);
+            color: white;
+            padding: 25px 20px;
+            text-align: center;
+        }
+
+        .logo-placeholder {
+            height: 65px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            background: white;
+            border-radius: 8px;
+            padding: 8px;
+            max-width: 275px;
+            margin: 0 auto 20px auto;
+        }
+
+        .newsletter-title {
+            font-size: 1.8em;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .newsletter-subtitle {
+            font-size: 1em;
+            opacity: 0.9;
+            margin-bottom: 4px;
+        }
+
+        .issue-date {
+            font-size: 0.85em;
+            opacity: 0.8;
+        }
+
+        /* Main Content */
+        .content-wrapper {
+            padding: 25px 20px;
+        }
+
+        .featured-article {
+            margin-bottom: 25px;
+        }
+
+        .article-header {
+            border-bottom: 3px solid #d32f2f;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+
+        .article-title-section {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            margin-bottom: 8px;
+        }
+
+        .article-title {
+            font-size: 1.8em;
+            color: #2f2f41;
+            font-weight: 600;
+            flex: 1;
+        }
+
+        .article-logo-placeholder {
+            width: 150px;
+            height: 120px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            margin-left: 15px;
+        }
+
+        .article-subtitle {
+            color: #666;
+            font-style: italic;
+            font-size: 1.05em;
+        }
+
+        /* TL;DR Box */
+        .tldr-box {
+            background: linear-gradient(135deg, #d32f2f 0%, #E03A3E 100%);
+            color: white;
+            padding: 15px 18px;
+            border-radius: 8px;
+            margin: 20px 0;
+            box-shadow: 0 4px 15px rgba(211, 47, 47, 0.3);
+        }
+
+        .tldr-title {
+            font-size: 1em;
+            font-weight: 600;
+            margin-bottom: 12px;
+            text-align: center;
+        }
+
+        .tldr-list {
+            list-style: none;
+            padding: 0;
+            font-size: 0.9em;
+        }
+
+        .tldr-list li {
+            margin-bottom: 8px;
+            padding-left: 15px;
+            position: relative;
+            line-height: 1.4;
+        }
+
+        .tldr-list li:before {
+            content: "•";
+            color: #fff;
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+            font-size: 1.2em;
+        }
+
+        .tldr-list strong {
+            font-weight: 600;
+        }
+
+        /* Two Column Layout */
+        .two-column {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        .column-section {
+            padding: 18px;
+            background: #ffebee;
+            border-radius: 6px;
+            border-left: 4px solid #d32f2f;
+        }
+
+        .column-title {
+            color: #d32f2f;
+            font-size: 1.1em;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+
+        .column-content ul {
+            padding-left: 18px;
+        }
+
+        .column-content li {
+            margin-bottom: 6px;
+            font-size: 0.95em;
+        }
+
+        .column-content p {
+            font-size: 0.95em;
+            margin-bottom: 10px;
+        }
+
+        /* Article Content */
+        .article-content {
+            font-size: 1em;
+            line-height: 1.6;
+        }
+
+        .article-content h3 {
+            color: #2f2f41;
+            font-size: 1.2em;
+            margin-top: 20px;
+            margin-bottom: 12px;
+            border-bottom: 2px solid #e9ecef;
+            padding-bottom: 6px;
+        }
+
+        .article-content p {
+            margin-bottom: 12px;
+        }
+
+        .highlight-box {
+            background: #fce4ec;
+            border-left: 4px solid #d32f2f;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 0 6px 6px 0;
+            font-size: 0.95em;
+        }
+
+        .highlight-box strong {
+            color: #d32f2f;
+        }
+
+        /* Footnote */
+        .footnote {
+            margin-top: 15px;
+            padding-top: 10px;
+            border-top: 1px solid #e0e0e0;
+        }
+
+        .footnote p {
+            color: #666666;
+            font-size: 0.6em;
+            line-height: 1.4;
+            margin: 0;
+        }
+
+        /* Footer Section */
+        .footer-section {
+            background: #2f2f41;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .footer-cta {
+            background: #d32f2f;
+            color: white;
+            padding: 15px;
+            border-radius: 6px;
+            margin-bottom: 15px;
+        }
+
+        .footer-cta h4 {
+            margin-bottom: 8px;
+            font-size: 1.1em;
+        }
+
+        .footer-cta p {
+            font-size: 0.9em;
+        }
+
+        .contact-info {
+            font-size: 0.85em;
+            opacity: 0.8;
+        }
+
+        .contact-info p {
+            margin-bottom: 3px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .newsletter-container {
+                margin: 0;
+                box-shadow: none;
+            }
+
+            .header-section,
+            .content-wrapper,
+            .footer-section {
+                padding: 25px 20px;
+            }
+
+            .newsletter-title {
+                font-size: 1.8em;
+            }
+
+            .two-column {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .article-title {
+                font-size: 1.5em;
+            }
+
+            .article-title-section {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 15px;
+            }
+
+            .article-logo-placeholder {
+                align-self: center;
+            }
+        }
+
+        @media print {
+            body {
+                background: white;
+                font-size: 12px;
+            }
+            
+            .newsletter-container {
+                box-shadow: none;
+                max-width: 100%;
+            }
+
+            .header-section {
+                padding: 15px 10px;
+            }
+
+            .content-wrapper {
+                padding: 15px 10px;
+            }
+
+            .footer-section {
+                padding: 15px 10px;
+            }
+
+            .tldr-box {
+                padding: 12px 15px;
+                margin: 15px 0;
+            }
+
+            .two-column {
+                gap: 15px;
+                margin: 15px 0;
+            }
+
+            .column-section {
+                padding: 12px;
+            }
+
+            .highlight-box {
+                padding: 12px;
+                margin: 12px 0;
+            }
+
+            .article-content h3 {
+                margin-top: 15px;
+                margin-bottom: 8px;
+            }
+
+            .article-content p {
+                margin-bottom: 8px;
+            }
+
+            .footnote {
+                margin-top: 15px;
+                padding-top: 10px;
+                border-top: 1px solid #e0e0e0;
+            }
+
+            .footnote p {
+                color: #666666;
+                font-size: 0.9em;
+                line-height: 1.4;
+                margin: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="newsletter-container">
+        
+        <!-- Header Section -->
+        <div class="header-section">
+            <div class="logo-placeholder">
+                <img src="RIPEDA-LOGO-FINAL-MONO@2x.png" alt="RIPEDA Logo" style="height: 70px;">
+            </div>
+            <h1 class="newsletter-title">Business Technology Insights</h1>
+            <p class="newsletter-subtitle">Your monthly guide to smarter IT decisions</p>
+            <p class="issue-date">Issue #79 • September 2025</p>
+        </div>
+
+        <!-- Main Content -->
+        <div class="content-wrapper">
+            
+            <!-- Featured Article -->
+            <article class="featured-article">
+                <div class="article-header">
+                    <div class="article-title-section">
+                        <h2 class="article-title">Screen Sharing vs. Real Remote Support</h2>
+                        <div class="article-logo-placeholder">
+                            <img src="Issue79Icon.png" alt="Screen Sharing vs Professional Remote Support" style="width: 120px; height: 100px; object-fit: contain;">
+                        </div>
+                    </div>
+                    <p class="article-subtitle">Why businesses need comprehensive remote support beyond basic screen sharing capabilities</p>
+                </div>
+
+                <!-- TL;DR Box -->
+                <div class="tldr-box">
+                    <h3 class="tldr-title">TL;DR: Why Screen Sharing Isn't Remote Support</h3>
+                    <ul class="tldr-list">
+                        <li><strong>Reactive Only:</strong> Screen sharing only works when users can identify and report problems, missing proactive monitoring</li>
+                        <li><strong>Limited Capabilities:</strong> Most basic screen sharing tools have limited ability to restart systems, access locked computers, or perform maintenance during downtime</li>
+                        <li><strong>No Monitoring:</strong> Minimal visibility into system health, performance issues, or security threats between active sessions</li>
+                        <li><strong>Documentation Gaps:</strong> No ticket tracking, knowledge base, or systematic problem resolution processes</li>
+                        <li><strong>Professional Tools:</strong> Comprehensive remote monitoring, automated maintenance, and 24/7 system oversight</li>
+                        <li><strong>Smart Strategy:</strong> Keep screen sharing for training and collaboration + professional remote support for system management</li>
+                    </ul>
+                </div>
+
+                <div class="article-content">
+                    <p>Screen sharing through Messages or FaceTime works well for quick help and training, but business IT support requires proactive monitoring, automated maintenance, and comprehensive system management capabilities.</p>
+
+                    <p>While screen sharing solutions range from basic built-in tools to more sophisticated platforms, even advanced screen sharing primarily focuses on reactive support rather than the proactive, comprehensive system management that businesses require.</p>
+
+                    <h3>The Support Challenge</h3>
+                    
+                    <div class="two-column">
+                        <div class="column-section">
+                            <h4 class="column-title">Screen Sharing Limitations</h4>
+                            <div class="column-content">
+                                <p>Basic screen sharing only provides:</p>
+                                <ul>
+                                    <li>Real-time view of user's current session, though some advanced solutions offer additional capabilities</li>
+                                    <li>Manual problem identification and resolution</li>
+                                    <li>Reactive support when users report issues</li>
+                                    <li>Limited access to system-level functions</li>
+                                    <li>No monitoring or preventive maintenance</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="column-section">
+                            <h4 class="column-title">Business Support Needs</h4>
+                            <div class="column-content">
+                                <p>Professional IT support requires:</p>
+                                <ul>
+                                    <li>Proactive system monitoring and alerting</li>
+                                    <li>Automated maintenance and updates</li>
+                                    <li>Access to systems regardless of user presence</li>
+                                    <li>Comprehensive documentation and ticketing</li>
+                                    <li>Preventive maintenance and optimization</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="footnote">
+                        <p><em>Note: Screen sharing tools exist on a spectrum - from basic built-in options like FaceTime screen sharing to more advanced solutions like TeamViewer or Chrome Remote Desktop. While some advanced screen sharing tools offer limited monitoring or system access, they still fall short of comprehensive business IT management needs.</em></p>
+                    </div>
+
+                    <div class="highlight-box">
+                        <p><strong>The Reality:</strong> Screen sharing helps with immediate user questions, but can't prevent system failures, perform overnight maintenance, or provide the comprehensive oversight that business IT requires.</p>
+                    </div>
+
+                    <h3>Professional Remote Support Features</h3>
+                    
+                    <div class="two-column">
+                        <div class="column-section">
+                            <h4 class="column-title">Proactive Management</h4>
+                            <div class="column-content">
+                                <ul>
+                                    <li>24/7 system monitoring and health checks</li>
+                                    <li>Automated patch management and updates</li>
+                                    <li>Performance optimization and maintenance</li>
+                                    <li>Security monitoring and threat detection</li>
+                                    <li>Predictive failure analysis and prevention</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="column-section">
+                            <h4 class="column-title">Comprehensive Support</h4>
+                            <div class="column-content">
+                                <ul>
+                                    <li>Unattended access for off-hours maintenance</li>
+                                    <li>Ticketing system and problem tracking</li>
+                                    <li>Knowledge base and documentation</li>
+                                    <li>Escalation procedures and expert support</li>
+                                    <li>Reporting and compliance monitoring</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <h3>The Smart Approach: Layered Support Strategy</h3>
+                    <p>For Alberta businesses RIPEDA manages, this combination provides complete coverage:</p>
+                    
+                    <div class="highlight-box">
+                        <p><strong>Screen Sharing:</strong> User training, quick questions, and collaborative troubleshooting<br>
+                        <strong>Professional Remote Support:</strong> System monitoring, preventive maintenance, security management, and comprehensive IT oversight</p>
+                        <p>This maintains the personal touch of direct screen sharing while providing the robust infrastructure management that keeps businesses running smoothly.</p>
+                    </div>
+
+                    <p>Screen sharing remains valuable for user interaction and training, but businesses need professional remote support systems that prevent problems before they impact operations and provide comprehensive IT management around the clock.</p>
+                </div>
+            </article>
+        </div>
+
+        <!-- Footer Section -->
+        <div class="footer-section">
+            <div class="footer-cta">
+                <h4>Ready for Professional Remote Support?</h4>
+                <p>RIPEDA Consulting provides comprehensive remote monitoring and support that prevents problems before they happen.</p>
+            </div>
+            
+            <div class="contact-info">
+                <p>RIPEDA Consulting Corp • Apple Consultants Network / Authorized Repair Provider</p>
+                <p>300 - 1301 8 Street SW • Calgary, AB • T2R 1B7</p>
+                <p>Phone: (844) 474-7332 • Email: info@ripeda.com • Web: ripeda.com</p>
+                <p>© 2025 RIPEDA Consulting Corp. All rights reserved.</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

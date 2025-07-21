@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RIPEDA Newsletter - Business Technology Insights</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f8f9fa;
+        }
+
+        .newsletter-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+        }
+
+        /* Header Section */
+        .header-section {
+            background: linear-gradient(135deg, #FDB827 0%, #F2A900 100%);
+            color: white;
+            padding: 25px 20px;
+            text-align: center;
+        }
+
+        .logo-placeholder {
+            height: 65px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            background: white;
+            border-radius: 8px;
+            padding: 8px;
+            max-width: 275px;
+            margin: 0 auto 20px auto;
+        }
+
+        .newsletter-title {
+            font-size: 1.8em;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .newsletter-subtitle {
+            font-size: 1em;
+            opacity: 0.9;
+            margin-bottom: 4px;
+        }
+
+        .issue-date {
+            font-size: 0.85em;
+            opacity: 0.8;
+        }
+
+        /* Main Content */
+        .content-wrapper {
+            padding: 25px 20px;
+        }
+
+        .featured-article {
+            margin-bottom: 25px;
+        }
+
+        .article-header {
+            border-bottom: 3px solid #F2A900;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+
+        .article-title-section {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            margin-bottom: 8px;
+        }
+
+        .article-title {
+            font-size: 1.8em;
+            color: #2f2f41;
+            font-weight: 600;
+            flex: 1;
+        }
+
+        .article-logo-placeholder {
+            width: 150px;
+            height: 120px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            margin-left: 15px;
+        }
+
+        .article-subtitle {
+            color: #666;
+            font-style: italic;
+            font-size: 1.05em;
+        }
+
+        /* TL;DR Box */
+        .tldr-box {
+            background: linear-gradient(135deg, #FDB827 0%, #F2A900 100%);
+            color: white;
+            padding: 15px 18px;
+            border-radius: 8px;
+            margin: 20px 0;
+            box-shadow: 0 4px 15px rgba(255, 152, 0, 0.3);
+        }
+
+        .tldr-title {
+            font-size: 1em;
+            font-weight: 600;
+            margin-bottom: 12px;
+            text-align: center;
+        }
+
+        .tldr-list {
+            list-style: none;
+            padding: 0;
+            font-size: 0.9em;
+        }
+
+        .tldr-list li {
+            margin-bottom: 8px;
+            padding-left: 15px;
+            position: relative;
+            line-height: 1.4;
+        }
+
+        .tldr-list li:before {
+            content: "•";
+            color: #fff;
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+            font-size: 1.2em;
+        }
+
+        .tldr-list strong {
+            font-weight: 600;
+        }
+
+        /* Two Column Layout */
+        .two-column {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        .column-section {
+            padding: 18px;
+            background: #fff3e0;
+            border-radius: 6px;
+            border-left: 4px solid #F2A900;
+        }
+
+        .column-title {
+            color: #F2A900;
+            font-size: 1.1em;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+
+        .column-content ul {
+            padding-left: 18px;
+        }
+
+        .column-content li {
+            margin-bottom: 6px;
+            font-size: 0.95em;
+        }
+
+        .column-content p {
+            font-size: 0.95em;
+            margin-bottom: 10px;
+        }
+
+        /* Article Content */
+        .article-content {
+            font-size: 1em;
+            line-height: 1.6;
+        }
+
+        .article-content h3 {
+            color: #2f2f41;
+            font-size: 1.2em;
+            margin-top: 20px;
+            margin-bottom: 12px;
+            border-bottom: 2px solid #e9ecef;
+            padding-bottom: 6px;
+        }
+
+        .article-content p {
+            margin-bottom: 12px;
+        }
+
+        .highlight-box {
+            background: #fff8e1;
+            border-left: 4px solid #F2A900;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 0 6px 6px 0;
+            font-size: 0.95em;
+        }
+
+        .highlight-box strong {
+            color: #F2A900;
+        }
+
+        /* Footer Section */
+        .footer-section {
+            background: #2f2f41;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .footer-cta {
+            background: #F2A900;
+            color: white;
+            padding: 15px;
+            border-radius: 6px;
+            margin-bottom: 15px;
+        }
+
+        .footer-cta h4 {
+            margin-bottom: 8px;
+            font-size: 1.1em;
+        }
+
+        .footer-cta p {
+            font-size: 0.9em;
+        }
+
+        .contact-info {
+            font-size: 0.85em;
+            opacity: 0.8;
+        }
+
+        .contact-info p {
+            margin-bottom: 3px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .newsletter-container {
+                margin: 0;
+                box-shadow: none;
+            }
+
+            .header-section,
+            .content-wrapper,
+            .footer-section {
+                padding: 25px 20px;
+            }
+
+            .newsletter-title {
+                font-size: 1.8em;
+            }
+
+            .two-column {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .article-title {
+                font-size: 1.5em;
+            }
+
+            .article-title-section {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 15px;
+            }
+
+            .article-logo-placeholder {
+                align-self: center;
+            }
+        }
+
+        @media print {
+            body {
+                background: white;
+                font-size: 12px;
+            }
+            
+            .newsletter-container {
+                box-shadow: none;
+                max-width: 100%;
+            }
+
+            .header-section {
+                padding: 15px 10px;
+            }
+
+            .content-wrapper {
+                padding: 15px 10px;
+            }
+
+            .footer-section {
+                padding: 15px 10px;
+            }
+
+            .tldr-box {
+                padding: 12px 15px;
+                margin: 15px 0;
+            }
+
+            .two-column {
+                gap: 15px;
+                margin: 15px 0;
+            }
+
+            .column-section {
+                padding: 12px;
+            }
+
+            .highlight-box {
+                padding: 12px;
+                margin: 12px 0;
+            }
+
+            .article-content h3 {
+                margin-top: 15px;
+                margin-bottom: 8px;
+            }
+
+            .article-content p {
+                margin-bottom: 8px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="newsletter-container">
+        
+        <!-- Header Section -->
+        <div class="header-section">
+            <div class="logo-placeholder">
+                <img src="RIPEDA-LOGO-FINAL-MONO@2x.png" alt="RIPEDA Logo" style="height: 70px;">
+            </div>
+            <h1 class="newsletter-title">Business Technology Insights</h1>
+            <p class="newsletter-subtitle">Your monthly guide to smarter IT decisions</p>
+            <p class="issue-date">Issue #77 • July 2025</p>
+        </div>
+
+        <!-- Main Content -->
+        <div class="content-wrapper">
+            
+            <!-- Featured Article -->
+            <article class="featured-article">
+                <div class="article-header">
+                    <div class="article-title-section">
+                        <h2 class="article-title">Why AirDrop Isn't Your File Sharing Strategy</h2>
+                        <div class="article-logo-placeholder">
+                            <img src="Issue77Icon.png" alt="AirDrop vs Business File Sharing" style="width: 120px; height: 100px; object-fit: contain;">
+                        </div>
+                    </div>
+                    <p class="article-subtitle">Understanding why businesses need structured file sharing beyond peer-to-peer transfers</p>
+                </div>
+
+                <!-- TL;DR Box -->
+                <div class="tldr-box">
+                    <h3 class="tldr-title">TL;DR: Why Business File Sharing Needs Structure</h3>
+                    <ul class="tldr-list">
+                        <li><strong>No Central Control:</strong> AirDrop creates scattered files across devices with no central management or version control</li>
+                        <li><strong>Limited Platform Support:</strong> Only works between Apple devices, excluding Windows PCs, Android devices, and external partners</li>
+                        <li><strong>Missing Permissions:</strong> Can't control who accesses what files, set expiration dates, or manage team collaboration properly</li>
+                        <li><strong>No Audit Trail:</strong> Zero visibility into who shared what files when, creating compliance and security gaps</li>
+                        <li><strong>Professional Solutions:</strong> Structured file servers with permissions, versioning, backup, and cross-platform access</li>
+                        <li><strong>Smart Strategy:</strong> Keep AirDrop for quick personal transfers + business file servers for organized team collaboration</li>
+                    </ul>
+                </div>
+
+                <div class="article-content">
+                    <p>AirDrop excels at quick file transfers between Apple devices, but business collaboration requires organized storage, permissions management, and structured workflows that go far beyond peer-to-peer sharing.</p>
+
+                    <h3>The Collaboration Challenge</h3>
+                    
+                    <div class="two-column">
+                        <div class="column-section">
+                            <h4 class="column-title">AirDrop Limitations</h4>
+                            <div class="column-content">
+                                <p>While convenient for personal use, AirDrop doesn't support:</p>
+                                <ul>
+                                    <li>Central file organization and management</li>
+                                    <li>Version control and document history</li>
+                                    <li>User permissions and access controls</li>
+                                    <li>Backup and recovery of shared files</li>
+                                    <li>Cross-platform compatibility</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="column-section">
+                            <h4 class="column-title">Business Requirements</h4>
+                            <div class="column-content">
+                                <p>Professional file sharing needs:</p>
+                                <ul>
+                                    <li>Structured folder hierarchies and organization</li>
+                                    <li>Role-based access and sharing permissions</li>
+                                    <li>Version tracking and conflict resolution</li>
+                                    <li>External client and vendor collaboration</li>
+                                    <li>Compliance and audit trail capabilities</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="highlight-box">
+                        <p><strong>The Problem:</strong> When team members AirDrop files, they create isolated copies that quickly become outdated. Business collaboration requires everyone working from the same source of truth.</p>
+                    </div>
+
+                    <h3>Professional File Sharing Features</h3>
+                    
+                    <div class="two-column">
+                        <div class="column-section">
+                            <h4 class="column-title">Organized Collaboration</h4>
+                            <div class="column-content">
+                                <ul>
+                                    <li>Centralized file servers with structured organization</li>
+                                    <li>Real-time collaboration and document co-editing</li>
+                                    <li>Automated version control and conflict resolution</li>
+                                    <li>Project-based file organization and workflows</li>
+                                    <li>Integration with business applications</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="column-section">
+                            <h4 class="column-title">Security & Control</h4>
+                            <div class="column-content">
+                                <ul>
+                                    <li>Granular user permissions and access controls</li>
+                                    <li>External sharing with expiration and passwords</li>
+                                    <li>Audit logs and access tracking</li>
+                                    <li>Data loss prevention and encryption</li>
+                                    <li>Compliance with industry regulations</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <h3>The Smart Approach: Purpose-Built Sharing</h3>
+                    <p>For Alberta businesses RIPEDA supports, this strategy maximizes both convenience and control:</p>
+                    
+                    <div class="highlight-box">
+                        <p><strong>AirDrop:</strong> Quick personal file transfers and casual sharing between Apple devices<br>
+                        <strong>Business File Servers:</strong> Team collaboration, project management, client sharing, and structured document workflows</p>
+                        <p>This preserves the seamless Apple experience for personal tasks while providing the structured collaboration environment that businesses require.</p>
+                    </div>
+
+                    <p>AirDrop remains a valuable tool for immediate file transfers, but businesses need organized file sharing systems that support team collaboration, client access, and long-term document management.</p>
+                </div>
+            </article>
+        </div>
+
+        <!-- Footer Section -->
+        <div class="footer-section">
+            <div class="footer-cta">
+                <h4>Ready for Professional File Collaboration?</h4>
+                <p>RIPEDA Consulting designs structured file sharing systems that scale with your business needs.</p>
+            </div>
+            
+            <div class="contact-info">
+                <p>RIPEDA Consulting Corp • Apple Consultants Network / Authorized Repair Provider</p>
+                <p>300 - 1301 8 Street SW • Calgary, AB • T2R 1B7</p>
+                <p>Phone: (844) 474-7332 • Email: info@ripeda.com • Web: ripeda.com</p>
+                <p>© 2025 RIPEDA Consulting Corp. All rights reserved.</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
