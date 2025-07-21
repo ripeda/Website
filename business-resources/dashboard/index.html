@@ -125,24 +125,55 @@ layout: none
             color: #416bd8;
             text-decoration: underline;
         }
+        .modal-body a.coming-soon {
+            color: #999;
+            text-decoration: none;
+            pointer-events: none;
+            position: relative;
+        }
+        .modal-body a.coming-soon:after {
+            content: " (Coming Soon)";
+            font-style: italic;
+            color: #ccc;
+        }
         .resource-grid {
             margin-top: 2rem;
         }
-        .coming-soon {
-            opacity: 0.6;
-            pointer-events: none;
+        .newsletter-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1rem;
+            margin: 1.5rem 0;
         }
-        .coming-soon-badge {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            background: #ffc107;
-            color: #333;
-            padding: 0.25rem 0.5rem;
-            border-radius: 12px;
-            font-size: 0.75rem;
+        .newsletter-item {
+            background: white;
+            border-radius: 8px;
+            padding: 1rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            border-left: 4px solid;
+            transition: transform 0.2s;
+        }
+        .newsletter-item:hover {
+            transform: translateY(-2px);
+        }
+        .newsletter-title {
             font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: #333;
         }
+        .newsletter-description {
+            font-size: 0.85rem;
+            color: #666;
+            line-height: 1.4;
+        }
+        /* Newsletter color themes */
+        .newsletter-green { border-left-color: #61BB46; }
+        .newsletter-yellow { border-left-color: #FDB827; }
+        .newsletter-orange { border-left-color: #F5821F; }
+        .newsletter-red { border-left-color: #E03A3E; }
+        .newsletter-magenta { border-left-color: #963D97; }
+        .newsletter-blue { border-left-color: #009DDC; }
+        .newsletter-pink { border-left-color: #f06292; }
     </style>
 </head>
 <body>
@@ -158,7 +189,7 @@ layout: none
                 </div>
                 <div class="col-md-4 text-md-end">
                     <button type="button" class="btn logout-btn" onclick="logout()">
-                        🚪 Logout
+                        Logout
                     </button>
                 </div>
             </div>
@@ -173,94 +204,46 @@ layout: none
                 <h3 class="mb-3">Quick Access Resources</h3>
                 <div class="row resource-grid">
                     
-                    <!-- Sales Tools -->
+                    <!-- Sales & Marketing Resources -->
                     <div class="col-md-4">
-                        <div class="resource-tile" onclick="openResourceModal('sales-tools')">
+                        <div class="resource-tile" onclick="openResourceModal('sales-marketing')">
                             <div class="text-center">
                                 <div class="resource-icon">
-                                    <img src="/images/icons/RIPEDA-Sales-Tools.png" alt="Resource Type">
+                                    <img src="/images/icons/RIPEDA-Marketing.png" alt="Sales & Marketing">
                                 </div>
-                                <div class="resource-title">Sales Tools & Scripts</div>
+                                <div class="resource-title">Sales & Marketing Resources</div>
                                 <div class="resource-description">
-                                    Conversation starters, objection handling scripts, and sales methodologies for Apple business solutions.
+                                    Sales tools, presentation materials, business case templates, and client-focused technology insights.
                                 </div>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Technical Resources -->
+                    <!-- Technical Resources & Guides -->
                     <div class="col-md-4">
                         <div class="resource-tile" onclick="openResourceModal('technical')">
                             <div class="text-center">
                                 <div class="resource-icon">
-                                    <img src="/images/icons/RIPEDA-Technical-Resources.png" alt="Resource Type">
+                                    <img src="/images/icons/RIPEDA-Technical-Resources.png" alt="Technical Resources">
                                 </div>
-                                <div class="resource-title">Technical Resources</div>
+                                <div class="resource-title">Technical Resources & Guides</div>
                                 <div class="resource-description">
-                                    Setup guides, deployment checklists, and troubleshooting resources for business environments.
+                                    Setup guides, deployment checklists, infrastructure insights, and technical troubleshooting resources.
                                 </div>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Marketing Materials -->
+                    <!-- Business Intelligence & Training -->
                     <div class="col-md-4">
-                        <div class="resource-tile" onclick="openResourceModal('marketing')">
+                        <div class="resource-tile" onclick="openResourceModal('business-intelligence')">
                             <div class="text-center">
                                 <div class="resource-icon">
-                                    <img src="/images/icons/RIPEDA-Marketing.png" alt="Resource Type">
+                                    <img src="/images/icons/RIPEDA-Education.png" alt="Business Intelligence">
                                 </div>
-                                <div class="resource-title">Marketing Materials</div>
+                                <div class="resource-title">Business Intelligence & Training</div>
                                 <div class="resource-description">
-                                    Business case templates, ROI calculators, and presentation materials for client meetings.
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Training Materials -->
-                    <div class="col-md-4">
-                        <div class="resource-tile coming-soon position-relative">
-                            <div class="coming-soon-badge">Coming Soon</div>
-                            <div class="text-center">
-                                <div class="resource-icon">
-                                    <img src="/images/icons/RIPEDA-Education.png" alt="Resource Type">
-                                </div>
-                                <div class="resource-title">Training Materials</div>
-                                <div class="resource-description">
-                                    Educational content, certification guides, and best practices for business consultations.
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Client Success Stories -->
-                    <div class="col-md-4">
-                        <div class="resource-tile coming-soon position-relative">
-                            <div class="coming-soon-badge">Coming Soon</div>
-                            <div class="text-center">
-                                <div class="resource-icon">
-                                    <img src="/images/icons/RIPEDA-Success-Stories.png" alt="Resource Type">
-                                </div>
-                                <div class="resource-title">Success Stories</div>
-                                <div class="resource-description">
-                                    Real-world case studies and customer testimonials to strengthen your business proposals.
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Industry Insights -->
-                    <div class="col-md-4">
-                        <div class="resource-tile coming-soon position-relative">
-                            <div class="coming-soon-badge">Coming Soon</div>
-                            <div class="text-center">
-                                <div class="resource-icon">
-                                    <img src="/images/icons/RIPEDA-Industry-Insights.png" alt="Resource Type">
-                                </div>
-                                <div class="resource-title">Industry Insights</div>
-                                <div class="resource-description">
-                                    Market trends, competitive analysis, and industry-specific talking points for various sectors.
+                                    Training materials, industry insights, success stories, and professional development resources.
                                 </div>
                             </div>
                         </div>
@@ -276,13 +259,12 @@ layout: none
                 <h3 class="mb-3">Recent Updates</h3>
                 <div class="card">
                     <div class="card-body">
-                        <h5 class="card-title">Welcome to Business Resources!</h5>
+                        <h5 class="card-title">Apple Business Technology Insights Collection</h5>
                         <p class="card-text">
-                            This new platform provides Apple Business Teams with curated resources, tools, and materials 
-                            to enhance customer conversations and close more business deals. Check back regularly for 
-                            new content and updates.
+                            New monthly newsletter series comparing Apple consumer solutions with enterprise business needs. 
+                            These insights help business teams understand when Apple tools serve customers well and when professional MSP solutions add critical value.
                         </p>
-                        <small class="text-muted">Published: July 3, 2025</small>
+                        <small class="text-muted">Published: June 15, 2026</small>
                     </div>
                 </div>
             </div>
@@ -291,7 +273,7 @@ layout: none
 
     <!-- Resource Modal -->
     <div class="modal fade" id="resourceModal" tabindex="-1">
-        <div class="modal-dialog modal-lg">
+        <div class="modal-dialog modal-xl">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="modalTitle">Resource Details</h5>
@@ -353,69 +335,102 @@ layout: none
             const modalBody = document.getElementById('modalBody');
             
             const resources = {
-                'sales-tools': {
-                    title: 'Sales Tools & Scripts',
+                'sales-marketing': {
+                    title: 'Sales & Marketing Resources',
                     content: `
-                        <h6>Conversation Starters</h6>
+                        <h6>Sales Tools & Scripts</h6>
                         <ul>
-                            <li><a href="/business-resources/assets/pdfs/conversation-starters.pdf" target="_blank">Business Conversation Openers</a></li>
-                            <li><a href="/business-resources/assets/pdfs/discovery-questions.pdf" target="_blank">Discovery Questions Guide</a></li>
+                            <li><a href="#" class="coming-soon">Business Conversation Openers</a></li>
+                            <li><a href="#" class="coming-soon">Discovery Questions Guide</a></li>
+                            <li><a href="#" class="coming-soon">Common Objections & Responses</a></li>
+                            <li><a href="#" class="coming-soon">Proven Closing Methods</a></li>
                         </ul>
                         
-                        <h6>Objection Handling</h6>
+                        <h6>Marketing Materials</h6>
                         <ul>
-                            <li><a href="/business-resources/assets/pdfs/objection-handling.pdf" target="_blank">Common Objections &amp; Responses</a></li>
-                            <li><a href="/business-resources/assets/pdfs/price-justification.pdf" target="_blank">Price Justification Scripts</a></li>
+                            <li><a href="#" class="coming-soon">Business Case Template</a></li>
+                            <li><a href="#" class="coming-soon">ROI Presentation Template</a></li>
+                            <li><a href="/calculators/mac_vs_pc_calculator.html" target="_blank">Mac vs PC Cost Calculator</a></li>
+                            <li><a href="/calculators/msp_cost_calculator.html" target="_blank">MSP Cost Calculator</a></li>
                         </ul>
-                        
-                        <h6>Closing Techniques</h6>
-                        <ul>
-                            <li><a href="/business-resources/assets/pdfs/closing-techniques.pdf" target="_blank">Proven Closing Methods</a></li>
-                            <li><a href="/business-resources/assets/pdfs/follow-up-strategies.pdf" target="_blank">Follow-up Strategies</a></li>
-                        </ul>
+
+                        <h6>Business Technology Insights</h6>
+                        <div class="newsletter-grid">
+                            <div class="newsletter-item newsletter-blue">
+                                <div class="newsletter-title">Apple Passwords vs 1Password for Business</div>
+                                <div class="newsletter-description">Why businesses choose enterprise password management beyond Apple's consumer tools</div>
+                            </div>
+                            <div class="newsletter-item newsletter-orange">
+                                <div class="newsletter-title">Why AirDrop Isn't Your File Sharing Strategy</div>
+                                <div class="newsletter-description">Understanding structured file sharing needs beyond peer-to-peer transfers</div>
+                            </div>
+                            <div class="newsletter-item newsletter-pink">
+                                <div class="newsletter-title">Apple Authorized Repair: Consumer vs Business</div>
+                                <div class="newsletter-description">Different repair models for retail experience versus operational efficiency</div>
+                            </div>
+                        </div>
                     `
                 },
                 'technical': {
-                    title: 'Technical Resources',
+                    title: 'Technical Resources & Guides',
                     content: `
                         <h6>Setup & Deployment</h6>
                         <ul>
-                            <li><a href="/business-resources/assets/pdfs/mdm-setup-guide.pdf" target="_blank">MDM Setup Guide</a></li>
-                            <li><a href="/business-resources/assets/pdfs/deployment-checklist.pdf" target="_blank">Enterprise Deployment Checklist</a></li>
+                            <li><a href="#" class="coming-soon">MDM Setup Guide</a></li>
+                            <li><a href="#" class="coming-soon">Enterprise Deployment Checklist</a></li>
+                            <li><a href="#" class="coming-soon">Office 365 Integration</a></li>
                         </ul>
                         
-                        <h6>Troubleshooting</h6>
+                        <h6>Troubleshooting & Support</h6>
                         <ul>
-                            <li><a href="/business-resources/assets/pdfs/common-issues.pdf" target="_blank">Common Issues & Solutions</a></li>
-                            <li><a href="/business-resources/assets/pdfs/escalation-procedures.pdf" target="_blank">Escalation Procedures</a></li>
+                            <li><a href="#" class="coming-soon">Common Issues & Solutions</a></li>
+                            <li><a href="#" class="coming-soon">Escalation Procedures</a></li>
+                            <li><a href="#" class="coming-soon">Security & Compliance Guide</a></li>
                         </ul>
-                        
-                        <h6>Integration Guides</h6>
-                        <ul>
-                            <li><a href="/business-resources/assets/pdfs/office365-integration.pdf" target="_blank">Office 365 Integration</a></li>
-                            <li><a href="/business-resources/assets/pdfs/security-compliance.pdf" target="_blank">Security & Compliance Guide</a></li>
-                        </ul>
+
+                        <h6>Infrastructure & Technology Insights</h6>
+                        <div class="newsletter-grid">
+                            <div class="newsletter-item newsletter-orange">
+                                <div class="newsletter-title">The Invisible Foundation That Makes Everything Work</div>
+                                <div class="newsletter-description">Why enterprise-grade network infrastructure determines business success</div>
+                            </div>
+                            <div class="newsletter-item newsletter-magenta">
+                                <div class="newsletter-title">The Full Power of Professional MDM</div>
+                                <div class="newsletter-description">Comprehensive business capabilities beyond basic device configuration</div>
+                            </div>
+                            <div class="newsletter-item newsletter-green">
+                                <div class="newsletter-title">Why iCloud Backup Isn't Enough for Business</div>
+                                <div class="newsletter-description">Professional data protection beyond personal backup solutions</div>
+                            </div>
+                            <div class="newsletter-item newsletter-red">
+                                <div class="newsletter-title">Screen Sharing vs Real Remote Support</div>
+                                <div class="newsletter-description">Comprehensive remote support beyond basic screen sharing capabilities</div>
+                            </div>
+                        </div>
                     `
                 },
-                'marketing': {
-                    title: 'Marketing Materials',
+                'business-intelligence': {
+                    title: 'Business Intelligence & Training',
                     content: `
-                        <h6>Presentation Templates</h6>
+                        <h6>Training Materials</h6>
                         <ul>
-                            <li><a href="/business-resources/assets/templates/business-case-template.pptx" target="_blank">Business Case Template</a></li>
-                            <li><a href="/business-resources/assets/templates/roi-presentation.pptx" target="_blank">ROI Presentation Template</a></li>
+                            <li><a href="#" class="coming-soon">Apple Business Fundamentals</a></li>
+                            <li><a href="#" class="coming-soon">Consultation Best Practices</a></li>
+                            <li><a href="#" class="coming-soon">Technical Skills Development</a></li>
                         </ul>
                         
-                        <h6>Marketing Flyers</h6>
+                        <h6>Success Stories & Case Studies</h6>
                         <ul>
-                            <li><a href="/business-resources/assets/marketing/apple-business-overview.pdf" target="_blank">Apple for Business Overview</a></li>
-                            <li><a href="/business-resources/assets/marketing/security-benefits.pdf" target="_blank">Security Benefits Flyer</a></li>
+                            <li><a href="#" class="coming-soon">Healthcare Practice Deployment</a></li>
+                            <li><a href="#" class="coming-soon">Legal Firm Security Implementation</a></li>
+                            <li><a href="#" class="coming-soon">Creative Agency Workflow Optimization</a></li>
                         </ul>
                         
-                        <h6>Calculators & Tools</h6>
+                        <h6>Industry Analysis & Trends</h6>
                         <ul>
-                            <li><a href="/calculators/mac_vs_pc_calculator.html" target="_blank">Mac vs PC Cost Calculator</a></li>
-                            <li><a href="/calculators/msp_cost_calculator.html" target="_blank">MSP Cost Calculator</a></li>
+                            <li><a href="#" class="coming-soon">Apple Business Market Trends 2026</a></li>
+                            <li><a href="#" class="coming-soon">Competitive Landscape Analysis</a></li>
+                            <li><a href="#" class="coming-soon">Industry ROI Benchmarks</a></li>
                         </ul>
                     `
                 }
