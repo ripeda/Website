@@ -127,112 +127,13 @@ permalink: /business-resources/
         </div>
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
-    <script>
-        // Encrypted R numbers (Base64 encoded for basic obfuscation)
-        const encryptedStores = [
-            'UjYwMQ==', 'UjUxNQ==', 'UjUxMg==', 'UjQ5MA==', 'UjQ4OA==', 'UjUxNA==',
-            'UjQ4OQ==', 'UjQ2MA==', 'UjQ0Nw==', 'UjQ2NA==', 'UjQxMg==', 'UjIwOQ==',
-            'UjQyMQ==', 'UjQyOQ==', 'UjQxMQ==', 'UjM5MQ==', 'UjM2OQ==', 'UjM1MA==',
-            'UjMzMg==', 'UjMwMQ==', 'UjMzMw==', 'UjI0OA==', 'UjI3Mw==', 'UjI4MA==',
-            'UjIwNw==', 'UjIwOA==', 'UjEyMQ==', 'UjEyMA=='
-        ];
-
-        function decryptStore(encrypted) {
-            return atob(encrypted);
-        }
-
-        function validateStoreCode(code) {
-            const cleanCode = code.toUpperCase().trim();
-            return encryptedStores.some(encrypted => decryptStore(encrypted) === cleanCode);
-        }
-
         async function logAccess(storeCode) {
             // TODO: Move to server-side API
             console.log('Business Resources Access:', {
-                storeCode: storeCode,
-                timestamp: new Date().toISOString(),
-                note: 'Logging temporarily disabled for security'
-            });
-        }
-
-        function setSession(storeCode) {
-            const sessionData = {
-                storeCode: storeCode,
-                timestamp: Date.now(),
-                expires: Date.now() + (4 * 60 * 60 * 1000) // 4 hours
-            };
-            localStorage.setItem('businessResourcesAuth', JSON.stringify(sessionData));
-        }
-
-        function checkExistingSession() {
-            const saved = localStorage.getItem('businessResourcesAuth');
-            if (saved) {
-                const sessionData = JSON.parse(saved);
-                if (Date.now() < sessionData.expires) {
-                    // Valid session exists, redirect to dashboard
-                    window.location.href = '/business-resources/dashboard/';
-                    return true;
-                }
-                localStorage.removeItem('businessResourcesAuth');
-            }
-            return false;
-        }
-
-        document.getElementById('authForm').addEventListener('submit', async function(e) {
-            e.preventDefault();
-            
-            const storeCode = document.getElementById('storeCode').value.trim();
-            const errorDiv = document.getElementById('errorMessage');
-            const submitBtn = this.querySelector('button[type="submit"]');
-            const normalText = submitBtn.querySelector('.normal-text');
-            const loadingText = submitBtn.querySelector('.loading');
-            
-            console.log('🔍 Form submitted with store code:', storeCode);
-            
-            // Reset error state
-            errorDiv.style.display = 'none';
-            
-            // Show loading
-            normalText.style.display = 'none';
-            loadingText.style.display = 'inline';
-            submitBtn.disabled = true;
-            
-            // Validate store code (now case-insensitive)
-            if (validateStoreCode(storeCode)) {
-                console.log('✅ Store code validated');
-                try {
-                    // Log the access (always uppercase for consistency)
-                    await logAccess(storeCode.toUpperCase().trim());
-                    
-                    // Set session (always uppercase for consistency)
-                    setSession(storeCode.toUpperCase().trim());
-                    
-                    console.log('🚀 Redirecting to dashboard...');
-                    
-                    // Redirect to dashboard
-                    window.location.href = '/business-resources/dashboard/';
-                } catch (error) {
-                    console.error('❌ Access error:', error);
-                    errorDiv.textContent = 'System error. Please try again.';
-                    errorDiv.style.display = 'block';
-                }
-            } else {
-                console.log('❌ Invalid store code');
-                errorDiv.style.display = 'block';
-            }
-            
-            // Reset button state
-            normalText.style.display = 'inline';
-            loadingText.style.display = 'none';
-            submitBtn.disabled = false;
+            storeCode: storeCode,
+            timestamp: new Date().toISOString(),
+            note: 'Logging temporarily disabled for security'
         });
-
-        // Check for existing session on page load
-        window.addEventListener('load', function() {
-            console.log('📄 Page loaded, checking existing session...');
-            checkExistingSession();
-        });
-    </script>
+    }
 </body>
 </html>
