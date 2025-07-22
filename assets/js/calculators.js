@@ -34,17 +34,6 @@ function openModal(modalId) {
     document.body.style.overflow = 'hidden';
 }
 
-// Bridge function for calculator cards (missing function)
-// Fix Suggestion by Claude Sonnet 4
-function openCalculator(type) {
-    if (type === 'mac') {
-        openModal('macModal');
-    } else if (type === 'msp') {
-        openModal('mspModal');
-    }
-}
-
-
 function closeModal(modalId) {
     const modal = document.getElementById(modalId);
     modal.style.display = 'none';
