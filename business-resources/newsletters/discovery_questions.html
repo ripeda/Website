@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Discovery Questions - RIPEDA Consulting</title>
+    <meta name="robots" content="noindex, nofollow, noarchive, nosnippet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .page-header {
+            background: linear-gradient(135deg, #609bc3 0%, #416bd8 100%);
+            color: white;
+            padding: 3rem 2rem;
+            margin-bottom: 3rem;
+        }
+        
+        .page-title {
+            font-size: 2.5rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+        
+        .page-subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            margin-bottom: 0;
+        }
+        
+        .content-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+        
+        .content-card {
+            background: white;
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            border-left: 5px solid;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        
+        .content-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+        }
+        
+        .card-title {
+            font-weight: 600;
+            font-size: 1.3rem;
+            margin-bottom: 1.5rem;
+            color: #333;
+        }
+        
+        .question-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .question-list li {
+            padding: 0.75rem 0;
+            border-bottom: 1px solid #f0f0f0;
+            color: #555;
+            line-height: 1.4;
+        }
+        
+        .question-list li:last-child {
+            border-bottom: none;
+        }
+        
+        .question-list li:before {
+            content: '"';
+            color: #609bc3;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+        
+        .question-list li:after {
+            content: '"';
+            color: #609bc3;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+        
+        /* Color themes */
+        .card-blue { border-left-color: #009DDC; }
+        .card-green { border-left-color: #61BB46; }
+        .card-orange { border-left-color: #F5821F; }
+        .card-red { border-left-color: #E03A3E; }
+        .card-purple { border-left-color: #963D97; }
+        .card-yellow { border-left-color: #FDB827; }
+        .card-pink { border-left-color: #f06292; }
+        
+        .usage-section {
+            background: #f8f9fa;
+            padding: 2rem;
+            border-radius: 12px;
+            margin: 3rem 0;
+        }
+        
+        .usage-title {
+            color: #333;
+            font-weight: 600;
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+        }
+        
+        .back-link {
+            display: inline-block;
+            margin-bottom: 2rem;
+            color: #609bc3;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        
+        .back-link:hover {
+            color: #416bd8;
+            text-decoration: underline;
+        }
+
+        .disclaimer {
+            font-size: 0.85rem;
+            opacity: 0.8;
+            margin-top: 1.5rem;
+            font-weight: 300;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <div class="page-header">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 text-center">
+                    <h1 class="page-title">Discovery Questions</h1>
+                    <p class="page-subtitle">Deeper questions to uncover specific pain points, needs, and business impact which may point to the need for an MSP</p>
+                    <div class="disclaimer">For Apple Business Team Internal Use Only</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="container" style="padding: 0 2rem;">
+        <a href="/business-resources/dashboard/" class="back-link">← Back to Business Resources</a>
+        
+        <!-- Content Grid -->
+        <div class="content-grid">
+            
+            <!-- IT Support & Maintenance -->
+            <div class="content-card card-blue">
+                <h3 class="card-title">IT Support & Maintenance Discovery</h3>
+                <ul class="question-list">
+                    <li>Do you have someone on staff who handles all your IT issues, or do you call someone when things break?</li>
+                    <li>How quickly can you get help when your computers or network stop working?</li>
+                    <li>What's the longest you've been without email or internet access?</li>
+                    <li>Do you ever feel like you're always fixing the same problems over and over?</li>
+                    <li>How often do your employees have to restart their computers or deal with slow performance?</li>
+                    <li>How much time does your team spend each week dealing with technology problems instead of focusing on your business?</li>
+                </ul>
+            </div>
+
+            <!-- Security & Data Protection -->
+            <div class="content-card card-red">
+                <h3 class="card-title">Security & Data Protection Discovery</h3>
+                <ul class="question-list">
+                    <li>How do you back up your important business files?</li>
+                    <li>What would happen if you lost all your data tomorrow?</li>
+                    <li>Have you ever worried about cyber security or had any close calls?</li>
+                    <li>Do you feel confident that your business data is properly protected?</li>
+                    <li>How do you handle software updates and security patches?</li>
+                </ul>
+            </div>
+
+            <!-- Business Impact Assessment -->
+            <div class="content-card card-orange">
+                <h3 class="card-title">Business Impact Assessment</h3>
+                <ul class="question-list">
+                    <li>If I told you there was a way to reduce your IT problems by 80%, what would that be worth to your business?</li>
+                    <li>How much does it cost when your team can't work because of technology issues?</li>
+                    <li>What could your team accomplish if they never had to worry about computer problems?</li>
+                    <li>Have you ever calculated how much time your staff spends dealing with IT issues instead of serving customers?</li>
+                    <li>On a scale of 1-10, how satisfied are you with your current IT situation?</li>
+                </ul>
+            </div>
+
+            <!-- Decision-Making Process -->
+            <div class="content-card card-green">
+                <h3 class="card-title">Decision-Making Process Discovery</h3>
+                <ul class="question-list">
+                    <li>Who typically makes decisions about technology purchases for your company?</li>
+                    <li>How do you usually handle major technology decisions or upgrades?</li>
+                    <li>What's your process when you need to solve a big technology problem?</li>
+                    <li>Do you prefer to fix things as they break, or would you rather prevent problems before they happen?</li>
+                </ul>
+            </div>
+
+            <!-- Current Situation Assessment -->
+            <div class="content-card card-purple">
+                <h3 class="card-title">Current Situation Assessment</h3>
+                <ul class="question-list">
+                    <li>What's working well with your current technology setup?</li>
+                    <li>If you could wave a magic wand and fix one technology problem, what would it be?</li>
+                    <li>How often do technology issues interrupt your normal business operations?</li>
+                    <li>What's the most frustrating technology problem you deal with regularly?</li>
+                </ul>
+            </div>
+
+            <!-- Qualification & Next Steps -->
+            <div class="content-card card-yellow">
+                <h3 class="card-title">Qualification & Next Steps Discovery</h3>
+                <ul class="question-list">
+                    <li>How open would you be to having someone take a look at your current setup and identify potential improvements?</li>
+                    <li>Would it be worth 30 minutes to learn how to prevent most of your current IT problems?</li>
+                    <li>If I could connect you with someone who specializes in solving exactly these types of issues for businesses like yours, would that be helpful?</li>
+                    <li>Would you like to see what a proper business technology setup could look like for your company?</li>
+                </ul>
+            </div>
+
+        </div>
+
+        <!-- Usage Guidelines -->
+        <div class="usage-section">
+            <h3 class="usage-title">When to Use Discovery Questions</h3>
+            <div class="row">
+                <div class="col-md-6">
+                    <h5>Best For:</h5>
+                    <ul>
+                        <li>Customer has shown interest in solving their IT problems</li>
+                        <li>You need to quantify business impact</li>
+                        <li>Building business case / Qualifying for MSP services</li>
+                        <li>Understanding decision-making process</li>
+                    </ul>
+                </div>
+                <div class="col-md-6">
+                    <h5>Key Principles:</h5>
+                    <ul>
+                        <li>Ask follow-up questions based on their specific responses</li>
+                        <li>Focus on business impact, not technical features</li>
+                        <li>Use their own words when reflecting back problems</li>
+                        <li>Position as consultative partner, not salesperson</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

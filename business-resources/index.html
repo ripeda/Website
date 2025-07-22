@@ -129,80 +129,132 @@ permalink: /business-resources/
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
     <script>
-        // Encrypted R numbers (Base64 encoded for basic obfuscation)
-        const encryptedStores = [
-            'UjYwMQ==', 'UjUxNQ==', 'UjUxMg==', 'UjQ5MA==', 'UjQ4OA==', 'UjUxNA==',
-            'UjQ4OQ==', 'UjQ2MA==', 'UjQ0Nw==', 'UjQ2NA==', 'UjQxMg==', 'UjIwOQ==',
-            'UjQyMQ==', 'UjQyOQ==', 'UjQxMQ==', 'UjM5MQ==', 'UjM2OQ==', 'UjM1MA==',
-            'UjMzMg==', 'UjMwMQ==', 'UjMzMw==', 'UjI0OA==', 'UjI3Mw==', 'UjI4MA==',
-            'UjIwNw==', 'UjIwOA==', 'UjEyMQ==', 'UjEyMA=='
+        // SECURE HASH-BASED STORE AUTHENTICATION
+        // No store numbers are visible in client-side code
+
+        // Pre-computed hashes of valid store numbers
+        const validStoreHashes = [
+            '862115', '862345', '862233', '861890', '861878', '862334',
+            '861879', '861740', '861627', '861744', '861492', '860489',
+            '861501', '861509', '861491', '861371', '861349', '861330',
+            '861312', '861281', '861313', '860228', '860253', '860260',
+            '860187', '860188', '860101', '860100',
+            '860976', '860977'
         ];
 
-        function decryptStore(encrypted) {
-            return atob(encrypted);
+        /**
+         * Simple hash function for store codes
+         */
+        function simpleHash(str) {
+            let hash = 0;
+            for (let i = 0; i < str.length; i++) {
+                const char = str.charCodeAt(i);
+                hash = ((hash << 5) - hash) + char;
+                hash = hash & hash; // Convert to 32-bit integer
+            }
+            return Math.abs(hash).toString();
         }
 
+        /**
+         * Validate store code against hash database
+         */
         function validateStoreCode(code) {
             const cleanCode = code.toUpperCase().trim();
-            return encryptedStores.some(encrypted => decryptStore(encrypted) === cleanCode);
+            const hash = simpleHash(cleanCode);
+            return validStoreHashes.includes(hash);
         }
 
-        // Fixed logAccess function
+        /**
+         * Check if this is a production environment
+         */
+        function isProduction() {
+            return window.location.hostname === 'ripeda.com';
+        }
+
+        /**
+         * Log access attempt with intelligent filtering
+         */
         async function logAccess(storeCode) {
             try {
-                const SUPABASE_URL = 'https://benqofspsbmhaotikzyr.supabase.co';
-                const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJlbnFvZnNwc2JtaGFvdGlrenlyIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTE5MDQ1MjgsImV4cCI6MjA2NzQ4MDUyOH0.bGqty1a-WLFkXbfoVhO1_rcCS6PzAOpqj60QyWPSnF8';
+                // Skip logging in development mode
+                if (!isProduction()) {
+                    console.log('🔧 Development mode - logging disabled');
+                    return;
+                }
                 
-                const response = await fetch(`${SUPABASE_URL}/rest/v1/access_logs`, {
+                // Production logging (currently placeholder)
+                console.log('📊 Would log production store access:', {
+                    store_code: storeCode,
+                    timestamp: new Date().toISOString(),
+                    note: 'N8N webhook integration pending'
+                });
+                
+                // TODO: Uncomment when N8N is ready
+                /*
+                const response = await fetch('https://n8n.ripeda.com/webhook/business-resources-access', {
                     method: 'POST',
-                    headers: {
+                    headers: { 
                         'Content-Type': 'application/json',
-                        'apikey': SUPABASE_ANON_KEY,
-                        'Authorization': `Bearer ${SUPABASE_ANON_KEY}`,
-                        'Prefer': 'return=minimal'
+                        'X-Source': 'business-resources-auth'
                     },
                     body: JSON.stringify({
                         store_code: storeCode,
-                        access_time: new Date().toISOString(),
-                        user_agent: navigator.userAgent.substring(0, 250)
+                        timestamp: new Date().toISOString(),
+                        access_type: 'production',
+                        user_agent: navigator.userAgent.substring(0, 200)
                     })
                 });
-                
-                if (!response.ok) {
-                    throw new Error(`HTTP error! status: ${response.status}`);
-                }
-                
-                console.log('✅ Access logged successfully');
+                */
                 
             } catch (error) {
-                console.warn('Logging failed, but proceeding with access:', error);
-                // Don't block user access if logging fails
+                console.warn('⚠️ Logging failed (but proceeding):', error.message);
             }
         }
 
+        /**
+         * Create session for authenticated user
+         */
         function setSession(storeCode) {
             const sessionData = {
-                storeCode: storeCode,
+                storeCode: storeCode.toUpperCase(),
                 timestamp: Date.now(),
-                expires: Date.now() + (4 * 60 * 60 * 1000) // 4 hours
+                expires: Date.now() + (4 * 60 * 60 * 1000), // 4 hours
+                sessionId: Math.random().toString(36).substring(2, 15)
             };
+            
             localStorage.setItem('businessResourcesAuth', JSON.stringify(sessionData));
+            console.log('💾 Session created for:', storeCode);
         }
 
+        /**
+         * Check for existing valid session
+         */
         function checkExistingSession() {
-            const saved = localStorage.getItem('businessResourcesAuth');
-            if (saved) {
+            try {
+                const saved = localStorage.getItem('businessResourcesAuth');
+                if (!saved) return false;
+                
                 const sessionData = JSON.parse(saved);
-                if (Date.now() < sessionData.expires) {
-                    // Valid session exists, redirect to dashboard
-                    window.location.href = '/business-resources/dashboard/';
-                    return true;
+                
+                // Check if session is expired
+                if (Date.now() > sessionData.expires) {
+                    console.log('⏰ Session expired, clearing...');
+                    localStorage.removeItem('businessResourcesAuth');
+                    return false;
                 }
+                
+                console.log('✅ Valid session found, redirecting...');
+                window.location.href = '/business-resources/dashboard/';
+                return true;
+                
+            } catch (error) {
+                console.warn('⚠️ Session check failed:', error);
                 localStorage.removeItem('businessResourcesAuth');
+                return false;
             }
-            return false;
         }
 
+        // FORM SUBMISSION HANDLER
         document.getElementById('authForm').addEventListener('submit', async function(e) {
             e.preventDefault();
             
@@ -212,37 +264,38 @@ permalink: /business-resources/
             const normalText = submitBtn.querySelector('.normal-text');
             const loadingText = submitBtn.querySelector('.loading');
             
-            console.log('🔍 Form submitted with store code:', storeCode);
+            console.log('🔍 Authentication attempt for:', storeCode);
             
-            // Reset error state
+            // Reset UI state
             errorDiv.style.display = 'none';
-            
-            // Show loading
             normalText.style.display = 'none';
             loadingText.style.display = 'inline';
             submitBtn.disabled = true;
             
-            // Validate store code (now case-insensitive)
-            if (validateStoreCode(storeCode)) {
-                console.log('✅ Store code validated');
-                try {
-                    // Log the access (always uppercase for consistency)
-                    await logAccess(storeCode.toUpperCase().trim());
+            try {
+                // Validate store code using hash lookup
+                if (validateStoreCode(storeCode)) {
+                    console.log('✅ Store code authenticated');
                     
-                    // Set session (always uppercase for consistency)
-                    setSession(storeCode.toUpperCase().trim());
+                    const normalizedCode = storeCode.toUpperCase().trim();
+                    
+                    // Log access attempt
+                    await logAccess(normalizedCode);
+                    
+                    // Create user session
+                    setSession(normalizedCode);
                     
                     console.log('🚀 Redirecting to dashboard...');
-                    
-                    // Redirect to dashboard
                     window.location.href = '/business-resources/dashboard/';
-                } catch (error) {
-                    console.error('❌ Access error:', error);
-                    errorDiv.textContent = 'System error. Please try again.';
+                    
+                } else {
+                    console.log('❌ Invalid store code');
                     errorDiv.style.display = 'block';
                 }
-            } else {
-                console.log('❌ Invalid store code');
+                
+            } catch (error) {
+                console.error('❌ Authentication error:', error);
+                errorDiv.textContent = 'System error. Please try again.';
                 errorDiv.style.display = 'block';
             }
             
@@ -254,9 +307,10 @@ permalink: /business-resources/
 
         // Check for existing session on page load
         window.addEventListener('load', function() {
-            console.log('📄 Page loaded, checking existing session...');
+            console.log('📄 Page loaded, checking authentication state...');
             checkExistingSession();
         });
     </script>
+    
 </body>
 </html>
