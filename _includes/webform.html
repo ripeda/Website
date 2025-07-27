@@ -1,26 +1,18 @@
 <script>
-document.getElementById('contact-form').addEventListener('submit', async function(e) {
-    e.preventDefault(); // Prevent default form submission
-    
-    const form = e.target;
+function submitWithRecaptcha() {
+    const form = document.getElementById('contact-form');
     const submitBtn = form.querySelector('.submit-btn');
     const originalText = submitBtn.textContent;
     
-    // Show loading state immediately
-    submitBtn.textContent = 'Processing...';
-    submitBtn.disabled = true;
-    form.style.opacity = '0.7';
+    // Check honeypots first (spam detection)
+    const honeypot1 = form.querySelector('input[name="website_url"]').value;
+    const honeypot2 = form.querySelector('input[name="backup_email"]').value;
+    const honeypot3 = form.querySelector('input[name="company_website"]').value;
     
-    try {
-        // Submit form data via AJAX
-        const formData = new FormData(form);
-        const response = await fetch(form.action, {
-            method: 'POST',
-            body: formData
-        });
-        
-        if (response.ok) {
-            // Success - replace form with thank you message
+    if (honeypot1 || honeypot2 || honeypot3) {
+        // Silently fail - looks like spam
+        submitBtn.textContent = 'Sending...';
+        setTimeout(() => {
             form.parentElement.innerHTML = `
                 <div style="text-align: center; padding: 3rem 2rem; background: #f8f9fa; border-radius: 10px;">
                     <h2 style="color: #28a745; margin-bottom: 1rem;">✅ Thank You!</h2>
@@ -28,97 +20,181 @@ document.getElementById('contact-form').addEventListener('submit', async functio
                     <p style="color: #666;">We typically respond within 24 hours during business days.</p>
                 </div>
             `;
-        } else {
-            throw new Error('Submission failed');
-        }
-        
-    } catch (error) {
-        // Error handling
-        alert('Sorry, there was an error submitting your inquiry. Please try again or call us at 1-(844)-4-RIPEDA.');
-        
-        // Restore form
-        submitBtn.textContent = originalText;
-        submitBtn.disabled = false;
-        form.style.opacity = '1';
+        }, 2000);
+        return;
     }
-});
+    
+    // Show loading state
+    submitBtn.textContent = 'Verifying...';
+    submitBtn.disabled = true;
+    form.style.opacity = '0.7';
+    
+    // Get reCAPTCHA token first
+    grecaptcha.ready(function() {
+        grecaptcha.execute('6LfJ4JArAAAAABPkwip7b7H8kHhR6bH7h3SSjLha', {action: 'contact_form'}).then(function(token) {
+            // Update button text
+            submitBtn.textContent = 'Processing...';
+            
+            // Add token to hidden field
+            document.getElementById('recaptcha-token').value = token;
+            
+            // Collect form data
+            const formData = new FormData(form);
+            const data = {};
+            
+            // Handle checkbox groups (inquiry_type)
+            const inquiryTypes = [];
+            const inquiryCheckboxes = form.querySelectorAll('input[name="inquiry_type"]:checked');
+            inquiryCheckboxes.forEach(checkbox => {
+                inquiryTypes.push(checkbox.value);
+            });
+            
+            // Convert FormData to regular object
+            for (let [key, value] of formData.entries()) {
+                if (key === 'inquiry_type') {
+                    // Skip individual checkbox entries - we'll handle this separately
+                    continue;
+                }
+                data[key] = value;
+            }
+            
+            // Add inquiry types as comma-separated string
+            data.inquiry_type = inquiryTypes.join(', ') || 'General Inquiry';
+            
+            // Remove honeypot fields from submission (keep recaptcha_token)
+            delete data.website_url;
+            delete data.backup_email;
+            delete data.company_website;
+            
+            // Submit to N8N webhook
+            fetch('https://internal-n8n.ripeda.com/webhook/capsule-leads', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(data)
+            })
+            .then(response => {
+                if (response.ok) {
+                    // Success - replace form with thank you message
+                    form.parentElement.innerHTML = `
+                        <div style="text-align: center; padding: 3rem 2rem; background: #f8f9fa; border-radius: 10px;">
+                            <h2 style="color: #28a745; margin-bottom: 1rem;">✅ Thank You!</h2>
+                            <p style="font-size: 1.1rem; margin-bottom: 1rem;">Your inquiry has been received and our team will contact you shortly.</p>
+                            <p style="color: #666;">We typically respond within 24 hours during business days.</p>
+                        </div>
+                    `;
+                } else {
+                    throw new Error('Submission failed');
+                }
+            })
+            .catch(error => {
+                // Error handling
+                alert('Sorry, there was an error submitting your inquiry. Please try again or call us at 1-(844)-4-RIPEDA.');
+                
+                // Restore form
+                submitBtn.textContent = originalText;
+                submitBtn.disabled = false;
+                form.style.opacity = '1';
+            });
+        }).catch(function(error) {
+            // reCAPTCHA failed
+            alert('Security verification failed. Please try again or call us at 1-(844)-4-RIPEDA.');
+            
+            // Restore form
+            submitBtn.textContent = originalText;
+            submitBtn.disabled = false;
+            form.style.opacity = '1';
+        });
+    });
+}</script>
 </script>
 
 <div class="form-container">
-<form id="contact-form" method="POST" action="https://internal-n8n.ripeda.com/webhook/capsule-leads">    <div class="form-group">
-      <label>First Name</label>
-      <input type="text" name="first_name" required />
-    </div>
-    <div class="form-group">
-      <label>Last Name</label>
-      <input type="text" name="last_name" required />
-    </div>
-    <div class="form-group">
-      <label>Email</label>
-      <input type="email" name="email" required />
-    </div>
-    <div class="form-group">
-      <label>Phone</label>
-      <input type="tel" name="phone" required pattern="[\d\s\-\.\(\)]{10,}" />
-    </div>
-    <div class="form-group">
-      <label>Company Name</label>
-      <input type="text" name="company" required />
-    </div>
-    <div class="form-group">
-      <label>Job Title</label>
-      <input type="text" name="job_title" required />
-    </div>
-    <div class="form-group">
-      <label>Company Size</label>
-      <select name="company_size" required>
-        <option value="">-- Please Select --</option>
-        <option value="1-10">1–10 employees</option>
-        <option value="11-50">11–50 employees</option>
-        <option value="51-200">51–200 employees</option>
-        <option value="201-500">201–500 employees</option>
-        <option value="500+">500+ employees</option>
-      </select>
-    </div>
-    <div class="form-group">
-      <label>Industry</label>
-      <select name="industry" required>
-        <option value="">-- Please Select --</option>
-        <option value="Legal">Legal</option>
-        <option value="Education">Education</option>
-        <option value="Professional">Professional</option>
-        <option value="Medical">Medical</option>
-        <option value="Construction">Construction</option>
-        <option value="Retail">Retail</option>
-        <option value="Hospitality">Hospitality</option>
-        <option value="Engineering">Engineering</option>
-        <option value="Marketing">Marketing</option>
-        <option value="Manufacturing">Manufacturing</option>
-        <option value="Corporate">Corporate</option>
-        <option value="Industrial">Industrial</option>
-        <option value="Technology">Technology</option>
-        <option value="Software">Software</option>
-        <option value="Creative">Creative</option>
-      </select>
-    </div>
-    <div class="form-group">
-      <label>Inquiry Type</label>
-      <div class="checkbox-group">
-        <label><input type="checkbox" name="inquiry_type" value="ABM" /> Device Management</label>
-        <label><input type="checkbox" name="inquiry_type" value="DaaS" /> DaaS</label>
-        <label><input type="checkbox" name="inquiry_type" value="Repairs" /> Repairs</label>
-        <label><input type="checkbox" name="inquiry_type" value="MSP Support" /> Full MSP Support</label>
-      </div>
-    </div>
-    <div class="form-group">
-      <label>If Other, please specify</label>
-      <textarea name="other_note" rows="2"></textarea>
-    </div>
-    <div class="form-group">
-      <label><input type="checkbox" name="newsletter_opt_in" /> Keep me updated with news, offers, and security alerts</label>
-    </div>
-    <div class="form-group">
-      <button class="submit-btn" type="submit">Submit Inquiry</button>
-    </div>
-  </form>
+    <form id="contact-form">
+        <div class="form-group">
+            <label>First Name</label>
+            <input type="text" name="first_name" required />
+        </div>
+        <div class="form-group">
+            <label>Last Name</label>
+            <input type="text" name="last_name" required />
+        </div>
+        <div class="form-group">
+            <label>Email</label>
+            <input type="email" name="email" required />
+        </div>
+        <div class="form-group">
+            <label>Phone</label>
+            <input type="tel" name="phone" required pattern="[\d\s\-\.\(\)]{10,}" />
+        </div>
+        <div class="form-group">
+            <label>Company Name</label>
+            <input type="text" name="company" required />
+        </div>
+        <div class="form-group">
+            <label>Job Title</label>
+            <input type="text" name="job_title" required />
+        </div>
+        <div class="form-group">
+            <label>Company Size</label>
+            <select name="company_size" required>
+                <option value="">-- Please Select --</option>
+                <option value="1-10">1–10 employees</option>
+                <option value="11-50">11–50 employees</option>
+                <option value="51-200">51–200 employees</option>
+                <option value="201-500">201–500 employees</option>
+                <option value="500+">500+ employees</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label>Industry</label>
+            <select name="industry" required>
+                <option value="">-- Please Select --</option>
+                <option value="Legal">Legal</option>
+                <option value="Education">Education</option>
+                <option value="Professional">Professional</option>
+                <option value="Medical">Medical</option>
+                <option value="Construction">Construction</option>
+                <option value="Retail">Retail</option>
+                <option value="Hospitality">Hospitality</option>
+                <option value="Engineering">Engineering</option>
+                <option value="Marketing">Marketing</option>
+                <option value="Manufacturing">Manufacturing</option>
+                <option value="Corporate">Corporate</option>
+                <option value="Industrial">Industrial</option>
+                <option value="Technology">Technology</option>
+                <option value="Software">Software</option>
+                <option value="Creative">Creative</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label>Inquiry Type</label>
+            <div class="checkbox-group">
+                <label><input type="checkbox" name="inquiry_type" value="ABM" /> Device Management</label>
+                <label><input type="checkbox" name="inquiry_type" value="DaaS" /> DaaS</label>
+                <label><input type="checkbox" name="inquiry_type" value="Repairs" /> Repairs</label>
+                <label><input type="checkbox" name="inquiry_type" value="MSP Support" /> Full MSP Support</label>
+            </div>
+        </div>
+        <div class="form-group">
+            <label>If Other, please specify</label>
+            <textarea name="other_note" rows="2"></textarea>
+        </div>
+        <div class="form-group">
+            <label><input type="checkbox" name="newsletter_opt_in" /> Keep me updated with news, offers, and security alerts</label>
+        </div>
+        
+        <!-- Honeypot Fields (Hidden from real users) -->
+        <input type="text" name="website_url" style="display: none !important;" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <input type="email" name="backup_email" style="position: absolute; left: -9999px; opacity: 0;" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <input type="text" name="company_website" style="opacity: 0; position: absolute; width: 0; height: 0;" tabindex="-1" autocomplete="off" aria-hidden="true">
+        
+        <!-- Hidden field for reCAPTCHA token -->
+        <input type="hidden" name="recaptcha_token" id="recaptcha-token">
+        
+        <div class="form-group">
+            <button class="submit-btn" type="button" onclick="submitWithRecaptcha()">Submit Inquiry</button>
+        </div>
+    </form>
 </div>
