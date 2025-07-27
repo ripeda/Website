@@ -1,3 +1,49 @@
+<script>
+document.getElementById('contact-form').addEventListener('submit', async function(e) {
+    e.preventDefault(); // Prevent default form submission
+    
+    const form = e.target;
+    const submitBtn = form.querySelector('.submit-btn');
+    const originalText = submitBtn.textContent;
+    
+    // Show loading state immediately
+    submitBtn.textContent = 'Processing...';
+    submitBtn.disabled = true;
+    form.style.opacity = '0.7';
+    
+    try {
+        // Submit form data via AJAX
+        const formData = new FormData(form);
+        const response = await fetch(form.action, {
+            method: 'POST',
+            body: formData
+        });
+        
+        if (response.ok) {
+            // Success - replace form with thank you message
+            form.parentElement.innerHTML = `
+                <div style="text-align: center; padding: 3rem 2rem; background: #f8f9fa; border-radius: 10px;">
+                    <h2 style="color: #28a745; margin-bottom: 1rem;">✅ Thank You!</h2>
+                    <p style="font-size: 1.1rem; margin-bottom: 1rem;">Your inquiry has been received and our team will contact you shortly.</p>
+                    <p style="color: #666;">We typically respond within 24 hours during business days.</p>
+                </div>
+            `;
+        } else {
+            throw new Error('Submission failed');
+        }
+        
+    } catch (error) {
+        // Error handling
+        alert('Sorry, there was an error submitting your inquiry. Please try again or call us at 1-(844)-4-RIPEDA.');
+        
+        // Restore form
+        submitBtn.textContent = originalText;
+        submitBtn.disabled = false;
+        form.style.opacity = '1';
+    }
+});
+</script>
+
 <div class="form-container">
 <form id="contact-form" method="POST" action="https://internal-n8n.ripeda.com/webhook/capsule-leads">    <div class="form-group">
       <label>First Name</label>
