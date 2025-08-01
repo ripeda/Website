@@ -174,6 +174,89 @@ layout: none
         .newsletter-magenta { border-left-color: #963D97; }
         .newsletter-blue { border-left-color: #009DDC; }
         .newsletter-pink { border-left-color: #f06292; }
+
+        /* Book Me Banner Styling - Subtle and Compact */
+        .book-me-banner {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            border: 1px solid #609bc3;
+            border-radius: 8px;
+            padding: 1rem 1.5rem 0.75rem 1.5rem;
+            margin: 1rem 0 2rem 0;
+            position: relative;
+        }
+
+        .book-me-banner::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, #609bc3 0%, #416bd8 100%);
+            border-radius: 8px 8px 0 0;
+        }
+
+        .banner-content {
+            font-size: 0.95rem;
+            color: #444;
+            line-height: 1.4;
+        }
+
+        .banner-content strong {
+            color: #609bc3;
+        }
+
+        .book-banner-btn {
+            background: #609bc3;
+            border: none;
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            text-decoration: none;
+            transition: all 0.2s ease;
+            white-space: nowrap;
+        }
+
+        .book-banner-btn:hover {
+            background: #416bd8;
+            color: white;
+            text-decoration: none;
+            transform: translateY(-1px);
+        }
+
+        .banner-expiry {
+            position: absolute;
+            bottom: 0.25rem;
+            right: 1rem;
+            font-size: 0.75rem;
+            color: #888;
+            font-style: italic;
+        }
+
+        /* Mobile responsiveness */
+        @media (max-width: 768px) {
+            .book-me-banner {
+                padding: 1rem;
+                text-align: center;
+            }
+            
+            .banner-content {
+                margin-bottom: 1rem;
+                font-size: 0.9rem;
+            }
+            
+            .book-banner-btn {
+                margin-bottom: 0.5rem;
+            }
+            
+            .banner-expiry {
+                position: static;
+                text-align: center;
+                margin-top: 0.5rem;
+            }
+        }
     </style>
 </head>
 <body>
@@ -249,6 +332,31 @@ layout: none
                         </div>
                     </div>
 
+                </div>
+            </div>
+        </div>
+
+        <!-- Book Me Section -->
+        <div class="row mt-4">
+            <div class="col-12">
+                <div class="book-me-banner">
+                    <div class="row align-items-center">
+                        <div class="col-md-9">
+                            <div class="banner-content">
+                                <strong>Client Briefing Collaboration:</strong> 
+                                Need someone to join a client briefing to discuss Apple Consultants Network support generically? 
+                                I can hop on your Webex for a few minutes - not to self-promote unless you give the ok.
+                            </div>
+                        </div>
+                        <div class="col-md-3 text-md-end">
+                            <a href="https://outlook.office.com/bookwithme/user/c8d7449e129d4787821d073df6118f98@ripeda.com/meetingtype/82Jg6DbuF0StFwQrKvBPLg2?bookingcode=89ab57c0-39e5-4100-b7a8-d09e98997b40&anonymous&ismsaljsauthenabled&ep=mcard" 
+                               target="_blank" 
+                               class="btn book-banner-btn">
+                                📅 Book Time
+                            </a>
+                        </div>
+                    </div>
+                    <div class="banner-expiry">Link expires: October 30, 2025</div>
                 </div>
             </div>
         </div>
