@@ -5,6 +5,8 @@ User-agent: *
 Allow: /
 Disallow: /business-resources/
 Disallow: /business-resources/*
+Disallow: /_site/
+Disallow: /assets/logs/
 
 # Additional security - block specific bots
 User-agent: GPTBot
