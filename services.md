@@ -1,9 +1,17 @@
 ---
-title: Managed Services
+title: "Managed Apple Services Alberta | Mac Management Calgary Edmonton Red Deer Lethbridge| RIPEDA"
+seo_title: "Managed Apple Services Alberta | Mac iPad Management Calgary Edmonton Red Deer Lethbridge"
 layout: services
-description: Managed IT Services for your business.
+description: "Managed IT Services for your business."
+seo_description: "RIPEDA provides comprehensive managed Apple services across Alberta. Expert Mac management, iPad deployment, and Apple device solutions for businesses in Calgary, Edmonton, Red Deer, Lethbridge."
+keywords: "managed Apple services Alberta, Mac management Calgary Edmonton Red Deer Lethbridge, Apple device management Alberta, iPad deployment Red Deer, managed IT services Calgary, Apple business support Alberta"
 intro_image_absolute: true
 intro_image_hide_on_mobile: true
+og_image: "/images/logo/ripeda-og-image.jpg"
+sitemap:
+  priority: 0.9
+  changefreq: 'monthly'
+  lastmod: 2025-08-26
 ---
 
 # Managed Services
@@ -17,3 +25,5 @@ Whatever your business may need, we have you covered. See how both managed devic
     Your browser does not support the video tag.
   </video>
 </div>
+
+*Comprehensive managed Apple services for Alberta businesses - from startup to enterprise scale.*

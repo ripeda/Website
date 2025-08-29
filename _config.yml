@@ -5,6 +5,61 @@ title: 'RIPEDA Consulting'
 # Site metadata
 description: "Calgary's Apple Certified Consultants. Over 13 years managing Apple devices for businesses, education, and enterprises."
 url: "https://ripeda.com"
+locale: en_CA
+timezone: America/Edmonton
+
+# SEO-specific settings
+seo:
+  type: Organization
+  name: RIPEDA Consulting
+  links:
+    - https://www.linkedin.com/company/ripeda-consulting
+    - https://twitter.com/ripedaconsulting
+
+    # Business Information for Local SEO
+business:
+  name: "RIPEDA Consulting"
+  founded: 2011
+  street_address: "300 - 1301 8 Street SW"
+  city: "Calgary" 
+  province: "Alberta"
+  postal_code: "T2R 1B7"
+  country: "Canada"
+  phone: "+1-844-474-7332"
+  email: "info@ripeda.com"
+
+  # Social Media
+social:
+  name: RIPEDA Consulting
+  links:
+    - https://www.linkedin.com/company/ripeda-consulting
+    - https://twitter.com/ripedaconsulting
+
+# Default SEO settings
+defaults:
+  - scope:
+      path: ""
+    values:
+      layout: "default"
+      image: "/images/logo/ripeda-og-image.jpg"
+  - scope:
+      path: ""
+      type: "services"
+    values:
+      layout: "default"
+      image: "/images/logo/ripeda-og-image.jpg"
+      keywords: "Apple consulting Alberta, Mac support Calgary Edmonton Red Deer, Apple certified consultants Alberta, IT services Lethbridge, Apple device management Alberta"
+  - scope:
+      path: ""
+      type: "team"
+    values:
+      layout: "team"
+      image: "/images/logo/ripeda-og-image.jpg"
+  - scope:
+      path: "business-resources"
+    values:
+      layout: "none"
+      robots: "noindex, nofollow"
 
 logo:
   mobile: "images/logo/logo-mobile.svg"
