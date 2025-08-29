@@ -26,4 +26,3 @@ Whatever your business may need, we have you covered. See how both managed devic
   </video>
 </div>
 
-*Comprehensive managed Apple services for Alberta businesses - from startup to enterprise scale.*
