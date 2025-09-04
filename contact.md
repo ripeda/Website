@@ -12,7 +12,6 @@ sitemap:
   lastmod: 2025-08-26
 ---
 
-# Contact Us
 
 Have a question, or want to book a consultation? Feel free to reach us at any time!
 
