@@ -1,5 +1,5 @@
 ---
-title: "Contact RIPEDA Consulting | Apple Support Alberta Calgary Edmonton"
+title: "Contact RIPEDA Consulting"
 seo_title: "Contact Alberta's Apple Certified Consultants | Calgary Edmonton Red Deer"
 layout: contact
 description: "Contact"
@@ -12,7 +12,6 @@ sitemap:
   lastmod: 2025-08-26
 ---
 
-# Contact Us
 
 Have a question, or want to book a consultation? Feel free to reach us at any time!
 
