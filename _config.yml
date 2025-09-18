@@ -2,8 +2,8 @@ baseurl: '/'
 permalink: pretty
 title: 'RIPEDA Consulting'
 
-# Site metadata
-description: "Calgary's Apple Certified Consultants. Over 13 years managing Apple devices for businesses, education, and enterprises."
+# Enhanced Site metadata for SEO
+description: "Calgary's Apple Technical Partners. Over 13 years managing Apple devices for businesses, education, and enterprises."
 url: "https://ripeda.com"
 locale: en_CA
 timezone: America/Edmonton
@@ -16,7 +16,7 @@ seo:
     - https://www.linkedin.com/company/ripeda-consulting
     - https://twitter.com/ripedaconsulting
 
-    # Business Information for Local SEO
+# Business Information for Local SEO
 business:
   name: "RIPEDA Consulting"
   founded: 2011
@@ -27,8 +27,8 @@ business:
   country: "Canada"
   phone: "+1-844-474-7332"
   email: "info@ripeda.com"
-
-  # Social Media
+  
+# Social Media
 social:
   name: RIPEDA Consulting
   links:
@@ -48,7 +48,7 @@ defaults:
     values:
       layout: "default"
       image: "/images/logo/ripeda-og-image.jpg"
-      keywords: "Apple consulting Alberta, Mac support Calgary Edmonton Red Deer, Apple certified consultants Alberta, IT services Lethbridge, Apple device management Alberta"
+      keywords: "Apple consulting Calgary Alberta, Mac support, IT services Calgary, Apple certified consultants, Apple Technical Partners, ACN, ATP"
   - scope:
       path: ""
       type: "team"
@@ -101,12 +101,23 @@ exclude:
   - "business-resources/assets/logs/"
   - "*.log"
   - "package*.json"
+  - ".git/"
+  - ".sass-cache/"
+  - ".jekyll-cache/"
+  - ".bundle/"
+  - "spec/"
+  - "test/"
+  - ".env*"
+  - "*.key"
+  - "*.pem"
+  - "docker-compose.yml"
+  - "Dockerfile"
 
 # Security: Keep certain files
 keep_files:
   - "business-resources/assets"
 
-# Default layouts
+  # Default layouts
 defaults:
   - scope:
       path: ""
@@ -128,6 +139,35 @@ plugins:
   - jekyll-environment-variables
   - jekyll-sitemap
   - jekyll-seo-tag
+  - jekyll-feed
+  - jekyll-minifier
+  - jekyll-compress-images
+
+# Jekyll Minifier settings
+jekyll-minifier:
+  preserve_php: true
+  remove_spaces_inside_tags: true
+  remove_multi_spaces: true
+  remove_comments: true
+  remove_intertag_spaces: true
+  remove_quotes: false
+  compress_css: true
+  compress_javascript: true
+  compress_json: true
+  simple_doctype: false
+  remove_script_attributes: false
+  remove_style_attributes: false
+  remove_link_attributes: false
+  remove_form_attributes: false
+  remove_input_attributes: false
+  remove_javascript_protocol: false
+  remove_http_protocol: false
+  remove_https_protocol: false
+  preserve_line_breaks: false
+  simple_boolean_attributes: false
+
+# Jekyll SEO Tag settings
+tag: {}
 
 # Sass configuration
 sass:
@@ -145,3 +185,9 @@ navigation:
     url: "/team/"
   - title: "Contact"
     url: "/contact/"
+
+# Sitemap settings
+sitemap:
+  priority: 1.0
+  changefreq: 'monthly'
+  lastmod: 2025-09-28

@@ -5,7 +5,7 @@ layout: home
 show_sidebar: false
 description: "IT that knows what makes your Apple devices tick."
 seo_description: "Alberta's Apple Certified Consultants with 13+ years experience. Expert Mac support, iPad management, and Apple device solutions for businesses across Calgary, Edmonton, Red Deer, Lethbridge and Alberta."
-keywords: "Apple consulting Alberta, Mac support Calgary Edmonton, Apple certified consultants Alberta, iPad management Red Deer, Mac business support Alberta, Apple device management Calgary Edmonton Red Deer Lethbridge"
+keywords: "Apple consulting Alberta, Apple Technical Partner Alberta, Mac support Calgary Edmonton, Apple certified consultants Alberta, Apple Consultants Network Alberta, iPad management Red Deer, Mac business support Alberta, Apple device management Calgary Edmonton Red Deer Lethbridge"
 intro_image: "images/index/main-site.png"
 intro_image_absolute: true
 intro_image_hide_on_mobile: true
@@ -17,7 +17,7 @@ og_image: "/images/logo/ripeda-og-image.jpg"
 sitemap:
   priority: 1.0
   changefreq: 'weekly'
-  lastmod: 2025-08-26
+  lastmod: 2025-09-28
 
 # Schema.org specific
 schema:
@@ -37,7 +37,7 @@ schema:
 
 ## IT that knows what makes your Apple devices tick.
 
-Over {{ site.time | date: "%Y" | minus: site.business.founded }} years of experience managing Apple devices in a multitude of environments, including small businesses, education, and large-scale enterprises.
+Over {{ site.time | date: "%Y" | minus: site.business.founded }} years of experience managing Apple devices in a multitude of environments, including small businesses, education, and large-scale enterprises across Alberta.
 
 We know what it takes to keep your Apple devices running smoothly and securely, while still letting you get work done.
 

@@ -4,17 +4,17 @@ seo_title: "Device as a Service (DaaS) Alberta | Apple Device Leasing Calgary Ed
 layout: services-alt
 description: "Device as a Service"
 seo_description: "RIPEDA's Device as a Service (DaaS) offers affordable Mac and iPad leasing for Alberta businesses. Serving Calgary, Edmonton, Red Deer with predictable monthly costs and AppleCare+ included."
-keywords: "Device as a Service Alberta, DaaS Calgary Edmonton, Mac leasing Alberta, iPad leasing Red Deer, Apple device rental Calgary Edmonton, Mac deployment Alberta"
+keywords: "Device as a Service Alberta, Apple Technical Partner Alberta, DaaS Calgary Edmonton, Mac leasing Alberta, iPad leasing Red Deer, Apple consultants Alberta, Apple Consultants Network Alberta"
 og_image: "/images/logo/ripeda-og-image.jpg"
 sitemap:
   priority: 0.9
   changefreq: 'monthly'
-  lastmod: 2025-08-26
+  lastmod: 2025-09-28
 ---
 
 # Device as a Service
 
-<img src="{{ site.baseurl | prepend: site.url }}/images/daas/daas.png" alt="Device as a Service" style="width: 100%;">
+<img src="{{ site.baseurl | prepend: site.url }}/images/daas/daas.png" alt="Device as a Service Alberta - Mac and iPad leasing for businesses in Calgary Edmonton Red Deer Lethbridge" style="width: 100%;">
 
 Deploying new machines can be a hassle and expensive. With RIPEDA's Device as a Service (DaaS) offering, we take care of the entire process for you. We'll work with you to determine the best Apple hardware for your needs, procure the devices, and deploy them to your users. We also offer buybacks for applicable devices and can handle the disposal of old hardware in an environmentally friendly way.
 
