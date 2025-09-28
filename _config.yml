@@ -141,7 +141,7 @@ plugins:
   - jekyll-seo-tag
   - jekyll-feed
   - jekyll-minifier
-  - jekyll-compress-images
+#  - jekyll-compress-images
 
 # Jekyll Minifier settings
 jekyll-minifier:
