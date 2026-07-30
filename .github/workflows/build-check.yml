@@ -36,7 +36,7 @@ jobs:
         with:
           # Must match .ruby-version. A mismatch here is how a site builds
           # locally and fails in CI.
-          ruby-version: '3.2.9'
+          ruby-version: '3.2.7'
           bundler-cache: true
 
       - name: Build with Jekyll
