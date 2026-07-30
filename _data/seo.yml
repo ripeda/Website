@@ -3,8 +3,16 @@
 # property. Google stopped processing UA data in July 2023, so it collected
 # nothing after that. Replaced with Cloudflare Web Analytics (cookieless).
 #
-# Paste the token from Cloudflare dashboard > Web Analytics > ripeda.com.
-# Leave empty and no analytics loads at all.
+# ⚠️ ACTION REQUIRED — this is empty, so the site is collecting NOTHING.
+# Get the token: Cloudflare dashboard > Web Analytics > ripeda.com >
+# "Manage site" / JS snippet > copy the value of "token" out of the
+# data-cf-beacon attribute. Paste it between the quotes below.
+#
+# Empty is now handled correctly: _includes/cloudflare-analytics.html compares
+# against "" explicitly, so an empty value emits no script at all. Before
+# 2026-07-30 it used a bare truthiness test, and because Liquid treats an empty
+# string as TRUTHY the beacon shipped live with an empty token — loading on
+# every page and reporting nothing. Do not reintroduce that pattern.
 cloudflare_analytics_token: ""
 copyright_text: 'Copyright © RIPEDA Consulting Corporation. All rights reserved.'
 service_areas_text: 'Serving Alberta businesses in Calgary, Edmonton, Red Deer, Lethbridge, and surrounding areas with expert Apple device management, repair, and infrastructure.'

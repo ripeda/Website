@@ -230,12 +230,20 @@
   <!-- Canonical URL -->
   <link rel="canonical" href="{{ page.url | absolute_url }}" />
   
-  <!-- Security Headers -->
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://challenges.cloudflare.com https://static.cloudflareinsights.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' data: https:; font-src 'self' https://fonts.gstatic.com; connect-src 'self' https://challenges.cloudflare.com https://cloudflareinsights.com https://ripeda-website-lead-receiver.wandering-silence-da5d.workers.dev; frame-src https://challenges.cloudflare.com;">
+  <!-- Security Headers
+       GitHub Pages cannot set custom response headers, so these are meta tags.
+       Browsers honour Content-Security-Policy and Referrer-Policy via <meta http-equiv>.
+       They DO NOT honour X-Frame-Options, X-Content-Type-Options or X-XSS-Protection
+       this way — those are response-header-only and are ignored as meta tags. They are
+       kept below only as documentation of intent; the real clickjacking protection is
+       the frame-ancestors directive inside the CSP.
+       If we ever put Cloudflare in the DNS path, move all of these to real headers. -->
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://challenges.cloudflare.com https://static.cloudflareinsights.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' data: https:; font-src 'self' https://fonts.gstatic.com; connect-src 'self' https://challenges.cloudflare.com https://cloudflareinsights.com https://ripeda-website-lead-receiver.wandering-silence-da5d.workers.dev; frame-src https://challenges.cloudflare.com; frame-ancestors 'none'; base-uri 'self'; form-action 'self' https://ripeda-website-lead-receiver.wandering-silence-da5d.workers.dev;">
+  <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
+  <!-- Ignored by browsers as meta tags (header-only); retained to document intent. -->
   <meta http-equiv="X-Frame-Options" content="DENY">
   <meta http-equiv="X-XSS-Protection" content="1; mode=block">
   <meta http-equiv="X-Content-Type-Options" content="nosniff">
-  <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
   
   <!-- Cloudflare Turnstile -->
   <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>

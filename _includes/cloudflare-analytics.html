@@ -18,9 +18,18 @@ Only loads in production, so local `jekyll serve` never reports.
 CSP requirements (already in _layouts/default.html):
   script-src  https://static.cloudflareinsights.com
   connect-src https://cloudflareinsights.com
+
+GOTCHA — do not guard this on a bare truthiness test of the token variable.
+Liquid only treats `nil` and `false` as falsy. An EMPTY STRING is TRUTHY. So with
+`cloudflare_analytics_token: ""` that guard passed and the beacon shipped to
+production as `data-cf-beacon='{"token": ""}'` — the script loaded on every page
+and reported nothing, while the config comment claimed nothing would load at all.
+That was live on ripeda.com from launch until 2026-07-30. Always compare against
+"" explicitly, as below.
 {%- endcomment -%}
 
-{% if jekyll.environment == "production" and site.data.seo.cloudflare_analytics_token %}
+{%- assign cf_token = site.data.seo.cloudflare_analytics_token | default: "" | strip -%}
+{% if jekyll.environment == "production" and cf_token != "" %}
 <script defer src="https://static.cloudflareinsights.com/beacon.min.js"
-        data-cf-beacon='{"token": "{{ site.data.seo.cloudflare_analytics_token }}"}'></script>
+        data-cf-beacon='{"token": "{{ cf_token }}"}'></script>
 {% endif %}
