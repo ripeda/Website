@@ -30,6 +30,8 @@ That was live on ripeda.com from launch until 2026-07-30. Always compare against
 
 {%- assign cf_token = site.data.seo.cloudflare_analytics_token | default: "" | strip -%}
 {% if jekyll.environment == "production" and cf_token != "" %}
-<script defer src="https://static.cloudflareinsights.com/beacon.min.js"
+<!-- Cloudflare Web Analytics -->
+<script type="module" src="https://static.cloudflareinsights.com/beacon.min.js"
         data-cf-beacon='{"token": "{{ cf_token }}"}'></script>
+<!-- End Cloudflare Web Analytics -->
 {% endif %}
