@@ -1,0 +1,15 @@
+{
+  "name": "ripeda-og-image-generator",
+  "version": "1.0.0",
+  "description": "Generates Open Graph (social preview) images for RIPEDA Insights articles from each article's frontmatter.",
+  "main": "build.js",
+  "scripts": {
+    "generate": "node build.js",
+    "generate-all": "node build.js --all"
+  },
+  "dependencies": {
+    "gray-matter": "^4.0.3",
+    "puppeteer": "^23.0.0"
+  },
+  "license": "Proprietary"
+}

@@ -1,0 +1,110 @@
+# Build verification — does NOT deploy.
+#
+# The production workflow (jekyll.yml) only runs on main and includes a deploy
+# job, so the only way to see Actions build this site was to publish it. This
+# workflow proves the build on a clean runner first.
+#
+# It cannot deploy, by construction: `permissions` grants only `contents: read`.
+# Without `pages: write` and `id-token: write`, GitHub refuses a Pages
+# deployment regardless of what any step attempts.
+#
+# It also asserts things a passing build does not guarantee. A Jekyll build
+# succeeds even when front matter is malformed — it silently treats the file as
+# plain content. That happened during the 2026 cutover: two pages lost their
+# permalink and redirects, and the build was green. These checks catch that.
+
+name: Build check (no deploy)
+
+on:
+  push:
+    branches-ignore: ["main"]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          # Must match .ruby-version. A mismatch here is how a site builds
+          # locally and fails in CI.
+          ruby-version: '3.2.9'
+          bundler-cache: true
+
+      - name: Build with Jekyll
+        run: bundle exec jekyll build
+        env:
+          JEKYLL_ENV: production
+
+      - name: Verify the build actually produced a working site
+        run: |
+          fail=0
+          check_file() {
+            if [ -e "$1" ]; then echo "  ok      $1"
+            else echo "  MISSING $1"; fail=1; fi
+          }
+          check_absent() {
+            if [ -e "$1" ]; then echo "  LEAKED  $1"; fail=1
+            else echo "  ok      $1 absent"; fi
+          }
+
+          echo "Core pages:"
+          check_file _site/index.html
+          check_file _site/privacy/index.html
+          check_file _site/contact/index.html
+          check_file _site/team/index.html
+          check_file _site/services/managed-apple-it/index.html
+          check_file _site/resources/insights/index.html
+
+          echo "Redirect stubs for previously-indexed URLs:"
+          check_file _site/company.html
+          check_file _site/contact.html
+          check_file _site/services.html
+          check_file _site/device-as-a-service/index.html
+          check_file _site/repairs/index.html
+          check_file _site/bushel_device_management.html
+
+          echo "Nothing internal published:"
+          check_absent _site/cloudflare-workers
+          check_absent _site/test.html
+          if find _site -name '*.docx' | grep -q .; then
+            echo "  LEAKED  .docx in _site"; fail=1
+          else
+            echo "  ok      no .docx in _site"
+          fi
+
+          echo "Contact form wiring:"
+          grep -q 'cf-turnstile' _site/index.html \
+            && echo "  ok      Turnstile widget present" \
+            || { echo "  MISSING Turnstile widget"; fail=1; }
+          grep -q 'ripeda-website-lead-receiver' _site/assets/js/scripts.js \
+            && echo "  ok      lead Worker URL present" \
+            || { echo "  MISSING lead Worker URL"; fail=1; }
+          grep -q 'challenges.cloudflare.com' _site/index.html \
+            && echo "  ok      Turnstile allowed by CSP" \
+            || { echo "  MISSING Turnstile in CSP"; fail=1; }
+
+          echo "Sitemap:"
+          if grep -q 'test.html' _site/sitemap.xml; then
+            echo "  LEAKED  test.html in sitemap"; fail=1
+          else
+            echo "  ok      test.html not in sitemap"
+          fi
+          grep -q '/privacy/' _site/sitemap.xml \
+            && echo "  ok      privacy page in sitemap" \
+            || { echo "  MISSING privacy page in sitemap"; fail=1; }
+
+          echo
+          if [ "$fail" -ne 0 ]; then
+            echo "Build produced output, but the site is not correct. See failures above."
+            exit 1
+          fi
+          echo "All checks passed."

@@ -1,0 +1,31 @@
+{%- comment -%}
+  Expand %YEARS_SINCE_YYYY% placeholders in the given text. Computes the year
+  count against site.time (build time) so the value rolls forward automatically
+  each year as the site is rebuilt. RIPEDA's typical use:
+
+    badges:
+      - "%YEARS_SINCE_2012% years of Apple-first business advisory"
+
+  Renders as "14 years..." in 2026, "15 years..." in 2027, etc. No annual
+  source-edit required.
+
+  Usage from a layout:
+    {%- capture badge_text -%}{%- include expand-years.html text=badge -%}{%- endcapture -%}
+    {{ badge_text }}
+
+  Why an include rather than inline Liquid: this logic is used in multiple
+  layouts (pillar.html, service-hub.html) and in multiple positions inside each
+  layout (badges, FAQ HTML, FAQ JSON-LD). One source of truth is cleaner than
+  six.
+{%- endcomment -%}
+{%- assign expanded = include.text -%}
+{%- if expanded contains "%YEARS_SINCE_" -%}
+  {%- assign parts = expanded | split: "%YEARS_SINCE_" -%}
+  {%- assign rest = parts[1] | split: "%" -%}
+  {%- assign since_year = rest[0] | plus: 0 -%}
+  {%- assign current_year = site.time | date: "%Y" | plus: 0 -%}
+  {%- assign years_count = current_year | minus: since_year -%}
+  {%- capture placeholder -%}%YEARS_SINCE_{{ rest[0] }}%{%- endcapture -%}
+  {%- assign expanded = expanded | replace: placeholder, years_count -%}
+{%- endif -%}
+{{- expanded -}}

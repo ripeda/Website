@@ -1,0 +1,332 @@
+verticals:
+  - id: dental-medical
+    label: "Dental & Medical"
+    description: "Apple IT for clinics, dental practices, and healthcare environments. PHIPA compliance, digital imaging workflows, secure remote access, and device management — written for Practice Managers and Owners."
+
+  - id: design-agencies
+    label: "Design Agencies"
+    description: "The Mac is already on every desk. These articles help design studios and creative agencies get more out of it — storage strategy, AI-assisted workflows, MDM for onboarding, and collaboration without friction."
+
+  - id: education
+    label: "Education"
+    description: "iPad and Mac deployments for K–12 schools and post-secondary institutions. Practical guides for IT coordinators, principals, and school board staff on every stage of the device lifecycle."
+
+  - id: professional-services
+    label: "Professional Services"
+    description: "Apple in law firms, accounting practices, SaaS companies, and consulting shops. Focused on data protection, staff onboarding, and keeping a lean IT footprint without sacrificing security."
+
+  - id: marketing-agencies
+    label: "Marketing Agencies"
+    description: "Fast-moving teams, tight deadlines, and an Apple-first culture. Articles covering campaign asset management, remote collaboration, and the IT decisions that let marketing teams stay in flow."
+
+  - id: mdm-security
+    label: "MDM & Security"
+    description: "Cross-industry technical depth on mobile device management, encryption, endpoint security, and Apple's enterprise toolset. Written for IT decision-makers, not just Apple shops."
+
+  - id: infrastructure
+    label: "Apple Infrastructure"
+    description: "Networks, servers, storage, and everything that sits behind the devices. Guides for building Apple-compatible infrastructure that scales without requiring a Microsoft backbone."
+
+  - id: ai-productivity
+    label: "AI & Productivity"
+    description: "What Apple Silicon and on-device AI actually change for business teams — from Shortcuts automation to Apple Intelligence — and how to roll these tools out without creating support debt."
+
+articles:
+
+  # ── Dental & Medical ───────────────────────────────────────────────
+
+  - title: "Apple Business Manager for clinical fleets"
+    verticals: [dental-medical, mdm-security]
+    vertical: dental-medical
+    read_time: 6
+    date: "Mar 2026"
+    services: [managed-apple-it]
+    slug: apple-business-manager-clinical-fleets
+    published: true
+
+  - title: "Multi-location dental groups: keeping operations consistent"
+    vertical: dental-medical
+    read_time: 6
+    date: "Feb 2026"
+    services: [strategy-advisory]
+    slug: multi-location-dental-groups
+    published: true
+
+  - title: "Where iCloud stops and business backup begins"
+    verticals: [dental-medical, professional-services, design-agencies]
+    vertical: dental-medical
+    read_time: 5
+    date: "Feb 2026"
+    services: [managed-apple-it]
+    slug: business-backup-beyond-icloud
+    published: true
+
+  # ── Design Agencies ─────────────────────────────────────────────────
+
+  - title: "Storage strategy for video production on Mac"
+    verticals: [design-agencies, infrastructure]
+    vertical: design-agencies
+    read_time: 6
+    date: "May 2026"
+    services: [network-infrastructure]
+    slug: video-storage-strategy-mac
+    published: true
+
+  - title: "What Apple Silicon actually changed for creative work"
+    verticals: [design-agencies, professional-services]
+    vertical: design-agencies
+    read_time: 5
+    date: "May 2026"
+    services: [strategy-advisory]
+    slug: apple-silicon-creative-workflows
+    published: true
+
+  - title: "Disaster recovery when the work is the assets"
+    verticals: [design-agencies, professional-services, infrastructure]
+    vertical: design-agencies
+    read_time: 6
+    date: "Apr 2026"
+    services: [managed-apple-it]
+    slug: agency-disaster-recovery
+    published: true
+
+  - title: "Mac Studio or Mac mini: choosing for creative teams"
+    verticals: [design-agencies, professional-services]
+    vertical: design-agencies
+    read_time: 5
+    date: "Apr 2026"
+    services: [strategy-advisory]
+    slug: mac-pro-studio-mini-creative-teams
+    published: true
+
+  - title: "Onboarding a new designer in 90 minutes"
+    verticals: [design-agencies, mdm-security]
+    vertical: design-agencies
+    read_time: 5
+    date: "Apr 2026"
+    services: [managed-apple-it]
+    slug: designer-onboarding-mdm
+    published: true
+
+  - title: "The problem with AirDrop at agency scale"
+    verticals: [design-agencies, professional-services, mdm-security]
+    vertical: design-agencies
+    read_time: 4
+    date: "Apr 2026"
+    services: [managed-apple-it]
+    slug: airdrop-and-team-file-sharing
+    published: true
+
+  - title: "Asset management when shared drives stop working"
+    verticals: [design-agencies, mdm-security]
+    vertical: design-agencies
+    read_time: 6
+    date: "Mar 2026"
+    services: [strategy-advisory]
+    slug: asset-management-agency-scale
+    published: true
+
+  - title: "Colour management across an Apple-only agency"
+    vertical: design-agencies
+    read_time: 5
+    date: "Mar 2026"
+    services: [strategy-advisory]
+    slug: color-management-apple-agency
+    published: true
+
+  # ── Education ───────────────────────────────────────────────────────
+
+  - title: "Apple Authorized Repair for school fleets explained"
+    vertical: education
+    read_time: 5
+    date: "Apr 2026"
+    services: [apple-authorized-repair]
+    slug: apple-repair-school-fleets
+    published: true
+
+  - title: "Refreshing legacy school infrastructure on a small budget"
+    verticals: [education, infrastructure]
+    vertical: education
+    read_time: 5
+    date: "Mar 2026"
+    services: [network-infrastructure]
+    slug: school-infrastructure-refresh-budget
+    published: true
+
+  - title: "Charter and private schools: where Apple fits differently"
+    vertical: education
+    read_time: 5
+    date: "Feb 2026"
+    services: [strategy-advisory]
+    slug: charter-schools-apple
+    published: true
+
+  # ── Professional Services ───────────────────────────────────────────
+
+  - title: "AI policy for professional services firms"
+    verticals: [professional-services, ai-productivity]
+    vertical: professional-services
+    read_time: 5
+    date: "May 2026"
+    services: [strategy-advisory]
+    slug: professional-services-ai-policy
+    published: true
+
+  - title: "Six to 150: the IT debt that catches every SaaS post-Series A"
+    verticals: [professional-services, mdm-security]
+    vertical: professional-services
+    read_time: 6
+    date: "May 2026"
+    services: [strategy-advisory]
+    slug: saas-series-a-it-debt
+    published: true
+
+  - title: "SaaS company IT on a budget: the Apple-first approach"
+    verticals: [professional-services, mdm-security]
+    vertical: professional-services
+    read_time: 5
+    date: "May 2026"
+    services: [strategy-advisory]
+    slug: saas-company-it-budget
+    published: true
+
+  - title: "Managing a hybrid office Mac fleet"
+    verticals: [professional-services, design-agencies, mdm-security]
+    vertical: professional-services
+    read_time: 6
+    date: "May 2026"
+    services: [managed-apple-it]
+    slug: hybrid-office-mac-fleet
+    published: true
+
+  - title: "Apple device security for client data"
+    verticals: [professional-services, mdm-security]
+    vertical: professional-services
+    read_time: 5
+    date: "Apr 2026"
+    services: [managed-apple-it]
+    slug: apple-device-security-client-data
+    published: true
+
+  - title: "Five signs it is time to switch Apple IT vendors"
+    verticals: [professional-services, mdm-security]
+    vertical: professional-services
+    read_time: 5
+    date: "Mar 2026"
+    services: [strategy-advisory]
+    slug: it-vendor-switch-signs
+    published: true
+
+  - title: "When business Apple repair outgrows the Genius Bar"
+    verticals: [professional-services, dental-medical, education]
+    vertical: professional-services  # legacy / fallback for schema consumers
+    read_time: 4
+    date: "Mar 2026"
+    services: [managed-apple-it, apple-authorized-repair]
+    slug: apple-repair-business-fleets
+    published: true
+
+  # ── MDM & Security ──────────────────────────────────────────────────
+
+  - title: "Data recovery when a Mac drive fails"
+    verticals: [mdm-security, dental-medical, design-agencies, education, professional-services]
+    vertical: mdm-security
+    read_time: 5
+    date: "Jun 2026"
+    services: [apple-authorized-repair]
+    slug: mac-drive-data-recovery
+    published: true
+
+  - title: "The shape of a Managed Apple IT month"
+    verticals: [mdm-security, dental-medical, design-agencies, education, professional-services]
+    vertical: mdm-security
+    read_time: 5
+    date: "Jun 2026"
+    services: [managed-apple-it]
+    slug: shape-of-a-managed-apple-it-month
+    published: true
+
+  - title: "What remote management sees that screen sharing doesn't"
+    verticals: [mdm-security, dental-medical, design-agencies, education, professional-services]
+    vertical: mdm-security
+    read_time: 4
+    date: "Apr 2026"
+    services: [managed-apple-it]
+    slug: remote-management-vs-screen-sharing
+    published: true
+
+  - title: "MDM beyond the enrollment screen"
+    verticals: [mdm-security, dental-medical, education]
+    vertical: mdm-security
+    read_time: 5
+    date: "Mar 2026"
+    services: [managed-apple-it]
+    slug: mdm-beyond-enrollment
+    published: true
+
+  - title: "Where Apple Passwords stops scaling for teams"
+    verticals: [mdm-security, dental-medical, design-agencies, education, professional-services]
+    vertical: mdm-security
+    read_time: 5
+    date: "Feb 2026"
+    services: [managed-apple-it]
+    slug: apple-passwords-for-business-teams
+    published: true
+
+  - title: "Apple Business Manager: what's actually involved"
+    verticals: [mdm-security, dental-medical, design-agencies, education, professional-services]
+    vertical: mdm-security
+    read_time: 5
+    date: "Feb 2026"
+    services: [managed-apple-it]
+    slug: apple-business-manager-whats-involved
+    published: true
+
+  - title: "What an Apple Technical Partner actually does"
+    verticals: [mdm-security, dental-medical, design-agencies, education, professional-services]
+    vertical: mdm-security
+    read_time: 5
+    date: "Feb 2026"
+    services: [strategy-advisory]
+    slug: apple-technical-partner-explained
+    published: true
+
+  # ── Apple Infrastructure ─────────────────────────────────────────────
+
+  - title: "Designing wireless for office and classroom density"
+    verticals: [infrastructure, dental-medical, design-agencies, education, professional-services]
+    vertical: infrastructure
+    read_time: 5
+    date: "Jun 2026"
+    services: [network-infrastructure]
+    slug: wireless-density-office-classroom
+    published: true
+
+  - title: "Network refresh as a project: site survey to commissioning"
+    verticals: [infrastructure, dental-medical, design-agencies, education, professional-services]
+    vertical: infrastructure
+    read_time: 5
+    date: "Jun 2026"
+    services: [network-infrastructure]
+    slug: network-refresh-as-a-project
+    published: true
+
+  - title: "Why business networks need more than connectivity"
+    verticals: [infrastructure, dental-medical, design-agencies, education, professional-services]
+    vertical: infrastructure
+    read_time: 4
+    date: "Feb 2026"
+    services: [managed-apple-it, network-infrastructure]
+    slug: business-network-infrastructure
+    published: true
+
+  # ── AI & Productivity ────────────────────────────────────────────────
+
+  - title: "Why local AI workloads run best on a Mac"
+    verticals: [ai-productivity, professional-services]
+    vertical: ai-productivity
+    read_time: 4
+    date: "Jul 2026"
+    services: [managed-apple-it]
+    slug: mac-local-ai-workstation
+    published: true

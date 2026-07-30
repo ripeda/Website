@@ -1,13 +1,4 @@
----
----
 User-agent: *
 Allow: /
 
-# Disallow sensitive directories
-Disallow: /business-resources/
-Disallow: /_site/
-Disallow: /.jekyll-cache/
-Disallow: /assets/logs/
-
-# Sitemap
-Sitemap: {{ site.url }}/sitemap.xml
+Sitemap: https://ripeda.com/sitemap.xml

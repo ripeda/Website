@@ -1,51 +1,108 @@
 main:
-  - name: "Home"
-    url: "/"
+  - name: "Services"
+    url: "#"
     weight: 1
-  - name: "Managed Services"
-    url: "/services/"
+    dropdown: true
+    subitems:
+      - name: "Strategy Advisory"
+        url: "/services/strategy-advisory/"
+        weight: 1
+      - name: "Managed Apple IT"
+        url: "/services/managed-apple-it/"
+        weight: 2
+      - name: "Network Infrastructure"
+        url: "/services/network-infrastructure/"
+        weight: 3
+      - name: "Apple Authorized Repair"
+        url: "/services/apple-authorized-repair/"
+        weight: 4
+      - name: "Device as a Service"
+        url: "/services/device-as-a-service/"
+        weight: 5
+  - name: "Industries"
+    url: "#"
     weight: 2
-  - name: "Device as a Service"
-    url: "/device-as-a-service/"
+    dropdown: true
+    subitems:
+      - name: "Dental and Medical"
+        url: "/industries/dental-medical/"
+        weight: 1
+      - name: "Design Agencies"
+        url: "/industries/design-agencies/"
+        weight: 2
+      - name: "Education"
+        url: "/industries/education/"
+        weight: 3
+      - name: "Professional Services"
+        url: "/industries/professional-services/"
+        weight: 4
+  - name: "Resources"
+    url: "#"
     weight: 3
-  - name: "Repairs"
-    url: "/repairs/"
+    dropdown: true
+    subitems:
+      - name: "Insights"
+        url: "/resources/insights/"
+        weight: 1
+      - name: "Calculators"
+        url: "/resources/"
+        weight: 2
+      - name: "AI Training"
+        url: "https://getanhourback.com"
+        weight: 3
+        external: true
+      - name: "FAQ"
+        url: "/faq/"
+        weight: 4
+  - name: "Case Studies"
+    url: "/case-studies/"
     weight: 4
-  - name: "Engineering"
-    url: "/engineering/"
+  - name: "About"
+    url: "#"
     weight: 5
-  - name: "Security"
-    url: "/security/"
-    weight: 6
-  - name: "Team"
-    url: "/team/"
-    weight: 7
+    dropdown: true
+    subitems:
+      - name: "Team"
+        url: "/team/"
+        weight: 1
+      - name: "Credentials"
+        url: "/about/credentials/"
+        weight: 2
   - name: "Contact"
-    url: "/contact/"
-    weight: 8
+    url: "/#contact"
+    weight: 6
+  - name: "Client Login"
+    url: "https://support.ripeda.com"
+    weight: 7
+    external: true
+    class: "client-login"
 
 footer:
   - name: "Home"
     url: "/"
     weight: 1
-  - name: "Managed Services"
-    url: "/services/"
+  - name: "Strategy Advisory"
+    url: "/services/strategy-advisory/"
     weight: 2
-  - name: "Device as a Service"
-    url: "/device-as-a-service/"
+  - name: "Managed Apple IT"
+    url: "/services/managed-apple-it/"
     weight: 3
-  - name: "Repairs"
-    url: "/repairs/"
+  - name: "Industries"
+    url: "/industries/dental-medical/"
     weight: 4
-  - name: "Engineering"
-    url: "/engineering/"
+  - name: "Insights"
+    url: "/resources/insights/"
     weight: 5
-  - name: "Security"
-    url: "/security/"
+  - name: "AI Training"
+    url: "https://getanhourback.com"
     weight: 6
+    external: true
   - name: "Team"
     url: "/team/"
     weight: 7
-  - name: "Contact"
-    url: "/contact/"
+  - name: "FAQ"
+    url: "/faq/"
     weight: 8
+  - name: "Contact"
+    url: "/#contact"
+    weight: 9

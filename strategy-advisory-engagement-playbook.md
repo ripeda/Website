@@ -1,0 +1,271 @@
+# Strategy Advisory Engagement Playbook
+
+*An internal playbook for delivering RIPEDA Strategy Advisory engagements. Walks through scoping, sprint timeline, deep-dive timeline, and retainer cadence with questions to ask, tasks to complete, and deliverables at each phase.*
+
+## Overview
+
+Strategy Advisory is RIPEDA's project-based consulting practice. It produces written deliverables (recommendations, roadmaps, decision memos) for organisations facing a specific Apple ecosystem decision. This playbook covers the operational mechanics of running a Strategy Advisory engagement from first call to delivery.
+
+There are three engagement shapes:
+
+- **Strategy Sprint** (4-8 weeks). Full discovery, analysis, and recommendation cycle on a defined question.
+- **Single-Question Deep Dive** (1-2 weeks). Compressed sprint, focused on one decision.
+- **Quarterly Advisory Retainer** (ongoing). Recurring strategic conversations with no fixed deliverable.
+
+Each shape uses the same underlying steps, scaled to the timeline.
+
+## Before the engagement: scoping
+
+The scoping call is free. The goal is to determine whether RIPEDA is the right partner for this engagement, what question we are actually being asked to answer, and what shape of engagement fits.
+
+### Questions to ask
+
+- What decision are you trying to make?
+- What is forcing the decision now (funding round, board meeting, audit, incident, hiring milestone)?
+- Who at the organisation owns the decision? Who needs to be in the room?
+- What have you tried already? What has not worked?
+- What does success look like at the end of the engagement?
+- Are you implementing the recommendation in-house, with us, or with another vendor?
+
+### Tasks during scoping
+
+- Listen for the underlying question. The stated question is often not the real one.
+- Identify which engagement shape fits.
+- Identify any obvious red flags (the question is outside our practice, the timeline is impossible, the budget is mismatched).
+- Confirm geographic fit (on-site work requires Alberta or Western Canada).
+
+### Output
+
+A short written scope document the client signs off on before work begins. Includes: the question being answered, the engagement shape, the timeline, the price, the deliverable format, and the names of the engagement lead and the primary client contact.
+
+> **Important:** Do not begin work until the scope is signed off. Verbal agreements drift.
+
+---
+
+## Strategy Sprint (4 to 8 weeks)
+
+The standard Strategy Advisory engagement. Use this when the question has multiple moving parts (devices, identity, vendors, compliance, organisational context all matter).
+
+### Week 0: Engagement kickoff
+
+The week before discovery starts. Use it to prepare so Week 1 is high-yield from the first session.
+
+**Tasks**
+
+- Send engagement letter and have it returned signed.
+- Send a welcome email naming the engagement lead, the primary contact, the timeline, and the deliverable.
+- Schedule the discovery sessions (typically three to five conversations across roles).
+- Request preliminary documents (current MDM tenant info, identity provider, vendor list, last audit report, org chart).
+- Set up a shared folder for engagement artifacts.
+
+**Questions to ask**
+
+- Who else needs to be in discovery conversations?
+- What documents already exist that we should review before talking to people?
+- Are there any internal communications about this work we should be aware of?
+
+### Week 1: Discovery
+
+Audit the current state, talk to the people involved, review existing documentation. The goal is to enter Week 2 with a complete picture of where the organisation is today.
+
+**Tasks**
+
+- Run the audit checklist (see Audit Checklist section below).
+- Conduct stakeholder conversations.
+- Review documents and contracts gathered during Week 0.
+- Note inconsistencies between what stakeholders describe and what the audit shows.
+- Capture all findings in the discovery memo.
+
+**Questions to ask each stakeholder**
+
+- Walk me through your current setup. What is working? What is not?
+- When did the current pattern start? What was it before?
+- What would change if we did nothing?
+- Who else would I learn from by talking to?
+
+**Audit checklist**
+
+The audit covers the layers we typically need visibility into. Adjust based on the engagement question.
+
+- Apple Business Manager (ABM) or Apple School Manager (ASM) tenant status and configuration
+- Mobile Device Management (MDM) platform, configuration, and enrollment coverage
+- Identity provider in use, single sign-on (SSO) coverage, group and role structure
+- Password vault deployment and team coverage
+- Device fleet: count, models, age, encryption status, operating-system versions
+- Network infrastructure: firewall, switching, wireless, end-of-life status
+- Security posture: backup, antivirus or endpoint detection and response (EDR), incident response plan
+- Vendor list and contract end dates
+- Software licensing footprint and cost
+- Compliance obligations the organisation is subject to
+
+**Output**
+
+Discovery memo. Internal-only document that captures what RIPEDA found. Source material for the recommendation in Weeks 2 and 3.
+
+### Weeks 2 and 3: Analysis and recommendation drafting
+
+Move from findings to recommendations. The hard work is shaping the recommendation into something the client can actually execute, with sequenced steps and named owners.
+
+**Tasks**
+
+- Map findings to options for each major decision point.
+- Evaluate vendors against the organisation's actual constraints, not the brochure.
+- Build a cost model: status quo versus recommendation, including transition costs and ongoing operational costs.
+- Draft the recommendation memo.
+- Internal peer review: another RIPEDA team member reads the draft and pushes back.
+- Revise.
+
+**Questions for the analysis phase**
+
+- Is this recommendation defensible against the cheapest alternative?
+- Does the recommendation match the organisation's size and stage, or are we over-engineering?
+- If we walked away after delivery, could the organisation execute this with its in-house team?
+- What are we ignoring that we should not be?
+
+**Output**
+
+Draft deliverable. Ready for client review in Week 4.
+
+### Week 4: Review and revision
+
+The client reads the draft, asks questions, pushes back on parts. Incorporate feedback. Lock the final.
+
+**Tasks**
+
+- Send draft to the primary client contact 48 hours before the review session.
+- Run the review session. Take notes on what the client wants changed.
+- Incorporate feedback into a final version.
+- Send the final deliverable.
+- Run the closing review meeting.
+- Discuss next steps: in-house implementation, RIPEDA implementation engagement, or third-party implementation.
+
+**Questions for the review session**
+
+- Where does the recommendation feel right? Where does it feel wrong?
+- What did we miss that you wish we had covered?
+- What is the next decision after this one?
+- If you were implementing this in-house, what would you need from us beyond the document?
+
+**Output**
+
+Final deliverable. Closing review session minutes. Optional follow-on scope document if implementation follows.
+
+### Optional Weeks 5 to 8: Implementation planning
+
+For longer engagements where the client wants RIPEDA to plan (not necessarily execute) the implementation.
+
+**Tasks**
+
+- Sequence the recommendation into phases.
+- Build a project plan with milestones, owners, and dependencies.
+- Map vendor procurement timeline against project milestones.
+- Identify decision points where the client must reauthorise.
+- Document the rollback plan for high-risk steps.
+
+**Output**
+
+Implementation roadmap. Hands off cleanly to whoever owns the build (RIPEDA or another partner).
+
+---
+
+## Single-Question Deep Dive (1 to 2 weeks)
+
+Compressed sprint. One question, one decision, one focused deliverable. Use when the question is bounded and the client just needs a recommendation.
+
+### Days 1 to 3: Discovery
+
+- Run a focused audit on only the layer the question touches.
+- Two or three stakeholder conversations.
+- Quick document review.
+
+### Days 4 to 7: Analysis
+
+- Map options to the specific question.
+- Evaluate vendors if vendor selection is the question.
+- Draft the focused memo.
+
+### Days 8 to 10: Delivery
+
+- Client review.
+- Final memo.
+- Closing conversation.
+
+**Output**
+
+Focused recommendation memo. Three to five pages, with supporting analysis.
+
+---
+
+## Quarterly Advisory Retainer (ongoing)
+
+Recurring strategic conversations for organisations that need RIPEDA's voice in the room as decisions come up.
+
+### Monthly cadence
+
+- Pre-scheduled check-in call with the primary client contact.
+- Standing agenda: what has happened since the last call, what is coming, what decisions are open.
+- Written follow-up sent within 48 hours.
+
+### Ad-hoc decision support
+
+- Client can request a decision-support conversation between scheduled calls.
+- Capped at a defined number of hours per quarter.
+- Each ad-hoc conversation produces a written follow-up.
+
+### Quarterly written summary
+
+- At the end of each quarter, RIPEDA produces a one-page summary of decisions made, decisions deferred, and what to expect next quarter.
+
+### Annual review
+
+- At the end of each year, a longer review meeting.
+- Decide whether to renew, restructure, or close the retainer.
+
+---
+
+## Engagement deliverables: format conventions
+
+All written deliverables follow a consistent format.
+
+- Cover page with engagement title, client name, date, engagement lead.
+- Executive summary on page two: one page, what we recommend and why.
+- Findings section: what we observed.
+- Recommendation section: what we recommend and the reasoning.
+- Implementation considerations: what the client needs to think about when acting on the recommendation.
+- Appendix: detailed analysis, vendor comparisons, cost models.
+
+Deliverables are PDF for client distribution. Source files (.docx) are kept in RIPEDA's engagement archive.
+
+---
+
+## Quality checks before delivery
+
+Run these before sending the final deliverable.
+
+- Has the engagement actually answered the scoped question?
+- Are the recommendations actionable, not just observations?
+- Has the deliverable been peer-reviewed by another RIPEDA team member?
+- Is the deliverable in plain language a non-IT executive could read?
+- Does the recommendation align with what RIPEDA can credibly implement, or honestly say is outside our scope?
+- Have we acknowledged what we did not investigate and why?
+- Is the cost framing honest?
+- Are vendor recommendations defensible? Would we make the same call for a different client?
+
+---
+
+## When the engagement is not a fit
+
+If during scoping or discovery it becomes clear RIPEDA is not the right partner for this question, say so. Be direct, suggest a better-suited alternative if you know one, and refund any work already paid for that we will not deliver against.
+
+Engagements that are not a fit:
+
+- The question is outside the Apple ecosystem entirely.
+- The timeline is shorter than the work requires and the client cannot extend.
+- The client is looking for a yes-vote on a decision they have already made.
+- The recommendation we would give is to engage a vendor we do not have a working relationship with.
+
+Walking away from a misfit engagement protects the practice. The reputation for honest scoping is worth more than the revenue from one bad engagement.
+
+---
+
+*RIPEDA Consulting Corporation  |  June 2026  |  v1.0  |  Internal*

@@ -1,0 +1,161 @@
+---
+layout: default
+title: "Interactive Globe Demo - RIPEDA Consulting"
+permalink: /globe-demo/
+---
+
+<style>
+.globe-demo-section {
+    padding: 80px 0;
+    background: #f8f9fa;
+}
+
+.globe-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    text-align: center;
+}
+
+.globe-wrapper {
+    background: white;
+    border-radius: 20px;
+    padding: 40px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+    margin: 40px auto;
+    max-width: 700px;
+}
+
+#globeContainer {
+    width: 100%;
+    height: 600px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.globe-info {
+    margin-top: 30px;
+    padding: 20px;
+    background: #f0f7ff;
+    border-radius: 12px;
+    border-left: 4px solid #609bc3;
+}
+
+.countries-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.country-item {
+    background: white;
+    padding: 15px;
+    border-radius: 8px;
+    border: 1px solid #e9ecef;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.country-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: #609bc3;
+}
+
+@media (max-width: 768px) {
+    .globe-wrapper {
+        padding: 20px;
+    }
+
+    #globeContainer {
+        height: 400px;
+    }
+
+    .countries-list {
+        grid-template-columns: 1fr;
+    }
+}
+</style>
+
+<section class="globe-demo-section">
+    <div class="globe-container">
+        <h1>Global Reach Interactive Globe</h1>
+        <p>Drag to rotate • Touch and swipe on mobile • Auto-rotates when idle</p>
+
+        <div class="globe-wrapper">
+            <div id="globeContainer"></div>
+
+            <div class="globe-info">
+                <h3>Countries We've Supported</h3>
+                <div class="countries-list">
+                    <div class="country-item">
+                        <div class="country-dot"></div>
+                        <span>Canada</span>
+                    </div>
+                    <div class="country-item">
+                        <div class="country-dot"></div>
+                        <span>United States</span>
+                    </div>
+                    <div class="country-item">
+                        <div class="country-dot"></div>
+                        <span>Mexico</span>
+                    </div>
+                    <div class="country-item">
+                        <div class="country-dot"></div>
+                        <span>China</span>
+                    </div>
+                </div>
+                <p style="margin-top: 15px; font-size: 0.9rem; color: #666;">
+                    Highlighted regions show countries where RIPEDA has provided Apple consulting and technical services.
+                </p>
+            </div>
+        </div>
+
+        <div style="margin-top: 40px;">
+            <h3>Easy to Customize</h3>
+            <p>Countries can be easily added or removed from the highlighted list. The globe uses your site's color scheme and can be resized for any section.</p>
+        </div>
+    </div>
+</section>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="{{ '/assets/js/interactive-globe.js' | relative_url }}"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Initialize the globe
+    const globe = new InteractiveGlobe('globeContainer', {
+        width: 600,
+        height: 600,
+        autoRotate: true,
+        rotationSpeed: 0.3,
+        highlightedCountries: ['CA', 'US', 'MX', 'CN'],
+        colors: {
+            globe: '#f0f7ff',
+            countries: '#e2e8f0',
+            highlighted: '#609bc3',
+            highlightHover: '#79c5f8'
+        }
+    });
+
+    // Make it responsive
+    function resizeGlobe() {
+        const container = document.getElementById('globeContainer');
+        const rect = container.getBoundingClientRect();
+        const size = Math.min(rect.width, 600);
+
+        // Update globe size if needed
+        if (globe && globe.renderer) {
+            globe.camera.aspect = 1;
+            globe.camera.updateProjectionMatrix();
+            globe.renderer.setSize(size, size);
+        }
+    }
+
+    window.addEventListener('resize', resizeGlobe);
+    resizeGlobe();
+});
+</script>

@@ -1,4 +1,4 @@
-baseurl: '/'
+baseurl: ''
 permalink: pretty
 title: 'RIPEDA Consulting'
 
@@ -7,6 +7,9 @@ description: "Calgary's Apple Technical Partners. Over 13 years managing Apple d
 url: "https://ripeda.com"
 locale: en_CA
 timezone: America/Edmonton
+
+# Industry keywords for SEO
+keywords: "Apple consulting Calgary, Mac support, IT services Calgary, Apple certified consultants, dental practice IT, education technology, marketing agency IT, office IT support, SaaS company IT, law firm technology, Apple Technical Partners, ACN, ATP"
 
 # SEO-specific settings
 seo:
@@ -42,31 +45,31 @@ defaults:
     values:
       layout: "default"
       image: "/images/logo/ripeda-og-image.jpg"
+      keywords: "Apple consulting Calgary, Mac support, IT services Calgary, Apple certified consultants, dental practice IT, education technology, marketing agency IT, office IT support, SaaS company IT, law firm technology, Apple Technical Partners, ACN, ATP"
   - scope:
       path: ""
       type: "services"
     values:
       layout: "default"
       image: "/images/logo/ripeda-og-image.jpg"
-      keywords: "Apple consulting Calgary Alberta, Mac support, IT services Calgary, Apple certified consultants, Apple Technical Partners, ACN, ATP"
+      keywords: "Apple consulting Calgary Alberta, Mac support, IT services Calgary, Apple certified consultants, dental practice IT, education technology, marketing agency IT, office IT support, SaaS company IT, law firm technology, Apple Technical Partners, ACN, ATP"
   - scope:
       path: ""
       type: "team"
     values:
       layout: "team"
       image: "/images/logo/ripeda-og-image.jpg"
-  - scope:
-      path: "business-resources"
-    values:
-      layout: "none"
-      robots: "noindex, nofollow"
+# Logo for SEO plugin (simple string)
+logo: "/images/logo/logo.png"
 
-logo:
-  mobile: "images/logo/logo-mobile.svg"
+# Theme logo configuration
+theme_logo:
+  mobile: "/images/logo/logo-mobile.svg"
   mobile_height: "32px"
   mobile_width: "32px"
-  desktop: "images/logo/logo.png"
+  desktop: "/images/logo/logo.png"
   desktop_height: "32px"
+  desktop_width: "auto"
 
 home:
   limit_services: 6
@@ -78,13 +81,16 @@ collections:
     sort_by: weight
   team:
     output: true
+  insights:
+    output: true
+    permalink: /resources/insights/:path/
+    sort_by: date
   business_resources:
     output: false
 
 # Files to include
 include:
   - "*.html"
-  - "business-resources"
 
 # Files and folders to exclude from processing
 exclude:
@@ -98,7 +104,6 @@ exclude:
   - LICENSE.md
   - LICENSE
   - README.md
-  - "business-resources/assets/logs/"
   - "*.log"
   - "package*.json"
   - ".git/"
@@ -112,33 +117,29 @@ exclude:
   - "*.pem"
   - "docker-compose.yml"
   - "Dockerfile"
-
-# Security: Keep certain files
-keep_files:
-  - "business-resources/assets"
-
-  # Default layouts
-defaults:
-  - scope:
-      path: ""
-      type: "services"
-    values:
-      layout: "service"
-  - scope:
-      path: ""
-      type: "team"
-    values:
-      layout: "team"
-  - scope:
-      path: "business-resources"
-    values:
-      layout: "none"
+  - "_compress_images_cache.yml"
+  - "scripts/"
+  - "skills/"
+  - ".claude/"
+  - "TODO.md"
+  # Cloudflare Worker source. Deployed to Cloudflare separately, NOT part of
+  # the Jekyll build — excluded so these .js files are never published.
+  - "cloudflare-workers/"
+  - "ripeda-website-redesign-strategy.md"
+  - "DEVELOPMENT_RULES.md"
+  - "spoke-topic-brainstorm.md"
+  - "strategy-advisory-engagement-playbook.md"
+  - "strategy-advisory-engagement-playbook.docx"
+  - "globe-demo.html"
+  - "globe-demo-fixed.html"
+  - "globe-demo-standalone.html"
+  - "og-image-mockup.html"
 
 # Plugins
 plugins:
   - jekyll-environment-variables
   - jekyll-sitemap
-  - jekyll-seo-tag
+  - jekyll-redirect-from
   - jekyll-feed
   - jekyll-minifier
 #  - jekyll-compress-images
@@ -173,6 +174,12 @@ tag: {}
 sass:
   style: compressed
 
+# MIME type configuration for video files
+webrick:
+  headers:
+    '**/*.mov': 'video/quicktime'
+    '**/*.mp4': 'video/mp4'
+
 # Site navigation
 navigation:
   - title: "Services"
@@ -181,8 +188,10 @@ navigation:
     url: "/daas/"
   - title: "Repairs"
     url: "/repairs/"
-  - title: "About" 
+  - title: "About"
     url: "/team/"
+  - title: "FAQ"
+    url: "/faq/"
   - title: "Contact"
     url: "/contact/"
 

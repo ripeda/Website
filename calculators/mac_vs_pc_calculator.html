@@ -8,7 +8,8 @@ permalink: /calculators/mac_vs_pc_calculator.html
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mac vs PC TCO Calculator - RIPEDA Consulting</title>
+    <title>Mac vs PC TCO Calculator — Total Cost of Ownership Tool | RIPEDA</title>
+    <meta name="description" content="Free Mac vs PC total cost of ownership (TCO) calculator. Compare purchase price, lifespan, support costs, and resale value over a full business cycle.">
     <style>
         * {
             margin: 0;
@@ -17,8 +18,8 @@ permalink: /calculators/mac_vs_pc_calculator.html
         }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            background: linear-gradient(135deg, #609bc3 0%, #79c5f8 100%);
+            font-family: -apple-system, "Helvetica Neue", sans-serif, serif, "Papyrus";
+            background: #f8f9fa;
             min-height: 100vh;
             padding: 20px;
         }
@@ -26,18 +27,18 @@ permalink: /calculators/mac_vs_pc_calculator.html
         .calculator-container {
             max-width: 1000px;
             margin: 0 auto;
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            border-radius: 20px;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
             overflow: hidden;
         }
 
         .header {
-            background: linear-gradient(135deg, #609bc3, #4282ae);
-            color: white;
+            background: white;
+            color: #2f2f41;
             padding: 40px;
             text-align: center;
+            border-bottom: 1px solid #ddd;
         }
 
         .header h1 {
@@ -87,22 +88,22 @@ permalink: /calculators/mac_vs_pc_calculator.html
 
         input, select {
             padding: 15px;
-            border: 2px solid #e0e0e0;
+            border: 1px solid #ddd;
             border-radius: 12px;
             font-size: 1.1em;
             transition: all 0.3s ease;
-            background-color: #f8f9fa;
+            background-color: white;
         }
 
         input:focus, select:focus {
             outline: none;
-            border-color: #609bc3;
+            border-color: #4a7c95;
             background-color: white;
-            box-shadow: 0 0 0 3px rgba(96, 155, 195, 0.1);
+            box-shadow: 0 0 0 3px rgba(74, 124, 149, 0.1);
         }
 
         .calculate-btn {
-            background: linear-gradient(135deg, #609bc3, #79c5f8);
+            background: linear-gradient(135deg, #4a7c95, #6b9ab8);
             color: white;
             border: none;
             padding: 20px 50px;
@@ -111,12 +112,12 @@ permalink: /calculators/mac_vs_pc_calculator.html
             border-radius: 15px;
             cursor: pointer;
             transition: all 0.3s ease;
-            box-shadow: 0 6px 25px rgba(96, 155, 195, 0.3);
+            box-shadow: 0 6px 25px rgba(74, 124, 149, 0.3);
         }
 
         .calculate-btn:hover {
             transform: translateY(-3px);
-            box-shadow: 0 10px 35px rgba(96, 155, 195, 0.4);
+            box-shadow: 0 10px 35px rgba(74, 124, 149, 0.4);
         }
 
         .results-container {
@@ -125,13 +126,13 @@ permalink: /calculators/mac_vs_pc_calculator.html
         }
 
         .savings-summary {
-            background: linear-gradient(135deg, #609bc3, #4282ae);
+            background: linear-gradient(135deg, #4a7c95, #4282ae);
             color: white;
             padding: 40px;
             border-radius: 20px;
             text-align: center;
             margin-bottom: 30px;
-            box-shadow: 0 10px 30px rgba(96, 155, 195, 0.3);
+            box-shadow: 0 10px 30px rgba(74, 124, 149, 0.3);
         }
 
         .savings-amount {
@@ -167,11 +168,11 @@ permalink: /calculators/mac_vs_pc_calculator.html
         }
 
         .cost-breakdown.mac {
-            border-left: 5px solid #609bc3;
+            border-left: 3px solid #4a7c95;
         }
 
         .cost-breakdown.pc {
-            border-left: 5px solid #79c5f8;
+            border-left: 3px solid #6b9ab8;
         }
 
         .cost-breakdown h3 {
@@ -195,7 +196,7 @@ permalink: /calculators/mac_vs_pc_calculator.html
         }
 
         .break-even {
-            background: linear-gradient(135deg, #79c5f8, #609bc3);
+            background: linear-gradient(135deg, #6b9ab8, #4a7c95);
             color: white;
             padding: 25px;
             border-radius: 15px;
@@ -236,7 +237,7 @@ permalink: /calculators/mac_vs_pc_calculator.html
             border-radius: 12px;
             box-shadow: 0 3px 15px rgba(0, 0, 0, 0.05);
             transition: transform 0.2s ease;
-            border-left: 3px solid #609bc3;
+            border-left: 3px solid #4a7c95;
         }
 
         .point-item:hover {
@@ -246,7 +247,7 @@ permalink: /calculators/mac_vs_pc_calculator.html
         .point-icon {
             font-size: 1.5em;
             margin-right: 15px;
-            color: #609bc3;
+            color: #4a7c95;
         }
 
         .point-text {
@@ -272,7 +273,7 @@ permalink: /calculators/mac_vs_pc_calculator.html
         }
 
         .ripeda-highlight {
-            background: linear-gradient(135deg, #609bc3, #79c5f8);
+            background: linear-gradient(135deg, #4a7c95, #6b9ab8);
             color: white;
             padding: 30px;
             border-radius: 15px;
@@ -327,9 +328,9 @@ permalink: /calculators/mac_vs_pc_calculator.html
 
                 <div class="form-group">
                     <label for="currentPCCost">Current PC Cost per Unit (CAD)</label>
-                    <input type="number" id="currentPCCost" min="500" max="5000" value="1200" required>
+                    <input type="number" id="currentPCCost" min="500" max="5000" value="1400" required>
                     <div class="cost-examples">
-                        <small>Examples: Basic business laptop (~$1,200) • High-performance workstation (~$2,400)</small>
+                        <small>Examples: Entry business laptop (~$1,400) • High-performance workstation (~$2,800). Memory and SSD shortages pushed PC prices up through 2026.</small>
                     </div>
                 </div>
 
@@ -346,6 +347,14 @@ permalink: /calculators/mac_vs_pc_calculator.html
                 <div class="form-group">
                     <label for="antivirusCost">Antivirus License per User/Year (CAD)</label>
                     <input type="number" id="antivirusCost" min="0" max="200" value="45" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="avgSalary">Average Salary per Employee (CAD/year)</label>
+                    <input type="number" id="avgSalary" min="20000" max="500000" value="75000" required>
+                    <div class="cost-examples">
+                        <small>Used to value the ~100 min/month each employee reclaims on Mac (Forrester, 2026)</small>
+                    </div>
                 </div>
             </div>
 
@@ -367,9 +376,17 @@ permalink: /calculators/mac_vs_pc_calculator.html
                     <p id="breakEvenText">Your Mac investment pays for itself in X months</p>
                 </div>
 
+                <div class="break-even" id="productivityValue">
+                    <h3>Bonus: Value of Reclaimed Productive Time</h3>
+                    <p id="productivityText"></p>
+                    <p id="productivityNote" style="font-size: 0.85rem; opacity: 0.85; margin-top: 0.5rem;">
+                        Forrester's June 2026 study found employees reclaim ~100 minutes per month on Mac (less startup, update, and troubleshooting time). Shown separately from the hard-cost TCO savings above.
+                    </p>
+                </div>
+
                 <div class="comparison-grid">
                     <div class="cost-breakdown pc">
-                        <h3>💻 Current PC Setup (3 Years)</h3>
+                        <h3>Current PC Setup (3 Years)</h3>
                         <div class="cost-item">
                             <span>Hardware Cost:</span>
                             <span id="pcHardware">$0</span>
@@ -393,7 +410,7 @@ permalink: /calculators/mac_vs_pc_calculator.html
                     </div>
 
                     <div class="cost-breakdown mac">
-                        <h3>🍎 Mac Setup (3 Years)</h3>
+                        <h3>Mac Setup (3 Years)</h3>
                         <div class="cost-item">
                             <span>Hardware Cost:</span>
                             <span id="macHardware">$0</span>
@@ -418,33 +435,41 @@ permalink: /calculators/mac_vs_pc_calculator.html
                 </div>
 
                 <div class="ripeda-highlight">
-                    <h3>🚀 Ready to Make the Switch?</h3>
+                    <h3>Ready to Make the Switch?</h3>
                     <p>RIPEDA Consulting specializes in seamless Mac migrations for Calgary businesses. We'll handle everything from procurement to deployment, ensuring your team gets the most out of their new Apple devices from day one.</p>
                 </div>
             </div>
         </div>
 
         <div class="selling-points">
-            <h3>🎯 Why Mac Wins for Business</h3>
+            <h3>Why Mac Wins for Business</h3>
             <div class="points-grid">
                 <div class="point-item">
-                    <div class="point-icon">🎫</div>
+                    <div class="point-icon">•</div>
                     <div class="point-text">
-                        <strong>60% Fewer IT Tickets</strong>
+                        <strong>Ready for Local AI Workloads</strong>
+                        <span>Apple silicon runs AI and LLM tasks on-device — Forrester's 2026 study found teams adopt Mac specifically to run compute-intensive AI locally</span>
+                    </div>
+                </div>
+
+                <div class="point-item">
+                    <div class="point-icon">•</div>
+                    <div class="point-text">
+                        <strong>55% Fewer IT Tickets</strong>
                         <span>Mac users create significantly fewer support requests, reducing IT workload</span>
                     </div>
                 </div>
 
                 <div class="point-item">
-                    <div class="point-icon">💰</div>
+                    <div class="point-icon">•</div>
                     <div class="point-text">
-                        <strong>20% Lower Resolution Costs</strong>
+                        <strong>25% Lower Resolution Costs</strong>
                         <span>Mac issues are easier and faster to resolve when they do occur</span>
                     </div>
                 </div>
 
                 <div class="point-item">
-                    <div class="point-icon">🛡️</div>
+                    <div class="point-icon">•</div>
                     <div class="point-text">
                         <strong>Built-in Enterprise Security</strong>
                         <span>No separate antivirus licensing needed - saves $45+ per user annually</span>
@@ -452,7 +477,7 @@ permalink: /calculators/mac_vs_pc_calculator.html
                 </div>
 
                 <div class="point-item">
-                    <div class="point-icon">⚡</div>
+                    <div class="point-icon">•</div>
                     <div class="point-text">
                         <strong>Higher Employee Productivity</strong>
                         <span>Studies show 5-10% productivity gains from fewer crashes and interruptions</span>
@@ -460,7 +485,7 @@ permalink: /calculators/mac_vs_pc_calculator.html
                 </div>
 
                 <div class="point-item">
-                    <div class="point-icon">🔄</div>
+                    <div class="point-icon">•</div>
                     <div class="point-text">
                         <strong>Longer Device Lifespan</strong>
                         <span>Macs typically last 4-5 years vs 3-4 years for PCs in business use</span>
@@ -468,7 +493,7 @@ permalink: /calculators/mac_vs_pc_calculator.html
                 </div>
 
                 <div class="point-item">
-                    <div class="point-icon">📈</div>
+                    <div class="point-icon">•</div>
                     <div class="point-text">
                         <strong>Higher Resale Value</strong>
                         <span>Macs retain 60-70% value after 3 years vs 30-40% for comparable PCs</span>
@@ -476,7 +501,7 @@ permalink: /calculators/mac_vs_pc_calculator.html
                 </div>
 
                 <div class="point-item">
-                    <div class="point-icon">🎯</div>
+                    <div class="point-icon">•</div>
                     <div class="point-text">
                         <strong>Simplified IT Management</strong>
                         <span>Apple Business Manager streamlines deployment and device management</span>
@@ -484,7 +509,7 @@ permalink: /calculators/mac_vs_pc_calculator.html
                 </div>
 
                 <div class="point-item">
-                    <div class="point-icon">🚀</div>
+                    <div class="point-icon">•</div>
                     <div class="point-text">
                         <strong>IBM Saved $543 Per Mac</strong>
                         <span>Real enterprise data: IBM's 300,000+ Mac deployment showed measurable savings</span>
@@ -495,12 +520,12 @@ permalink: /calculators/mac_vs_pc_calculator.html
     </div>
 
     <script>
-        // Canadian pricing data (2024)
+        // Canadian pricing data (Apple Store CA, 2026)
         const macPricing = {
-            macBookAir: 1499,      // CAD - M2 MacBook Air base model
-            macBookPro: 2499,      // CAD - 14" MacBook Pro base
-            iMac: 1799,            // CAD - 24" iMac base
-            macMini: 799           // CAD - Mac Mini base (for desktop setups)
+            macBookAir: 1399,      // CAD - 13-inch MacBook Air, base
+            macBookPro: 2399,      // CAD - 14-inch MacBook Pro, base (now ships with 1TB)
+            iMac: 1699,            // CAD - 24-inch iMac, base
+            macMini: 1099          // CAD - Mac mini, base (256GB model discontinued)
         };
 
         // Support cost multipliers based on research
@@ -518,9 +543,10 @@ permalink: /calculators/mac_vs_pc_calculator.html
             const itSupportCost = parseFloat(document.getElementById('itSupportCost').value);
             const windowsLicense = parseFloat(document.getElementById('windowsLicense').value);
             const antivirusCost = parseFloat(document.getElementById('antivirusCost').value);
+            const avgSalary = parseFloat(document.getElementById('avgSalary').value);
 
             // Validation
-            if (!workstations || !businessType || !currentPCCost || !itSupportCost || !windowsLicense || !antivirusCost) {
+            if (!workstations || !businessType || !currentPCCost || !itSupportCost || !windowsLicense || !antivirusCost || !avgSalary) {
                 alert('Please fill in all fields');
                 return;
             }
@@ -550,12 +576,20 @@ permalink: /calculators/mac_vs_pc_calculator.html
 
             // Mac Costs
             const macHardwareCost = macCost * workstations;
-            const macSupportCost = itSupportCost * workstations * 3 * supportMultiplier * 0.4; // 60% fewer tickets
+            const macSupportCost = itSupportCost * workstations * 3 * supportMultiplier * 0.45; // 55% fewer tickets (Forrester TEI, June 2026)
             const totalMacCost = macHardwareCost + macSupportCost;
 
             // Calculate savings
             const totalSavings = totalPCCost - totalMacCost;
             const savingsPerDevice = totalSavings / workstations;
+
+            // Productivity value of reclaimed time (Forrester, June 2026: ~100 min/employee/month)
+            // Hourly rate from salary using 260 working days x 8 hrs = 2,080 hrs/year (matches getanhourback model)
+            const hourlyRate = avgSalary / 2080;
+            const reclaimedHrsPerEmpPerYear = (100 / 60) * 12; // 100 min/month -> 20 hrs/year
+            const teamHoursPerYear = reclaimedHrsPerEmpPerYear * workstations;
+            const productivityValuePerYear = hourlyRate * reclaimedHrsPerEmpPerYear * workstations;
+            const productivityValue3yr = productivityValuePerYear * 3;
 
             // Calculate break-even point (in months)
             const additionalUpfront = Math.max(0, macHardwareCost - pcHardwareCost - pcWindowsCost);
@@ -574,7 +608,10 @@ permalink: /calculators/mac_vs_pc_calculator.html
                 totalPCCost,
                 macHardwareCost,
                 macSupportCost,
-                totalMacCost
+                totalMacCost,
+                teamHoursPerYear,
+                productivityValuePerYear,
+                productivityValue3yr
             });
         }
 
@@ -611,6 +648,11 @@ permalink: /calculators/mac_vs_pc_calculator.html
             document.getElementById('macHardware').textContent = formatCAD(data.macHardwareCost);
             document.getElementById('macSupport').textContent = formatCAD(data.macSupportCost);
             document.getElementById('macTotal').textContent = formatCAD(data.totalMacCost);
+
+            // Update productivity value of reclaimed time
+            const teamHours = Math.round(data.teamHoursPerYear).toLocaleString('en-CA');
+            document.getElementById('productivityText').textContent =
+                `Your team reclaims about ${teamHours} productive hours per year, worth ${formatCAD(data.productivityValuePerYear)} annually — roughly ${formatCAD(data.productivityValue3yr)} over three years.`;
 
             // Show results
             document.getElementById('results').style.display = 'block';

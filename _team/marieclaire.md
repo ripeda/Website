@@ -6,5 +6,3 @@ promoted: true
 weight: 3
 email: "marieclaire@ripeda.com"
 ---
-
-Overseeing finances and HR operations.

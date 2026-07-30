@@ -2,29 +2,245 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-    <title>{% if page.title %}{{page.title}}{% else %}{{ site.title | escape }}{% endif %}</title>
+    <title>{% if page.seo_title %}{{ page.seo_title }}{% elsif page.title %}{{ page.title }}{% else %}{{ site.title | escape }}{% endif %}</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link rel="icon" type="image/png" href="{{ '/images/favicon.ico' | relative_url }}">
+
+  <!-- SEO Meta Tags (jekyll-seo-tag removed 2026-06: it duplicated every tag below, producing two <title>/canonical/og sets per page) -->
+  <meta name="description" content="{{ page.seo_description | default: page.description | default: site.description | strip_html | truncate: 160 }}" />
+  <meta name="keywords" content="{{ page.keywords | default: 'Apple Technical Partner Alberta, Apple consulting Alberta, Mac support Calgary Edmonton, Apple certified consultants Alberta, Apple Consultants Network Alberta, iPad management, Mac business support Alberta, Apple device management Calgary Edmonton Red Deer' }}" />
+
+  <!-- Open Graph Enhanced -->
+  <meta property="og:title" content="{{ page.seo_title | default: page.title | default: site.title }}"/>
+  <meta property="og:type" content="website"/>
+  <meta property="og:url" content="{{ page.url | absolute_url }}"/>
+  <meta property="og:image" content="{{ page.og_image | default: '/images/ripeda-og-image.jpg' | absolute_url }}"/>
+  <meta property="og:description" content="{{ page.seo_description | default: page.description | default: site.description | strip_html | truncate: 160 }}"/>
+  <meta property="og:site_name" content="{{ site.title }}"/>
+  <meta property="og:locale" content="en_CA"/>
+
+  <!-- Twitter Cards -->
+  <meta name="twitter:card" content="summary_large_image"/>
+  <meta name="twitter:title" content="{{ page.seo_title | default: page.title | default: site.title }}"/>
+  <meta name="twitter:description" content="{{ page.seo_description | default: page.description | default: site.description | strip_html | truncate: 160 }}"/>
+  <meta name="twitter:image" content="{{ page.og_image | default: '/images/ripeda-og-image.jpg' | absolute_url }}"/>
+
+  <!-- Local Business Schema Markup - Alberta Wide -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "@id": "{{ site.url }}",
+    "name": "{{ site.title }}",
+    "alternateName": "RIPEDA",
+    "description": "{{ site.description }}",
+    "url": "{{ site.url }}",
+    "telephone": "{{ site.business.phone }}",
+    "email": "{{ site.business.email }}",
+    "priceRange": "$$",
+    "image": "{{ '/images/logo/logo.png' | absolute_url }}",
+    "logo": "{{ '/images/logo/logo.png' | absolute_url }}",
+    "foundingDate": "{{ site.business.founded }}",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "{{ site.business.street_address }}",
+      "addressLocality": "{{ site.business.city }}",
+      "addressRegion": "{{ site.business.province }}",
+      "postalCode": "{{ site.business.postal_code }}",
+      "addressCountry": "CA"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": "51.0447",
+      "longitude": "-114.0719"
+    },
+    "areaServed": [
+      {
+        "@type": "City",
+        "name": "Calgary",
+        "sameAs": "https://en.wikipedia.org/wiki/Calgary"
+      },
+      {
+        "@type": "City",
+        "name": "Edmonton",
+        "sameAs": "https://en.wikipedia.org/wiki/Edmonton"
+      },
+      {
+        "@type": "City",
+        "name": "Red Deer",
+        "sameAs": "https://en.wikipedia.org/wiki/Red_Deer,_Alberta"
+      },
+      {
+        "@type": "AdministrativeArea",
+        "name": "Alberta",
+        "sameAs": "https://en.wikipedia.org/wiki/Alberta"
+      }
+    ],
+    "serviceType": [
+      "Apple Device Management",
+      "Mac Support Services",
+      "iPad Deployment",
+      "IT Consulting",
+      "Apple Certified Support"
+    ],
+    "knowsAbout": [
+      "Apple Business Manager",
+      "macOS deployment",
+      "iPad management",
+      "Apple device security",
+      "Mac enterprise solutions"
+    ],
+    "sameAs": [
+      "https://www.linkedin.com/company/ripeda-consulting",
+      "https://twitter.com/ripedaconsulting"
+    ]
+  }
+  </script>
+
+  <!-- Service Schema for Apple Consulting - Alberta Wide -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "name": "Apple Device Management Services",
+    "provider": {
+      "@type": "LocalBusiness",
+      "name": "{{ site.title }}"
+    },
+    "serviceType": "IT Consulting",
+    "description": "Professional Apple device management and support services for businesses across Alberta including Calgary, Edmonton, Red Deer, and surrounding areas",
+    "areaServed": [
+      {
+        "@type": "City",
+        "name": "Calgary, Alberta"
+      },
+      {
+        "@type": "City",
+        "name": "Edmonton, Alberta"
+      },
+      {
+        "@type": "City",
+        "name": "Red Deer, Alberta"
+      },
+      {
+        "@type": "AdministrativeArea",
+        "name": "Alberta, Canada"
+      }
+    ]
+  }
+  </script>
+
+  <!-- Testimonials Schema (using real testimonials from carousel) -->
+  {% if page.is_home %}
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "{{ site.title }}",
+    "review": [
+      {
+        "@type": "Review",
+        "reviewBody": "As an Apple Consultant, they carried forward what every Apple experience should be.",
+        "author": {
+          "@type": "Person",
+          "name": "Chris Chivers"
+        },
+        "reviewRating": {
+          "@type": "Rating",
+          "ratingValue": "5",
+          "bestRating": "5"
+        }
+      },
+      {
+        "@type": "Review",
+        "reviewBody": "During the last two years I have had a fantastic business relationship with RIPEDA. They have been professional, knowledgable and available. When my business has technology issues, Roy and staff are always available right away. I can't comment enough on the high level of service and knowledge that they offer. I feel very lucky to work with RIPEDA and consider them an integral part of my Interior Design Business.",
+        "author": {
+          "@type": "Person",
+          "name": "Karen"
+        },
+        "reviewRating": {
+          "@type": "Rating",
+          "ratingValue": "5",
+          "bestRating": "5"
+        }
+      },
+      {
+        "@type": "Review",
+        "reviewBody": "Transitioning our Medical office from PC to Mac over a weekend, with no down time, and no interruption in patient care was unbelievable. Roy worked diligently in accommodating our needs, and recognized the extreme importance we place on security and confidentiality. I would gladly recommend Roy from RIPEDA to any small Business interested in his services.",
+        "author": {
+          "@type": "Organization",
+          "name": "Circle Medical"
+        },
+        "reviewRating": {
+          "@type": "Rating",
+          "ratingValue": "5",
+          "bestRating": "5"
+        }
+      },
+      {
+        "@type": "Review",
+        "reviewBody": "The team at RIPEDA Consulting answer the phones and are the most responsive IT team I've had the pleasure to work with! They are a breath of fresh air in the web development and managed services industry, especially with Apple devices. Tami, Roy and the RIPEDA team are a critical part of our growing business, keeping us online and productive so we can focus on getting results.",
+        "author": {
+          "@type": "Person",
+          "name": "Laura"
+        },
+        "reviewRating": {
+          "@type": "Rating",
+          "ratingValue": "5",
+          "bestRating": "5"
+        }
+      }
+    ]
+  }
+  </script>
+  {% endif %}
+
+  <!-- BreadcrumbList Schema -->
+  {% unless page.is_home %}
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "{{ site.url }}"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "{{ page.title }}",
+        "item": "{{ page.url | absolute_url }}"
+      }
+    ]
+  }
+  </script>
+  {% endunless %}
+
   <!-- Google Fonts CDN -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
   <link href="{{ '/assets/css/style.css' | relative_url }}" rel="stylesheet">
-  
+  <link href="{{ '/assets/css/team-photo-fix.css' | relative_url }}" rel="stylesheet">
+  {% if page.extra_css %}<link href="{{ page.extra_css | relative_url }}" rel="stylesheet">{% endif %}
+
   <!-- Canonical URL -->
   <link rel="canonical" href="{{ page.url | absolute_url }}" />
   
   <!-- Security Headers -->
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://www.google.com https://www.gstatic.com https://www.googletagmanager.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' data: https:; font-src 'self' https://fonts.gstatic.com; connect-src 'self'; frame-src https://www.google.com;">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://challenges.cloudflare.com https://static.cloudflareinsights.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' data: https:; font-src 'self' https://fonts.gstatic.com; connect-src 'self' https://challenges.cloudflare.com https://cloudflareinsights.com https://ripeda-website-lead-receiver.wandering-silence-da5d.workers.dev; frame-src https://challenges.cloudflare.com;">
   <meta http-equiv="X-Frame-Options" content="DENY">
   <meta http-equiv="X-XSS-Protection" content="1; mode=block">
   <meta http-equiv="X-Content-Type-Options" content="nosniff">
   <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
   
-  <!-- ReCaptcha -->
-  <script src="https://www.google.com/recaptcha/api.js?render=6LfJ4JArAAAAABPkwip7b7H8kHhR6bH7h3SSjLha"></script>
+  <!-- Cloudflare Turnstile -->
+  <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
 </head>
-<body>
+<body{% if page.bodyClass %} class="{{ page.bodyClass }}"{% endif %}>
     {% include header.html %}
 
     {{ content }}
@@ -36,7 +252,7 @@
     {% include sub-footer.html %}
     
     <script type="text/javascript" src="{{ '/assets/js/scripts.js' | relative_url }}"></script>
-    {% include google-analytics.html %}
+    {% include cloudflare-analytics.html %}
     <script src="{{ '/assets/js/calculators.js' | relative_url }}"></script>
 </body>
 </html>

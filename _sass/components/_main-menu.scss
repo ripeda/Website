@@ -1,6 +1,10 @@
 .main-menu {
   display: none;
-  @include media-breakpoint-up(md) {
+  margin-left: auto; // Push navigation to the right side of container
+  // Desktop menu only fits above 1150px once the seven top-level items
+  // (Services / Industries / Resources / Case Studies / About / Contact / Client Login)
+  // are accounted for. Below that, the hamburger takes over.
+  @media (min-width: 1150px) {
     display: block;
   }
   > ul {
@@ -10,16 +14,27 @@
     > li {
       list-style: none;
       font-size: 1rem;
+      position: relative;
+
       > a {
-        padding: 10px 12px 10px 12px;
+        padding: 10px 20px; // Increased from 16px to 20px for better spacing
         display: inline-block;
         font-weight: normal;
         text-decoration: none;
         color: $primary;
+        white-space: nowrap; // Keep label and dropdown arrow on a single line
         &:hover {
           text-decoration: underline;
         }
       }
+
+      // Tighten horizontal padding on smaller desktop widths to fit 7 nav items
+      @include media-breakpoint-down(lg) {
+        > a {
+          padding: 10px 14px;
+        }
+      }
+
       &.active {
         > a {
           font-weight: bold;
@@ -27,6 +42,94 @@
           &:hover {
             text-decoration: none;
             transition: all 225ms ease-in 0s;
+          }
+        }
+      }
+
+      // Client Login positioning - push to far right, subtle styling
+      &.client-login {
+        margin-left: 2rem;
+
+        > a {
+          color: $steel;
+          border: 1px solid #e2e8f0;
+          border-radius: 4px;
+          font-weight: 400;
+          font-size: 0.9rem;
+          padding: 8px 14px;
+          transition: all 0.2s ease;
+
+          &:hover {
+            color: $primary;
+            border-color: $primary;
+            background: rgba($primary, 0.05);
+            text-decoration: none;
+            transform: translateY(-1px);
+          }
+        }
+      }
+
+      // Services dropdown styling
+      &.dropdown {
+        .dropdown-toggle {
+          .dropdown-arrow {
+            margin-left: 4px;
+            font-size: 0.7rem;
+            opacity: 0.6;
+            color: lighten($primary, 20%);
+            transition: transform 0.2s ease, opacity 0.2s ease;
+          }
+        }
+
+        .dropdown-menu {
+          position: absolute;
+          top: 100%;
+          left: 0;
+          background: $white;
+          border: 1px solid #e2e8f0;
+          border-radius: 6px;
+          box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+          min-width: 220px;
+          opacity: 0;
+          visibility: hidden;
+          transform: translateY(-10px);
+          transition: all 0.2s ease;
+          z-index: 1000;
+
+          li {
+            list-style: none;
+
+            .dropdown-item {
+              display: block;
+              padding: 12px 16px;
+              color: $steel;
+              text-decoration: none;
+              border-bottom: 1px solid #f1f5f9;
+              transition: all 0.2s ease;
+
+              &:hover {
+                background: #f8fafc;
+                color: $primary;
+                text-decoration: none;
+              }
+
+              &:last-child {
+                border-bottom: none;
+              }
+            }
+          }
+        }
+
+        &:hover {
+          .dropdown-toggle .dropdown-arrow {
+            transform: rotate(180deg);
+            opacity: 0.8;
+          }
+
+          .dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
           }
         }
       }

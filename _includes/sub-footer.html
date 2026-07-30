@@ -7,9 +7,16 @@
             {% include social.html %}
           {% endif %}
           {% if site.data.seo.copyright_text %}
-          <div align="right" class="copyright">{{ site.data.seo.copyright_text }}</div>
+          <div align="right" class="copyright">
+            <a href="{{ '/privacy/' | relative_url }}">Privacy Policy</a>
+            &nbsp;·&nbsp;
+            {{ site.data.seo.copyright_text }}
+          </div>
           {% endif %}
         </div>
+        {% if site.data.seo.service_areas_text %}
+        <div align="right" class="service-areas"><em>{{ site.data.seo.service_areas_text }}</em></div>
+        {% endif %}
         {% if site.data.seo.address %}
         <div align="right" class="address">{{ site.data.seo.address }}</div>
         {% endif %}

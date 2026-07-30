@@ -1,0 +1,18 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(pkill -f jekyll)",
+      "Bash(bundle exec *)",
+      "Bash(echo \"Jekyll server starting with PID $!\")",
+      "mcp__Claude_in_Chrome__tabs_context_mcp",
+      "Bash(echo \"PID: $!\")",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://localhost:4000/)",
+      "Bash(curl -v http://localhost:4000/)",
+      "Bash(wget -q -O - http://localhost:4000/)",
+      "Bash(python3 -c ' *)",
+      "Bash(kill 54988)",
+      "Bash(kill 44843)",
+      "Bash(sleep 8 && cat /tmp/jekyll.log)"
+    ]
+  }
+}
