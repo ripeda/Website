@@ -1,0 +1,1304 @@
+// Homepage 2026 Redesign - Apple-inspired clean layout
+// Based on Nest thermostat design principles with left-right content flow
+
+// Variables for consistent spacing and colors
+$section-padding: 6rem 0;
+$content-max-width: 1200px;
+$visual-max-width: 600px;
+$border-radius: 12px;
+$engineering-blue: #1d4ed8;
+$engineering-light: #f0f7ff;
+// Surface tint for the approach-comparison panel. Distinct from
+// $engineering-light (#f0f7ff) so the hero gradient and the tile below are
+// untouched. Deliberately a purpose-picked value, NOT an alpha of
+// $engineering-blue: mixing a dark blue toward white desaturates faster than it
+// lightens, so rgba($engineering-blue, 0.05) flattens to #f4f6fd and reads grey.
+// #eaf2ff holds enough chroma at that lightness to actually look blue.
+$engineering-surface: #eaf2ff;
+$text-muted: #64748b;
+$success-green: #10b981;
+
+// Hero Section
+.hero-section {
+  background: linear-gradient(135deg, #f8fafc 0%, $engineering-light 100%);
+  padding: 8rem 0 6rem;
+  min-height: 70vh;
+  display: flex;
+  align-items: center;
+
+  .hero-container {
+    max-width: $content-max-width;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+
+  .hero-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+
+    @media (max-width: 768px) {
+      grid-template-columns: 1fr;
+      gap: 3rem;
+      text-align: center;
+    }
+  }
+
+  .hero-text {
+    h1 {
+      font-size: 3.5rem;
+      font-weight: 300;
+      line-height: 1.1;
+      color: $black;
+      margin-bottom: 1.5rem;
+
+      em {
+        font-style: italic;
+        color: $engineering-blue;
+        font-weight: 400;
+      }
+
+      @media (max-width: 768px) {
+        font-size: 2.5rem;
+      }
+    }
+
+    .hero-subtitle {
+      font-size: 1.25rem;
+      color: $text-muted;
+      margin-bottom: 2rem;
+      line-height: 1.4;
+    }
+  }
+
+  .hero-visual {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .engineering-diagram {
+      width: 400px;
+      height: 400px;
+      position: relative;
+
+      .device-grid {
+        position: relative;
+        width: 100%;
+        height: 100%;
+
+        .device {
+          position: absolute;
+          background: $white;
+          border: 2px solid #e2e8f0;
+          border-radius: $border-radius;
+          box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+
+          &.mac {
+            width: 120px;
+            height: 80px;
+            top: 50px;
+            left: 50px;
+            background: linear-gradient(145deg, #f1f5f9, #e2e8f0);
+          }
+
+          &.iphone {
+            width: 60px;
+            height: 120px;
+            top: 200px;
+            left: 280px;
+            border-radius: 20px;
+            background: linear-gradient(145deg, #1e293b, #334155);
+          }
+
+          &.ipad {
+            width: 100px;
+            height: 140px;
+            top: 180px;
+            left: 120px;
+            border-radius: 16px;
+            background: linear-gradient(145deg, #f8fafc, #f1f5f9);
+          }
+        }
+
+        .connection-lines {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+
+          &::before,
+          &::after {
+            content: '';
+            position: absolute;
+            height: 2px;
+            background: linear-gradient(90deg, $engineering-blue, transparent);
+            opacity: 0.6;
+          }
+
+          &::before {
+            width: 150px;
+            top: 90px;
+            left: 170px;
+            transform: rotate(45deg);
+          }
+
+          &::after {
+            width: 120px;
+            top: 260px;
+            left: 220px;
+            transform: rotate(-30deg);
+          }
+        }
+      }
+    }
+  }
+}
+
+// Content Sections - Left/Right Layout
+.content-section {
+  padding: $section-padding;
+
+  &:nth-child(even) {
+    background-color: #fafbfc;
+  }
+
+  .section-container {
+    max-width: $content-max-width;
+    margin: 0 auto;
+    padding: 0 2rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+    align-items: center;
+
+    @media (max-width: 768px) {
+      grid-template-columns: 1fr;
+      gap: 3rem;
+    }
+  }
+
+  .section-content {
+    h2 {
+      font-size: 2.75rem;
+      font-weight: 300;
+      line-height: 1.2;
+      color: $black;
+      margin-bottom: 1.5rem;
+    }
+
+    .section-intro {
+      font-size: 1.25rem;
+      color: $text-muted;
+      margin-bottom: 2.5rem;
+      line-height: 1.5;
+    }
+
+    // When content is on the right, adjust text alignment
+    &.right-content {
+      @media (min-width: 769px) {
+        padding-left: 2rem;
+      }
+    }
+
+    // When content is on the left, it stays as default
+    &.left-content {
+      @media (min-width: 769px) {
+        padding-right: 2rem;
+      }
+    }
+  }
+
+  .section-visual {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 400px;
+
+    &.left-visual {
+      order: -1;
+
+      @media (max-width: 768px) {
+        order: 0;
+      }
+    }
+  }
+}
+
+// Challenge Section Specific
+.challenges-section {
+  .challenge-item {
+    background: $white;
+    border: 1px solid #e2e8f0;
+    border-radius: $border-radius;
+    padding: 1.5rem;
+    margin-bottom: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+
+    &:hover {
+      border-color: $engineering-blue;
+      box-shadow: 0 4px 12px rgba(29, 78, 216, 0.15);
+
+      .expand-indicator {
+        opacity: 0.8;
+        transform: translateX(3px);
+      }
+    }
+
+    h3 {
+      color: $engineering-blue;
+      font-size: 1.25rem;
+      font-weight: 500;
+      margin-bottom: 0.5rem;
+    }
+
+    > p {
+      color: $text-muted;
+      margin-bottom: 0;
+
+      .expand-indicator {
+        color: $engineering-blue;
+        opacity: 0.5;
+        font-weight: 500;
+        transition: all 0.3s ease;
+        margin-left: 0.5rem;
+      }
+    }
+
+    .expanded-content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease;
+
+      p {
+        padding-top: 1rem;
+        color: $steel;
+        line-height: 1.5;
+      }
+    }
+
+    &.expanded .expanded-content {
+      max-height: 500px; // Increased to accommodate text wrapping at intermediate viewport widths
+    }
+  }
+
+  .problem-illustration {
+    position: relative;
+    width: 350px;
+    height: 350px;
+
+    .problem-visual {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+      transition: opacity 0.4s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      &.active {
+        opacity: 1;
+      }
+
+      .chaos-diagram, .reactive-diagram, .adhoc-diagram, .fragile-diagram, .lifecycle-chaos {
+        width: 300px;
+        height: 300px;
+        border-radius: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        padding: 2rem;
+        background: radial-gradient(circle at center, #fef2f2, #fee2e2);
+        border: 2px solid #fecaca;
+      }
+
+      .fire-icons, .reactive-text, .stressed-elements,
+      .event, .delay, .response,
+      .manual-process, .scattered-devices, .chaos-text,
+      .single-point, .failure-cascade, .down-text,
+      .emergency-buy, .budget-blown, .old-devices {
+        margin: 0.5rem 0;
+        font-weight: 600;
+        color: #dc2626;
+      }
+
+      .fire-icons {
+        font-size: 3rem;
+        animation: pulse 2s infinite;
+      }
+
+      .reactive-text, .chaos-text, .down-text {
+        font-size: 1rem;
+        font-weight: 700;
+        color: #991b1b;
+      }
+
+      .stressed-elements, .scattered-devices {
+        font-size: 2rem;
+        letter-spacing: 0.5rem;
+      }
+
+      .timeline {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+
+        .event {
+          background: #fca5a5;
+          padding: 0.5rem 1rem;
+          border-radius: 8px;
+          font-size: 1.1rem;
+        }
+
+        .delay {
+          font-size: 1.5rem;
+          opacity: 0.7;
+        }
+
+        .response {
+          background: #fde68a;
+          padding: 0.5rem 1rem;
+          border-radius: 8px;
+          color: #92400e;
+        }
+      }
+
+      .failure-cascade {
+        font-size: 1.5rem;
+        letter-spacing: 0.3rem;
+      }
+    }
+  }
+}
+
+// Engineering Section Specific
+.engineering-section {
+  // Sticky comparison box and align with tiles
+  .section-container {
+    align-items: start;
+  }
+
+  .section-visual.left-visual {
+    position: sticky;
+    top: 2rem;
+    align-self: start;
+    min-height: auto;
+    margin-top: 17.5rem; // Offset to align with methodology tiles, not section header
+    margin-bottom: 4rem; // Stop scrolling sooner
+  }
+
+  .methodology-grid {
+    display: grid;
+    gap: 1rem;
+    margin-bottom: 2rem;
+
+    .method-item {
+      cursor: pointer;
+      padding: 1.5rem;
+      border-radius: $border-radius;
+      background: $white;
+      border: 1px solid #e2e8f0;
+      transition: all 0.3s ease;
+
+      &:hover {
+        border-color: $engineering-blue;
+        box-shadow: 0 4px 12px rgba(29, 78, 216, 0.15);
+      }
+
+      h3 {
+        color: $engineering-blue;
+        font-size: 1.25rem;
+        font-weight: 500;
+        margin-bottom: 0.75rem;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+
+      p {
+        color: $steel;
+        line-height: 1.5;
+
+        .expand-indicator {
+          color: $engineering-blue;
+          opacity: 0.7;
+          margin-left: 0.5rem;
+          transition: transform 0.2s ease;
+        }
+      }
+
+      .expanded-content {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease;
+
+        p {
+          padding-top: 1rem;
+          color: darken($steel, 5%);
+          font-style: italic;
+        }
+      }
+
+      &.expanded {
+        border-color: $engineering-blue;
+        box-shadow: 0 4px 12px rgba(29, 78, 216, 0.15);
+
+        .expand-indicator {
+          transform: rotate(90deg);
+        }
+
+        .expanded-content {
+          max-height: 500px; // Increased to accommodate text wrapping at intermediate viewport widths
+        }
+      }
+    }
+  }
+
+  // Engineering visuals styling
+  .engineering-illustration {
+    width: 100%;
+    min-height: 400px;
+
+    .engineering-visual {
+      display: none;
+      width: 100%;
+
+      &.active {
+        display: block;
+      }
+
+      .video-placeholder {
+        background: linear-gradient(135deg, #f8fafc, #e2e8f0);
+        border-radius: 8px;
+        padding: 2rem;
+        min-height: 350px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        border: 2px dashed #cbd5e1;
+
+        > div {
+          margin: 1rem 0;
+          font-size: 1.2rem;
+          color: $steel;
+        }
+      }
+
+      .video-container {
+        width: 100%;
+
+        video {
+          // Remove absolute positioning to fix Chrome playback issues
+          // position: absolute;
+          // top: 0;
+          // left: 0;
+          width: 100%;
+          height: auto;
+          display: block;
+        }
+      }
+
+      // Demo placeholder styling for sections without videos
+      .demo-placeholder {
+        background: linear-gradient(135deg, #f8fafc, #e2e8f0);
+        border-radius: 12px;
+        padding: 2rem;
+        min-height: 350px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: 2px dashed #cbd5e1;
+        text-align: center;
+
+        .placeholder-content {
+          .placeholder-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+          }
+
+          h3 {
+            color: $engineering-blue;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+          }
+
+          p {
+            color: $text-muted;
+            margin-bottom: 1.5rem;
+            font-size: 1rem;
+          }
+
+          .feature-list {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+
+            > div {
+              background: rgba(29, 78, 216, 0.1);
+              padding: 0.5rem 1rem;
+              border-radius: 6px;
+              color: $engineering-blue;
+              font-weight: 500;
+              font-size: 0.9rem;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .blueprint-diagram {
+    width: 400px;
+    height: 350px;
+    background: linear-gradient(135deg, #1e40af, #3b82f6);
+    border-radius: $border-radius;
+    position: relative;
+    padding: 2rem;
+
+    .engineering-layers {
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+
+      .layer {
+        background: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        border-radius: 8px;
+        padding: 1rem;
+        color: $white;
+        font-weight: 500;
+        text-align: center;
+        font-size: 0.9rem;
+      }
+    }
+  }
+
+  // Approach Comparison — Traditional vs Engineered
+  //
+  // "Quiet" treatment: one card on a neutral surface, hairline divider, no
+  // gradient and no "vs" pill. The contrast is carried by text weight and
+  // colour rather than by blocks of background, so the Engineered column reads
+  // as the stronger one without shouting.
+  //
+  // Every colour below derives from the page's own tokens ($engineering-blue,
+  // $text-muted, $black). The previous version hardcoded off-system values
+  // (#eddcdc, #8b7070, a #1e40af→#2563eb gradient), which is why it read as
+  // pasted in from somewhere else. Do not reintroduce literal hex here.
+  .approach-comparison {
+    display: flex;
+    align-items: stretch;
+    gap: 0;
+    width: 100%;
+    max-width: 500px;
+    background: $white;
+    border: 1px solid rgba($black, 0.1);
+    border-radius: $border-radius;
+    overflow: hidden;
+    // Deliberately faint. On desktop this element is position:sticky and moves
+    // against the methodology tiles beside it; a heavy shadow reads badly on
+    // anything that travels.
+    box-shadow:
+      0 1px 2px rgba($black, 0.04),
+      0 10px 28px rgba($black, 0.05);
+
+    // Mobile-only version hidden on desktop
+    &.mobile-comparison {
+      display: none;
+    }
+
+    // This treatment has no "vs" pill. The element is left in the markup so a
+    // return to a two-tone split is a CSS-only change.
+    .comparison-divider {
+      display: none;
+    }
+
+    .comparison-column {
+      flex: 1;
+      padding: 1.75rem 1.5rem;
+
+      + .comparison-column {
+        border-left: 1px solid rgba($black, 0.1);
+      }
+
+      h4 {
+        margin: 0 0 1.15rem;
+        font-size: 0.7rem;
+        font-weight: 700;
+        letter-spacing: 0.09em;
+        text-transform: uppercase;
+      }
+
+      ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+
+        li {
+          position: relative;
+          padding: 0.5rem 0 0.5rem 1.4rem;
+          font-size: 0.9rem;
+          line-height: 1.45;
+
+          &::before {
+            position: absolute;
+            left: 0;
+            top: 0.5rem;
+            font-size: 0.85rem;
+            font-weight: 700;
+          }
+        }
+      }
+
+      &.traditional {
+        h4 {
+          color: rgba($text-muted, 0.8);
+        }
+
+        ul li {
+          color: $text-muted;
+
+          &::before {
+            content: '\2717';
+            color: rgba($text-muted, 0.45);
+          }
+        }
+      }
+
+      &.engineered {
+        // Enough to read as its own surface, not enough to become a coloured
+        // block. See the $engineering-surface note at the top of this file for
+        // why this is its own token and not an alpha of $engineering-blue.
+        background: $engineering-surface;
+
+        h4 {
+          color: $engineering-blue;
+        }
+
+        ul li {
+          color: $black;
+          font-weight: 500;
+
+          &::before {
+            content: '\2713';
+            color: $engineering-blue;
+          }
+        }
+      }
+    }
+
+    @media (max-width: 768px) {
+      flex-direction: column;
+      max-width: 100%;
+
+      // Show mobile-only version on mobile
+      &.mobile-comparison {
+        display: flex;
+        margin-bottom: 2rem;
+      }
+
+      .comparison-column {
+        padding: 1.5rem 1.35rem;
+
+        // Stacked: the hairline moves from the side to the top
+        + .comparison-column {
+          border-left: 0;
+          border-top: 1px solid rgba($black, 0.1);
+        }
+      }
+    }
+  }
+}
+
+// Lifecycle Section Specific
+.lifecycle-section {
+  // Override default center alignment so sticky positioning works on the video panel
+  .section-container {
+    align-items: start;
+  }
+
+  // Make the visual column itself sticky (grid child)
+  .section-visual.right-visual {
+    position: sticky;
+    top: 2rem;
+    align-self: start;
+    min-height: auto;
+    margin-top: 20rem; // Offset to align with lifecycle stage boxes, not section header
+  }
+  .lifecycle-stages {
+    .stage-item {
+      display: flex;
+      align-items: flex-start;
+      margin-bottom: 2rem;
+      cursor: pointer;
+
+      &:hover .expand-indicator {
+        opacity: 0.8;
+        transform: translateX(3px);
+      }
+
+      .stage-number {
+        flex-shrink: 0;
+        width: 50px;
+        height: 50px;
+        background: $engineering-blue;
+        color: $white;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 600;
+        margin-right: 1.5rem;
+      }
+
+      .stage-content {
+        flex: 1;
+        padding-bottom: 0.5rem;
+
+        h3 {
+          color: $engineering-blue;
+          font-size: 1.25rem;
+          font-weight: 500;
+          margin-bottom: 0.5rem;
+        }
+
+        > p {
+          color: $text-muted;
+          margin-bottom: 0.5rem;
+          line-height: 1.5;
+
+          .expand-indicator {
+            color: $engineering-blue;
+            opacity: 0.5;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            margin-left: 0.5rem;
+          }
+        }
+
+        .expanded-content {
+          max-height: 0;
+          overflow: hidden;
+          transition: max-height 0.3s ease;
+
+          p {
+            padding-top: 1rem;
+            padding-bottom: 0.5rem;
+            color: $steel;
+            line-height: 1.5;
+          }
+        }
+      }
+
+      &.expanded .stage-content .expanded-content {
+        max-height: 500px; // Increased to accommodate text wrapping at intermediate viewport widths
+      }
+    }
+  }
+
+  .lifecycle-videos {
+    width: 100%;
+    min-height: 350px;
+
+    .lifecycle-video {
+      display: none;
+      width: 100%;
+
+      &.active {
+        display: block;
+      }
+
+      .video-container {
+        width: 100%;
+        border-radius: 12px;
+        overflow: hidden;
+        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+
+        video {
+          width: 100%;
+          height: auto;
+          display: block;
+        }
+      }
+
+      .video-placeholder {
+        background: linear-gradient(135deg, #f8fafc, #e2e8f0);
+        border-radius: 12px;
+        padding: 3rem 2rem;
+        min-height: 300px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        border: 2px dashed #cbd5e1;
+        text-align: center;
+
+        .placeholder-icon {
+          font-size: 3rem;
+          margin-bottom: 1rem;
+          opacity: 0.6;
+        }
+
+        h4 {
+          color: $engineering-blue;
+          font-size: 1.15rem;
+          font-weight: 600;
+          margin-bottom: 0.5rem;
+        }
+
+        p {
+          color: $text-muted;
+          font-size: 0.95rem;
+          margin: 0;
+        }
+      }
+    }
+  }
+}
+
+// Success Section Specific
+.success-section {
+  .section-container {
+    align-items: flex-start;
+    padding-top: 4rem;
+  }
+
+  .success-metrics {
+    margin-top: 6rem; // Align with case studies, accounting for h2
+    position: sticky;
+    top: 2rem; // Float 2rem from top when scrolling
+
+    .metric-display {
+      display: grid;
+      gap: 2rem;
+
+      .metric {
+        text-align: center;
+        padding: 2rem;
+        background: $white;
+        border-radius: $border-radius;
+        border: 1px solid #e2e8f0;
+
+        .number {
+          display: block;
+          font-size: 2.5rem;
+          font-weight: 600;
+          color: $success-green;
+          margin-bottom: 0.5rem;
+        }
+
+        .label {
+          color: $text-muted;
+          font-size: 0.9rem;
+          font-weight: 500;
+        }
+      }
+    }
+  }
+
+  .case-studies {
+    .case-study {
+      background: $white;
+      border-radius: $border-radius;
+      padding: 1.5rem;
+      margin-bottom: 1rem;
+      border: 1px solid #e2e8f0;
+      cursor: pointer;
+      transition: all 0.3s ease;
+
+      &:hover {
+        border-color: $engineering-blue;
+        box-shadow: 0 4px 12px rgba(29, 78, 216, 0.15);
+      }
+
+      h3 {
+        color: $engineering-blue;
+        font-size: 1.25rem;
+        font-weight: 500;
+        margin-bottom: 0.5rem;
+      }
+
+      p {
+        color: $steel;
+        margin-bottom: 0;
+
+        .expand-indicator {
+          color: $engineering-blue;
+          opacity: 0.7;
+          margin-left: 0.5rem;
+          transition: transform 0.2s ease;
+        }
+      }
+
+      .expanded-content {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease;
+        margin-top: 1rem;
+
+        .case-details {
+          .challenge, .solution, .result {
+            margin-bottom: 1rem;
+
+            strong {
+              color: $engineering-blue;
+              display: inline-block;
+              margin-bottom: 0.25rem;
+            }
+          }
+        }
+      }
+
+      &.expanded {
+        border-color: $engineering-blue;
+        box-shadow: 0 4px 12px rgba(29, 78, 216, 0.15);
+
+        .expand-indicator {
+          transform: rotate(90deg);
+        }
+
+        .expanded-content {
+          max-height: 500px;
+          padding-top: 1rem;
+        }
+      }
+    }
+  }
+
+  // Stats display switching
+  .success-metrics {
+    .metric-display {
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.4s ease;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+
+      &.active {
+        opacity: 1;
+        visibility: visible;
+        position: relative;
+      }
+    }
+  }
+
+  .credentials-strip {
+    background: $engineering-light;
+    border-radius: $border-radius;
+    padding: 1.5rem;
+    margin: 2rem 0;
+
+    p {
+      margin-bottom: 1rem;
+      text-align: center;
+    }
+
+    .vendor-badges {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+
+      .badge {
+        background: $engineering-blue;
+        color: $white;
+        padding: 0.5rem 1rem;
+        border-radius: 20px;
+        font-size: 0.85rem;
+        font-weight: 500;
+      }
+    }
+  }
+}
+
+// Contact Section Specific
+.contact-section {
+  background: #f8fafc;
+
+  .consultation-offer {
+    h3 {
+      color: $engineering-blue;
+      font-size: 1.5rem;
+      font-weight: 500;
+      margin-bottom: 1rem;
+    }
+
+    .consultation-includes {
+      list-style: none;
+      padding: 0;
+      margin-bottom: 1.5rem;
+
+      li {
+        padding: 0.5rem 0;
+        padding-left: 2rem;
+        position: relative;
+        color: $steel;
+
+        &::before {
+          content: '✓';
+          position: absolute;
+          left: 0;
+          color: $success-green;
+          font-weight: 600;
+        }
+      }
+    }
+
+    .no-obligation {
+      font-style: italic;
+      color: $text-muted;
+      font-size: 0.95rem;
+    }
+  }
+
+  .contact-form-container {
+    background: $white;
+    border-radius: $border-radius;
+    padding: 2.5rem;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+
+    h4 {
+      color: $black;
+      font-size: 1.25rem;
+      font-weight: 500;
+      margin-bottom: 1.5rem;
+      text-align: center;
+    }
+
+    .form-group {
+      margin-bottom: 1.25rem;
+
+      label {
+        display: block;
+        margin-bottom: 0.5rem;
+        color: $black;
+        font-weight: 500;
+        font-size: 0.9rem;
+      }
+
+      input, select, textarea {
+        width: 100%;
+        padding: 0.75rem;
+        border: 1px solid #d1d5db;
+        border-radius: 6px;
+        font-size: 1rem;
+        transition: border-color 0.2s ease;
+
+        &:focus {
+          outline: none;
+          border-color: $engineering-blue;
+          box-shadow: 0 0 0 3px rgba(29, 78, 216, 0.1);
+        }
+      }
+
+      textarea {
+        resize: vertical;
+        min-height: 100px;
+      }
+    }
+
+    .form-disclaimer {
+      font-size: 0.85rem;
+      color: $text-muted;
+      text-align: center;
+      margin-top: 1rem;
+    }
+  }
+}
+
+// CTA Buttons - Redesigned to be more subtle for scroll actions
+.cta-button {
+  display: inline-block;
+  text-decoration: none;
+  font-weight: 500;
+  text-align: center;
+  transition: all 0.3s ease;
+  border: none;
+  cursor: pointer;
+
+  // Primary buttons - now subtle scroll links
+  &.primary {
+    color: $engineering-blue;
+    font-size: 1rem;
+    position: relative;
+    padding: 0.5rem 0;
+
+    &::after {
+      content: '↓';
+      margin-left: 0.5rem;
+      opacity: 0.7;
+      transition: transform 0.3s ease, opacity 0.3s ease;
+    }
+
+    &:hover {
+      color: darken($engineering-blue, 10%);
+      text-decoration: none;
+
+      &::after {
+        transform: translateY(2px);
+        opacity: 1;
+      }
+    }
+  }
+
+  // Secondary buttons - subtle text links
+  &.secondary {
+    color: $steel;
+    font-size: 0.95rem;
+    position: relative;
+    padding: 0.5rem 0;
+
+    &::after {
+      content: '→';
+      margin-left: 0.5rem;
+      opacity: 0.6;
+      transition: transform 0.3s ease, opacity 0.3s ease;
+    }
+
+    &:hover {
+      color: $engineering-blue;
+      text-decoration: none;
+
+      &::after {
+        transform: translateX(3px);
+        opacity: 1;
+      }
+    }
+  }
+
+  // Form submit buttons remain prominent
+  &.full-width {
+    width: 100%;
+    background: $engineering-blue;
+    color: $white;
+    padding: 1rem 2rem;
+    border-radius: 6px;
+    font-size: 1rem;
+
+    &::after {
+      display: none;
+    }
+
+    &:hover {
+      background: darken($engineering-blue, 10%);
+      color: $white;
+      text-decoration: none;
+      transform: translateY(-1px);
+      box-shadow: 0 4px 15px rgba(29, 78, 216, 0.3);
+    }
+  }
+}
+
+// Animations
+@keyframes pulse {
+  0%, 100% { opacity: 0.6; }
+  50% { opacity: 1; }
+}
+
+// Desktop - Ensure visuals are visible (explicit desktop rule)
+@media (min-width: 769px) {
+  .challenges-section {
+    .section-container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .section-visual {
+      display: flex !important;
+      justify-content: center;
+      align-items: center;
+      min-height: 500px;
+    }
+
+    .problem-illustration {
+      display: block;
+      width: 480px;
+      height: 480px;
+      position: relative;
+    }
+
+    .problem-visual {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+      transition: opacity 0.4s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      &.active {
+        opacity: 1;
+      }
+    }
+  }
+}
+
+// Mobile Responsiveness
+@media (max-width: 768px) {
+  .content-section {
+    .section-container {
+      padding: 0 1rem;
+
+      // Make mobile single-column layout
+      display: block;
+
+      .section-visual {
+        // Hide visual elements on mobile - they don't add value when users can't see them change
+        display: none;
+      }
+
+      .section-content {
+        // Make content full-width on mobile
+        width: 100%;
+        max-width: 100%;
+      }
+    }
+
+    // Show comparison visual on mobile for engineering section
+    &.engineering-section .section-container .section-visual {
+      display: none; // Hide desktop version on mobile, use inline mobile-comparison instead
+    }
+
+    .section-content {
+      &.left-content,
+      &.right-content {
+        padding-left: 0;
+        padding-right: 0;
+      }
+
+      h2 {
+        font-size: 2rem;
+      }
+    }
+  }
+
+  .lifecycle-section .lifecycle-stages .stage-item {
+    .stage-number {
+      width: 40px;
+      height: 40px;
+      margin-right: 1rem;
+      font-size: 0.9rem;
+    }
+  }
+
+  .success-section .success-metrics .metric-display {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+}

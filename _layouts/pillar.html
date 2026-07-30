@@ -1,0 +1,654 @@
+---
+layout: default
+---
+{% assign og_image = page.image | default: site.image | default: '/images/logo/ripeda-og-image.jpg' %}
+{% assign og_image_abs = og_image | absolute_url %}
+{% assign canonical = page.url | absolute_url %}
+
+<!-- WebPage + FAQPage JSON-LD for Google and LLM crawlers -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": {{ page.title | jsonify }},
+  "description": {{ page.description | jsonify }},
+  "url": {{ canonical | jsonify }},
+  "image": {{ og_image_abs | jsonify }},
+  "publisher": {
+    "@type": "Organization",
+    "name": "RIPEDA Consulting",
+    "url": {{ site.url | jsonify }},
+    "logo": {
+      "@type": "ImageObject",
+      "url": {{ '/images/logo/logo.png' | absolute_url | jsonify }}
+    }
+  },
+  "datePublished": "{{ page.date | date_to_xmlschema }}",
+  "dateModified": "{{ page.last_modified_at | default: page.date | date_to_xmlschema }}"
+}
+</script>
+
+{% if page.faq %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {% for item in page.faq %}
+    {%- capture q_text -%}{%- include expand-years.html text=item.q -%}{%- endcapture -%}
+    {%- capture a_text -%}{%- include expand-years.html text=item.a -%}{%- endcapture -%}
+    {
+      "@type": "Question",
+      "name": {{ q_text | jsonify }},
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": {{ a_text | jsonify }}
+      }
+    }{% unless forloop.last %},{% endunless %}
+    {% endfor %}
+  ]
+}
+</script>
+{% endif %}
+
+<article class="pillar-page">
+
+  <!-- Hero -->
+  <header class="pillar-hero">
+    <div class="pillar-container">
+      {% if page.hero.eyebrow %}<p class="pillar-eyebrow">{{ page.hero.eyebrow }}</p>{% endif %}
+      <h1 class="pillar-headline">{{ page.hero.headline | default: page.title }}</h1>
+      {% if page.hero.dek %}<p class="pillar-dek">{{ page.hero.dek }}</p>{% endif %}
+      {% if page.hero.badges %}
+      <ul class="pillar-badges">
+        {% for badge in page.hero.badges %}
+        {%- capture badge_text -%}{%- include expand-years.html text=badge -%}{%- endcapture -%}
+        <li><span class="pillar-badge-dot"></span>{{ badge_text }}</li>
+        {% endfor %}
+      </ul>
+      {% endif %}
+      {% if page.hero.cta_label %}
+      <a href="{{ page.hero.cta_url | default: '/#contact' }}" class="pillar-hero-cta">
+        {{ page.hero.cta_label }}<span class="pillar-arrow">→</span>
+      </a>
+      {% endif %}
+    </div>
+  </header>
+
+  <!-- Audience -->
+  {% if page.audience %}
+  <section class="pillar-audience">
+    <div class="pillar-container pillar-narrow">
+      <p class="pillar-section-eyebrow">Who this is for</p>
+      <p class="pillar-audience-text">
+        <strong>{{ page.audience.who }}</strong>
+        {% if page.audience.what %} {{ page.audience.what }}{% endif %}
+      </p>
+    </div>
+  </section>
+  {% endif %}
+
+  <!-- Body content -->
+  <div class="pillar-body">
+    <div class="pillar-container pillar-narrow">
+      <div class="pillar-content">
+        {{ content }}
+      </div>
+    </div>
+  </div>
+
+  <!-- Service grid (fixed, rendered by layout) -->
+  <section class="pillar-services">
+    <div class="pillar-container">
+      <p class="pillar-section-eyebrow">How we can help</p>
+      <h2 class="pillar-services-title">Four service lines, one Apple-focused partner</h2>
+      <div class="pillar-services-grid">
+        <a href="/services/strategy-advisory/" class="pillar-service-card">
+          <h3>Strategy Advisory</h3>
+          <p>Technology strategy, security posture, MDM platform choices, and the Apple ecosystem decisions buyers want a human partner for.</p>
+          <span class="pillar-arrow-text">Learn more <span class="pillar-arrow">→</span></span>
+        </a>
+        <a href="/services/managed-apple-it/" class="pillar-service-card">
+          <h3>Managed Apple IT</h3>
+          <p>Ongoing managed services for Apple environments. Device management, help desk, network, security, and lifecycle planning.</p>
+          <span class="pillar-arrow-text">Learn more <span class="pillar-arrow">→</span></span>
+        </a>
+        <a href="/services/network-infrastructure/" class="pillar-service-card">
+          <h3>Network Infrastructure</h3>
+          <p>Network design, deployment, and refresh projects for Apple-first organisations. Fortinet for security, Ruckus for wireless.</p>
+          <span class="pillar-arrow-text">Learn more <span class="pillar-arrow">→</span></span>
+        </a>
+        <a href="/services/apple-authorized-repair/" class="pillar-service-card">
+          <h3>Apple Authorized Repair</h3>
+          <p>Warranty and AppleCare work performed in-house by certified technicians, exclusively for managed clients.</p>
+          <span class="pillar-arrow-text">Learn more <span class="pillar-arrow">→</span></span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Related insights for this vertical -->
+  {% comment %}
+    Find spoke articles whose verticals include this pillar's vertical.
+    Source of truth for vertical assignment is _data/insights.yml (not article frontmatter).
+    We iterate the data file for published entries that match the vertical, then look up the
+    corresponding _insights post by slug to get the layout-renderable post object.
+  {% endcomment %}
+  {% comment %}
+    Rank-and-cap: score each matching insight, keep the top 6.
+    Score = primary-vertical match (+100) + tag overlap with page.related_tags (+10 each).
+    Tiebreak by recency. Sorting uses a zero-padded string key (SCORE|YYYYMMDD|slug)
+    so it stays pure Liquid and GitHub Pages compatible (no plugins). The +1000 offset
+    keeps every score 4 digits so the lexical sort orders by score correctly.
+  {% endcomment %}
+  {% assign vertical_id = page.vertical %}
+  {% assign related_limit = page.related_limit | default: 6 %}
+  {% assign related_tags = page.related_tags | default: '' | split: ',' %}
+  {% assign scored = '' | split: '' %}
+  {% for entry in site.data.insights.articles %}
+    {% if entry.published and entry.slug %}
+      {% assign matches = false %}
+      {% assign primary = 0 %}
+      {% if entry.verticals %}
+        {% if entry.verticals contains vertical_id %}{% assign matches = true %}{% endif %}
+      {% endif %}
+      {% if entry.vertical == vertical_id %}
+        {% assign matches = true %}
+        {% assign primary = 100 %}
+      {% endif %}
+      {% if matches %}
+        {% for post in site.insights %}
+          {% if post.url contains entry.slug %}
+            {% assign overlap = 0 %}
+            {% for t in related_tags %}
+              {% assign tt = t | strip %}
+              {% if tt != '' and post.tags contains tt %}{% assign overlap = overlap | plus: 10 %}{% endif %}
+            {% endfor %}
+            {% assign score = primary | plus: overlap | plus: 1000 %}
+            {% assign datekey = post.date | date: '%Y%m%d' %}
+            {% assign key = score | append: '|' | append: datekey | append: '|' | append: entry.slug %}
+            {% assign scored = scored | push: key %}
+            {% break %}
+          {% endif %}
+        {% endfor %}
+      {% endif %}
+    {% endif %}
+  {% endfor %}
+  {% comment %} ascending sort then reverse => highest score first, newest first on ties {% endcomment %}
+  {% assign ranked = scored | sort | reverse %}
+  {% if ranked.size > 0 %}
+  <section class="pillar-related">
+    <div class="pillar-container">
+      <p class="pillar-section-eyebrow">Related reading</p>
+      <h2 class="pillar-related-title">Go deeper on any of these</h2>
+      <div class="pillar-related-grid">
+        {% for key in ranked limit: related_limit %}
+        {% assign slug = key | split: '|' | last %}
+        {% for post in site.insights %}
+          {% if post.url contains slug %}
+        <a href="{{ post.url | relative_url }}" class="pillar-related-card">
+          {% if post.tags %}
+          <p class="pillar-related-tags">{% for t in post.tags %}{{ t }}{% unless forloop.last %} · {% endunless %}{% endfor %}</p>
+          {% endif %}
+          <h3 class="pillar-related-card-title">{{ post.title }}</h3>
+          {% if post.dek %}<p class="pillar-related-dek">{{ post.dek | truncate: 140 }}</p>{% endif %}
+          <p class="pillar-related-meta">{{ post.reading_time }} min read</p>
+        </a>
+            {% break %}
+          {% endif %}
+        {% endfor %}
+        {% endfor %}
+      </div>
+      {% if ranked.size > related_limit %}
+      {% assign v_obj = site.data.insights.verticals | where: 'id', vertical_id | first %}
+      <p class="pillar-related-more" style="text-align:center;margin-top:1.75rem;">
+        <a href="{{ '/resources/insights/' | relative_url }}#{{ vertical_id }}" style="font-weight:600;">See more {{ v_obj.label }} insights &rarr;</a>
+      </p>
+      {% endif %}
+    </div>
+  </section>
+  {% endif %}
+
+  <!-- FAQ -->
+  {% if page.faq %}
+  <section class="pillar-faq">
+    <div class="pillar-container pillar-narrow">
+      <p class="pillar-section-eyebrow">Frequently asked</p>
+      <h2 class="pillar-faq-title">Common questions</h2>
+      <div class="pillar-faq-list">
+        {% for item in page.faq %}
+        {%- capture q_text -%}{%- include expand-years.html text=item.q -%}{%- endcapture -%}
+        {%- capture a_text -%}{%- include expand-years.html text=item.a -%}{%- endcapture -%}
+        <details class="pillar-faq-item">
+          <summary>{{ q_text }}</summary>
+          <div class="pillar-faq-answer">{{ a_text | markdownify }}</div>
+        </details>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+  {% endif %}
+
+  <!-- Final CTA -->
+  <section class="pillar-cta">
+    <div class="pillar-container pillar-narrow">
+      <h2 class="pillar-cta-title">{{ page.cta_title | default: "Ready to talk to a partner who knows Apple in your industry?" }}</h2>
+      <p class="pillar-cta-body">{{ page.cta_body | default: "Tell us about your environment and what you are trying to solve. We will tell you whether we can help." }}</p>
+      <a href="/#contact" class="pillar-cta-btn">Get in touch<span class="pillar-arrow">→</span></a>
+    </div>
+  </section>
+
+</article>
+
+<style>
+.pillar-page { background: #ffffff; color: #1f2937; }
+
+.pillar-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+.pillar-narrow { max-width: 820px; }
+
+.pillar-section-eyebrow {
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: #1B3C6E;
+  margin: 0 0 0.85rem;
+}
+
+.pillar-arrow {
+  display: inline-block;
+  margin-left: 6px;
+  transition: transform 0.2s ease;
+}
+.pillar-arrow-text:hover .pillar-arrow,
+a:hover .pillar-arrow { transform: translateX(3px); }
+
+/* Hero */
+.pillar-hero {
+  padding: 90px 0 70px;
+  background: linear-gradient(180deg, #fafbfc 0%, #ffffff 100%);
+  border-bottom: 1px solid #e5e7eb;
+}
+.pillar-eyebrow {
+  font-size: 0.82rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #1B3C6E;
+  margin: 0 0 1.25rem;
+}
+.pillar-headline {
+  font-size: 3rem;
+  line-height: 1.1;
+  letter-spacing: -0.015em;
+  color: #1B3C6E;
+  font-weight: 700;
+  margin: 0 0 1.25rem;
+  max-width: 880px;
+}
+.pillar-dek {
+  font-size: 1.3rem;
+  line-height: 1.5;
+  color: #3D3D3D;
+  margin: 0 0 2rem;
+  max-width: 760px;
+}
+.pillar-badges {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 2.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 20px;
+}
+.pillar-badges li {
+  display: inline-flex;
+  align-items: center;
+  font-size: 0.92rem;
+  color: #3D3D3D;
+  font-weight: 500;
+}
+.pillar-badge-dot {
+  width: 6px; height: 6px;
+  background: #1B3C6E;
+  border-radius: 50%;
+  margin-right: 9px;
+}
+.pillar-hero-cta {
+  display: inline-flex;
+  align-items: center;
+  background: #1B3C6E;
+  color: #ffffff;
+  padding: 14px 28px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: background 0.2s ease;
+}
+.pillar-hero-cta:hover { background: #25548f; color: #fff; text-decoration: none; }
+
+/* Audience */
+.pillar-audience {
+  padding: 50px 0 30px;
+  background: #ffffff;
+}
+.pillar-audience-text {
+  font-size: 1.18rem;
+  line-height: 1.55;
+  color: #1f2937;
+  margin: 0;
+}
+.pillar-audience-text strong {
+  color: #1B3C6E;
+  font-weight: 600;
+}
+
+/* Body */
+.pillar-body {
+  padding: 30px 0 60px;
+}
+.pillar-content {
+  font-size: 1.08rem;
+  line-height: 1.75;
+  color: #1f2937;
+}
+.pillar-content > p {
+  margin: 0 0 1.4rem;
+}
+.pillar-content h2 {
+  font-size: 1.75rem;
+  font-weight: 600;
+  color: #1B3C6E;
+  margin: 2.75rem 0 1rem;
+  line-height: 1.2;
+  letter-spacing: -0.005em;
+}
+.pillar-content h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #1B3C6E;
+  margin: 1.75rem 0 0.5rem;
+}
+.pillar-content strong { color: #1B3C6E; font-weight: 600; }
+.pillar-content a {
+  color: #1B3C6E;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-thickness: 1px;
+}
+.pillar-content ul, .pillar-content ol {
+  margin: 0 0 1.4rem 1.5rem;
+}
+.pillar-content li {
+  margin-bottom: 0.5rem;
+  line-height: 1.7;
+}
+.pillar-content .pillar-read-more {
+  display: inline-block;
+  margin-top: 0.5rem;
+  font-weight: 600;
+  font-size: 0.95rem;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(27, 60, 110, 0.3);
+}
+.pillar-content .pillar-read-more:hover { border-bottom-color: #1B3C6E; }
+
+/* Case study tile */
+.pillar-content .pillar-case {
+  background: #EEF2F8;
+  border-left: 4px solid #1B3C6E;
+  padding: 24px 28px;
+  border-radius: 0 8px 8px 0;
+  margin: 2rem 0;
+}
+.pillar-content .pillar-case-eyebrow {
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #1B3C6E;
+  margin: 0 0 0.75rem;
+}
+.pillar-content .pillar-case-title {
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: #1B3C6E;
+  margin: 0 0 0.5rem;
+}
+.pillar-content .pillar-case-body {
+  font-size: 1rem;
+  color: #1f2937;
+  margin: 0;
+  line-height: 1.6;
+}
+
+/* Service grid */
+.pillar-services {
+  padding: 60px 0;
+  background: #fafbfc;
+  border-top: 1px solid #e5e7eb;
+  border-bottom: 1px solid #e5e7eb;
+}
+.pillar-services-title {
+  font-size: 1.85rem;
+  font-weight: 600;
+  color: #1B3C6E;
+  margin: 0 0 2rem;
+  letter-spacing: -0.01em;
+}
+.pillar-services-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 18px;
+}
+.pillar-service-card {
+  display: block;
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+  padding: 28px 30px;
+  text-decoration: none;
+  color: inherit;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+}
+.pillar-service-card:hover {
+  border-color: #1B3C6E;
+  box-shadow: 0 8px 24px rgba(27, 60, 110, 0.08);
+  transform: translateY(-2px);
+  text-decoration: none;
+  color: inherit;
+}
+.pillar-service-card h3 {
+  font-size: 1.2rem;
+  color: #1B3C6E;
+  font-weight: 600;
+  margin: 0 0 0.65rem;
+}
+.pillar-service-card p {
+  font-size: 0.98rem;
+  color: #3D3D3D;
+  line-height: 1.55;
+  margin: 0 0 1rem;
+}
+.pillar-arrow-text {
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: #1B3C6E;
+}
+
+/* Related insights */
+.pillar-related {
+  padding: 60px 0;
+  background: #ffffff;
+}
+.pillar-related-title {
+  font-size: 1.85rem;
+  font-weight: 600;
+  color: #1B3C6E;
+  margin: 0 0 2rem;
+  letter-spacing: -0.01em;
+}
+.pillar-related-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
+.pillar-related-card {
+  display: block;
+  background: #fafbfc;
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+  padding: 24px 28px;
+  text-decoration: none;
+  color: inherit;
+  transition: border-color 0.2s ease, transform 0.2s ease;
+}
+.pillar-related-card:hover {
+  border-color: #1B3C6E;
+  transform: translateY(-2px);
+  text-decoration: none;
+  color: inherit;
+}
+.pillar-related-tags {
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #1B3C6E;
+  margin: 0 0 0.6rem;
+}
+.pillar-related-card-title {
+  font-size: 1.15rem;
+  color: #1B3C6E;
+  font-weight: 600;
+  margin: 0 0 0.5rem;
+  line-height: 1.3;
+}
+.pillar-related-dek {
+  font-size: 0.95rem;
+  color: #4b5563;
+  line-height: 1.55;
+  margin: 0 0 0.85rem;
+}
+.pillar-related-meta {
+  font-size: 0.82rem;
+  color: #6b7280;
+  margin: 0;
+}
+
+/* FAQ */
+.pillar-faq {
+  padding: 60px 0;
+  background: #fafbfc;
+  border-top: 1px solid #e5e7eb;
+}
+.pillar-faq-title {
+  font-size: 1.85rem;
+  font-weight: 600;
+  color: #1B3C6E;
+  margin: 0 0 2rem;
+  letter-spacing: -0.01em;
+}
+.pillar-faq-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.pillar-faq-item {
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  padding: 0;
+  overflow: hidden;
+}
+.pillar-faq-item summary {
+  padding: 18px 24px;
+  font-weight: 600;
+  font-size: 1.05rem;
+  color: #1B3C6E;
+  cursor: pointer;
+  list-style: none;
+  position: relative;
+  padding-right: 50px;
+}
+.pillar-faq-item summary::-webkit-details-marker { display: none; }
+.pillar-faq-item summary::after {
+  content: "+";
+  position: absolute;
+  right: 24px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 1.4rem;
+  font-weight: 400;
+  color: #6b7280;
+  transition: transform 0.2s ease;
+}
+.pillar-faq-item[open] summary::after { content: "−"; }
+.pillar-faq-answer {
+  padding: 0 24px 22px;
+  font-size: 0.98rem;
+  color: #1f2937;
+  line-height: 1.65;
+}
+.pillar-faq-answer p { margin: 0 0 0.75rem; }
+.pillar-faq-answer p:last-child { margin-bottom: 0; }
+
+/* Final CTA */
+.pillar-cta {
+  padding: 70px 0 80px;
+  background: #1B3C6E;
+  color: #ffffff;
+  text-align: center;
+}
+.pillar-cta-title {
+  font-size: 2rem;
+  color: #ffffff;
+  font-weight: 600;
+  margin: 0 0 1rem;
+  letter-spacing: -0.01em;
+}
+.pillar-cta-body {
+  font-size: 1.15rem;
+  color: rgba(255,255,255,0.85);
+  margin: 0 auto 1.75rem;
+  max-width: 640px;
+  line-height: 1.55;
+}
+.pillar-cta-btn {
+  display: inline-flex;
+  align-items: center;
+  background: #ffffff;
+  color: #1B3C6E !important;
+  padding: 14px 32px;
+  border-radius: 6px;
+  text-decoration: none !important;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.pillar-cta-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+}
+
+@media (max-width: 900px) {
+  .pillar-services-grid, .pillar-related-grid { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 768px) {
+  .pillar-hero { padding: 55px 0 45px; }
+  .pillar-headline { font-size: 2rem; }
+  .pillar-dek { font-size: 1.08rem; }
+  .pillar-content { font-size: 1rem; }
+  .pillar-content h2 { font-size: 1.4rem; }
+  .pillar-services-title, .pillar-related-title, .pillar-faq-title { font-size: 1.45rem; }
+  .pillar-cta-title { font-size: 1.5rem; }
+  .pillar-container { padding: 0 1.25rem; }
+  .pillar-service-card, .pillar-related-card { padding: 22px 24px; }
+}
+</style>

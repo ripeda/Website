@@ -1,0 +1,329 @@
+// Insights blog page — filterable card grid with vertical tabs
+
+.page-insights {
+
+  // ── Hero ──────────────────────────────────────────────────────────
+  .insights-hero {
+    background: linear-gradient(135deg, #f8fafc 0%, #f0f7ff 100%);
+    padding: 4rem 0 3rem;
+    border-bottom: 1px solid #e8f0f7;
+
+    h1 {
+      font-size: 2.75rem;
+      font-weight: 300;
+      color: $black;
+      margin-bottom: 0.75rem;
+      letter-spacing: -0.02em;
+    }
+
+    .insights-lead {
+      font-size: 1.15rem;
+      color: #64748b;
+      max-width: 600px;
+      line-height: 1.6;
+      margin: 0;
+    }
+  }
+
+  // ── Filter tabs ───────────────────────────────────────────────────
+  .insights-filters {
+    background: #fff;
+    border-bottom: 1px solid #e8f0f7;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+
+    .filter-scroll-wrap {
+      position: relative;
+
+      &::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 60px;
+        height: 100%;
+        background: linear-gradient(to right, transparent, #fff);
+        pointer-events: none;
+        transition: opacity 0.2s ease;
+      }
+
+      &.at-end::after {
+        opacity: 0;
+      }
+    }
+
+    .filter-scroll {
+      display: flex;
+      gap: 0;
+      overflow-x: auto;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+      &::-webkit-scrollbar { display: none; }
+    }
+
+    .filter-btn {
+      flex-shrink: 0;
+      background: none;
+      border: none;
+      border-bottom: 3px solid transparent;
+      padding: 1rem 1.25rem;
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: #64748b;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: color 0.15s ease, border-color 0.15s ease;
+      letter-spacing: 0.01em;
+
+      &:hover {
+        color: $primary;
+      }
+
+      &.active {
+        color: $primary;
+        border-bottom-color: $primary;
+        font-weight: 600;
+      }
+    }
+  }
+
+  // ── Search bar ───────────────────────────────────────────────────
+  .insights-search {
+    padding: 1.5rem 0 0.5rem;
+  }
+
+  .insights-search-box {
+    position: relative;
+    max-width: 520px;
+  }
+
+  .insights-search-box input {
+    width: 100%;
+    padding: 0.75rem 2.75rem 0.75rem 2.5rem;
+    font-size: 0.9rem;
+    border: 1.5px solid #e8f0f7;
+    border-radius: 25px;
+    outline: none;
+    background: #fff;
+    color: $black;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    font-family: $font-family-base;
+
+    &::placeholder { color: #b0bec5; }
+
+    &:focus {
+      border-color: $primary;
+      box-shadow: 0 0 0 3px rgba(96, 155, 195, 0.12);
+    }
+  }
+
+  .insights-search-icon {
+    position: absolute;
+    left: 0.85rem;
+    top: 50%;
+    transform: translateY(-50%);
+    pointer-events: none;
+    display: flex;
+    align-items: center;
+  }
+
+  .insights-search-clear {
+    position: absolute;
+    right: 0.85rem;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #94a3b8;
+    font-size: 0.75rem;
+    line-height: 1;
+    padding: 0.2rem;
+    transition: color 0.15s ease;
+
+    &:hover { color: $black; }
+  }
+
+  .insights-search-status {
+    margin-top: 0.5rem;
+    font-size: 0.8rem;
+    color: #94a3b8;
+    padding-left: 0.25rem;
+    min-height: 1.2rem;
+  }
+
+  // ── Vertical description ──────────────────────────────────────────
+  .vertical-description {
+    padding: 1.75rem 0 0.5rem;
+    min-height: 4rem;
+
+    p {
+      color: #64748b;
+      font-size: 0.95rem;
+      line-height: 1.6;
+      max-width: 680px;
+      margin: 0;
+    }
+  }
+
+  // ── Article count ─────────────────────────────────────────────────
+  .insights-count {
+    font-size: 0.8rem;
+    color: #94a3b8;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    font-weight: 500;
+    margin-bottom: 1.5rem;
+  }
+
+  // ── Card grid ─────────────────────────────────────────────────────
+  .insights-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    padding-bottom: 5rem;
+
+    @media (max-width: 991px) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @media (max-width: 575px) {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  // ── Individual card ───────────────────────────────────────────────
+  .insight-card {
+    background: #fff;
+    border: 1px solid #e8f0f7;
+    border-radius: 10px;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    transition: border-color 0.15s ease, box-shadow 0.15s ease, transform 0.15s ease;
+    text-decoration: none;
+    color: inherit;
+
+    &:hover {
+      border-color: $primary;
+      box-shadow: 0 4px 20px rgba(96, 155, 195, 0.12);
+      transform: translateY(-2px);
+    }
+
+    &.hidden {
+      display: none;
+    }
+  }
+
+  .insight-tag {
+    display: inline-block;
+    font-size: 0.7rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+    color: $primary;
+    background: rgba(96, 155, 195, 0.1);
+    padding: 0.2rem 0.6rem;
+    border-radius: 4px;
+    align-self: flex-start;
+  }
+
+  .insight-card-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    align-self: flex-start;
+  }
+
+  .insight-title {
+    font-size: 1rem;
+    font-weight: 600;
+    color: $black;
+    line-height: 1.4;
+    margin: 0;
+    flex: 1;
+  }
+
+  .insight-meta {
+    font-size: 0.8rem;
+    color: #94a3b8;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+
+    .meta-sep {
+      width: 3px;
+      height: 3px;
+      background: #cbd5e1;
+      border-radius: 50%;
+      display: inline-block;
+    }
+  }
+
+  .insight-cta {
+    font-size: 0.85rem;
+    color: $primary;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+    margin-top: auto;
+    text-decoration: none;
+
+    .arrow {
+      transition: transform 0.15s ease;
+    }
+  }
+
+  .insight-card:hover .insight-cta .arrow {
+    transform: translateX(3px);
+  }
+
+  // ── Published card variant ────────────────────────────────────────
+  .insight-card--published {
+    border-color: rgba(96, 155, 195, 0.4);
+    box-shadow: 0 2px 12px rgba(96, 155, 195, 0.08);
+
+    &:hover {
+      border-color: $primary;
+      box-shadow: 0 6px 24px rgba(96, 155, 195, 0.18);
+    }
+  }
+
+  .insight-card-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.5rem;
+  }
+
+  .insight-badge {
+    display: inline-block;
+    font-size: 0.65rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: #ffffff;
+    background: $primary;
+    padding: 0.22rem 0.55rem;
+    border-radius: 4px;
+    line-height: 1;
+    align-self: flex-start;
+  }
+
+  // ── Empty state ───────────────────────────────────────────────────
+  .insights-empty {
+    display: none;
+    text-align: center;
+    padding: 4rem 1rem;
+    color: #94a3b8;
+    grid-column: 1 / -1;
+    font-size: 0.95rem;
+
+    &.visible {
+      display: block;
+    }
+  }
+}

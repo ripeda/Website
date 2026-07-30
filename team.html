@@ -1,0 +1,95 @@
+---
+redirect_from:
+  - /company.html
+  - /team/mykola-grymalyuk/
+layout: default
+title: "Meet Our Engineering Team"
+bodyClass: "page-team"
+---
+
+<!-- Hero Section -->
+<section class="hero-section team-hero">
+  <div class="hero-container">
+    <div class="hero-content">
+      <div class="hero-text">
+        <h1>Meet the Team Behind <em>Your Technology Success</em></h1>
+        <p class="hero-subtitle">Strategic technology leaders focused on delivering enterprise-grade solutions for Alberta businesses</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Team Section -->
+<section class="content-section team-section">
+  <div class="section-container">
+    <div class="team-grid">
+
+      <!-- Leadership Team (promoted members) -->
+      {% assign leadership = site.team | where: "promoted", true | sort: "weight" %}
+      {% for member in leadership %}
+      <div class="team-member leadership-member">
+        {% if member.image %}
+        <div class="member-photo">
+          <img src="{{ member.image | relative_url }}" alt="{{ member.title }}" />
+        </div>
+        {% endif %}
+        <div class="member-info">
+          <h3 class="member-name">{{ member.title }}</h3>
+          <p class="member-title">{{ member.jobtitle }}</p>
+          <div class="member-description">
+            {{ member.content }}
+          </div>
+          <div class="member-contact">
+            {% if member.email %}
+            <a href="mailto:{{ member.email }}" class="contact-link email">{{ member.email }}</a>
+            {% endif %}
+            {% if member.linkedinurl %}
+            <a href="{{ member.linkedinurl }}" target="_blank" rel="noopener" class="contact-link linkedin">LinkedIn Profile</a>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+
+      <!-- Team Members (non-promoted) -->
+      {% assign team_members = site.team | where: "promoted", empty | sort: "weight" %}
+      {% for member in team_members %}
+      <div class="team-member">
+        {% if member.image %}
+        <div class="member-photo">
+          <img src="{{ member.image | relative_url }}" alt="{{ member.title }}" />
+        </div>
+        {% endif %}
+        <div class="member-info">
+          <h3 class="member-name">{{ member.title }}</h3>
+          <p class="member-title">{{ member.jobtitle }}</p>
+          <div class="member-description">
+            {{ member.content }}
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+
+    </div>
+
+    <!-- Team Values -->
+    <div class="team-values">
+      <h2>Engineering Excellence Through Collaboration</h2>
+      <div class="values-grid">
+        <div class="value-item">
+          <h4>Strategic Thinking</h4>
+          <p>We approach every project with long-term planning and strategic alignment to your business goals.</p>
+        </div>
+        <div class="value-item">
+          <h4>Technical Expertise</h4>
+          <p>Deep knowledge in Apple ecosystems, enterprise networking, and secure infrastructure deployment.</p>
+        </div>
+        <div class="value-item">
+          <h4>Partnership Focus</h4>
+          <p>We work as an extension of your team, understanding your unique challenges and growth objectives.</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>

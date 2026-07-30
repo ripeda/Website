@@ -61,6 +61,51 @@
           opacity: 0.8;
         }
       }
+
+      // Mobile dropdown styling
+      &.dropdown-mobile {
+        .dropdown-toggle-mobile {
+          .dropdown-arrow {
+            margin-left: 8px;
+            transition: transform 0.3s ease;
+          }
+        }
+
+        .dropdown-menu-mobile {
+          display: none;
+          margin-top: 10px;
+          padding-left: 20px;
+
+          li {
+            padding: 5px 0;
+            font-size: 20px;
+
+            .dropdown-item-mobile {
+              color: rgba(255, 255, 255, 0.8);
+              font-size: 20px;
+
+              &:hover {
+                color: #ffffff;
+                opacity: 1;
+              }
+            }
+          }
+        }
+      }
+
+      // Client login mobile styling
+      &.client-login {
+        a {
+          background: rgba(255, 255, 255, 0.2);
+          border-radius: 6px;
+          padding: 8px 16px;
+          margin: 10px 0;
+
+          &:hover {
+            background: rgba(255, 255, 255, 0.3);
+          }
+        }
+      }
     }
   }
 }

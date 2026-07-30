@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Globe Demo - RIPEDA Consulting</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #f8f9fa;
+        }
+
+        .globe-demo-section {
+            padding: 80px 20px;
+            background: #f8f9fa;
+        }
+
+        .globe-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            text-align: center;
+        }
+
+        h1 {
+            color: #2f2f41;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .globe-wrapper {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+            margin: 40px auto;
+            max-width: 700px;
+        }
+
+        #globeContainer {
+            width: 100%;
+            height: 600px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+
+        .globe-info {
+            margin-top: 30px;
+            padding: 20px;
+            background: #f0f7ff;
+            border-radius: 12px;
+            border-left: 4px solid #609bc3;
+        }
+
+        .countries-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .country-item {
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            border: 1px solid #e9ecef;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .country-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: #609bc3;
+            flex-shrink: 0;
+        }
+
+        .loading-message {
+            color: #666;
+            font-style: italic;
+            padding: 50px;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+
+            .globe-wrapper {
+                padding: 20px;
+            }
+
+            #globeContainer {
+                height: 400px;
+            }
+
+            .countries-list {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <section class="globe-demo-section">
+        <div class="globe-container">
+            <h1>Global Reach Interactive Globe</h1>
+            <p>Drag to rotate • Touch and swipe on mobile • Auto-rotates when idle</p>
+
+            <div class="globe-wrapper">
+                <div id="globeContainer">
+                    <div class="loading-message">Loading globe...</div>
+                </div>
+
+                <div class="globe-info">
+                    <h3>Countries We've Supported</h3>
+                    <div class="countries-list">
+                        <div class="country-item">
+                            <div class="country-dot"></div>
+                            <span>Canada</span>
+                        </div>
+                        <div class="country-item">
+                            <div class="country-dot"></div>
+                            <span>United States</span>
+                        </div>
+                        <div class="country-item">
+                            <div class="country-dot"></div>
+                            <span>Mexico</span>
+                        </div>
+                        <div class="country-item">
+                            <div class="country-dot"></div>
+                            <span>China</span>
+                        </div>
+                    </div>
+                    <p style="margin-top: 15px; font-size: 0.9rem; color: #666;">
+                        Highlighted regions show countries where RIPEDA has provided Apple consulting and technical services.
+                    </p>
+                </div>
+            </div>
+
+            <div style="margin-top: 40px;">
+                <h3>Easy to Customize</h3>
+                <p>Countries can be easily added or removed from the highlighted list. The globe uses your site's color scheme and can be resized for any section.</p>
+            </div>
+        </div>
+    </section>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script>
+        class InteractiveGlobe {
+            constructor(containerId, options = {}) {
+                this.container = document.getElementById(containerId);
+                this.options = {
+                    width: options.width || 600,
+                    height: options.height || 600,
+                    autoRotate: options.autoRotate !== false,
+                    rotationSpeed: options.rotationSpeed || 0.5,
+                    highlightedCountries: options.highlightedCountries || ['CA', 'US', 'MX', 'CN'],
+                    colors: {
+                        globe: options.colors?.globe || '#f0f7ff',
+                        countries: options.colors?.countries || '#e2e8f0',
+                        highlighted: options.colors?.highlighted || '#609bc3',
+                        highlightHover: options.colors?.highlightHover || '#79c5f8'
+                    }
+                };
+
+                this.scene = null;
+                this.camera = null;
+                this.renderer = null;
+                this.globe = null;
+                this.countries = [];
+                this.isUserInteracting = false;
+                this.autoRotateEnabled = this.options.autoRotate;
+
+                this.init();
+            }
+
+            init() {
+                // Clear loading message
+                this.container.innerHTML = '';
+
+                this.setupScene();
+                this.createGlobe();
+                this.loadCountryData();
+                this.setupControls();
+                this.animate();
+                this.setupResize();
+            }
+
+            setupScene() {
+                // Scene
+                this.scene = new THREE.Scene();
+
+                // Camera
+                this.camera = new THREE.PerspectiveCamera(
+                    50,
+                    1, // Will be updated in resize
+                    1,
+                    1000
+                );
+                this.camera.position.z = 300;
+
+                // Renderer
+                this.renderer = new THREE.WebGLRenderer({
+                    antialias: true,
+                    alpha: true
+                });
+                this.renderer.setPixelRatio(window.devicePixelRatio);
+                this.renderer.setClearColor(0x000000, 0);
+                this.container.appendChild(this.renderer.domElement);
+
+                // Lighting
+                const ambientLight = new THREE.AmbientLight(0xffffff, 0.8);
+                this.scene.add(ambientLight);
+
+                const directionalLight = new THREE.DirectionalLight(0xffffff, 0.4);
+                directionalLight.position.set(1, 1, 1);
+                this.scene.add(directionalLight);
+
+                this.updateSize();
+            }
+
+            updateSize() {
+                const rect = this.container.getBoundingClientRect();
+                const size = Math.min(rect.width, rect.height, 600);
+
+                this.camera.aspect = 1;
+                this.camera.updateProjectionMatrix();
+                this.renderer.setSize(size, size);
+            }
+
+            createGlobe() {
+                // Create globe geometry
+                const geometry = new THREE.SphereGeometry(100, 32, 32);
+                const material = new THREE.MeshLambertMaterial({
+                    color: 0x87CEEB, // Light blue color
+                    transparent: false,
+                    opacity: 1.0,
+                    wireframe: false
+                });
+
+                this.globe = new THREE.Mesh(geometry, material);
+                this.scene.add(this.globe);
+            }
+
+            loadCountryData() {
+                // Simplified country data
+                const countryData = {
+                    'CA': { name: 'Canada', lat: 60, lng: -95 },
+                    'US': { name: 'United States', lat: 40, lng: -100 },
+                    'MX': { name: 'Mexico', lat: 23, lng: -102 },
+                    'CN': { name: 'China', lat: 35, lng: 104 },
+                };
+
+                Object.entries(countryData).forEach(([code, data]) => {
+                    this.createCountryMarker(code, data);
+                });
+            }
+
+            createCountryMarker(code, data) {
+                const isHighlighted = this.options.highlightedCountries.includes(code);
+
+                // Convert lat/lng to 3D coordinates (fix coordinate conversion)
+                const lat = data.lat * Math.PI / 180;
+                const lng = data.lng * Math.PI / 180;
+                const radius = 102; // Slightly above globe surface
+
+                const x = radius * Math.cos(lat) * Math.cos(lng);
+                const y = radius * Math.sin(lat);
+                const z = radius * Math.cos(lat) * Math.sin(lng);
+
+                // Create marker
+                const geometry = new THREE.SphereGeometry(
+                    isHighlighted ? 4 : 2,
+                    8,
+                    8
+                );
+
+                const material = new THREE.MeshLambertMaterial({
+                    color: isHighlighted ? this.options.colors.highlighted : this.options.colors.countries,
+                    transparent: true,
+                    opacity: isHighlighted ? 1 : 0.8
+                });
+
+                const marker = new THREE.Mesh(geometry, material);
+                marker.position.set(x, y, z);
+                marker.userData = {
+                    country: code,
+                    name: data.name,
+                    highlighted: isHighlighted
+                };
+
+                // Add subtle glow for highlighted countries
+                if (isHighlighted) {
+                    const glowGeometry = new THREE.SphereGeometry(6, 8, 8);
+                    const glowMaterial = new THREE.MeshBasicMaterial({
+                        color: this.options.colors.highlighted,
+                        transparent: true,
+                        opacity: 0.3
+                    });
+                    const glow = new THREE.Mesh(glowGeometry, glowMaterial);
+                    glow.position.set(x, y, z);
+                    this.scene.add(glow);
+                }
+
+                this.scene.add(marker);
+                this.countries.push(marker);
+            }
+
+            setupControls() {
+                const canvas = this.renderer.domElement;
+                let isDragging = false;
+                let previousMousePosition = { x: 0, y: 0 };
+
+                // Mouse events
+                canvas.addEventListener('mousedown', (e) => {
+                    isDragging = true;
+                    this.isUserInteracting = true;
+                    previousMousePosition = { x: e.clientX, y: e.clientY };
+                    canvas.style.cursor = 'grabbing';
+                });
+
+                canvas.addEventListener('mousemove', (e) => {
+                    if (!isDragging) return;
+
+                    const deltaMove = {
+                        x: e.clientX - previousMousePosition.x,
+                        y: e.clientY - previousMousePosition.y
+                    };
+
+                    const rotationGroup = new THREE.Group();
+                    if (!this.globeGroup) {
+                        this.globeGroup = new THREE.Group();
+                        this.globeGroup.add(this.globe);
+                        this.countries.forEach(country => this.globeGroup.add(country));
+                        this.scene.add(this.globeGroup);
+                    }
+
+                    this.globeGroup.rotation.y += deltaMove.x * 0.01;
+                    this.globeGroup.rotation.x += deltaMove.y * 0.01;
+
+                    previousMousePosition = { x: e.clientX, y: e.clientY };
+                });
+
+                canvas.addEventListener('mouseup', () => {
+                    isDragging = false;
+                    canvas.style.cursor = 'grab';
+                    setTimeout(() => {
+                        this.isUserInteracting = false;
+                    }, 2000);
+                });
+
+                canvas.addEventListener('mouseleave', () => {
+                    isDragging = false;
+                    canvas.style.cursor = 'default';
+                    setTimeout(() => {
+                        this.isUserInteracting = false;
+                    }, 1000);
+                });
+
+                // Touch events
+                canvas.addEventListener('touchstart', (e) => {
+                    e.preventDefault();
+                    const touch = e.touches[0];
+                    isDragging = true;
+                    this.isUserInteracting = true;
+                    previousMousePosition = { x: touch.clientX, y: touch.clientY };
+                });
+
+                canvas.addEventListener('touchmove', (e) => {
+                    e.preventDefault();
+                    if (!isDragging) return;
+
+                    const touch = e.touches[0];
+                    const deltaMove = {
+                        x: touch.clientX - previousMousePosition.x,
+                        y: touch.clientY - previousMousePosition.y
+                    };
+
+                    this.globe.rotation.y += deltaMove.x * 0.01;
+                    this.globe.rotation.x += deltaMove.y * 0.01;
+
+                    this.countries.forEach(country => {
+                        country.rotation.copy(this.globe.rotation);
+                    });
+
+                    previousMousePosition = { x: touch.clientX, y: touch.clientY };
+                });
+
+                canvas.addEventListener('touchend', (e) => {
+                    e.preventDefault();
+                    isDragging = false;
+                    setTimeout(() => {
+                        this.isUserInteracting = false;
+                    }, 2000);
+                });
+
+                canvas.style.cursor = 'grab';
+            }
+
+            animate() {
+                requestAnimationFrame(() => this.animate());
+
+                // Auto-rotation when not being interacted with
+                if (this.autoRotateEnabled && !this.isUserInteracting) {
+                    this.globe.rotation.y += this.options.rotationSpeed * 0.005;
+
+                    // Update country markers to rotate with globe
+                    this.countries.forEach(country => {
+                        country.rotation.copy(this.globe.rotation);
+                    });
+                }
+
+                this.renderer.render(this.scene, this.camera);
+            }
+
+            setupResize() {
+                window.addEventListener('resize', () => {
+                    this.updateSize();
+                });
+            }
+        }
+
+        // Initialize when page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            // Check if Three.js loaded
+            if (typeof THREE === 'undefined') {
+                document.getElementById('globeContainer').innerHTML = '<div class="loading-message">Failed to load 3D library. Please check your connection.</div>';
+                return;
+            }
+
+            // Initialize the globe
+            const globe = new InteractiveGlobe('globeContainer', {
+                autoRotate: true,
+                rotationSpeed: 0.3,
+                highlightedCountries: ['CA', 'US', 'MX', 'CN'],
+                colors: {
+                    globe: '#f0f7ff',
+                    countries: '#e2e8f0',
+                    highlighted: '#609bc3',
+                    highlightHover: '#79c5f8'
+                }
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,90 @@
+---
+layout: insight
+title: "Refreshing legacy school infrastructure on a small budget"
+dek: "Most schools cannot do everything at once. The question is which infrastructure investment buys the most working environment per dollar over the next three years."
+description: "How charter and private schools prioritise infrastructure refresh on a constrained budget. Wireless, switching, security, and the sequencing that maximises return."
+image: /images/insights/school-infrastructure-refresh-budget-og.png
+date: 2026-03-17
+tags:
+  - Networks
+  - Infrastructure
+  - Procurement
+keywords: "school infrastructure refresh, school network upgrade budget, charter school wireless, private school IT investment, school Wi-Fi upgrade, education network refresh, school technology planning, Apple consulting Calgary"
+reading_time: 5
+author: "RIPEDA"
+tldr:
+  - "Most schools cannot replace everything in one budget cycle. Sequencing the refresh matters more than picking premium gear."
+  - "Wireless coverage is usually the highest-impact starting point. The classroom experience improves visibly within the first month."
+  - "Switching, firewall, and the patch panel come next, in the order the network actually fails when it fails."
+  - "Power-over-Ethernet (PoE) switching pays back quickly because it eliminates separate power supplies for access points, cameras, and Voice over IP (VoIP) phones."
+  - "A multi-year plan with explicit phases lets the school defend the budget at each step instead of asking for the whole number in year one."
+related:
+  - title: "Network Infrastructure Services"
+    url: "/services/network-infrastructure/"
+    context: "How RIPEDA designs and phases network refresh projects for schools."
+  - title: "Education"
+    url: "/industries/education/"
+    context: "Network refresh is one of the two service lines RIPEDA focuses on for schools."
+  - title: "Why business networks need more than connectivity"
+    url: "/resources/insights/business-network-infrastructure/"
+    context: "The broader case for designed network infrastructure, applicable across industries."
+---
+
+A charter school in Calgary, K-9, 320 students, has wireless from 2017 and switching from 2015. Coverage on the third floor is patchy enough that two classrooms cannot reliably stream video on a school iPad. The switches still work but the documentation has not been updated since the original installer left. The firewall is at end-of-life and the renewal quote is more than the school spent on the entire network in 2015. The principal has seventy thousand dollars across three years and a list of competing priorities that adds up to four times that.
+
+The conversation that follows is not about which premium gear to buy. It is about which investment, made first, buys the most working environment per dollar.
+
+## What usually fails first
+
+Networks do not fail evenly. In a school setting, the components break down in a predictable order, and budget should follow that order rather than treating the network as one purchase.
+
+**Wireless coverage and capacity.** The first component to feel inadequate as iPad deployments scale. Six-year-old access points designed for a 1:2 device density cannot serve a 1:1 classroom. The symptoms are familiar: dropped connections during a quiz, slow video playback, complaints from teachers that "the wifi is acting up again." The standards gap is also part of the story. A 2017-era access point speaks WiFi 5 (or in some buildings, WiFi 4). Current iPads, MacBooks, and other Apple devices in the classroom are WiFi 6E or WiFi 7 capable. The bottleneck is the access point, not the device.
+
+**Switching capacity and Power-over-Ethernet (PoE).** Older switches often pre-date PoE budgets that a modern access point needs. The school can buy newer access points but cannot power them without a separate injector or a switch upgrade.
+
+**Firewall, routing, and security.** Older firewalls at end-of-life cannot be renewed and may not meet current security baselines. The risk shows up in subscription renewals that include security feature licenses the existing hardware no longer supports.
+
+**Cabling and the patch panel.** The least visible component, and the most painful to replace once the building is full of students. Worth assessing during any major refresh but not always the place to start.
+
+## The phasing question
+
+A small-budget refresh works best as a multi-year plan with explicit phases. The school does not need to do everything in year one. It needs to know what year one buys, what year two buys, and what each phase enables.
+
+<div class="insight-stat">
+  <p><strong>Phase one.</strong> Wireless coverage and capacity refresh. The classroom experience changes visibly within the first month.</p>
+  <p><strong>Phase two.</strong> Switching and PoE upgrade. Powers the new wireless and prepares for cameras and VoIP.</p>
+  <p><strong>Phase three.</strong> Firewall and security renewal. Bring the perimeter to current standards.</p>
+  <p><strong>Phase four.</strong> Cabling and patch-panel work as required, often deferred until a major building project.</p>
+</div>
+
+The phasing is not arbitrary. It follows what teachers and students experience day to day. A school that fixes wireless first gets immediate operational benefit while the rest of the plan is still being budgeted. A school that fixes the firewall first improves security posture but does not visibly help any classroom.
+
+## Why PoE switching is the quiet investment
+
+The phase that often gets undervalued in school budget conversations is the switching refresh. Switches do not fail dramatically. They keep working until they do not. Their value in a refresh is twofold.
+
+**Power consolidation.** Modern access points, security cameras, and Voice over Internet Protocol (VoIP) phones can all be powered over the same Ethernet cable that carries their data. A PoE switch eliminates a wall full of power adapters and the electrical outlets they require.
+
+**Future flexibility.** A network with sufficient PoE budget can absorb cameras, sensors, additional access points, and intercom devices without trenching new cable or running new power circuits. The investment pays back not in year one but across the refresh cycle.
+
+For a school adding cameras at year three or considering an intercom upgrade at year four, the PoE switch installed in year two of the refresh is what makes those later projects affordable.
+
+## What the budget should actually fund
+
+A useful sketch for a charter or private school with roughly seventy thousand dollars across three years:
+
+**Year one.** Wireless coverage and capacity refresh. Site survey, access point replacement, controller upgrade. Typically twenty to thirty thousand depending on building size and access point count.
+
+**Year two.** Core switching upgrade with PoE budget for the wireless plus headroom. Typically fifteen to twenty-five thousand depending on switch count and stack configuration.
+
+**Year three.** Firewall replacement, security service renewal, and any cabling work uncovered during the previous two phases. Typically ten to twenty thousand depending on the scope of the firewall and the security services chosen.
+
+The numbers are illustrative. Real quotes vary by building, by carrier, and by the specific gear chosen. The structure of the plan is what stays consistent. Each phase enables the next. Each phase delivers visible operational benefit on its own.
+
+RIPEDA's typical structure for school engagements is a Network Support Seat arrangement that amortises the hardware refresh cost into a multi-year support agreement. The school does not have to assemble the full year-one capital expense upfront. The hardware lives inside an ongoing per-seat agreement that also covers monitoring, firmware updates, configuration changes, and the day-to-day network operations that keep the gear working. For schools whose capital budgets cycle differently than their operational budgets, this is usually the easier path.
+
+## When to think about this
+
+The right time to plan the multi-year refresh is before the existing hardware fails, before the next renewal quote arrives with a price the school cannot accept, and before the next deployment of new iPads exposes a wireless capacity problem that becomes urgent overnight.
+
+A small budget is not the constraint most schools think it is. The constraint is the absence of a sequenced plan that lets the budget land where it does the most good. With a plan, seventy thousand dollars over three years rebuilds a school's network. Without one, the same money gets spent in emergencies and leaves the building no further ahead.

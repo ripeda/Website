@@ -11,6 +11,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    gap: 20px; // Reduce large gap between logo and navigation
   }
   &.header-absolute {
     position: absolute;

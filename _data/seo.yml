@@ -1,5 +1,13 @@
-google_analytics_id: "UA-63935442-1"
+# Analytics ------------------------------------------------------------------
+# Retired: google_analytics_id "UA-63935442-1" was a Universal Analytics
+# property. Google stopped processing UA data in July 2023, so it collected
+# nothing after that. Replaced with Cloudflare Web Analytics (cookieless).
+#
+# Paste the token from Cloudflare dashboard > Web Analytics > ripeda.com.
+# Leave empty and no analytics loads at all.
+cloudflare_analytics_token: ""
 copyright_text: 'Copyright © RIPEDA Consulting Corporation. All rights reserved.'
+service_areas_text: 'Serving Alberta businesses in Calgary, Edmonton, Red Deer, Lethbridge, and surrounding areas with expert Apple device management, repair, and infrastructure.'
 address: 'Suite 300 - 1301 8 Street SW, Calgary, AB T2R 1B7'
 google_maps_url: https://www.google.com/maps/place/1301+8+St+SW+%23300,+Calgary,+AB+T2R+1B7/@51.0407223,-114.0845371,17z
 apple_maps_url: http://maps.apple.com/?address=1301+8+St+SW+%23300,+Calgary,+AB+T2R+1B7

@@ -3,7 +3,8 @@
   outline: none;
   z-index: 30;
   cursor: pointer;
-  @include media-breakpoint-up(md) {
+  // Match the desktop menu breakpoint defined in _main-menu.scss
+  @media (min-width: 1150px) {
     display: none;
   }
   &:focus {

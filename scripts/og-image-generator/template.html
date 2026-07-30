@@ -1,0 +1,102 @@
+<!--
+  RIPEDA OG Image Template
+
+  This file is loaded by Puppeteer for each article and rendered through
+  headless Chrome to a 1200x630 PNG. The placeholders below are replaced by
+  the generator with each article's actual content:
+
+    {{VERTICAL}}  - uppercase vertical label (e.g. "DENTAL & MEDICAL")
+    {{TITLE}}     - article title
+    {{DEK}}       - article dek
+    {{LOGO_SRC}}  - file:// path to the RIPEDA logo
+
+  The template can also be opened directly in a browser for design iteration;
+  the placeholders simply render as visible text in that case.
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>OG Card</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { width: 1200px; height: 630px; }
+  body {
+    background: #ffffff;
+    font-family: "Arial", "Helvetica Neue", Helvetica, sans-serif;
+    position: relative;
+    overflow: hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  .accent {
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 12px;
+    background: #1B3C6E;
+  }
+  .content {
+    position: absolute;
+    top: 72px;
+    left: 80px;
+    right: 80px;
+    bottom: 130px;
+  }
+  .vertical {
+    color: #1B3C6E;
+    font-size: 22px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 3.5px;
+    margin-bottom: 28px;
+  }
+  .title {
+    color: #1B3C6E;
+    font-size: 60px;
+    font-weight: 700;
+    line-height: 1.1;
+    letter-spacing: -0.015em;
+    margin: 0 0 28px 0;
+  }
+  .dek {
+    color: #3D3D3D;
+    font-size: 24px;
+    line-height: 1.4;
+    margin: 0;
+    max-width: 1000px;
+  }
+  .footer {
+    position: absolute;
+    bottom: 50px;
+    left: 80px;
+    right: 80px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .logo img {
+    height: 44px;
+    width: auto;
+    display: block;
+  }
+  .url {
+    color: #1B3C6E;
+    font-size: 24px;
+    font-weight: 700;
+    letter-spacing: 0.01em;
+  }
+</style>
+</head>
+<body>
+  <div class="accent"></div>
+  <div class="content">
+    <div class="vertical">{{VERTICAL}}</div>
+    <h1 class="title">{{TITLE}}</h1>
+    <p class="dek">{{DEK}}</p>
+  </div>
+  <div class="footer">
+    <div class="logo"><img src="{{LOGO_SRC}}" alt="RIPEDA"></div>
+    <div class="url">ripeda.com</div>
+  </div>
+</body>
+</html>

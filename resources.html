@@ -1,0 +1,498 @@
+---
+layout: default
+title: "Resources - Business Planning Tools & Research"
+description: "Access our free business planning calculators, industry research, and technology resources to make informed IT decisions for your business."
+seo_title: "Free Business Resources - Calculators & Research | RIPEDA"
+seo_description: "Free Mac vs PC calculator, IT downtime cost calculator, and industry research including the Forrester Mac TCO study. Make data-driven IT decisions."
+keywords: "Mac vs PC calculator, IT downtime calculator, Forrester study, business planning tools, Apple ROI calculator, technology resources"
+og_image: "/images/logo/ripeda-og-image.jpg"
+---
+
+<!-- Resources Hero Section -->
+<section class="hero-section resources-hero">
+  <div class="hero-container">
+    <div class="hero-content">
+      <div class="hero-text">
+        <h1>Business Planning Resources</h1>
+        <p class="hero-subtitle">Free calculators, research studies, and tools to make informed technology decisions for your business.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Business Calculators Section -->
+<section class="resources-section calculators-section">
+  <div class="section-container">
+    <h2>Business Planning Calculators</h2>
+    <p class="section-intro">Make data-driven decisions with our free business calculators backed by industry research.</p>
+
+      <div class="calculators-grid">
+        <!-- Mac vs PC Calculator -->
+        <div class="calculator-card" onclick="openCalculator('mac')">
+          <h3>Mac vs PC Calculator</h3>
+          <p>Calculate the true cost savings of switching your business to Mac devices based on real-world data.</p>
+          <div class="calculator-cta">Calculate Savings →</div>
+        </div>
+
+        <!-- IT Downtime Calculator -->
+        <div class="calculator-card" onclick="openCalculator('msp')">
+          <h3>IT Downtime Cost Calculator</h3>
+          <p>Discover how much IT outages and system downtime are really costing your business.</p>
+          <div class="calculator-cta">Calculate Costs →</div>
+        </div>
+      </div>
+  </div>
+</section>
+
+<!-- Research & Studies Section -->
+<section class="resources-section studies-section">
+  <div class="section-container">
+    <h2>Industry Research & Studies</h2>
+    <p class="section-intro">Access authoritative research and studies that inform our recommendations.</p>
+
+      <div class="studies-grid">
+        <div class="study-card">
+          <h3>Forrester Mac TCO Study (2026)</h3>
+          <p>Forrester's June 2026 Total Economic Impact study, <em>The Total Economic Impact™ Of Apple Mac At Work</em>, comparing Mac and PC in enterprise environments. Shows $760 in total cost of ownership savings per Mac over five years, a 153% ROI, 55% fewer support tickets, and stronger support for local AI workloads.</p>
+          <a href="/assets/downloads/forrester-mac-tco-study.pdf" target="_blank" class="study-download">
+            Download PDF →
+          </a>
+        </div>
+
+        <div class="study-card">
+          <h3>IBM Mac Deployment Study</h3>
+          <p>Real-world results from IBM's deployment of 277,000+ Mac devices. Shows $273-$543 savings per Mac over 4 years, 50% reduction in support calls, and 73% employee preference for Mac.</p>
+          <a href="https://www.jamf.com/blog/debate-over-ibm-confirms-that-macs-are-535-less-expensive-than-pcs/" target="_blank" class="study-download">
+            Read Study →
+          </a>
+        </div>
+      </div>
+  </div>
+</section>
+
+<!-- Calculator Modals -->
+<!-- Mac Calculator Modal -->
+<div id="macModal" class="modal">
+  <div class="modal-content-custom">
+    <div class="modal-header-custom">
+      <h2>Mac vs PC Cost Calculator</h2>
+      <button class="modal-close" onclick="closeModal('macModal')">&times;</button>
+    </div>
+    <div class="modal-body-custom">
+      <iframe id="macFrame" src=""></iframe>
+    </div>
+  </div>
+</div>
+
+<!-- MSP Calculator Modal -->
+<div id="mspModal" class="modal">
+  <div class="modal-content-custom">
+    <div class="modal-header-custom">
+      <h2>IT Downtime Cost Calculator</h2>
+      <button class="modal-close" onclick="closeModal('mspModal')">&times;</button>
+    </div>
+    <div class="modal-body-custom">
+      <iframe id="mspFrame" src=""></iframe>
+    </div>
+  </div>
+</div>
+
+<style>
+/* Resources Hero Section - Light blue gradient to match Security page */
+.hero-section.resources-hero {
+  background: linear-gradient(135deg, #f0f7ff 0%, #e8f4fc 100%) !important;
+  color: #1a1a1a;
+  padding: 80px 0 !important;
+  text-align: left;
+  min-height: auto !important;
+  display: block !important;
+  align-items: normal !important;
+}
+
+.hero-section.resources-hero .hero-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+@media (max-width: 768px) {
+  .hero-section.resources-hero .hero-container {
+    padding: 0 1rem;
+  }
+}
+
+.resources-hero .hero-text h1 {
+  font-size: 3.5rem;
+  font-weight: 300;
+  line-height: 1.1;
+  color: #2f2f41;
+  margin-bottom: 1.5rem;
+}
+
+.resources-hero .hero-subtitle {
+  font-size: 1.25rem;
+  color: #64748b;
+  line-height: 1.6;
+  max-width: 800px;
+}
+
+/* Resources Sections */
+.resources-section {
+  padding: 60px 0;
+}
+
+.resources-section .section-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+@media (max-width: 768px) {
+  .resources-section .section-container {
+    padding: 0 1rem;
+  }
+}
+
+.calculators-section {
+  background: #f8f9fa;
+}
+
+.studies-section {
+  background: white;
+}
+
+/* Section Headers - match global styles */
+.calculators-section h2,
+.studies-section h2 {
+  font-size: 2.75rem;
+  font-weight: 300;
+  line-height: 1.2;
+  color: #2f2f41;
+  margin-bottom: 1.5rem;
+}
+
+/* Calculator Grid */
+.calculators-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 40px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.calculator-card {
+  background: white;
+  border-radius: 16px;
+  padding: 40px;
+  text-align: center;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.08);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: 1px solid #ddd;
+}
+
+.calculator-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 40px rgba(74, 124, 149, 0.2);
+  border-color: #4a7c95;
+}
+
+.study-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 40px rgba(74, 124, 149, 0.15);
+}
+
+
+.calculator-card h3 {
+  color: #333;
+  font-size: 1.4rem;
+  font-weight: 600;
+  margin-bottom: 15px;
+  margin-top: 0;
+}
+
+.calculator-card p {
+  color: #666;
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-bottom: 25px;
+}
+
+.study-reference {
+  margin-bottom: 20px;
+  padding: 15px 0;
+  border-top: 1px solid #f0f0f0;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.study-reference small {
+  color: #666;
+  font-size: 0.9rem;
+  font-style: italic;
+}
+
+.study-link {
+  color: #4a7c95;
+  font-size: 0.95rem;
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.study-link:hover {
+  color: #6b9ab8;
+  text-decoration: underline;
+}
+
+.calculator-cta {
+  color: #4a7c95;
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+
+.calculator-card:hover .calculator-cta {
+  color: #6b9ab8;
+}
+
+/* Studies Grid */
+.studies-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 40px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.study-card {
+  background: white;
+  border-radius: 16px;
+  padding: 40px;
+  text-align: center;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.08);
+  cursor: default;
+  transition: all 0.3s ease;
+  border: 1px solid #ddd;
+}
+
+.study-card h3 {
+  color: #333;
+  font-size: 1.4rem;
+  font-weight: 600;
+  margin-bottom: 15px;
+  margin-top: 0;
+}
+
+.study-card p {
+  color: #666;
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-bottom: 25px;
+}
+
+.study-download {
+  color: #4a7c95;
+  font-weight: 600;
+  text-decoration: none;
+  font-size: 1.1rem;
+}
+
+.study-download:hover {
+  color: #6b9ab8;
+  text-decoration: underline;
+}
+
+/* Modal Styles */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1050;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.8);
+  backdrop-filter: blur(5px);
+}
+
+.modal-content-custom {
+  position: relative;
+  background-color: white;
+  margin: 2% auto;
+  padding: 0;
+  border-radius: 16px;
+  width: 95%;
+  max-width: 1200px;
+  max-height: 90vh;
+  overflow: hidden;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+}
+
+.modal-header-custom {
+  background: linear-gradient(135deg, #4a7c95, #6b9ab8);
+  color: white;
+  padding: 20px 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.modal-header-custom h2 {
+  margin: 0;
+  font-size: 1.3rem;
+  font-weight: 600;
+}
+
+.modal-close {
+  color: white;
+  font-size: 24px;
+  font-weight: 300;
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 50%;
+  transition: background 0.3s ease;
+}
+
+.modal-close:hover {
+  background: rgba(255,255,255,0.2);
+}
+
+.modal-body-custom {
+  height: calc(90vh - 80px);
+  overflow: auto;
+}
+
+.modal-body-custom iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .resources-hero .hero-text h1 {
+    font-size: 2.2rem;
+  }
+
+  .calculators-grid,
+  .studies-grid {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .calculator-card,
+  .study-card {
+    padding: 30px;
+  }
+}
+</style>
+
+<script>
+// Calculator Modal Functions
+function openModal(modalId) {
+  const modal = document.getElementById(modalId);
+  if (!modal) {
+    console.error('Modal not found:', modalId);
+    return;
+  }
+
+  modal.style.display = 'block';
+
+  // Check if mobile device
+  const isMobile = window.innerWidth <= 768;
+
+  if (isMobile) {
+    // On mobile, redirect to calculator page directly
+    let calculatorUrl;
+    if (modalId === 'mspModal') {
+      calculatorUrl = '/calculators/msp_cost_calculator.html';
+    } else if (modalId === 'macModal') {
+      calculatorUrl = '/calculators/mac_vs_pc_calculator.html';
+    }
+
+    // Open in new tab/window on mobile for better experience
+    if (calculatorUrl) {
+      window.open(calculatorUrl, '_blank');
+    }
+
+    // Close the modal immediately
+    closeModal(modalId);
+    return;
+  }
+
+  // Desktop behavior - load in iframe
+  if (modalId === 'mspModal') {
+    document.getElementById('mspFrame').src = '/calculators/msp_cost_calculator.html';
+  } else if (modalId === 'macModal') {
+    document.getElementById('macFrame').src = '/calculators/mac_vs_pc_calculator.html';
+  }
+
+  // Prevent body scroll
+  document.body.style.overflow = 'hidden';
+}
+
+function closeModal(modalId) {
+  const modal = document.getElementById(modalId);
+  if (!modal) return;
+
+  modal.style.display = 'none';
+
+  // Clear iframe src to stop any ongoing processes
+  if (modalId === 'mspModal') {
+    const frame = document.getElementById('mspFrame');
+    if (frame) frame.src = '';
+  } else if (modalId === 'macModal') {
+    const frame = document.getElementById('macFrame');
+    if (frame) frame.src = '';
+  }
+
+  // Restore body scroll
+  document.body.style.overflow = 'auto';
+}
+
+// Calculator Functions
+function openCalculator(type) {
+  // Always open in new tab for better user experience
+  if (type === 'mac') {
+    window.open('/calculators/mac_vs_pc_calculator.html', '_blank');
+  } else if (type === 'msp') {
+    window.open('/calculators/msp_cost_calculator.html', '_blank');
+  }
+}
+
+// Close modal when clicking outside of it
+window.onclick = function(event) {
+  const isMobile = window.innerWidth <= 768;
+  if (isMobile) return;
+
+  const mspModal = document.getElementById('mspModal');
+  const macModal = document.getElementById('macModal');
+
+  if (event.target == mspModal) {
+    closeModal('mspModal');
+  } else if (event.target == macModal) {
+    closeModal('macModal');
+  }
+}
+
+// Close modal with Escape key
+document.addEventListener('keydown', function(event) {
+  const isMobile = window.innerWidth <= 768;
+  if (isMobile) return;
+
+  if (event.key === 'Escape') {
+    closeModal('mspModal');
+    closeModal('macModal');
+  }
+});
+
+// Handle window resize
+window.addEventListener('resize', function() {
+  const isMobile = window.innerWidth <= 768;
+
+  if (isMobile) {
+    closeModal('mspModal');
+    closeModal('macModal');
+  }
+});
+</script>

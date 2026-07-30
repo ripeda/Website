@@ -1,0 +1,292 @@
+---
+redirect_from:
+  - /business-resources/
+  - /business-resources/dashboard/
+  - /business-resources/dashboard/supabase_dashboard.html
+  - /business-resources/newsletters/conversation_openers.html
+  - /business-resources/newsletters/discovery_questions.html
+layout: default
+title: "Insights"
+description: "Articles, technical notes, and field-tested guidance on Apple in business environments. MDM, security, AI rollout, and infrastructure."
+permalink: /resources/insights/
+bodyClass: "page-insights"
+---
+
+{% assign verticals = site.data.insights.verticals %}
+{% assign articles = site.data.insights.articles %}
+
+<!-- ItemList + BlogPosting schema for Google and LLMs -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  "name": "RIPEDA Insights — Apple IT for Business",
+  "description": "Field-tested guidance on Apple device management, security, MDM, and industry-specific IT for Alberta businesses.",
+  "url": "https://ripeda.com/resources/insights/",
+  "numberOfItems": {{ articles | size }},
+  "itemListElement": [
+    {% for article in articles %}
+    {% assign v = verticals | where: "id", article.vertical | first %}
+    {
+      "@type": "ListItem",
+      "position": {{ forloop.index }},
+      "item": {
+        "@type": "BlogPosting",
+        "headline": {{ article.title | jsonify }},
+        "articleSection": {{ v.label | jsonify }},
+        "timeRequired": "PT{{ article.read_time }}M",
+        "datePublished": "{{ article.date }}",
+        "publisher": {
+          "@type": "Organization",
+          "name": "RIPEDA Consulting",
+          "url": "https://ripeda.com"
+        }
+      }
+    }{% unless forloop.last %},{% endunless %}
+    {% endfor %}
+  ]
+}
+</script>
+
+<!-- Hero -->
+<div class="insights-hero">
+  <div class="container">
+    <h1>Insights</h1>
+    <p class="insights-lead">Field-tested guidance on Apple in business. Practical articles for the people who manage it, buy it, and depend on it every day.</p>
+  </div>
+</div>
+
+<!-- Filter tabs -->
+<div class="insights-filters">
+  <div class="container">
+    <div class="filter-scroll-wrap">
+      <div class="filter-scroll" id="filter-scroll">
+        <button class="filter-btn active" data-filter="all">All</button>
+        {% for v in verticals %}
+        <button class="filter-btn" data-filter="{{ v.id }}">{{ v.label }}</button>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Body -->
+<div class="container">
+
+  <!-- Search bar -->
+  <div class="insights-search">
+    <div class="insights-search-box">
+      <input type="text" id="insights-search-input" placeholder="Search articles (e.g. 'PHIPA', 'zero-touch', 'MDM')..." autocomplete="off">
+      <span class="insights-search-icon">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <circle cx="6.5" cy="6.5" r="5" stroke="#94a3b8" stroke-width="1.5"/>
+          <path d="M10.5 10.5L14 14" stroke="#94a3b8" stroke-width="1.5" stroke-linecap="round"/>
+        </svg>
+      </span>
+      <button class="insights-search-clear" id="insights-search-clear" aria-label="Clear search" style="display:none;">✕</button>
+    </div>
+    <div class="insights-search-status" id="insights-search-status"></div>
+  </div>
+
+  <!-- Vertical description -->
+  <div class="vertical-description" id="vertical-description">
+    <p data-desc="all">Browse all {{ articles | size }} articles across every vertical — or use the tabs above to filter by industry.</p>
+    {% for v in verticals %}
+    <p data-desc="{{ v.id }}" style="display:none;">{{ v.description }}</p>
+    {% endfor %}
+  </div>
+
+  <!-- Count -->
+  <div class="insights-count" id="insights-count">{{ articles | size }} articles</div>
+
+  <!-- Grid -->
+  <div class="insights-grid" id="insights-grid">
+
+    {% for article in articles %}
+    {% comment %}
+      Multi-vertical support: articles may declare either a single `vertical: foo`
+      or an array `verticals: [foo, bar]`. The first listed vertical drives the
+      displayed tag; the full list drives filter matching via data-verticals.
+    {% endcomment %}
+    {% if article.verticals %}
+      {% assign article_verticals = article.verticals %}
+      {% assign primary_vertical = article.verticals | first %}
+      {% assign vertical_list = article.verticals | join: ',' %}
+    {% else %}
+      {% assign article_verticals = article.vertical | split: '|' %}
+      {% assign primary_vertical = article.vertical %}
+      {% assign vertical_list = article.vertical %}
+    {% endif %}
+    {% if article.published and article.slug %}
+    <a class="insight-card insight-card--published" href="/resources/insights/{{ article.slug }}/" data-vertical="{{ primary_vertical }}" data-verticals="{{ vertical_list }}" data-title="{{ article.title | downcase }}">
+      <div class="insight-card-top">
+        <div class="insight-card-tags">
+          {% for vid in article_verticals %}
+            {% assign v = verticals | where: "id", vid | first %}
+            <span class="insight-tag">{{ v.label }}</span>
+          {% endfor %}
+        </div>
+        <span class="insight-badge">Published</span>
+      </div>
+      <h3 class="insight-title">{{ article.title }}</h3>
+      <div class="insight-meta">
+        <span>{{ article.read_time }} min read</span>
+        <span class="meta-sep"></span>
+        <span>{{ article.date }}</span>
+      </div>
+      <div class="insight-cta">Read article <span class="arrow">→</span></div>
+    </a>
+    {% else %}
+    <div class="insight-card" data-vertical="{{ primary_vertical }}" data-verticals="{{ vertical_list }}" data-title="{{ article.title | downcase }}">
+      <div class="insight-card-tags">
+        {% for vid in article_verticals %}
+          {% assign v = verticals | where: "id", vid | first %}
+          <span class="insight-tag">{{ v.label }}</span>
+        {% endfor %}
+      </div>
+      <h3 class="insight-title">{{ article.title }}</h3>
+      <div class="insight-meta">
+        <span>{{ article.read_time }} min read</span>
+        <span class="meta-sep"></span>
+        <span>{{ article.date }}</span>
+      </div>
+      <div class="insight-cta">Read article <span class="arrow">→</span></div>
+    </div>
+    {% endif %}
+    {% endfor %}
+
+    <div class="insights-empty" id="insights-empty">No articles found — try a different search or filter.</div>
+
+  </div>
+</div>
+
+<script>
+(function () {
+
+  // ── State ─────────────────────────────────────────────────────────
+  var activeFilter = 'all';
+  var activeSearch = '';
+
+  // ── Elements ──────────────────────────────────────────────────────
+  var scrollEl   = document.getElementById('filter-scroll');
+  var wrap       = scrollEl.parentElement;
+  var btns       = document.querySelectorAll('.filter-btn');
+  var cards      = document.querySelectorAll('.insight-card');
+  var descs      = document.querySelectorAll('[data-desc]');
+  var countEl    = document.getElementById('insights-count');
+  var emptyEl    = document.getElementById('insights-empty');
+  var descWrap   = document.getElementById('vertical-description');
+  var searchInput  = document.getElementById('insights-search-input');
+  var searchClear  = document.getElementById('insights-search-clear');
+  var searchStatus = document.getElementById('insights-search-status');
+
+  // ── Fade indicator ────────────────────────────────────────────────
+  function checkScroll() {
+    var atEnd = scrollEl.scrollLeft + scrollEl.clientWidth >= scrollEl.scrollWidth - 4;
+    wrap.classList.toggle('at-end', atEnd);
+  }
+  scrollEl.addEventListener('scroll', checkScroll, { passive: true });
+  checkScroll();
+
+  // ── Core filter + search renderer ────────────────────────────────
+  function render() {
+    var visible = 0;
+    var searching = activeSearch.length > 0;
+
+    cards.forEach(function (card) {
+      // Multi-vertical support: data-verticals is a comma-separated list,
+      // falls back to data-vertical for backward compatibility.
+      var cardVerticals = (card.dataset.verticals || card.dataset.vertical || '').split(',');
+      var verticalMatch = activeFilter === 'all' || cardVerticals.indexOf(activeFilter) !== -1;
+      var searchMatch   = !searching || card.dataset.title.includes(activeSearch);
+      var show = verticalMatch && searchMatch;
+      card.classList.toggle('hidden', !show);
+      if (show) visible++;
+    });
+
+    // Vertical description: hide while searching (search status takes its place)
+    descWrap.style.display = searching ? 'none' : '';
+    if (!searching) {
+      descs.forEach(function (d) {
+        d.style.display = d.dataset.desc === activeFilter ? '' : 'none';
+      });
+    }
+
+    // Count line
+    countEl.textContent = visible + (visible === 1 ? ' article' : ' articles');
+
+    // Empty state
+    emptyEl.classList.toggle('visible', visible === 0);
+
+    // Search status
+    if (searching) {
+      if (visible === 0) {
+        searchStatus.textContent = 'No articles matched "' + searchInput.value + '"';
+        searchStatus.style.color = '#dc3545';
+      } else {
+        searchStatus.textContent = visible + (visible === 1 ? ' result' : ' results') + ' for "' + searchInput.value + '"';
+        searchStatus.style.color = '#94a3b8';
+      }
+    } else {
+      searchStatus.textContent = '';
+    }
+  }
+
+  // ── Tab filter ────────────────────────────────────────────────────
+  btns.forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      btns.forEach(function (b) { b.classList.remove('active'); });
+      btn.classList.add('active');
+      activeFilter = btn.dataset.filter;
+      render();
+    });
+  });
+
+  // ── Search ────────────────────────────────────────────────────────
+  var debounceTimer;
+  searchInput.addEventListener('input', function () {
+    clearTimeout(debounceTimer);
+    debounceTimer = setTimeout(function () {
+      activeSearch = searchInput.value.toLowerCase().trim();
+      searchClear.style.display = activeSearch ? '' : 'none';
+      render();
+    }, 220);
+  });
+
+  searchInput.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape') {
+      searchInput.value = '';
+      activeSearch = '';
+      searchClear.style.display = 'none';
+      render();
+    }
+  });
+
+  searchClear.addEventListener('click', function () {
+    searchInput.value = '';
+    activeSearch = '';
+    searchClear.style.display = 'none';
+    searchInput.focus();
+    render();
+  });
+
+  // ── Deep-link via URL hash (e.g. /resources/insights/#design-agencies) ──
+  // Lets pillar pages send visitors straight to a pre-filtered view.
+  function applyHashFilter() {
+    var id = (location.hash || '').replace('#', '');
+    if (!id) return;
+    var target = null;
+    btns.forEach(function (b) { if (b.dataset.filter === id) target = b; });
+    if (!target) return;
+    btns.forEach(function (b) { b.classList.remove('active'); });
+    target.classList.add('active');
+    activeFilter = id;
+    if (target.scrollIntoView) target.scrollIntoView({ inline: 'center', block: 'nearest' });
+    checkScroll();
+    render();
+  }
+  applyHashFilter();
+  window.addEventListener('hashchange', applyHashFilter);
+
+})();
+</script>

@@ -1,0 +1,99 @@
+<section class="stub-page">
+  <div class="container">
+    <div class="row">
+      <div class="col-12 col-md-10 col-lg-8 mx-auto">
+        <div class="stub-card">
+          <p class="stub-status">2026 / 2027 redesign · in development</p>
+          <h1>{{ include.heading }}</h1>
+          <p class="lead">{{ include.lead }}</p>
+          {% if include.bullets %}
+          <ul class="stub-bullets">
+            {% for bullet in include.bullets %}
+            <li>{{ bullet }}</li>
+            {% endfor %}
+          </ul>
+          {% endif %}
+          <p class="stub-note">This page reserves the URL for SEO continuity. Final content is being developed as part of the RIPEDA website redesign. <a href="/">Return to home</a>.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+.stub-page {
+  padding: 80px 0 120px;
+  background: #fafbfc;
+  min-height: 60vh;
+}
+
+.stub-page .stub-card {
+  padding: 60px 50px;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.04);
+  border: 1px solid #e5e7eb;
+}
+
+.stub-page .stub-status {
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: #4a7c95;
+  margin: 0 0 18px;
+}
+
+.stub-page h1 {
+  font-size: 2.5rem;
+  color: #2f2f41;
+  font-weight: 600;
+  margin: 0 0 1.25rem;
+  line-height: 1.15;
+}
+
+.stub-page .lead {
+  font-size: 1.2rem;
+  color: #4b5563;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+
+.stub-page .stub-bullets {
+  margin: 0 0 1.5rem;
+  padding-left: 1.4rem;
+  color: #4b5563;
+  font-size: 1.02rem;
+  line-height: 1.7;
+}
+
+.stub-page .stub-bullets li {
+  margin-bottom: 0.5rem;
+}
+
+.stub-page .stub-note {
+  font-size: 0.92rem;
+  color: #6b7280;
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid #e5e7eb;
+  line-height: 1.6;
+}
+
+.stub-page .stub-note a {
+  color: #4a7c95;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.stub-page .stub-note a:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+  .stub-page { padding: 40px 0 80px; }
+  .stub-page .stub-card { padding: 40px 28px; }
+  .stub-page h1 { font-size: 2rem; }
+  .stub-page .lead { font-size: 1.08rem; }
+}
+</style>

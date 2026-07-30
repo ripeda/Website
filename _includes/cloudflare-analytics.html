@@ -1,0 +1,26 @@
+{%- comment -%}
+Cloudflare Web Analytics — replaces Google Analytics.
+
+Why: the previous GA property was Universal Analytics (UA-63935442-1). Google
+stopped processing UA data in July 2023, so it had collected nothing for years.
+
+Cloudflare Web Analytics is cookieless and sets no browser storage, so it does
+not require a consent banner and keeps the privacy policy simple. It works on
+sites that are NOT proxied through Cloudflare (ripeda.com is DNS-only at
+GoDaddy, pointing at GitHub Pages) via this manual beacon snippet.
+
+Setup: Cloudflare dashboard > Web Analytics > Add a site > enter ripeda.com >
+copy the token out of the JS snippet it gives you, and put it in
+_data/seo.yml as `cloudflare_analytics_token`.
+
+Only loads in production, so local `jekyll serve` never reports.
+
+CSP requirements (already in _layouts/default.html):
+  script-src  https://static.cloudflareinsights.com
+  connect-src https://cloudflareinsights.com
+{%- endcomment -%}
+
+{% if jekyll.environment == "production" and site.data.seo.cloudflare_analytics_token %}
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js"
+        data-cf-beacon='{"token": "{{ site.data.seo.cloudflare_analytics_token }}"}'></script>
+{% endif %}

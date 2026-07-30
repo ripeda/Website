@@ -1,0 +1,409 @@
+---
+layout: default
+title: "Security Research - Apple Device Vulnerabilities"
+description: "In-house security research focused on Apple device management. Discover vulnerabilities found by RIPEDA's security research team."
+seo_title: "Security Research - Apple Device Vulnerabilities | RIPEDA"
+seo_description: "RIPEDA's in-house security research team discovers and responsibly discloses vulnerabilities in Apple devices and enterprise software."
+keywords: "Apple security research, vulnerability disclosure, macOS security, enterprise security, CVE research, responsible disclosure"
+og_image: "/images/logo/ripeda-og-image.jpg"
+---
+
+<!-- Security Page Header -->
+<section class="page-header security-header">
+  <div class="page-header-container">
+    <h1>Security Research</h1>
+    <p class="page-intro">Our dedicated security research team proactively identifies and responsibly discloses vulnerabilities across enterprise software and Apple devices. We believe in protecting organizations before threats become critical.</p>
+  </div>
+</section>
+
+<!-- Vulnerabilities Section -->
+<section class="content-section vulnerabilities-section">
+  <div class="section-container">
+    <div class="section-content">
+      <h2>Recent Disclosures</h2>
+      <p class="section-intro">Here's a sample of vulnerabilities we've identified and responsibly disclosed:</p>
+
+      <div class="vulnerabilities-table">
+        <div class="table-responsive">
+          <table class="vulnerability-table">
+            <thead>
+              <tr>
+                <th>Reference ID</th>
+                <th>Product</th>
+                <th>Affected Versions</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><a href="https://support.apple.com/en-ca/HT214106" target="_blank">CVE-2024-27822</a></td>
+                <td>macOS</td>
+                <td>14.4.1 and older</td>
+                <td>Local Privilege Escalation</td>
+              </tr>
+              <tr>
+                <td><a href="https://khronokernel.com/macos/2024/05/30/CVE-2024-34331.html" target="_blank">CVE-2024-34331</a></td>
+                <td>Parallels Desktop</td>
+                <td>19.3.0 and older</td>
+                <td>Local Privilege Escalation</td>
+              </tr>
+              <tr>
+                <td><a href="https://www.cve.org/CVERecord?id=CVE-2024-4395" target="_blank">CVE-2024-4395</a></td>
+                <td>Jamf Compliance Editor</td>
+                <td>1.3.0 and older</td>
+                <td>Local Privilege Escalation</td>
+              </tr>
+              <tr>
+                <td><a href="https://www.cve.org/CVERecord?id=CVE-2024-25545" target="_blank">CVE-2024-25545</a></td>
+                <td>Weave Desktop</td>
+                <td>Unresolved</td>
+                <td>Arbitrary Code Execution</td>
+              </tr>
+              <tr>
+                <td><a href="https://www.synology.com/en-us/security/advisory/Synology_SA_24_05" target="_blank">Synology-SA-24:05</a></td>
+                <td>Synology Surveillance Station Client</td>
+                <td>2.1.3-2474 and older</td>
+                <td>Arbitrary Code Execution</td>
+              </tr>
+              <tr>
+                <td><a href="https://www.cve.org/CVERecord?id=CVE-2024-23755" target="_blank">CVE-2024-23755</a></td>
+                <td>ClickUp Desktop App</td>
+                <td>3.3.76 and older</td>
+                <td>Arbitrary Code Execution</td>
+              </tr>
+              <tr>
+                <td><a href="https://www.cve.org/CVERecord?id=CVE-2023-50975" target="_blank">CVE-2023-50975</a></td>
+                <td>TD Advanced Dashboard</td>
+                <td>3.0.3 and older</td>
+                <td>Arbitrary Code Execution</td>
+              </tr>
+              <tr>
+                <td><a href="https://www.cve.org/CVERecord?id=CVE-2023-7245" target="_blank">CVE-2023-7245</a></td>
+                <td>OpenVPN</td>
+                <td>3.4.7 and older</td>
+                <td>Arbitrary Code Execution</td>
+              </tr>
+              <tr>
+                <td><a href="https://www.cve.org/CVERecord?id=CVE-2023-44077" target="_blank">CVE-2023-44077</a></td>
+                <td>ShareBrowser XPC Services</td>
+                <td>6.1.5.27 and older</td>
+                <td>Local Privilege Escalation</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Responsible Disclosure Section -->
+<section class="content-section disclosure-section">
+  <div class="section-container">
+    <div class="section-header">
+      <h2>Responsible Disclosure Policy</h2>
+      <p class="section-intro">RIPEDA Consulting is committed to responsible disclosure of security vulnerabilities we discover.</p>
+    </div>
+
+    <div class="disclosure-policy">
+      <div class="policy-item">
+        <h3>90-Day Disclosure Timeline</h3>
+        <p>We follow <a href="https://googleprojectzero.blogspot.com/p/vulnerability-disclosure-policy.html" target="_blank">Google's Project Zero guidelines</a> with a 90+30 disclosure deadline policy. Vendors have 90 days to patch vulnerabilities after initial notification.</p>
+      </div>
+
+      <div class="policy-item">
+        <h3>User Protection Priority</h3>
+        <p>If vendors patch within 90 days, we publicly disclose details 30 days after patch release. If no patch is available after 90 days, we disclose immediately to protect users.</p>
+      </div>
+
+      <div class="policy-item">
+        <h3>Vendor Accountability</h3>
+        <p>This process ensures vendors are held accountable for security while giving them reasonable time to fix issues and allowing users time to update their systems.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Contact Section -->
+<section class="content-section security-contact-section">
+  <div class="section-container two-column">
+    <div class="section-left">
+      <h2>Reporting Security Vulnerabilities</h2>
+      <p class="section-intro">Found a security vulnerability in our products or infrastructure?<br>We want to hear from you.</p>
+    </div>
+    <div class="section-right">
+      <div class="contact-card">
+        <h3>Report a Vulnerability</h3>
+        <p>Email us immediately at <a href="mailto:info@ripeda.com">info@ripeda.com</a> with:</p>
+        <ul>
+          <li>Detailed steps to reproduce the vulnerability</li>
+          <li>Affected versions of the product</li>
+          <li>Any relevant technical information</li>
+          <li>Your contact information for follow-up</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+/* Security Page Header */
+.page-header.security-header {
+  background: linear-gradient(135deg, #f0f7ff 0%, #e8f4fc 100%);
+  padding: 80px 0;
+}
+
+.page-header-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.security-header h1 {
+  font-size: 3.5rem;
+  font-weight: 300;
+  line-height: 1.1;
+  color: #2f2f41;
+  margin-bottom: 1.5rem;
+}
+
+.security-header .page-intro {
+  font-size: 1.25rem;
+  color: #64748b;
+  line-height: 1.6;
+  max-width: 800px;
+}
+
+/* Vulnerabilities Section */
+.vulnerabilities-section {
+  background: white;
+  padding: 80px 0;
+}
+
+.vulnerabilities-section .section-container {
+  max-width: 1200px !important;
+  padding: 0 2rem;
+  display: block !important; /* Override the 2-column grid */
+}
+
+.vulnerabilities-section .section-content {
+  max-width: 100%;
+}
+
+.vulnerabilities-section .table-responsive {
+  max-width: 100%;
+}
+
+.table-responsive {
+  overflow-x: auto;
+  margin-top: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+}
+
+.vulnerability-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+  min-width: 700px;
+}
+
+.vulnerability-table th {
+  background: #4a7c95;
+  color: white;
+  padding: 1rem;
+  text-align: left;
+  font-weight: 600;
+  border-bottom: 2px solid #6b9ab8;
+}
+
+.vulnerability-table td {
+  padding: 1rem;
+  border-bottom: 1px solid #e9ecef;
+  vertical-align: top;
+}
+
+.vulnerability-table tr:hover {
+  background: #f8f9fa;
+}
+
+.vulnerability-table a {
+  color: #4a7c95;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.vulnerability-table a:hover {
+  color: #6b9ab8;
+  text-decoration: underline;
+}
+
+/* Disclosure Section */
+.disclosure-section {
+  background: #f8f9fa;
+  padding: 80px 0;
+}
+
+.disclosure-section .section-container {
+  max-width: 1200px !important;
+  padding: 0 2rem;
+  display: block !important;
+}
+
+.disclosure-section .section-header {
+  max-width: 900px;
+  margin-bottom: 2rem;
+}
+
+.disclosure-section .section-header h2 {
+  font-size: 2.75rem;
+  font-weight: 300;
+  line-height: 1.2;
+  color: #2f2f41;
+  margin-bottom: 1.5rem;
+}
+
+.disclosure-policy {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+
+.policy-item {
+  background: white;
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+  border: 1px solid #ddd;
+  text-align: center;
+}
+
+.policy-item h3 {
+  color: #4a7c95;
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+}
+
+.policy-item p {
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.policy-item a {
+  color: #4a7c95;
+  text-decoration: none;
+}
+
+.policy-item a:hover {
+  color: #6b9ab8;
+  text-decoration: underline;
+}
+
+/* Contact Section */
+.security-contact-section {
+  background: white;
+  padding: 80px 0;
+}
+
+.security-contact-section .section-container.two-column {
+  max-width: 1200px !important;
+  padding: 0 2rem;
+  display: grid !important;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+}
+
+.security-contact-section .section-left h2 {
+  font-size: 2.75rem;
+  font-weight: 300;
+  line-height: 1.2;
+  color: #2f2f41;
+  margin-bottom: 1rem;
+}
+
+.security-contact-section .section-right {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.contact-card {
+  background: #f8f9fa;
+  border-radius: 12px;
+  padding: 2.5rem;
+  max-width: 500px;
+  width: 100%;
+  border: 1px solid #ddd;
+}
+
+.contact-card h3 {
+  color: #4a7c95;
+  font-size: 1.4rem;
+  margin-bottom: 1rem;
+}
+
+.contact-card a {
+  color: #4a7c95;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.contact-card a:hover {
+  color: #6b9ab8;
+  text-decoration: underline;
+}
+
+.contact-card ul {
+  margin-top: 1rem;
+  padding-left: 1.5rem;
+}
+
+.contact-card li {
+  margin-bottom: 0.5rem;
+  color: #666;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .security-header h1 {
+    font-size: 2rem;
+  }
+
+  .security-header .page-intro {
+    font-size: 1.1rem;
+  }
+
+  .disclosure-policy {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .security-contact-section .section-container.two-column {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .security-contact-section .section-right {
+    justify-content: center;
+  }
+
+  .vulnerability-table th,
+  .vulnerability-table td {
+    padding: 0.75rem;
+    font-size: 0.9rem;
+  }
+
+  .disclosure-policy {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .policy-item {
+    padding: 1.5rem;
+  }
+
+  .contact-card {
+    padding: 2rem;
+  }
+}
+</style>

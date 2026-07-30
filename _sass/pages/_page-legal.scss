@@ -1,0 +1,114 @@
+// Legal / policy pages (privacy policy, and anything similar later).
+//
+// These use layout: default, which renders {{ content }} with no wrapper, so
+// the page supplies `.container.legal-page` itself. Deliberately plain:
+// readable measure, generous line height, restrained headings. Tokens match
+// the 2026 homepage rather than introducing new colours.
+
+$legal-text: #2f2f41;
+$legal-muted: #64748b;
+$legal-rule: rgba(47, 47, 65, 0.1);
+$legal-accent: #1d4ed8;
+
+.legal-page {
+  max-width: 46rem; // ~75 characters — comfortable reading measure
+  margin: 0 auto;
+  padding: 4rem 1.5rem 5rem;
+  color: $legal-text;
+  font-size: 1rem;
+  line-height: 1.7;
+
+  h1 {
+    font-size: 2.1rem;
+    line-height: 1.2;
+    margin: 0 0 0.5rem;
+  }
+
+  // The "Effective ..." line directly under the h1
+  h1 + p {
+    color: $legal-muted;
+    font-size: 0.9rem;
+    margin-bottom: 2.5rem;
+  }
+
+  h2 {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin: 3rem 0 0.85rem;
+    padding-top: 1.75rem;
+    border-top: 1px solid $legal-rule;
+  }
+
+  h3 {
+    font-size: 1rem;
+    font-weight: 600;
+    margin: 1.75rem 0 0.5rem;
+  }
+
+  p,
+  ul,
+  ol,
+  table {
+    margin: 0 0 1.15rem;
+  }
+
+  ul,
+  ol {
+    padding-left: 1.35rem;
+
+    li {
+      margin-bottom: 0.5rem;
+    }
+  }
+
+  a {
+    color: $legal-accent;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+
+  strong {
+    font-weight: 600;
+  }
+
+  // Service-provider table
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.93rem;
+
+    th,
+    td {
+      text-align: left;
+      padding: 0.7rem 0.9rem;
+      border-bottom: 1px solid $legal-rule;
+      vertical-align: top;
+    }
+
+    th {
+      font-weight: 600;
+      border-bottom-width: 2px;
+    }
+
+    tr:last-child td {
+      border-bottom: 0;
+    }
+  }
+
+  @media (max-width: 768px) {
+    padding: 2.5rem 1.25rem 3.5rem;
+
+    h1 {
+      font-size: 1.7rem;
+    }
+
+    table {
+      font-size: 0.88rem;
+
+      th,
+      td {
+        padding: 0.6rem 0.5rem;
+      }
+    }
+  }
+}
