@@ -3,9 +3,22 @@
 # property. Google stopped processing UA data in July 2023, so it collected
 # nothing after that. Replaced with Cloudflare Web Analytics (cookieless).
 #
-# Paste the token from Cloudflare dashboard > Web Analytics > ripeda.com.
-# Leave empty and no analytics loads at all.
-cloudflare_analytics_token: ""
+# Token from Cloudflare dashboard > Web Analytics > ripeda.com. Set 2026-07-30.
+# This is a public site token — it ships in the HTML of every page by design and
+# is not a credential. Safe to keep in the repo.
+#
+# ripeda.com is NOT proxied through Cloudflare (DNS at GoDaddy, pointing at
+# GitHub Pages), so Cloudflare cannot auto-inject the beacon. It has to be the
+# manual snippet, which _includes/cloudflare-analytics.html emits just before
+# </body> in _layouts/default.html. Every layout inherits default, so this
+# covers the whole site.
+#
+# Empty is handled correctly: the include compares against "" explicitly, so
+# blanking this value emits no script at all. Before 2026-07-30 it used a bare
+# truthiness test, and because Liquid treats an empty string as TRUTHY the
+# beacon shipped live with an empty token — loading on every page and reporting
+# nothing. Do not reintroduce that pattern.
+cloudflare_analytics_token: "6922de1bcdd14d1e8f4d2ce601d18b9c"
 copyright_text: 'Copyright © RIPEDA Consulting Corporation. All rights reserved.'
 service_areas_text: 'Serving Alberta businesses in Calgary, Edmonton, Red Deer, Lethbridge, and surrounding areas with expert Apple device management, repair, and infrastructure.'
 address: 'Suite 300 - 1301 8 Street SW, Calgary, AB T2R 1B7'
