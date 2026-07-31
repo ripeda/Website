@@ -16,26 +16,31 @@ to 2026-07-29, 44% of the site total). See Planning/SEO_BASELINE_pre-relaunch.md
 
 The original CSS used a global `*` reset plus bare `body`, `label` and `input`
 rules, and a `.header` class that collides with the site header. Every selector is
-therefore scoped under `.calc-page`. Do not remove that wrapper.
+therefore scoped under `.rpcalc-page`, and every calculator class carries an
+`rpcalc-` prefix. Do not remove the wrapper, and do not shorten the prefix to
+`calc-`: the site already defines .calc-header, .calc-title, .calc-icon,
+.calc-button and .calc-description in _sass/_calculators.scss for the
+calculator sidebar component. `rpcalc-` was verified against all 655 class
+names defined across _sass/ and assets/css/ and collides with none of them.
 
 The permalink must not change: this URL carries all the accumulated search equity.
 {%- endcomment -%}
 
-<div class="calc-page">
-<div class="calc-calculator-container">
-        <div class="calc-header">
+<div class="rpcalc-page">
+<div class="rpcalc-calculator-container">
+        <div class="rpcalc-header">
             <h1>IT Downtime Cost Calculator</h1>
             <p>Calculate the true cost of IT outages for Canadian businesses</p>
         </div>
 
-        <div class="calc-form-container">
-            <div class="calc-form-grid">
-                <div class="calc-form-group">
+        <div class="rpcalc-form-container">
+            <div class="rpcalc-form-grid">
+                <div class="rpcalc-form-group">
                     <label for="employees">Number of Affected Employees</label>
                     <input type="number" id="employees" min="1" max="1000" value="10" required>
                 </div>
 
-                <div class="calc-form-group">
+                <div class="rpcalc-form-group">
                     <label for="industry">Industry</label>
                     <select id="industry" required>
                         <option value="">Select your industry</option>
@@ -49,7 +54,7 @@ The permalink must not change: this URL carries all the accumulated search equit
                     </select>
                 </div>
 
-                <div class="calc-form-group">
+                <div class="rpcalc-form-group">
                     <label for="outageType">Type of IT Issue</label>
                     <select id="outageType" required>
                         <option value="">Select outage type</option>
@@ -61,13 +66,13 @@ The permalink must not change: this URL carries all the accumulated search equit
                     </select>
                 </div>
 
-                <div class="calc-form-group">
+                <div class="rpcalc-form-group">
                     <label for="duration">Outage Duration</label>
-                    <div class="calc-duration-container">
-                        <div class="calc-form-group">
+                    <div class="rpcalc-duration-container">
+                        <div class="rpcalc-form-group">
                             <input type="number" id="hours" min="0" max="72" value="2" placeholder="Hours">
                         </div>
-                        <div class="calc-form-group">
+                        <div class="rpcalc-form-group">
                             <input type="number" id="minutes" min="0" max="59" value="30" placeholder="Minutes">
                         </div>
                     </div>
@@ -75,36 +80,36 @@ The permalink must not change: this URL carries all the accumulated search equit
             </div>
 
             <div style="text-align: center;">
-                <button class="calc-calculate-btn" onclick="calculateCost()">
+                <button class="rpcalc-calculate-btn" onclick="calculateCost()">
                     Calculate IT Downtime Cost
                 </button>
             </div>
 
-            <div id="result" class="calc-result-container">
-                <div class="calc-result-amount" id="totalCost">$0</div>
+            <div id="result" class="rpcalc-result-container">
+                <div class="rpcalc-result-amount" id="totalCost">$0</div>
                 <p>Estimated cost of this IT outage</p>
                 
-                <div class="calc-result-breakdown">
+                <div class="rpcalc-result-breakdown">
                     <h4 style="margin-bottom: 15px;">Cost Breakdown:</h4>
-                    <div class="calc-breakdown-item">
+                    <div class="rpcalc-breakdown-item">
                         <span>Affected Employees:</span>
                         <span id="empCount">-</span>
                     </div>
-                    <div class="calc-breakdown-item">
+                    <div class="rpcalc-breakdown-item">
                         <span>Hourly Rate (Industry Avg):</span>
                         <span id="hourlyRate">-</span>
                     </div>
-                    <div class="calc-breakdown-item">
+                    <div class="rpcalc-breakdown-item">
                         <span>Outage Duration:</span>
                         <span id="outageTime">-</span>
                     </div>
-                    <div class="calc-breakdown-item">
+                    <div class="rpcalc-breakdown-item">
                         <span>Impact Multiplier:</span>
                         <span id="impactMultiplier">-</span>
                     </div>
                 </div>
 
-                <div class="calc-msp-cta">
+                <div class="rpcalc-msp-cta">
                     <h3>Prevent These Costly Outages</h3>
                     <p>RIPEDA's Managed Service Provider solutions can help prevent 80-90% of these IT issues through proactive monitoring, maintenance, and rapid response times.</p>
                 </div>
@@ -114,18 +119,18 @@ The permalink must not change: this URL carries all the accumulated search equit
 </div>
 
 <style>
-.calc-page * {
+.rpcalc-page * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-.calc-page {
+.rpcalc-page {
             font-family: -apple-system, "Helvetica Neue", sans-serif, serif, "Papyrus";
             background: #f8f9fa;
             min-height: 100vh;
             padding: 20px;
         }
-.calc-page .calc-calculator-container {
+.rpcalc-page .rpcalc-calculator-container {
             max-width: 800px;
             margin: 0 auto;
             background: white;
@@ -133,45 +138,45 @@ The permalink must not change: this URL carries all the accumulated search equit
             box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
             overflow: hidden;
         }
-.calc-page .calc-header {
+.rpcalc-page .rpcalc-header {
             background: white;
             color: #2f2f41;
             padding: 30px;
             text-align: center;
             border-bottom: 1px solid #ddd;
         }
-.calc-page .calc-header h1 {
+.rpcalc-page .rpcalc-header h1 {
             font-size: 2.5em;
             margin-bottom: 10px;
             text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
         }
-.calc-page .calc-header p {
+.rpcalc-page .rpcalc-header p {
             font-size: 1.1em;
             opacity: 0.9;
         }
-.calc-page .calc-form-container {
+.rpcalc-page .rpcalc-form-container {
             padding: 40px;
         }
-.calc-page .calc-form-grid {
+.rpcalc-page .rpcalc-form-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 30px;
             margin-bottom: 30px;
         }
-.calc-page .calc-form-group {
+.rpcalc-page .rpcalc-form-group {
             display: flex;
             flex-direction: column;
         }
-.calc-page .calc-form-group.calc-full-width {
+.rpcalc-page .rpcalc-form-group.rpcalc-full-width {
             grid-column: 1 / -1;
         }
-.calc-page label {
+.rpcalc-page label {
             font-weight: 600;
             color: #333;
             margin-bottom: 8px;
             font-size: 1.1em;
         }
-.calc-page input, .calc-page select {
+.rpcalc-page input, .rpcalc-page select {
             padding: 15px;
             border: 1px solid #ddd;
             border-radius: 10px;
@@ -179,21 +184,21 @@ The permalink must not change: this URL carries all the accumulated search equit
             transition: all 0.3s ease;
             background-color: white;
         }
-.calc-page input:focus, .calc-page select:focus {
+.rpcalc-page input:focus, .rpcalc-page select:focus {
             outline: none;
             border-color: #4a7c95;
             background-color: white;
             box-shadow: 0 0 0 3px rgba(74, 124, 149, 0.1);
         }
-.calc-page .calc-duration-container {
+.rpcalc-page .rpcalc-duration-container {
             display: flex;
             gap: 15px;
             align-items: end;
         }
-.calc-page .calc-duration-container .calc-form-group {
+.rpcalc-page .rpcalc-duration-container .rpcalc-form-group {
             flex: 1;
         }
-.calc-page .calc-calculate-btn {
+.rpcalc-page .rpcalc-calculate-btn {
             background: linear-gradient(135deg, #4a7c95, #6b9ab8);
             color: white;
             border: none;
@@ -205,11 +210,11 @@ The permalink must not change: this URL carries all the accumulated search equit
             transition: all 0.3s ease;
             box-shadow: 0 4px 20px rgba(74, 124, 149, 0.3);
         }
-.calc-page .calc-calculate-btn:hover {
+.rpcalc-page .rpcalc-calculate-btn:hover {
             transform: translateY(-2px);
             box-shadow: 0 8px 30px rgba(74, 124, 149, 0.4);
         }
-.calc-page .calc-result-container {
+.rpcalc-page .rpcalc-result-container {
             margin-top: 30px;
             padding: 30px;
             background: linear-gradient(135deg, #4a7c95, #4282ae);
@@ -218,27 +223,27 @@ The permalink must not change: this URL carries all the accumulated search equit
             text-align: center;
             display: none;
         }
-.calc-page .calc-result-amount {
+.rpcalc-page .rpcalc-result-amount {
             font-size: 3em;
             font-weight: bold;
             margin-bottom: 10px;
             text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
         }
-.calc-page .calc-result-breakdown {
+.rpcalc-page .rpcalc-result-breakdown {
             background: rgba(255, 255, 255, 0.1);
             padding: 20px;
             border-radius: 10px;
             margin-top: 20px;
             text-align: left;
         }
-.calc-page .calc-breakdown-item {
+.rpcalc-page .rpcalc-breakdown-item {
             display: flex;
             justify-content: space-between;
             margin-bottom: 8px;
             padding: 5px 0;
             border-bottom: 1px solid rgba(255, 255, 255, 0.2);
         }
-.calc-page .calc-msp-cta {
+.rpcalc-page .rpcalc-msp-cta {
             background: linear-gradient(135deg, #6b9ab8, #4a7c95);
             padding: 25px;
             margin-top: 20px;
@@ -246,26 +251,26 @@ The permalink must not change: this URL carries all the accumulated search equit
             text-align: center;
             color: white;
         }
-.calc-page .calc-msp-cta h3 {
+.rpcalc-page .rpcalc-msp-cta h3 {
             color: white;
             margin-bottom: 10px;
         }
 @media (max-width: 768px) {
-.calc-page .calc-form-grid {
+.rpcalc-page .rpcalc-form-grid {
                 grid-template-columns: 1fr;
                 gap: 20px;
             }
-.calc-page .calc-duration-container {
+.rpcalc-page .rpcalc-duration-container {
                 flex-direction: column;
                 align-items: stretch;
             }
-.calc-page .calc-header h1 {
+.rpcalc-page .rpcalc-header h1 {
                 font-size: 2em;
             }
 }
 
 /* Layout integration overrides (added during conversion) */
-.calc-page { min-height: 0; padding: 40px 20px; }
+.rpcalc-page { min-height: 0; padding: 40px 20px; }
 </style>
 
 <script>
