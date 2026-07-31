@@ -1,193 +1,28 @@
 ---
-layout: none
+layout: default
 permalink: /calculators/msp_cost_calculator.html
+seo_title: "IT Downtime Cost Calculator — What Downtime Costs Your Business | RIPEDA"
+seo_description: "Free IT downtime cost calculator. Estimate what an hour of downtime costs your business and weigh it against managed IT service pricing."
+bodyClass: calculator-page
 ---
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>IT Downtime Cost Calculator — What Downtime Costs Your Business | RIPEDA</title>
-    <meta name="description" content="Free IT downtime cost calculator. Estimate what an hour of downtime costs your business and weigh it against managed IT service pricing.">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
 
-        body {
-            font-family: -apple-system, "Helvetica Neue", sans-serif, serif, "Papyrus";
-            background: #f8f9fa;
-            min-height: 100vh;
-            padding: 20px;
-        }
+{%- comment -%}
+Converted 2026-07-31 from `layout: none` to `layout: default`.
 
-        .calculator-container {
-            max-width: 800px;
-            margin: 0 auto;
-            background: white;
-            border-radius: 16px;
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-            overflow: hidden;
-        }
+Why: as a standalone bare document this page had no canonical tag, no Cloudflare
+Analytics beacon, no CSP, no Open Graph tags and no site navigation — despite being
+the highest-impression page on the domain (1,295 impressions over the three months
+to 2026-07-29, 44% of the site total). See Planning/SEO_BASELINE_pre-relaunch.md.
 
-        .header {
-            background: white;
-            color: #2f2f41;
-            padding: 30px;
-            text-align: center;
-            border-bottom: 1px solid #ddd;
-        }
+The original CSS used a global `*` reset plus bare `body`, `label` and `input`
+rules, and a `.header` class that collides with the site header. Every selector is
+therefore scoped under `.calc-page`. Do not remove that wrapper.
 
-        .header h1 {
-            font-size: 2.5em;
-            margin-bottom: 10px;
-            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
-        }
+The permalink must not change: this URL carries all the accumulated search equity.
+{%- endcomment -%}
 
-        .header p {
-            font-size: 1.1em;
-            opacity: 0.9;
-        }
-
-        .form-container {
-            padding: 40px;
-        }
-
-        .form-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 30px;
-            margin-bottom: 30px;
-        }
-
-        .form-group {
-            display: flex;
-            flex-direction: column;
-        }
-
-        .form-group.full-width {
-            grid-column: 1 / -1;
-        }
-
-        label {
-            font-weight: 600;
-            color: #333;
-            margin-bottom: 8px;
-            font-size: 1.1em;
-        }
-
-        input, select {
-            padding: 15px;
-            border: 1px solid #ddd;
-            border-radius: 10px;
-            font-size: 1.1em;
-            transition: all 0.3s ease;
-            background-color: white;
-        }
-
-        input:focus, select:focus {
-            outline: none;
-            border-color: #4a7c95;
-            background-color: white;
-            box-shadow: 0 0 0 3px rgba(74, 124, 149, 0.1);
-        }
-
-        .duration-container {
-            display: flex;
-            gap: 15px;
-            align-items: end;
-        }
-
-        .duration-container .form-group {
-            flex: 1;
-        }
-
-        .calculate-btn {
-            background: linear-gradient(135deg, #4a7c95, #6b9ab8);
-            color: white;
-            border: none;
-            padding: 18px 40px;
-            font-size: 1.2em;
-            font-weight: 600;
-            border-radius: 12px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 20px rgba(74, 124, 149, 0.3);
-        }
-
-        .calculate-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 30px rgba(74, 124, 149, 0.4);
-        }
-
-        .result-container {
-            margin-top: 30px;
-            padding: 30px;
-            background: linear-gradient(135deg, #4a7c95, #4282ae);
-            border-radius: 15px;
-            color: white;
-            text-align: center;
-            display: none;
-        }
-
-        .result-amount {
-            font-size: 3em;
-            font-weight: bold;
-            margin-bottom: 10px;
-            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
-        }
-
-        .result-breakdown {
-            background: rgba(255, 255, 255, 0.1);
-            padding: 20px;
-            border-radius: 10px;
-            margin-top: 20px;
-            text-align: left;
-        }
-
-        .breakdown-item {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 8px;
-            padding: 5px 0;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-        }
-
-        .msp-cta {
-            background: linear-gradient(135deg, #6b9ab8, #4a7c95);
-            padding: 25px;
-            margin-top: 20px;
-            border-radius: 12px;
-            text-align: center;
-            color: white;
-        }
-
-        .msp-cta h3 {
-            color: white;
-            margin-bottom: 10px;
-        }
-
-        @media (max-width: 768px) {
-            .form-grid {
-                grid-template-columns: 1fr;
-                gap: 20px;
-            }
-            
-            .duration-container {
-                flex-direction: column;
-                align-items: stretch;
-            }
-            
-            .header h1 {
-                font-size: 2em;
-            }
-        }
-    </style>
-</head>
-<body>
-    <div class="calculator-container">
+<div class="calc-page">
+<div class="calculator-container">
         <div class="header">
             <h1>IT Downtime Cost Calculator</h1>
             <p>Calculate the true cost of IT outages for Canadian businesses</p>
@@ -276,8 +111,165 @@ permalink: /calculators/msp_cost_calculator.html
             </div>
         </div>
     </div>
+</div>
 
-    <script>
+<style>
+.calc-page * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+.calc-page {
+            font-family: -apple-system, "Helvetica Neue", sans-serif, serif, "Papyrus";
+            background: #f8f9fa;
+            min-height: 100vh;
+            padding: 20px;
+        }
+.calc-page .calculator-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+.calc-page .header {
+            background: white;
+            color: #2f2f41;
+            padding: 30px;
+            text-align: center;
+            border-bottom: 1px solid #ddd;
+        }
+.calc-page .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        }
+.calc-page .header p {
+            font-size: 1.1em;
+            opacity: 0.9;
+        }
+.calc-page .form-container {
+            padding: 40px;
+        }
+.calc-page .form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+.calc-page .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+.calc-page .form-group.full-width {
+            grid-column: 1 / -1;
+        }
+.calc-page label {
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 8px;
+            font-size: 1.1em;
+        }
+.calc-page input, .calc-page select {
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            font-size: 1.1em;
+            transition: all 0.3s ease;
+            background-color: white;
+        }
+.calc-page input:focus, .calc-page select:focus {
+            outline: none;
+            border-color: #4a7c95;
+            background-color: white;
+            box-shadow: 0 0 0 3px rgba(74, 124, 149, 0.1);
+        }
+.calc-page .duration-container {
+            display: flex;
+            gap: 15px;
+            align-items: end;
+        }
+.calc-page .duration-container .form-group {
+            flex: 1;
+        }
+.calc-page .calculate-btn {
+            background: linear-gradient(135deg, #4a7c95, #6b9ab8);
+            color: white;
+            border: none;
+            padding: 18px 40px;
+            font-size: 1.2em;
+            font-weight: 600;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 20px rgba(74, 124, 149, 0.3);
+        }
+.calc-page .calculate-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(74, 124, 149, 0.4);
+        }
+.calc-page .result-container {
+            margin-top: 30px;
+            padding: 30px;
+            background: linear-gradient(135deg, #4a7c95, #4282ae);
+            border-radius: 15px;
+            color: white;
+            text-align: center;
+            display: none;
+        }
+.calc-page .result-amount {
+            font-size: 3em;
+            font-weight: bold;
+            margin-bottom: 10px;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        }
+.calc-page .result-breakdown {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 20px;
+            text-align: left;
+        }
+.calc-page .breakdown-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 8px;
+            padding: 5px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        }
+.calc-page .msp-cta {
+            background: linear-gradient(135deg, #6b9ab8, #4a7c95);
+            padding: 25px;
+            margin-top: 20px;
+            border-radius: 12px;
+            text-align: center;
+            color: white;
+        }
+.calc-page .msp-cta h3 {
+            color: white;
+            margin-bottom: 10px;
+        }
+@media (max-width: 768px) {
+.calc-page .form-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+.calc-page .duration-container {
+                flex-direction: column;
+                align-items: stretch;
+            }
+.calc-page .header h1 {
+                font-size: 2em;
+            }
+}
+
+/* Layout integration overrides (added during conversion) */
+.calc-page { min-height: 0; padding: 40px 20px; }
+</style>
+
+<script>
+
         // Canadian industry wage data and multipliers
         const industryData = {
             professional: { hourlyRate: 40, name: "Professional Services" },
@@ -374,6 +366,5 @@ permalink: /calculators/msp_cost_calculator.html
                 });
             });
         });
-    </script>
-</body>
-</html>
+    
+</script>
