@@ -22,21 +22,21 @@ The permalink must not change: this URL carries all the accumulated search equit
 {%- endcomment -%}
 
 <div class="calc-page">
-<div class="calculator-container">
-        <div class="header">
+<div class="calc-calculator-container">
+        <div class="calc-header">
             <h1>Mac vs PC TCO Calculator</h1>
             <p>Calculate the true cost savings of switching to Mac</p>
-            <div class="subtitle">Based on Forrester Research and IBM's enterprise deployment data</div>
+            <div class="calc-subtitle">Based on Forrester Research and IBM's enterprise deployment data</div>
         </div>
 
-        <div class="form-container">
-            <div class="form-grid">
-                <div class="form-group">
+        <div class="calc-form-container">
+            <div class="calc-form-grid">
+                <div class="calc-form-group">
                     <label for="workstations">Number of Workstations</label>
                     <input type="number" id="workstations" min="1" max="10000" value="50" required>
                 </div>
 
-                <div class="form-group">
+                <div class="calc-form-group">
                     <label for="businessType">Business Type</label>
                     <select id="businessType" required>
                         <option value="">Select business type</option>
@@ -46,57 +46,57 @@ The permalink must not change: this URL carries all the accumulated search equit
                     </select>
                 </div>
 
-                <div class="form-group">
+                <div class="calc-form-group">
                     <label for="currentPCCost">Current PC Cost per Unit (CAD)</label>
                     <input type="number" id="currentPCCost" min="500" max="5000" value="1400" required>
-                    <div class="cost-examples">
+                    <div class="calc-cost-examples">
                         <small>Examples: Entry business laptop (~$1,400) • High-performance workstation (~$2,800). Memory and SSD shortages pushed PC prices up through 2026.</small>
                     </div>
                 </div>
 
-                <div class="form-group">
+                <div class="calc-form-group">
                     <label for="itSupportCost">Annual IT Support Cost per User (CAD)</label>
                     <input type="number" id="itSupportCost" min="100" max="2000" value="600" required>
                 </div>
 
-                <div class="form-group">
+                <div class="calc-form-group">
                     <label for="windowsLicense">Windows License Cost per User (CAD)</label>
                     <input type="number" id="windowsLicense" min="0" max="500" value="150" required>
                 </div>
 
-                <div class="form-group">
+                <div class="calc-form-group">
                     <label for="antivirusCost">Antivirus License per User/Year (CAD)</label>
                     <input type="number" id="antivirusCost" min="0" max="200" value="45" required>
                 </div>
 
-                <div class="form-group">
+                <div class="calc-form-group">
                     <label for="avgSalary">Average Salary per Employee (CAD/year)</label>
                     <input type="number" id="avgSalary" min="20000" max="500000" value="75000" required>
-                    <div class="cost-examples">
+                    <div class="calc-cost-examples">
                         <small>Used to value the ~100 min/month each employee reclaims on Mac (Forrester, 2026)</small>
                     </div>
                 </div>
             </div>
 
             <div style="text-align: center;">
-                <button class="calculate-btn" onclick="calculateTCO()">
+                <button class="calc-calculate-btn" onclick="calculateTCO()">
                     Calculate Mac vs PC Savings
                 </button>
             </div>
 
-            <div id="results" class="results-container">
-                <div class="savings-summary">
-                    <div class="savings-amount" id="totalSavings">$0</div>
-                    <div class="savings-subtitle">Total 3-Year Savings with Mac</div>
-                    <div class="savings-per-device" id="perDeviceSavings">$0 savings per device</div>
+            <div id="results" class="calc-results-container">
+                <div class="calc-savings-summary">
+                    <div class="calc-savings-amount" id="totalSavings">$0</div>
+                    <div class="calc-savings-subtitle">Total 3-Year Savings with Mac</div>
+                    <div class="calc-savings-per-device" id="perDeviceSavings">$0 savings per device</div>
                 </div>
 
-                <div class="break-even" id="breakEven">
+                <div class="calc-break-even" id="breakEven">
                     <h3>Break-Even Point</h3>
                     <p id="breakEvenText">Your Mac investment pays for itself in X months</p>
                 </div>
 
-                <div class="break-even" id="productivityValue">
+                <div class="calc-break-even" id="productivityValue">
                     <h3>Bonus: Value of Reclaimed Productive Time</h3>
                     <p id="productivityText"></p>
                     <p id="productivityNote" style="font-size: 0.85rem; opacity: 0.85; margin-top: 0.5rem;">
@@ -104,133 +104,133 @@ The permalink must not change: this URL carries all the accumulated search equit
                     </p>
                 </div>
 
-                <div class="comparison-grid">
-                    <div class="cost-breakdown pc">
+                <div class="calc-comparison-grid">
+                    <div class="calc-cost-breakdown calc-pc">
                         <h3>Current PC Setup (3 Years)</h3>
-                        <div class="cost-item">
+                        <div class="calc-cost-item">
                             <span>Hardware Cost:</span>
                             <span id="pcHardware">$0</span>
                         </div>
-                        <div class="cost-item">
+                        <div class="calc-cost-item">
                             <span>Windows Licenses:</span>
                             <span id="pcWindows">$0</span>
                         </div>
-                        <div class="cost-item">
+                        <div class="calc-cost-item">
                             <span>Antivirus Licenses:</span>
                             <span id="pcAntivirus">$0</span>
                         </div>
-                        <div class="cost-item">
+                        <div class="calc-cost-item">
                             <span>IT Support (3 years):</span>
                             <span id="pcSupport">$0</span>
                         </div>
-                        <div class="cost-item">
+                        <div class="calc-cost-item">
                             <span>Total PC Cost:</span>
                             <span id="pcTotal">$0</span>
                         </div>
                     </div>
 
-                    <div class="cost-breakdown mac">
+                    <div class="calc-cost-breakdown calc-mac">
                         <h3>Mac Setup (3 Years)</h3>
-                        <div class="cost-item">
+                        <div class="calc-cost-item">
                             <span>Hardware Cost:</span>
                             <span id="macHardware">$0</span>
                         </div>
-                        <div class="cost-item">
+                        <div class="calc-cost-item">
                             <span>macOS (Included):</span>
                             <span>$0</span>
                         </div>
-                        <div class="cost-item">
+                        <div class="calc-cost-item">
                             <span>Antivirus (Built-in):</span>
                             <span>$0</span>
                         </div>
-                        <div class="cost-item">
+                        <div class="calc-cost-item">
                             <span>IT Support (3 years):</span>
                             <span id="macSupport">$0</span>
                         </div>
-                        <div class="cost-item">
+                        <div class="calc-cost-item">
                             <span>Total Mac Cost:</span>
                             <span id="macTotal">$0</span>
                         </div>
                     </div>
                 </div>
 
-                <div class="ripeda-highlight">
+                <div class="calc-ripeda-highlight">
                     <h3>Ready to Make the Switch?</h3>
                     <p>RIPEDA Consulting specializes in seamless Mac migrations for Calgary businesses. We'll handle everything from procurement to deployment, ensuring your team gets the most out of their new Apple devices from day one.</p>
                 </div>
             </div>
         </div>
 
-        <div class="selling-points">
+        <div class="calc-selling-points">
             <h3>Why Mac Wins for Business</h3>
-            <div class="points-grid">
-                <div class="point-item">
-                    <div class="point-icon">•</div>
-                    <div class="point-text">
+            <div class="calc-points-grid">
+                <div class="calc-point-item">
+                    <div class="calc-point-icon">•</div>
+                    <div class="calc-point-text">
                         <strong>Ready for Local AI Workloads</strong>
                         <span>Apple silicon runs AI and LLM tasks on-device — Forrester's 2026 study found teams adopt Mac specifically to run compute-intensive AI locally</span>
                     </div>
                 </div>
 
-                <div class="point-item">
-                    <div class="point-icon">•</div>
-                    <div class="point-text">
+                <div class="calc-point-item">
+                    <div class="calc-point-icon">•</div>
+                    <div class="calc-point-text">
                         <strong>55% Fewer IT Tickets</strong>
                         <span>Mac users create significantly fewer support requests, reducing IT workload</span>
                     </div>
                 </div>
 
-                <div class="point-item">
-                    <div class="point-icon">•</div>
-                    <div class="point-text">
+                <div class="calc-point-item">
+                    <div class="calc-point-icon">•</div>
+                    <div class="calc-point-text">
                         <strong>25% Lower Resolution Costs</strong>
                         <span>Mac issues are easier and faster to resolve when they do occur</span>
                     </div>
                 </div>
 
-                <div class="point-item">
-                    <div class="point-icon">•</div>
-                    <div class="point-text">
+                <div class="calc-point-item">
+                    <div class="calc-point-icon">•</div>
+                    <div class="calc-point-text">
                         <strong>Built-in Enterprise Security</strong>
                         <span>No separate antivirus licensing needed - saves $45+ per user annually</span>
                     </div>
                 </div>
 
-                <div class="point-item">
-                    <div class="point-icon">•</div>
-                    <div class="point-text">
+                <div class="calc-point-item">
+                    <div class="calc-point-icon">•</div>
+                    <div class="calc-point-text">
                         <strong>Higher Employee Productivity</strong>
                         <span>Studies show 5-10% productivity gains from fewer crashes and interruptions</span>
                     </div>
                 </div>
 
-                <div class="point-item">
-                    <div class="point-icon">•</div>
-                    <div class="point-text">
+                <div class="calc-point-item">
+                    <div class="calc-point-icon">•</div>
+                    <div class="calc-point-text">
                         <strong>Longer Device Lifespan</strong>
                         <span>Macs typically last 4-5 years vs 3-4 years for PCs in business use</span>
                     </div>
                 </div>
 
-                <div class="point-item">
-                    <div class="point-icon">•</div>
-                    <div class="point-text">
+                <div class="calc-point-item">
+                    <div class="calc-point-icon">•</div>
+                    <div class="calc-point-text">
                         <strong>Higher Resale Value</strong>
                         <span>Macs retain 60-70% value after 3 years vs 30-40% for comparable PCs</span>
                     </div>
                 </div>
 
-                <div class="point-item">
-                    <div class="point-icon">•</div>
-                    <div class="point-text">
+                <div class="calc-point-item">
+                    <div class="calc-point-icon">•</div>
+                    <div class="calc-point-text">
                         <strong>Simplified IT Management</strong>
                         <span>Apple Business Manager streamlines deployment and device management</span>
                     </div>
                 </div>
 
-                <div class="point-item">
-                    <div class="point-icon">•</div>
-                    <div class="point-text">
+                <div class="calc-point-item">
+                    <div class="calc-point-icon">•</div>
+                    <div class="calc-point-text">
                         <strong>IBM Saved $543 Per Mac</strong>
                         <span>Real enterprise data: IBM's 300,000+ Mac deployment showed measurable savings</span>
                     </div>
@@ -252,7 +252,7 @@ The permalink must not change: this URL carries all the accumulated search equit
             min-height: 100vh;
             padding: 20px;
         }
-.calc-page .calculator-container {
+.calc-page .calc-calculator-container {
             max-width: 1000px;
             margin: 0 auto;
             background: white;
@@ -260,42 +260,42 @@ The permalink must not change: this URL carries all the accumulated search equit
             box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
             overflow: hidden;
         }
-.calc-page .header {
+.calc-page .calc-header {
             background: white;
             color: #2f2f41;
             padding: 40px;
             text-align: center;
             border-bottom: 1px solid #ddd;
         }
-.calc-page .header h1 {
+.calc-page .calc-header h1 {
             font-size: 2.8em;
             margin-bottom: 15px;
             text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
         }
-.calc-page .header p {
+.calc-page .calc-header p {
             font-size: 1.2em;
             opacity: 0.9;
             margin-bottom: 10px;
         }
-.calc-page .subtitle {
+.calc-page .calc-subtitle {
             font-size: 1em;
             opacity: 0.8;
             font-weight: 300;
         }
-.calc-page .form-container {
+.calc-page .calc-form-container {
             padding: 40px;
         }
-.calc-page .form-grid {
+.calc-page .calc-form-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 30px;
             margin-bottom: 30px;
         }
-.calc-page .form-group {
+.calc-page .calc-form-group {
             display: flex;
             flex-direction: column;
         }
-.calc-page .form-group.full-width {
+.calc-page .calc-form-group.calc-full-width {
             grid-column: 1 / -1;
         }
 .calc-page label {
@@ -318,7 +318,7 @@ The permalink must not change: this URL carries all the accumulated search equit
             background-color: white;
             box-shadow: 0 0 0 3px rgba(74, 124, 149, 0.1);
         }
-.calc-page .calculate-btn {
+.calc-page .calc-calculate-btn {
             background: linear-gradient(135deg, #4a7c95, #6b9ab8);
             color: white;
             border: none;
@@ -330,15 +330,15 @@ The permalink must not change: this URL carries all the accumulated search equit
             transition: all 0.3s ease;
             box-shadow: 0 6px 25px rgba(74, 124, 149, 0.3);
         }
-.calc-page .calculate-btn:hover {
+.calc-page .calc-calculate-btn:hover {
             transform: translateY(-3px);
             box-shadow: 0 10px 35px rgba(74, 124, 149, 0.4);
         }
-.calc-page .results-container {
+.calc-page .calc-results-container {
             margin-top: 30px;
             display: none;
         }
-.calc-page .savings-summary {
+.calc-page .calc-savings-summary {
             background: linear-gradient(135deg, #4a7c95, #4282ae);
             color: white;
             padding: 40px;
@@ -347,57 +347,57 @@ The permalink must not change: this URL carries all the accumulated search equit
             margin-bottom: 30px;
             box-shadow: 0 10px 30px rgba(74, 124, 149, 0.3);
         }
-.calc-page .savings-amount {
+.calc-page .calc-savings-amount {
             font-size: 3.5em;
             font-weight: bold;
             margin-bottom: 10px;
             text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
         }
-.calc-page .savings-subtitle {
+.calc-page .calc-savings-subtitle {
             font-size: 1.3em;
             opacity: 0.9;
             margin-bottom: 5px;
         }
-.calc-page .savings-per-device {
+.calc-page .calc-savings-per-device {
             font-size: 1.1em;
             opacity: 0.8;
         }
-.calc-page .comparison-grid {
+.calc-page .calc-comparison-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 25px;
             margin-bottom: 30px;
         }
-.calc-page .cost-breakdown {
+.calc-page .calc-cost-breakdown {
             background: white;
             padding: 30px;
             border-radius: 15px;
             box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
         }
-.calc-page .cost-breakdown.mac {
+.calc-page .calc-cost-breakdown.calc-mac {
             border-left: 3px solid #4a7c95;
         }
-.calc-page .cost-breakdown.pc {
+.calc-page .calc-cost-breakdown.calc-pc {
             border-left: 3px solid #6b9ab8;
         }
-.calc-page .cost-breakdown h3 {
+.calc-page .calc-cost-breakdown h3 {
             font-size: 1.5em;
             margin-bottom: 20px;
             color: #333;
         }
-.calc-page .cost-item {
+.calc-page .calc-cost-item {
             display: flex;
             justify-content: space-between;
             padding: 10px 0;
             border-bottom: 1px solid #f0f0f0;
         }
-.calc-page .cost-item:last-child {
+.calc-page .calc-cost-item:last-child {
             border-bottom: none;
             font-weight: bold;
             font-size: 1.1em;
             color: #333;
         }
-.calc-page .break-even {
+.calc-page .calc-break-even {
             background: linear-gradient(135deg, #6b9ab8, #4a7c95);
             color: white;
             padding: 25px;
@@ -405,28 +405,28 @@ The permalink must not change: this URL carries all the accumulated search equit
             text-align: center;
             margin-bottom: 30px;
         }
-.calc-page .break-even h3 {
+.calc-page .calc-break-even h3 {
             font-size: 1.5em;
             margin-bottom: 10px;
         }
-.calc-page .selling-points {
+.calc-page .calc-selling-points {
             background: #f8f9fa;
             padding: 40px;
             border-radius: 15px;
             margin-top: 30px;
         }
-.calc-page .selling-points h3 {
+.calc-page .calc-selling-points h3 {
             color: #333;
             font-size: 1.8em;
             margin-bottom: 25px;
             text-align: center;
         }
-.calc-page .points-grid {
+.calc-page .calc-points-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 20px;
         }
-.calc-page .point-item {
+.calc-page .calc-point-item {
             display: flex;
             align-items: flex-start;
             padding: 20px;
@@ -436,33 +436,33 @@ The permalink must not change: this URL carries all the accumulated search equit
             transition: transform 0.2s ease;
             border-left: 3px solid #4a7c95;
         }
-.calc-page .point-item:hover {
+.calc-page .calc-point-item:hover {
             transform: translateY(-2px);
         }
-.calc-page .point-icon {
+.calc-page .calc-point-icon {
             font-size: 1.5em;
             margin-right: 15px;
             color: #4a7c95;
         }
-.calc-page .point-text {
+.calc-page .calc-point-text {
             flex: 1;
         }
-.calc-page .point-text strong {
+.calc-page .calc-point-text strong {
             color: #333;
             display: block;
             margin-bottom: 5px;
         }
-.calc-page .point-text span {
+.calc-page .calc-point-text span {
             color: #666;
             font-size: 0.95em;
         }
-.calc-page .cost-examples {
+.calc-page .calc-cost-examples {
             margin-top: 5px;
             font-size: 0.9em;
             color: #666;
             font-style: italic;
         }
-.calc-page .ripeda-highlight {
+.calc-page .calc-ripeda-highlight {
             background: linear-gradient(135deg, #4a7c95, #6b9ab8);
             color: white;
             padding: 30px;
@@ -470,18 +470,18 @@ The permalink must not change: this URL carries all the accumulated search equit
             margin-top: 30px;
             text-align: center;
         }
-.calc-page .ripeda-highlight h3 {
+.calc-page .calc-ripeda-highlight h3 {
             color: white;
             margin-bottom: 15px;
         }
 @media (max-width: 768px) {
-.calc-page .form-grid, .calc-page .comparison-grid, .calc-page .points-grid {
+.calc-page .calc-form-grid, .calc-page .calc-comparison-grid, .calc-page .calc-points-grid {
                 grid-template-columns: 1fr;
             }
-.calc-page .header h1 {
+.calc-page .calc-header h1 {
                 font-size: 2.2em;
             }
-.calc-page .savings-amount {
+.calc-page .calc-savings-amount {
                 font-size: 2.5em;
             }
 }
