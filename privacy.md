@@ -25,7 +25,7 @@ RIPEDA is accountable for the personal information in our custody or control, in
 Our **Privacy Officer** is responsible for our compliance with this policy, and can answer questions about how your personal information is collected, used, disclosed or stored — including by our service providers.
 
 **Privacy Officer, RIPEDA Consulting Corporation**
-Suite 300 – 1301 8 Street SW, Calgary, AB T2R 1B7
+1301 8 Street SW, Calgary, AB T2R 1B7
 [info@ripeda.com](mailto:info@ripeda.com) · +1 (844) 474-7332
 
 ## 2. What we collect, and why

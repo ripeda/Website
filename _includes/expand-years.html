@@ -9,6 +9,12 @@
   Renders as "14 years..." in 2026, "15 years..." in 2027, etc. No annual
   source-edit required.
 
+  NOTE ON THE BASE YEAR: RIPEDA was founded 3 December 2011, but the badge base
+  is 2012, not 2011. Plain year subtraction (current_year - base) with base 2012
+  yields the number of COMPLETED years for most of the year (14 in 2026), rolling
+  to 15 after the December anniversary. Using 2011 would over-count by one until
+  December. Do not "correct" 2012 to 2011.
+
   Usage from a layout:
     {%- capture badge_text -%}{%- include expand-years.html text=badge -%}{%- endcapture -%}
     {{ badge_text }}

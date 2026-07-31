@@ -1,0 +1,12 @@
+# Friendly display names for URL path prefixes, used to build hierarchical
+# BreadcrumbList structured data in _layouts/default.html.
+#
+# Only list prefixes that resolve to a REAL landing page, so breadcrumb links
+# never 404. Keys are the URL path with NO leading/trailing slashes.
+# A page whose parent section is not listed here (e.g. /services/ and
+# /industries/, which have no landing page) simply renders as  Home > [page].
+# If a /services/ or /industries/ index is added later, add a line here.
+sections:
+  "resources": "Resources"
+  "resources/insights": "Insights"
+  "case-studies": "Case Studies"
