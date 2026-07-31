@@ -268,6 +268,22 @@ breadcrumb: true
         "@type": "Answer",
         "text": "Yes, co-managed IT is one of our core offerings. Maybe your internal IT person is great with Windows but needs Apple expertise. Maybe you have an MSP handling basics but need specialized support. We integrate smoothly and focus on adding value rather than stepping on toes. Clear communication and defined responsibilities make these arrangements work."
       }
+    },
+    {
+      "@type": "Question",
+      "name": "Do you offer AI training for our team?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. AI training is delivered through our partner site Get An Hour Back (getanhourback.com) — practical, hands-on sessions for business teams, built around real day-to-day work rather than theory. They cover everyday AI skills, industry-specific use, and Canadian privacy and compliance (PIPEDA and PIPA), across tools like Apple Intelligence, Claude, and ChatGPT, with Microsoft Copilot and Google Gemini coming soon. The goal is simple: give your team back at least an hour a day."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Who is the AI training for, and how is it delivered?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "It is designed for small and mid-sized businesses, with tailored tracks for healthcare, marketing and creative, and professional-services teams. You can take it as a 90-minute executive briefing, a full-day intensive, or a four-part weekly lunch-and-learn series, delivered on-site or remotely for groups of up to 15. It is run by an Apple Technical Partner, so the guidance is practical and grounded in how your tools actually work."
+      }
     }
   ]
 }
@@ -650,6 +666,30 @@ breadcrumb: true
             </button>
             <div class="faq-answer">
               <p>Yes, co-managed IT is one of our core offerings. Maybe your internal IT person is great with Windows but needs Apple expertise. Maybe you have an MSP handling basics but need specialized support. We integrate smoothly and focus on adding value rather than stepping on toes. Clear communication and defined responsibilities make these arrangements work.</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="faq-section">
+          <h2 id="ai-training">AI Training</h2>
+
+          <div class="faq-item" data-keywords="AI training artificial intelligence ChatGPT Claude Copilot Gemini Apple Intelligence automation productivity getanhourback get an hour back workshop adoption">
+            <button class="faq-question" type="button">
+              <span>Do you offer AI training for our team?</span>
+              <span class="faq-toggle">+</span>
+            </button>
+            <div class="faq-answer">
+              <p>Yes. AI training is delivered through our partner site <a href="https://getanhourback.com" target="_blank" rel="noopener">Get An Hour Back</a> &mdash; practical, hands-on sessions for business teams, built around real day-to-day work rather than theory. They cover everyday AI skills, industry-specific use, and Canadian privacy and compliance (PIPEDA and PIPA), across tools like Apple Intelligence, Claude, and ChatGPT, with Microsoft Copilot and Google Gemini coming soon. The goal is simple: give your team back at least an hour a day.</p>
+            </div>
+          </div>
+
+          <div class="faq-item" data-keywords="AI training format executive briefing lunch and learn full day intensive on-site remote healthcare marketing professional services team workshop group">
+            <button class="faq-question" type="button">
+              <span>Who is the AI training for, and how is it delivered?</span>
+              <span class="faq-toggle">+</span>
+            </button>
+            <div class="faq-answer">
+              <p>It is designed for small and mid-sized businesses, with tailored tracks for healthcare, marketing and creative, and professional-services teams. You can take it as a 90-minute executive briefing, a full-day intensive, or a four-part weekly lunch-and-learn series, delivered on-site or remotely for groups of up to 15. It is run by an Apple Technical Partner, so the guidance is practical and grounded in how your tools actually work.</p>
             </div>
           </div>
         </section>

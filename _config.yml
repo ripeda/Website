@@ -9,7 +9,7 @@ locale: en_CA
 timezone: America/Edmonton
 
 # Industry keywords for SEO
-keywords: "Apple consulting Calgary, Mac support, IT services Calgary, Apple certified consultants, dental practice IT, education technology, marketing agency IT, office IT support, SaaS company IT, law firm technology, Apple Technical Partners, ACN, ATP"
+keywords: "Apple consulting Calgary, Mac support, IT services Calgary, Apple certified consultants, dental practice IT, education technology, marketing agency IT, office IT support, SaaS company IT, law firm technology, Apple Technical Partners, ACN, ATP, AI training Calgary, AI adoption training, team AI workshops"
 
 # SEO-specific settings
 seo:
@@ -23,7 +23,7 @@ seo:
 business:
   name: "RIPEDA Consulting"
   founded: "2011-12-03"
-  street_address: "1301 8 Street SW"
+  street_address: "300 - 1301 8 Street SW"
   city: "Calgary" 
   province: "Alberta"
   postal_code: "T2R 1B7"
@@ -45,14 +45,14 @@ defaults:
     values:
       layout: "default"
       image: "/images/logo/ripeda-og-image.jpg"
-      keywords: "Apple consulting Calgary, Mac support, IT services Calgary, Apple certified consultants, dental practice IT, education technology, marketing agency IT, office IT support, SaaS company IT, law firm technology, Apple Technical Partners, ACN, ATP"
+      keywords: "Apple consulting Calgary, Mac support, IT services Calgary, Apple certified consultants, dental practice IT, education technology, marketing agency IT, office IT support, SaaS company IT, law firm technology, Apple Technical Partners, ACN, ATP, AI training Calgary, AI adoption training, team AI workshops"
   - scope:
       path: ""
       type: "services"
     values:
       layout: "default"
       image: "/images/logo/ripeda-og-image.jpg"
-      keywords: "Apple consulting Calgary Alberta, Mac support, IT services Calgary, Apple certified consultants, dental practice IT, education technology, marketing agency IT, office IT support, SaaS company IT, law firm technology, Apple Technical Partners, ACN, ATP"
+      keywords: "Apple consulting Calgary Alberta, Mac support, IT services Calgary, Apple certified consultants, dental practice IT, education technology, marketing agency IT, office IT support, SaaS company IT, law firm technology, Apple Technical Partners, ACN, ATP, AI training Calgary, AI adoption training, team AI workshops"
   - scope:
       path: ""
       type: "team"
