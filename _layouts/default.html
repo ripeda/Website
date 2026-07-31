@@ -195,29 +195,45 @@
   </script>
   {% endif %}
 
-  <!-- BreadcrumbList Schema -->
-  {% unless page.is_home %}
+  <!-- BreadcrumbList Schema (hierarchical, built from the URL path) -->
+  {% unless page.is_home %}{% if page.breadcrumb != false %}
+  {%- comment -%}
+  Walk the URL path: for each ancestor prefix that maps to a real landing page
+  in _data/breadcrumbs.yml, emit a crumb, then the current page last. Ancestors
+  with no landing page (e.g. /services/) are skipped so breadcrumb links never
+  404. Set `breadcrumb: false` in a page's front matter to suppress entirely.
+  {%- endcomment -%}
+  {%- assign _crumbs = "Home@@/" -%}
+  {%- assign _segs = page.url | split: "/" -%}
+  {%- assign _prefix = "" -%}
+  {%- for _seg in _segs -%}
+    {%- if _seg == "" -%}{%- continue -%}{%- endif -%}
+    {%- if _prefix == "" -%}{%- assign _prefix = _seg -%}{%- else -%}{%- assign _prefix = _prefix | append: "/" | append: _seg -%}{%- endif -%}
+    {%- assign _full = "/" | append: _prefix | append: "/" -%}
+    {%- if _full == page.url -%}{%- break -%}{%- endif -%}
+    {%- assign _name = site.data.breadcrumbs.sections[_prefix] -%}
+    {%- if _name -%}{%- assign _crumbs = _crumbs | append: "||" | append: _name | append: "@@" | append: _full -%}{%- endif -%}
+  {%- endfor -%}
+  {%- assign _crumbs = _crumbs | append: "||" | append: page.title | append: "@@" | append: page.url -%}
+  {%- assign _crumblist = _crumbs | split: "||" -%}
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     "itemListElement": [
+      {%- for _c in _crumblist -%}
+      {%- assign _p = _c | split: "@@" -%}
       {
         "@type": "ListItem",
-        "position": 1,
-        "name": "Home",
-        "item": "{{ site.url }}"
-      },
-      {
-        "@type": "ListItem",
-        "position": 2,
-        "name": "{{ page.title }}",
-        "item": "{{ page.url | absolute_url }}"
-      }
+        "position": {{ forloop.index }},
+        "name": {{ _p[0] | jsonify }},
+        "item": {{ _p[1] | absolute_url | jsonify }}
+      }{% unless forloop.last %},{% endunless %}
+      {%- endfor -%}
     ]
   }
   </script>
-  {% endunless %}
+  {% endif %}{% endunless %}
 
   <!-- Google Fonts CDN -->
   <link rel="preconnect" href="https://fonts.googleapis.com">

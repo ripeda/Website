@@ -38,6 +38,15 @@ $success-green: #10b981;
     gap: 4rem;
     align-items: center;
 
+    // Pages whose hero has no .hero-visual (e.g. Resources, Team) would leave
+    // the second grid column empty, squeezing .hero-text to ~half width and
+    // wrapping the h1 early. Collapse to a single column when there is no
+    // visual. The homepage keeps its two-column grid because it has a
+    // .hero-visual. Requires :has() (supported in all current browsers).
+    &:not(:has(.hero-visual)) {
+      display: block;
+    }
+
     @media (max-width: 768px) {
       grid-template-columns: 1fr;
       gap: 3rem;
@@ -1027,6 +1036,14 @@ $success-green: #10b981;
 // Contact Section Specific
 .contact-section {
   background: #f8fafc;
+
+  // Top-align the two columns. The shared .content-section grid uses
+  // align-items: center; because the contact form column is much taller than
+  // the left text column, that centering strands the section header in the
+  // vertical middle of the section instead of at the top. Override to start.
+  .section-container {
+    align-items: start;
+  }
 
   .consultation-offer {
     h3 {

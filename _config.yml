@@ -3,7 +3,7 @@ permalink: pretty
 title: 'RIPEDA Consulting'
 
 # Enhanced Site metadata for SEO
-description: "Calgary's Apple Technical Partners. Over 13 years managing Apple devices for businesses, education, and enterprises."
+description: "Calgary's Apple Technical Partners. Managing Apple devices for businesses, education, and enterprises since 2011."
 url: "https://ripeda.com"
 locale: en_CA
 timezone: America/Edmonton
@@ -22,8 +22,8 @@ seo:
 # Business Information for Local SEO
 business:
   name: "RIPEDA Consulting"
-  founded: 2011
-  street_address: "300 - 1301 8 Street SW"
+  founded: "2011-12-03"
+  street_address: "1301 8 Street SW"
   city: "Calgary" 
   province: "Alberta"
   postal_code: "T2R 1B7"
