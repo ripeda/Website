@@ -274,7 +274,7 @@ breadcrumb: true
       "name": "Do you offer AI training for our team?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes. Through our Get An Hour Back program we deliver practical, hands-on AI training for business teams, built around real day-to-day work rather than theory. It covers everyday AI skills, industry-specific use, and Canadian privacy and compliance (PIPEDA and PIPA), across tools like Apple Intelligence, Claude, ChatGPT, Microsoft Copilot, and Google Gemini. The goal is simple: give your team back at least an hour a day."
+        "text": "Yes. AI training is delivered through our partner site Get An Hour Back (getanhourback.com) — practical, hands-on sessions for business teams, built around real day-to-day work rather than theory. They cover everyday AI skills, industry-specific use, and Canadian privacy and compliance (PIPEDA and PIPA), across tools like Apple Intelligence, Claude, and ChatGPT, with Microsoft Copilot and Google Gemini coming soon. The goal is simple: give your team back at least an hour a day."
       }
     },
     {
@@ -679,7 +679,7 @@ breadcrumb: true
               <span class="faq-toggle">+</span>
             </button>
             <div class="faq-answer">
-              <p>Yes. Through our <a href="https://getanhourback.com" target="_blank" rel="noopener">Get An Hour Back</a> program we deliver practical, hands-on AI training for business teams, built around real day-to-day work rather than theory. It covers everyday AI skills, industry-specific use, and Canadian privacy and compliance (PIPEDA and PIPA), across tools like Apple Intelligence, Claude, ChatGPT, Microsoft Copilot, and Google Gemini. The goal is simple: give your team back at least an hour a day.</p>
+              <p>Yes. AI training is delivered through our partner site <a href="https://getanhourback.com" target="_blank" rel="noopener">Get An Hour Back</a> &mdash; practical, hands-on sessions for business teams, built around real day-to-day work rather than theory. They cover everyday AI skills, industry-specific use, and Canadian privacy and compliance (PIPEDA and PIPA), across tools like Apple Intelligence, Claude, and ChatGPT, with Microsoft Copilot and Google Gemini coming soon. The goal is simple: give your team back at least an hour a day.</p>
             </div>
           </div>
 
