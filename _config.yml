@@ -17,7 +17,7 @@ seo:
   name: RIPEDA Consulting
   links:
     - https://www.linkedin.com/company/ripeda-consulting
-    - https://twitter.com/ripedaconsulting
+    - https://twitter.com/ripeda
 
 # Business Information for Local SEO
 business:
@@ -31,32 +31,42 @@ business:
   phone: "+1-844-474-7332"
   email: "info@ripeda.com"
 
-  # --- Optional structured-data extras, consumed by _includes/schema-org.html ---
-  # Both are guarded, so leaving them unset emits nothing at all (rather than an
-  # empty or invented value landing in the JSON-LD).
+  # --- Structured-data extras, consumed by _includes/schema-org.html ---
   #
-  # opening_hours -> openingHoursSpecification. A genuine LocalBusiness
-  # rich-result signal and one of the cheapest wins left on the site. Left unset
-  # deliberately rather than guessed: publishing hours RIPEDA does not actually
-  # keep costs more trust than publishing none. Uncomment and correct to enable.
+  # opening_hours -> openingHoursSpecification on the LocalBusiness node. These
+  # values are NOT guessed: they were read from RIPEDA's own verified Google
+  # Business Profile on 2026-08-04, where the listing shows Mon-Fri 9:00 AM to
+  # 5:00 PM and closed Saturday/Sunday. Keeping the two in agreement matters,
+  # because Google cross-checks the site against the listing. If the hours change
+  # on the Business Profile, change them here in the same sitting.
   #
-  # opening_hours:
-  #   - days: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"]
-  #     opens: "08:30"
-  #     closes: "17:00"
+  # Closed days are simply omitted rather than emitted as zero-length ranges,
+  # which is what schema.org expects.
+  opening_hours:
+    - days: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"]
+      opens: "09:00"
+      closes: "17:00"
   #
-  # employee_count -> numberOfEmployees. Set to a real integer to publish it. Not
-  # inferred from the _team collection, since that is the public roster rather
-  # than headcount.
+  # employee_count -> numberOfEmployees. Left unset on purpose: the _team
+  # collection lists 5 public profiles, but that is the public roster and not
+  # necessarily headcount, and this should not be inferred. Set a real integer
+  # here to publish it.
   #
   # employee_count: 5
 
 # Social Media
+# NOTE: the `social.links` and `seo.links` lists below are legacy. They fed
+# jekyll-seo-tag, which was removed in June 2026, so nothing reads them now --
+# the live `sameAs` is built from _data/social.json by _includes/schema-org.html.
+# The Twitter handle here was WRONG (twitter.com/ripedaconsulting). The correct
+# handle is twitter.com/ripeda, confirmed against both _data/social.json and the
+# verified Google Business Profile. Corrected below so nobody copies the bad one
+# back into live markup. Prefer deleting both blocks over maintaining them.
 social:
   name: RIPEDA Consulting
   links:
     - https://www.linkedin.com/company/ripeda-consulting
-    - https://twitter.com/ripedaconsulting
+    - https://twitter.com/ripeda
 
 # Default SEO settings
 defaults:

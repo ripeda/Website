@@ -1,314 +1,96 @@
 ---
-title: "Frequently Asked Questions"
-description: "Common questions and answers about RIPEDA Consulting's Apple-focused IT services, support, and expertise."
+title: Frequently Asked Questions
+description: Common questions and answers about RIPEDA Consulting's Apple-focused IT services, support, and expertise.
 permalink: /faq/
 layout: default
 breadcrumb: true
+
+# FAQ content lives here as data, not as a hand-written JSON-LD block.
+# These 34 entries are consumed by _includes/schema-org.html, which attaches them
+# as `mainEntity` on this page's #webpage node and adds the FAQPage type to it.
+#
+# Before 2026-08-04 this page carried its own inline FAQPage script plus a second
+# hardcoded BreadcrumbList. After the unified-graph refactor those became
+# duplicates: /faq/ was declaring two page entities and two breadcrumb trails for
+# one URL. Both inline blocks were deleted in favour of the entries below.
+#
+# The visible Q&A markup further down the page is separate presentation HTML --
+# if you edit an answer, update it in BOTH places, same as on the pillar and
+# service-hub pages.
+faq:
+- q: What types of organizations do you specialize in supporting?
+  a: We work with organizations across several industries where technology reliability and security are mission-critical. Our primary focus areas include dental clinics and healthcare practices, charter schools and education environments, law firms, and SaaS companies. What unites our clients isn't their size, it's their need for dependable Apple-centric IT that just works, backed by people who understand their industry.
+- q: Do you primarily support Apple-first environments or mixed Mac and Windows networks?
+  a: Apple is our specialty. It's in our DNA. We built Ripeda around deep expertise in macOS, iOS, and iPadOS environments. That said, we recognize that most organizations have some Windows devices or need to integrate with Microsoft services. We handle mixed environments comfortably, but our edge is making Apple devices work seamlessly in business settings where others struggle.
+- q: What's included in your managed IT services?
+  a: 'Our managed services cover the full spectrum: device management and monitoring, security and compliance, help desk support, network infrastructure, backup and disaster recovery, hardware procurement, and strategic IT planning. We tailor the mix to each client: a dental clinic has different needs than a SaaS startup, and we structure our services accordingly.'
+- q: Do you provide fully managed IT or co-managed IT alongside internal staff?
+  a: Both. Some clients want us to handle everything so they can focus on their business. Others have internal IT staff and need a partner with specialized Apple expertise or additional capacity for projects. We're flexible and work well in either model. What matters is that the arrangement makes sense for your organization.
+- q: Do you offer both remote and on-site support?
+  a: Yes. Most day-to-day support happens remotely. It's faster and more efficient for everyone. But when a situation calls for hands-on work, we provide on-site support in the Calgary area, Lethbridge, and our expanding Edmonton service area. For clients with remote employees (even internationally), our remote support reaches wherever they are.
+- q: What regions do you serve?
+  a: We're headquartered in Calgary with a strong presence in Lethbridge and growing coverage in Edmonton. Through remote support, we've helped clients with team members across Canada, the US, and even China. If your people can connect to the internet, we can support them.
+- q: How quickly do you respond to support requests?
+  a: For standard requests, you'll hear back from us within 1–4 hours during business hours. Critical issues get prioritized and addressed faster. We don't believe in letting tickets sit... when something's broken, it's affecting your business, and we treat it that way.
+- q: Do you offer after-hours or emergency support for critical issues?
+  a: Yes, for clients where downtime has serious consequences. After-hours and emergency support is available as part of certain service agreements. If your organization can't afford to wait until morning when something breaks, we'll structure your support to match that reality.
+- q: What does onboarding look like when switching to your MSP?
+  a: We follow a structured Discovery → Migration → Training approach. First, we audit your current environment—devices, accounts, security posture, pain points. Then we migrate services methodically, minimizing disruption. Finally, we train your team on new tools and processes so everyone's confident from day one. The timeline varies based on complexity, but we don't rush it at the expense of getting it right.
+- q: Are you an Apple Authorized Reseller and Apple Authorized Service Provider?
+  a: Yes, we hold both designations. As an Apple Authorized Reseller, we can procure hardware directly with proper business focus and support. As an Apple Authorized Service Provider (AASP), our technicians are certified to perform repairs using genuine Apple parts, including warranty and AppleCare work. This isn't just a badge; it means faster turnaround and repairs done right.
+- q: Do you support Apple Business Manager (ABM)?
+  a: Absolutely. Apple Business Manager is central to how we deploy and manage devices for organizations. We help you set up ABM, configure automated device enrollment, manage apps and content through volume purchasing, and integrate it all with your MDM solution. If you're not using ABM yet, you should be, and we'll get you there.
+- q: Can you manage Macs, iPhones, and iPads using MDM?
+  a: Yes, across all Apple device types. MDM (Mobile Device Management) lets us configure devices remotely, enforce security policies, deploy apps, and manage updates without touching each device individually. Whether you have 10 devices or 500, MDM is how modern Apple fleets stay secure and consistent.
+- q: What's your approach to MDM platforms?
+  a: Our real investment is in scripting and automation. That's what makes managing an Apple fleet efficient, and it carries across whichever MDM platform sits underneath it. We work with the major MDM platforms and recommend the one that fits your environment, budget, and needs rather than pushing a single product on every client. The platform matters less than getting Apple Business Manager set up correctly beneath it.
+- q: Can you deploy and configure devices remotely for new hires or students?
+  a: Yes. This is one of the biggest advantages of proper Apple device management. Through zero-touch deployment, we can ship a Mac, iPhone, or iPad directly to a new employee or student. When they power it on and connect to the internet, it automatically enrolls in management, installs required apps, and configures settings. They're productive immediately, no IT visit required.
+- q: Do you assist with Apple hardware procurement, lifecycle planning, and refreshes?
+  a: 'Yes. As an Apple Authorized Reseller, we handle procurement with proper business pricing. Beyond just buying devices, we help you plan hardware lifecycles: When to refresh, how to budget for it, and how to handle retired devices securely. Good lifecycle planning prevents the ''everything breaks at once'' problem.'
+- q: Do you provide managed firewall and network security using Fortinet?
+  a: Yes, Fortinet is our standard for business-grade firewall and network security. We deploy, configure, monitor, and maintain Fortinet appliances as part of our managed network services. This includes threat detection, content filtering, VPN configuration, and ongoing firmware management, not just a box sitting in your closet.
+- q: Can you secure Wi-Fi networks using Ruckus?
+  a: Yes. Ruckus is our go-to for enterprise Wi-Fi that's reliable, secure, and manageable. We design, deploy, and manage Ruckus wireless networks with proper segmentation, authentication, and monitoring. Whether you're a dental clinic that needs rock-solid connectivity for imaging equipment or a school with hundreds of student devices, we build networks that perform.
+- q: How do you handle backups, ransomware protection, and disaster recovery?
+  a: We approach this holistically because backups alone aren't enough anymore. Our strategy includes endpoint protection to prevent ransomware, proper backup solutions (tailored to each client's needs and budget), and documented recovery procedures so you know exactly what happens if the worst occurs.
+- q: Do you provide secure remote access for staff working off-site?
+  a: Yes. Whether through VPN, zero-trust access solutions, or properly configured cloud services, we ensure your remote staff can work securely without creating security holes. The right approach depends on your environment and compliance requirements. We'll design something that balances security with usability.
+- q: Do you support dental clinics and imaging-heavy workflows?
+  a: 'Yes, dental and healthcare practices are one of our core verticals. We understand the technology stack: practice management software, digital imaging systems (sensors, panoramic units, CBCT), intraoral cameras, and the network infrastructure that ties it all together. More importantly, we understand that when your imaging goes down, you can''t see patients. We design systems with that reality in mind.'
+- q: Can you support charter schools and education environments with shared devices?
+  a: 'Absolutely. Education environments have unique challenges: shared devices, student-appropriate content filtering, classroom management tools, and the chaos of hundreds of users who didn''t choose their IT setup. We configure MDM for shared iPad and Mac deployments, implement appropriate restrictions, and build systems that teachers can actually manage day-to-day.'
+- q: Do you work with SaaS companies that require uptime, scaling, and security?
+  a: Yes. SaaS companies live and die by reliability. We support startups and established software companies with the infrastructure and security practices that let them focus on building product rather than fighting IT fires. That means proper device security, identity management, and the kind of responsive support that doesn't slow down your developers.
+- q: Do you support law firms with strict confidentiality and document handling needs?
+  a: Yes. Law firms have legitimate reasons to be concerned about data security and confidentiality. We implement encryption, access controls, secure document handling, and audit trails that satisfy both your ethical obligations and your clients' expectations. We also understand that lawyers need technology that stays out of their way—billable hours matter.
+- q: How do you minimize downtime for organizations that can't afford interruptions?
+  a: Through proactive management rather than reactive firefighting. We monitor systems continuously, address issues before they become outages, maintain proper redundancy where it matters, and design infrastructure with failure points in mind. When something does break, our response time and expertise get you back up fast. Prevention is better than cure, but we're good at both.
+- q: What types of Apple devices do you repair?
+  a: For our clients, Apple repairs are handled directly by us. No Apple Store trips or outside vendors. As an Apple Authorized Service Provider (AASP), we service Macs, iPhones, iPads, Apple Watches, and Beats products with genuine parts and certified technicians. If Apple Retail can fix it, so can we. It's part of the value of having an MSP with real Apple credentials.
+- q: Can you handle Apple warranty and AppleCare repairs for businesses?
+  a: Yes. As an Apple Authorized Service Provider (AASP), we perform warranty and AppleCare+ repairs on Apple's behalf. This means your team doesn't need to visit an Apple Store or ship devices away. We handle it locally with the same genuine parts and procedures. For businesses, this translates to faster turnaround and less disruption.
+- q: What happens if a Mac or drive fails — can data be recovered?
+  a: Often, yes. We work with DriveSavers—the industry leader in professional data recovery.
+- q: What does it mean that you're a DriveSavers reseller?
+  a: 'As an authorized DriveSavers reseller, our clients get direct access to the industry leader in data recovery: with free overnight FedEx shipping, free evaluation, and discounted rates. If the data turns out to be unrecoverable, they ship it back at no charge. When a drive fails, you have a direct line to the best in the business.'
+- q: How is pricing structured (per user, per device, flat-rate)?
+  a: 'We use a per-seat model. A ''Mac Seat'' covers a user and their Apple device(s), and we have ''Network Seats'' for infrastructure components. The exact pricing depends on factors like what software licensing we''re managing on your behalf and the complexity of your environment. We''ll provide a clear quote after understanding your needs: no hidden fees or surprise charges.'
+- q: Is there a minimum number of users or devices?
+  a: No hard minimum. We've worked with organizations as small as a few seats. That said, we're selective about fit. An organization that knows what they need and values a partnership will always be a better fit than a larger client that doesn't. We'd rather work with the right clients than chase volume.
+- q: Are your services contract-based or month-to-month?
+  a: We typically work on annual agreements. This isn't about locking you in, it's about building a real partnership. Proper IT management requires understanding your environment deeply, and that investment makes more sense with some commitment on both sides. We're confident enough in our service that retention comes from results, not contract terms.
+- q: Can you work alongside an existing IT provider or internal IT team?
+  a: Yes, co-managed IT is one of our core offerings. Maybe your internal IT person is great with Windows but needs Apple expertise. Maybe you have an MSP handling basics but need specialized support. We integrate smoothly and focus on adding value rather than stepping on toes. Clear communication and defined responsibilities make these arrangements work.
+- q: Do you offer AI training for our team?
+  a: 'Yes. AI training is delivered through our partner site Get An Hour Back (getanhourback.com) — practical, hands-on sessions for business teams, built around real day-to-day work rather than theory. They cover everyday AI skills, industry-specific use, and Canadian privacy and compliance (PIPEDA and PIPA), across tools like Apple Intelligence, Claude, and ChatGPT, with Microsoft Copilot and Google Gemini coming soon. The goal is simple: give your team back at least an hour a day.'
+- q: Who is the AI training for, and how is it delivered?
+  a: It is designed for small and mid-sized businesses, with tailored tracks for healthcare, marketing and creative, and professional-services teams. You can take it as a 90-minute executive briefing, a full-day intensive, or a four-part weekly lunch-and-learn series, delivered on-site or remotely for groups of up to 15. It is run by an Apple Technical Partner, so the guidance is practical and grounded in how your tools actually work.
 ---
 
 <!-- FAQ Page - Fixed Jekyll processing issues -->
 
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-    {
-      "@type": "Question",
-      "name": "What types of organizations do you specialize in supporting?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "We work with organizations across several industries where technology reliability and security are mission-critical. Our primary focus areas include dental clinics and healthcare practices, charter schools and education environments, law firms, and SaaS companies. What unites our clients isn't their size, it's their need for dependable Apple-centric IT that just works, backed by people who understand their industry."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Do you primarily support Apple-first environments or mixed Mac and Windows networks?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Apple is our specialty. It's in our DNA. We built Ripeda around deep expertise in macOS, iOS, and iPadOS environments. That said, we recognize that most organizations have some Windows devices or need to integrate with Microsoft services. We handle mixed environments comfortably, but our edge is making Apple devices work seamlessly in business settings where others struggle."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "What's included in your managed IT services?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Our managed services cover the full spectrum: device management and monitoring, security and compliance, help desk support, network infrastructure, backup and disaster recovery, hardware procurement, and strategic IT planning. We tailor the mix to each client: a dental clinic has different needs than a SaaS startup, and we structure our services accordingly."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Do you provide fully managed IT or co-managed IT alongside internal staff?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Both. Some clients want us to handle everything so they can focus on their business. Others have internal IT staff and need a partner with specialized Apple expertise or additional capacity for projects. We're flexible and work well in either model. What matters is that the arrangement makes sense for your organization."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Do you offer both remote and on-site support?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Yes. Most day-to-day support happens remotely. It's faster and more efficient for everyone. But when a situation calls for hands-on work, we provide on-site support in the Calgary area, Lethbridge, and our expanding Edmonton service area. For clients with remote employees (even internationally), our remote support reaches wherever they are."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "What regions do you serve?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "We're headquartered in Calgary with a strong presence in Lethbridge and growing coverage in Edmonton. Through remote support, we've helped clients with team members across Canada, the US, and even China. If your people can connect to the internet, we can support them."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "How quickly do you respond to support requests?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "For standard requests, you'll hear back from us within 1–4 hours during business hours. Critical issues get prioritized and addressed faster. We don't believe in letting tickets sit... when something's broken, it's affecting your business, and we treat it that way."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Do you offer after-hours or emergency support for critical issues?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Yes, for clients where downtime has serious consequences. After-hours and emergency support is available as part of certain service agreements. If your organization can't afford to wait until morning when something breaks, we'll structure your support to match that reality."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "What does onboarding look like when switching to your MSP?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "We follow a structured Discovery → Migration → Training approach. First, we audit your current environment—devices, accounts, security posture, pain points. Then we migrate services methodically, minimizing disruption. Finally, we train your team on new tools and processes so everyone's confident from day one. The timeline varies based on complexity, but we don't rush it at the expense of getting it right."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Are you an Apple Authorized Reseller and Apple Authorized Service Provider?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Yes, we hold both designations. As an Apple Authorized Reseller, we can procure hardware directly with proper business focus and support. As an Apple Authorized Service Provider (AASP), our technicians are certified to perform repairs using genuine Apple parts, including warranty and AppleCare work. This isn't just a badge; it means faster turnaround and repairs done right."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Do you support Apple Business Manager (ABM)?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Absolutely. Apple Business Manager is central to how we deploy and manage devices for organizations. We help you set up ABM, configure automated device enrollment, manage apps and content through volume purchasing, and integrate it all with your MDM solution. If you're not using ABM yet, you should be, and we'll get you there."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Can you manage Macs, iPhones, and iPads using MDM?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Yes, across all Apple device types. MDM (Mobile Device Management) lets us configure devices remotely, enforce security policies, deploy apps, and manage updates without touching each device individually. Whether you have 10 devices or 500, MDM is how modern Apple fleets stay secure and consistent."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "What's your approach to MDM platforms?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Our real investment is in scripting and automation. That's what makes managing an Apple fleet efficient, and it carries across whichever MDM platform sits underneath it. We work with the major MDM platforms and recommend the one that fits your environment, budget, and needs rather than pushing a single product on every client. The platform matters less than getting Apple Business Manager set up correctly beneath it."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Can you deploy and configure devices remotely for new hires or students?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Yes. This is one of the biggest advantages of proper Apple device management. Through zero-touch deployment, we can ship a Mac, iPhone, or iPad directly to a new employee or student. When they power it on and connect to the internet, it automatically enrolls in management, installs required apps, and configures settings. They're productive immediately, no IT visit required."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Do you assist with Apple hardware procurement, lifecycle planning, and refreshes?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Yes. As an Apple Authorized Reseller, we handle procurement with proper business pricing. Beyond just buying devices, we help you plan hardware lifecycles: When to refresh, how to budget for it, and how to handle retired devices securely. Good lifecycle planning prevents the 'everything breaks at once' problem."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Do you provide managed firewall and network security using Fortinet?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Yes, Fortinet is our standard for business-grade firewall and network security. We deploy, configure, monitor, and maintain Fortinet appliances as part of our managed network services. This includes threat detection, content filtering, VPN configuration, and ongoing firmware management, not just a box sitting in your closet."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Can you secure Wi-Fi networks using Ruckus?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Yes. Ruckus is our go-to for enterprise Wi-Fi that's reliable, secure, and manageable. We design, deploy, and manage Ruckus wireless networks with proper segmentation, authentication, and monitoring. Whether you're a dental clinic that needs rock-solid connectivity for imaging equipment or a school with hundreds of student devices, we build networks that perform."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "How do you handle backups, ransomware protection, and disaster recovery?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "We approach this holistically because backups alone aren't enough anymore. Our strategy includes endpoint protection to prevent ransomware, proper backup solutions (tailored to each client's needs and budget), and documented recovery procedures so you know exactly what happens if the worst occurs."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Do you provide secure remote access for staff working off-site?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Yes. Whether through VPN, zero-trust access solutions, or properly configured cloud services, we ensure your remote staff can work securely without creating security holes. The right approach depends on your environment and compliance requirements. We'll design something that balances security with usability."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Do you support dental clinics and imaging-heavy workflows?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Yes, dental and healthcare practices are one of our core verticals. We understand the technology stack: practice management software, digital imaging systems (sensors, panoramic units, CBCT), intraoral cameras, and the network infrastructure that ties it all together. More importantly, we understand that when your imaging goes down, you can't see patients. We design systems with that reality in mind."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Can you support charter schools and education environments with shared devices?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Absolutely. Education environments have unique challenges: shared devices, student-appropriate content filtering, classroom management tools, and the chaos of hundreds of users who didn't choose their IT setup. We configure MDM for shared iPad and Mac deployments, implement appropriate restrictions, and build systems that teachers can actually manage day-to-day."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Do you work with SaaS companies that require uptime, scaling, and security?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Yes. SaaS companies live and die by reliability. We support startups and established software companies with the infrastructure and security practices that let them focus on building product rather than fighting IT fires. That means proper device security, identity management, and the kind of responsive support that doesn't slow down your developers."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Do you support law firms with strict confidentiality and document handling needs?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Yes. Law firms have legitimate reasons to be concerned about data security and confidentiality. We implement encryption, access controls, secure document handling, and audit trails that satisfy both your ethical obligations and your clients' expectations. We also understand that lawyers need technology that stays out of their way—billable hours matter."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "How do you minimize downtime for organizations that can't afford interruptions?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Through proactive management rather than reactive firefighting. We monitor systems continuously, address issues before they become outages, maintain proper redundancy where it matters, and design infrastructure with failure points in mind. When something does break, our response time and expertise get you back up fast. Prevention is better than cure, but we're good at both."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "What types of Apple devices do you repair?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "For our clients, Apple repairs are handled directly by us. No Apple Store trips or outside vendors. As an Apple Authorized Service Provider (AASP), we service Macs, iPhones, iPads, Apple Watches, and Beats products with genuine parts and certified technicians. If Apple Retail can fix it, so can we. It's part of the value of having an MSP with real Apple credentials."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Can you handle Apple warranty and AppleCare repairs for businesses?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Yes. As an Apple Authorized Service Provider (AASP), we perform warranty and AppleCare+ repairs on Apple's behalf. This means your team doesn't need to visit an Apple Store or ship devices away. We handle it locally with the same genuine parts and procedures. For businesses, this translates to faster turnaround and less disruption."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "What happens if a Mac or drive fails — can data be recovered?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Often, yes. We work with DriveSavers—the industry leader in professional data recovery."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "What does it mean that you're a DriveSavers reseller?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "As an authorized DriveSavers reseller, our clients get direct access to the industry leader in data recovery: with free overnight FedEx shipping, free evaluation, and discounted rates. If the data turns out to be unrecoverable, they ship it back at no charge. When a drive fails, you have a direct line to the best in the business."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "How is pricing structured (per user, per device, flat-rate)?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "We use a per-seat model. A 'Mac Seat' covers a user and their Apple device(s), and we have 'Network Seats' for infrastructure components. The exact pricing depends on factors like what software licensing we're managing on your behalf and the complexity of your environment. We'll provide a clear quote after understanding your needs: no hidden fees or surprise charges."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Is there a minimum number of users or devices?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "No hard minimum. We've worked with organizations as small as a few seats. That said, we're selective about fit. An organization that knows what they need and values a partnership will always be a better fit than a larger client that doesn't. We'd rather work with the right clients than chase volume."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Are your services contract-based or month-to-month?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "We typically work on annual agreements. This isn't about locking you in, it's about building a real partnership. Proper IT management requires understanding your environment deeply, and that investment makes more sense with some commitment on both sides. We're confident enough in our service that retention comes from results, not contract terms."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Can you work alongside an existing IT provider or internal IT team?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Yes, co-managed IT is one of our core offerings. Maybe your internal IT person is great with Windows but needs Apple expertise. Maybe you have an MSP handling basics but need specialized support. We integrate smoothly and focus on adding value rather than stepping on toes. Clear communication and defined responsibilities make these arrangements work."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Do you offer AI training for our team?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Yes. AI training is delivered through our partner site Get An Hour Back (getanhourback.com) — practical, hands-on sessions for business teams, built around real day-to-day work rather than theory. They cover everyday AI skills, industry-specific use, and Canadian privacy and compliance (PIPEDA and PIPA), across tools like Apple Intelligence, Claude, and ChatGPT, with Microsoft Copilot and Google Gemini coming soon. The goal is simple: give your team back at least an hour a day."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Who is the AI training for, and how is it delivered?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "It is designed for small and mid-sized businesses, with tailored tracks for healthcare, marketing and creative, and professional-services teams. You can take it as a 90-minute executive briefing, a full-day intensive, or a four-part weekly lunch-and-learn series, delivered on-site or remotely for groups of up to 15. It is run by an Apple Technical Partner, so the guidance is practical and grounded in how your tools actually work."
-      }
-    }
-  ]
-}
-</script>
 
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  "itemListElement": [
-    {
-      "@type": "ListItem",
-      "position": 1,
-      "name": "Home",
-      "item": "https://ripeda.com"
-    },
-    {
-      "@type": "ListItem",
-      "position": 2,
-      "name": "FAQ",
-      "item": "https://ripeda.com/faq/"
-    }
-  ]
-}
-</script>
 
 <div class="container">
   <div class="row">
