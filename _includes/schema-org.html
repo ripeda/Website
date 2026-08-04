@@ -38,11 +38,40 @@ commercial sites (Google restricted FAQ rich results to government and health
 domains in August 2023). It is retained because LLM crawlers ingest it heavily —
 it is now an AI-visibility asset rather than a SERP one.
 
-REVIEWS: attached to the #organization node on the homepage only, to avoid
-shipping four long testimonials in the head of all ~40 pages. Because the @id is
-identical, a crawler still merges them onto the same company entity. Note that
-Google does not render self-serving reviews (reviews about you, hosted by you)
-as rich results and has not since 2019 — these are here for LLM consumption.
+REVIEWS: deliberately NOT in this graph. Read this before adding them back.
+
+Until 2026-08-04 the homepage emitted four Review objects on the #organization
+node, each carrying "ratingValue": "5". Search Console reported all four as
+critical errors — "Multiple reviews without aggregateRating object" — because
+Google requires an aggregateRating whenever an entity carries multiple reviews.
+
+PROVENANCE OF THOSE RATINGS — the 5s were REAL, not invented. Those four
+clients did leave 5-star reviews, on RIPEDA's profile in the Apple Consultants
+Network. Apple retired the ACN in favour of the Apple Technical Partners
+platform and removed every listing's reviews in the process, for all partners.
+RIPEDA had copied its reviews onto this site before that deletion, which is how
+they came to be duplicated in the markup here.
+
+(An earlier version of this comment claimed the clients never gave star ratings
+and that the 5s were fabricated by whoever wrote the markup. That was wrong.
+Corrected 2026-08-04 so the record is accurate.)
+
+They were still removed rather than fixed with an aggregateRating, for reasons
+that hold regardless of provenance. Google has not rendered self-serving reviews
+(reviews about your own business, hosted on your own site) as rich results since
+2019, so the stars were never going to appear in search no matter what. And the
+platform the ratings came from no longer exists, so nothing can corroborate them
+— a rating that cannot be traced to a live source is a weak claim to publish as
+structured data even when it is truthful.
+
+Nothing of value was lost. The testimonials remain in the visible carousel in
+_includes/bottom-content-section.html, which is where LLM crawlers read them
+from, and the testimonial TEXT was always the asset rather than the star count.
+
+If RIPEDA collects rated reviews through a live platform in future, reintroduce
+them WITH an aggregateRating computed from the actual ratings. Reinstating the
+four historical ACN ratings would also be defensible, since they are genuine —
+it just needs the aggregateRating alongside them to satisfy Google.
 ================================================================================
 {%- endcomment -%}
 
@@ -110,10 +139,12 @@ as rich results and has not since 2019 — these are here for LLM consumption.
       "hasMap": {{ site.data.seo.google_maps_url | jsonify }},
       {%- endif %}
       {%- comment -%}
-        Set business.opening_hours in _config.yml to emit openingHours (a real
-        LocalBusiness rich-result signal). Left unset deliberately rather than
-        guessed — publishing hours you do not actually keep is worse than none.
-        Format: ["Mo-Fr 08:30-17:00"]
+        Driven by business.opening_hours in _config.yml, which now holds
+        Mon-Fri 09:00-17:00 — read from RIPEDA's verified Google Business Profile
+        on 2026-08-04, not guessed. Google cross-checks the site against the
+        listing, so if the hours change in one place, change them in both.
+        Closed days are omitted rather than emitted as zero-length ranges.
+        The guard means an unset or empty value emits no property at all.
       {%- endcomment -%}
       {%- if site.business.opening_hours and site.business.opening_hours != "" %}
       "openingHoursSpecification": [
@@ -162,39 +193,6 @@ as rich results and has not since 2019 — these are here for LLM consumption.
         "Apple Authorized Service Provider repair"
       ],
       "sameAs": {{ _social_list | jsonify }}
-      {%- if page.is_home %},
-      {%- comment -%} Real client testimonials, homepage only. See header note. {%- endcomment -%}
-      "review": [
-        {
-          "@type": "Review",
-          "reviewBody": "As an Apple Consultant, they carried forward what every Apple experience should be.",
-          "author": { "@type": "Person", "name": "Chris Chivers" },
-          "itemReviewed": { "@id": {{ _org_id | jsonify }} },
-          "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" }
-        },
-        {
-          "@type": "Review",
-          "reviewBody": "During the last two years I have had a fantastic business relationship with RIPEDA. They have been professional, knowledgable and available. When my business has technology issues, Roy and staff are always available right away. I can't comment enough on the high level of service and knowledge that they offer. I feel very lucky to work with RIPEDA and consider them an integral part of my Interior Design Business.",
-          "author": { "@type": "Person", "name": "Karen" },
-          "itemReviewed": { "@id": {{ _org_id | jsonify }} },
-          "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" }
-        },
-        {
-          "@type": "Review",
-          "reviewBody": "Transitioning our Medical office from PC to Mac over a weekend, with no down time, and no interruption in patient care was unbelievable. Roy worked diligently in accommodating our needs, and recognized the extreme importance we place on security and confidentiality. I would gladly recommend Roy from RIPEDA to any small Business interested in his services.",
-          "author": { "@type": "Organization", "name": "Circle Medical" },
-          "itemReviewed": { "@id": {{ _org_id | jsonify }} },
-          "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" }
-        },
-        {
-          "@type": "Review",
-          "reviewBody": "The team at RIPEDA Consulting answer the phones and are the most responsive IT team I've had the pleasure to work with! They are a breath of fresh air in the web development and managed services industry, especially with Apple devices. Tami, Roy and the RIPEDA team are a critical part of our growing business, keeping us online and productive so we can focus on getting results.",
-          "author": { "@type": "Person", "name": "Laura" },
-          "itemReviewed": { "@id": {{ _org_id | jsonify }} },
-          "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" }
-        }
-      ]
-      {%- endif %}
       {%- comment -%} Team members as employee refs; Person nodes emitted below. {%- endcomment -%}
       {%- if page.team_schema %},
       "employee": [
