@@ -118,9 +118,27 @@ collections:
   business_resources:
     output: false
 
-# Files to include
-include:
-  - "*.html"
+# NO `include:` LIST HERE — deliberately. Do not reintroduce one for *.html.
+#
+# This used to read:
+#   include:
+#     - "*.html"
+#
+# which did nothing useful and quietly broke every .html entry in `exclude`
+# below. Jekyll's entry filter only rejects a file if it is NOT matched by
+# `include`, so `include` WINS over `exclude`. Root-level .html files are
+# processed by default anyway, so that line added no files — it just overrode
+# the exclusions.
+#
+# The damage was live: og-image-mockup.html and globe-demo.html were both listed
+# in `exclude` and were both published and indexed by Google regardless, along
+# with globe-demo-fixed.html and globe-demo-standalone.html which were never
+# excluded at all. All four are now deleted from the repo, and their (dead)
+# exclude entries removed with them.
+#
+# `include` is only for files Jekyll would otherwise skip — dotfiles and
+# _underscore-prefixed paths. If you ever genuinely need one, list those exact
+# files, never a broad glob like *.html, or the exclusions below stop working.
 
 # Files and folders to exclude from processing
 exclude:
@@ -160,10 +178,6 @@ exclude:
   - "spoke-topic-brainstorm.md"
   - "strategy-advisory-engagement-playbook.md"
   - "strategy-advisory-engagement-playbook.docx"
-  - "globe-demo.html"
-  - "globe-demo-fixed.html"
-  - "globe-demo-standalone.html"
-  - "og-image-mockup.html"
 
 # Plugins
 plugins:
