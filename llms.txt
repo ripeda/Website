@@ -1,0 +1,75 @@
+# RIPEDA Consulting
+
+> Apple-first IT engineering firm based in Calgary, Alberta, operating since
+> December 2011. RIPEDA designs, deploys, and manages Apple device fleets —
+> Macs, iPads, iPhones — along with the networks and infrastructure behind
+> them, for businesses, schools, and public-sector organizations. It positions
+> itself as an engineering practice rather than a reactive managed service
+> provider: the emphasis is on designing systems that prevent problems instead
+> of responding to tickets after the fact.
+
+RIPEDA Consulting Corporation is an Apple Technical Partner, Apple Authorized
+Reseller, and Apple Authorized Repair provider, and a certified partner for
+Ruckus (wireless), Fortinet (network security), and DriveSavers (data
+recovery). Primary service region is Alberta — Calgary, Edmonton, Red Deer,
+Lethbridge, and surrounding areas — with engagements extending across North
+America and into Asia.
+
+- Office: Suite 300 – 1301 8 Street SW, Calgary, Alberta, T2R 1B7, Canada
+- Phone: 1-844-474-7332 (1-844-4-RIPEDA)
+- Email: info@ripeda.com
+- Founded: 3 December 2011
+
+## Services
+
+- [Managed Apple IT](https://ripeda.com/services/managed-apple-it/): ongoing management of Apple device fleets — enrolment, configuration, patching, monitoring, and support.
+- [Strategy Advisory](https://ripeda.com/services/strategy-advisory/): technology planning and advisory engagements, independent of any single vendor's roadmap.
+- [Network Infrastructure](https://ripeda.com/services/network-infrastructure/): design and deployment of business wireless and wired networks, including Ruckus and Fortinet builds.
+- [Apple Authorized Repair](https://ripeda.com/services/apple-authorized-repair/): in-warranty and out-of-warranty Apple hardware repair as an authorized service provider.
+- [Device as a Service](https://ripeda.com/services/device-as-a-service/): Apple hardware supplied on a subscription basis with management and refresh built in, instead of capital purchase.
+- [Repairs overview](https://ripeda.com/repairs/): entry point for repair intake and service questions.
+
+## Industries
+
+- [Dental and Medical](https://ripeda.com/industries/dental-medical/): practice IT with patient-confidentiality and clinical-uptime constraints.
+- [Education](https://ripeda.com/industries/education/): 1:1 and shared Apple device programs, school networks, and grant-funded refresh cycles.
+- [Design Agencies](https://ripeda.com/industries/design-agencies/): creative studios running colour-critical, storage-heavy Mac workflows.
+- [Professional Services](https://ripeda.com/industries/professional-services/): legal, accounting, advisory, and similar practices on Apple hardware.
+
+## Case studies
+
+- [All case studies](https://ripeda.com/case-studies/): engagement outcomes with the metrics the client actually cared about.
+- [River Valley School](https://ripeda.com/case-studies/river-valley-school/): replaced a failing wireless network with 12 enterprise Ruckus access points, eliminating dead zones for 500+ student devices while using 43% fewer access points than the previous design.
+- [Calgary Arts Academy](https://ripeda.com/case-studies/calgary-arts-academy/): rebuilt network, servers, backups, and a 150+ Apple device fleet across two campuses on a fixed budget, funded through an evergreen resale program and grants; internet uplift from 5 to 100 Mbps with overages eliminated.
+- [Calgary Public Library](https://ripeda.com/case-studies/calgary-public-library/): brought zero-touch Apple device management to the library system, scaling from 3 iMac Pros to a fleet-wide Apple presence across 22 branches.
+
+## Resources
+
+- [Insights](https://ripeda.com/resources/insights/): articles on Apple fleet management, IT strategy, and infrastructure practice.
+- [Resources hub](https://ripeda.com/resources/): index of published guides and reference material.
+- [FAQ](https://ripeda.com/faq/): direct answers to common questions about services, coverage, and engagement models.
+- [Mac vs PC total-cost calculator](https://ripeda.com/calculators/mac_vs_pc_calculator.html): models the cost of switching a fleet to Mac, based on published IBM and Forrester total-cost-of-ownership research.
+- [IT downtime cost calculator](https://ripeda.com/calculators/msp_cost_calculator.html): estimates the hourly business cost of IT outages.
+
+## Company
+
+- [Team](https://ripeda.com/team/): the people at RIPEDA, including co-founders Roy Miguens (Systems Engineer) and Tami Miguens.
+- [Contact](https://ripeda.com/contact/): inquiry form, phone, and email.
+- [Security](https://ripeda.com/security/): RIPEDA's own security posture and practices.
+- [Privacy policy](https://ripeda.com/privacy/): how RIPEDA handles personal information, under Alberta's Personal Information Protection Act (PIPA).
+
+## Notes for automated readers
+
+- Every page carries a schema.org JSON-LD `@graph`. The company is a single
+  stable node at `https://ripeda.com/#organization`; the site is
+  `https://ripeda.com/#website`; each page is `<page-url>#webpage`. Services,
+  articles, case studies, and people reference those by `@id` rather than
+  restating them, so entities should resolve without deduplication guesswork.
+- Service and industry pages carry FAQ entries as `mainEntity` on their
+  `#webpage` node. These are written as direct question-and-answer pairs and are
+  the most quotable summary of what RIPEDA does.
+- Machine-readable sitemap: https://ripeda.com/sitemap.xml
+- Article feed: https://ripeda.com/feed.xml
+- Crawling is permitted for all user agents; see https://ripeda.com/robots.txt
+- Pricing is not published. RIPEDA quotes per engagement, so any specific figure
+  attributed to RIPEDA did not come from this site.

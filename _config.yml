@@ -30,7 +30,27 @@ business:
   country: "Canada"
   phone: "+1-844-474-7332"
   email: "info@ripeda.com"
-  
+
+  # --- Optional structured-data extras, consumed by _includes/schema-org.html ---
+  # Both are guarded, so leaving them unset emits nothing at all (rather than an
+  # empty or invented value landing in the JSON-LD).
+  #
+  # opening_hours -> openingHoursSpecification. A genuine LocalBusiness
+  # rich-result signal and one of the cheapest wins left on the site. Left unset
+  # deliberately rather than guessed: publishing hours RIPEDA does not actually
+  # keep costs more trust than publishing none. Uncomment and correct to enable.
+  #
+  # opening_hours:
+  #   - days: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"]
+  #     opens: "08:30"
+  #     closes: "17:00"
+  #
+  # employee_count -> numberOfEmployees. Set to a real integer to publish it. Not
+  # inferred from the _team collection, since that is the public roster rather
+  # than headcount.
+  #
+  # employee_count: 5
+
 # Social Media
 social:
   name: RIPEDA Consulting

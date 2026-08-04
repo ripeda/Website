@@ -1,0 +1,328 @@
+{%- comment -%}
+================================================================================
+UNIFIED SCHEMA.ORG @graph — single source of structured-data truth site-wide.
+Included once from _layouts/default.html, so every page inherits it.
+
+WHY A GRAPH (replaced four standalone blocks on 2026-08-04)
+Before this, default.html emitted LocalBusiness + ProfessionalService on every
+page and a third Organization (carrying the testimonials) on the homepage, none
+of them linked. All three were named "RIPEDA Consulting", none but the first had
+an @id, and that one used the bare site URL. A crawler had no way to know they
+were the same company — it saw two or three separate businesses per page, and
+the Service / FAQ / BlogPosting blocks in the child layouts had nothing stable
+to attach to.
+
+Now there is exactly ONE business node, at {{ site.url }}/#organization, and
+every other entity in every layout points at it by @id. Add nodes here, or
+reference these @ids from a child layout. Do NOT restate the company name,
+logo, or URL inline in a child layout — that is what recreated the duplicate
+entity problem in the first place.
+
+STABLE @ids PUBLISHED BY THIS FILE (child layouts reference these):
+  {{ site.url }}/#organization   the company (LocalBusiness/ProfessionalService)
+  {{ site.url }}/#website        the site as a whole
+  <page-url>#webpage            the current page
+  <page-url>#breadcrumb         the current page's breadcrumb trail
+
+FAQ HANDLING — read before adding FAQ markup to a layout.
+`page.faq` front matter is consumed HERE, not in the child layout. When a page
+has FAQ entries, the #webpage node gains the FAQPage type and the questions ride
+on it as mainEntity. That is the canonical pattern: emitting a separate FAQPage
+entity for the same URL that already has a WebPage entity declares two page
+entities for one URL, which is exactly the ambiguity the graph exists to remove.
+pillar.html and service-hub.html previously each emitted their own FAQPage block;
+both were deleted in favour of this. Do not add them back.
+
+Note for Kevin: FAQ structured data no longer produces Google rich results for
+commercial sites (Google restricted FAQ rich results to government and health
+domains in August 2023). It is retained because LLM crawlers ingest it heavily —
+it is now an AI-visibility asset rather than a SERP one.
+
+REVIEWS: attached to the #organization node on the homepage only, to avoid
+shipping four long testimonials in the head of all ~40 pages. Because the @id is
+identical, a crawler still merges them onto the same company entity. Note that
+Google does not render self-serving reviews (reviews about you, hosted by you)
+as rich results and has not since 2019 — these are here for LLM consumption.
+================================================================================
+{%- endcomment -%}
+
+{%- comment -%} --- sameAs: built from _data/social.json, the same source the footer renders, so the two can never drift. mailto is excluded (not a profile URL). --- {%- endcomment -%}
+{%- assign _social = "" -%}
+{%- for s in site.data.social -%}
+  {%- if s.link contains "mailto:" -%}{%- continue -%}{%- endif -%}
+  {%- assign _social = _social | append: s.link | append: "|" -%}
+{%- endfor -%}
+{%- assign _social_list = _social | split: "|" -%}
+
+{%- assign _org_id = site.url | append: "/#organization" -%}
+{%- assign _site_id = site.url | append: "/#website" -%}
+{%- assign _page_url = page.url | absolute_url -%}
+{%- assign _page_id = _page_url | append: "#webpage" -%}
+{%- assign _crumb_id = _page_url | append: "#breadcrumb" -%}
+{%- assign _logo_abs = '/images/logo/logo.png' | absolute_url -%}
+{%- assign _og = page.og_image | default: page.image | default: '/images/logo/ripeda-og-image.jpg' | absolute_url -%}
+{%- assign _desc = page.seo_description | default: page.description | default: site.description | strip_html -%}
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+
+    {%- comment -%} ---------- 1. THE COMPANY (always) ---------- {%- endcomment -%}
+    {
+      "@type": ["LocalBusiness", "ProfessionalService"],
+      "@id": {{ _org_id | jsonify }},
+      "name": {{ site.title | jsonify }},
+      "alternateName": "RIPEDA",
+      "legalName": "RIPEDA Consulting Corporation",
+      "description": {{ site.description | jsonify }},
+      "url": {{ site.url | append: '/' | jsonify }},
+      "logo": {
+        "@type": "ImageObject",
+        "@id": {{ site.url | append: "/#logo" | jsonify }},
+        "url": {{ _logo_abs | jsonify }},
+        "caption": {{ site.title | jsonify }}
+      },
+      "image": { "@id": {{ site.url | append: "/#logo" | jsonify }} },
+      "telephone": {{ site.business.phone | jsonify }},
+      "email": {{ site.business.email | jsonify }},
+      "priceRange": "$$",
+      "foundingDate": {{ site.business.founded | jsonify }},
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": {{ site.business.street_address | jsonify }},
+        "addressLocality": {{ site.business.city | jsonify }},
+        "addressRegion": {{ site.business.province | jsonify }},
+        "postalCode": {{ site.business.postal_code | jsonify }},
+        "addressCountry": "CA"
+      },
+      {%- comment -%}
+        Coordinates for Suite 300 - 1301 8 Street SW, matching the Apple/Google
+        Maps links in _data/seo.yml. The previous value (51.0447, -114.0719) was
+        generic downtown Calgary about 1.5 km from the actual office.
+      {%- endcomment -%}
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 51.0407,
+        "longitude": -114.0845
+      },
+      {%- if site.data.seo.google_maps_url %}
+      "hasMap": {{ site.data.seo.google_maps_url | jsonify }},
+      {%- endif %}
+      {%- comment -%}
+        Set business.opening_hours in _config.yml to emit openingHours (a real
+        LocalBusiness rich-result signal). Left unset deliberately rather than
+        guessed — publishing hours you do not actually keep is worse than none.
+        Format: ["Mo-Fr 08:30-17:00"]
+      {%- endcomment -%}
+      {%- if site.business.opening_hours and site.business.opening_hours != "" %}
+      "openingHoursSpecification": [
+        {%- for oh in site.business.opening_hours %}
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": {{ oh.days | jsonify }},
+          "opens": {{ oh.opens | jsonify }},
+          "closes": {{ oh.closes | jsonify }}
+        }{% unless forloop.last %},{% endunless %}
+        {%- endfor %}
+      ],
+      {%- endif %}
+      {%- if site.business.employee_count and site.business.employee_count != "" %}
+      "numberOfEmployees": {
+        "@type": "QuantitativeValue",
+        "value": {{ site.business.employee_count | jsonify }}
+      },
+      {%- endif %}
+      "areaServed": [
+        { "@type": "City", "name": "Calgary", "sameAs": "https://en.wikipedia.org/wiki/Calgary" },
+        { "@type": "City", "name": "Edmonton", "sameAs": "https://en.wikipedia.org/wiki/Edmonton" },
+        { "@type": "City", "name": "Red Deer", "sameAs": "https://en.wikipedia.org/wiki/Red_Deer,_Alberta" },
+        { "@type": "City", "name": "Lethbridge", "sameAs": "https://en.wikipedia.org/wiki/Lethbridge" },
+        { "@type": "AdministrativeArea", "name": "Alberta", "sameAs": "https://en.wikipedia.org/wiki/Alberta" }
+      ],
+      "serviceType": [
+        "Apple Device Management",
+        "Mac Support Services",
+        "iPad Deployment",
+        "IT Consulting",
+        "Apple Certified Support",
+        "Network Infrastructure",
+        "Device as a Service"
+      ],
+      "knowsAbout": [
+        "Apple Business Manager",
+        "macOS deployment",
+        "iPad management",
+        "Apple device security",
+        "Mac enterprise solutions",
+        "Jamf Pro",
+        "Mosyle",
+        "Ruckus wireless networking",
+        "Fortinet firewalls",
+        "Apple Authorized Service Provider repair"
+      ],
+      "sameAs": {{ _social_list | jsonify }}
+      {%- if page.is_home %},
+      {%- comment -%} Real client testimonials, homepage only. See header note. {%- endcomment -%}
+      "review": [
+        {
+          "@type": "Review",
+          "reviewBody": "As an Apple Consultant, they carried forward what every Apple experience should be.",
+          "author": { "@type": "Person", "name": "Chris Chivers" },
+          "itemReviewed": { "@id": {{ _org_id | jsonify }} },
+          "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" }
+        },
+        {
+          "@type": "Review",
+          "reviewBody": "During the last two years I have had a fantastic business relationship with RIPEDA. They have been professional, knowledgable and available. When my business has technology issues, Roy and staff are always available right away. I can't comment enough on the high level of service and knowledge that they offer. I feel very lucky to work with RIPEDA and consider them an integral part of my Interior Design Business.",
+          "author": { "@type": "Person", "name": "Karen" },
+          "itemReviewed": { "@id": {{ _org_id | jsonify }} },
+          "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" }
+        },
+        {
+          "@type": "Review",
+          "reviewBody": "Transitioning our Medical office from PC to Mac over a weekend, with no down time, and no interruption in patient care was unbelievable. Roy worked diligently in accommodating our needs, and recognized the extreme importance we place on security and confidentiality. I would gladly recommend Roy from RIPEDA to any small Business interested in his services.",
+          "author": { "@type": "Organization", "name": "Circle Medical" },
+          "itemReviewed": { "@id": {{ _org_id | jsonify }} },
+          "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" }
+        },
+        {
+          "@type": "Review",
+          "reviewBody": "The team at RIPEDA Consulting answer the phones and are the most responsive IT team I've had the pleasure to work with! They are a breath of fresh air in the web development and managed services industry, especially with Apple devices. Tami, Roy and the RIPEDA team are a critical part of our growing business, keeping us online and productive so we can focus on getting results.",
+          "author": { "@type": "Person", "name": "Laura" },
+          "itemReviewed": { "@id": {{ _org_id | jsonify }} },
+          "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" }
+        }
+      ]
+      {%- endif %}
+      {%- comment -%} Team members as employee refs; Person nodes emitted below. {%- endcomment -%}
+      {%- if page.team_schema %},
+      "employee": [
+        {%- assign _staff = site.team | sort: "weight" -%}
+        {%- for m in _staff %}
+        { "@id": {{ m.url | absolute_url | append: "#person" | jsonify }} }{% unless forloop.last %},{% endunless %}
+        {%- endfor %}
+      ]
+      {%- endif %}
+    },
+
+    {%- comment -%} ---------- 2. THE SITE (always) ---------- {%- endcomment -%}
+    {
+      "@type": "WebSite",
+      "@id": {{ _site_id | jsonify }},
+      "url": {{ site.url | append: '/' | jsonify }},
+      "name": {{ site.title | jsonify }},
+      "description": {{ site.description | jsonify }},
+      "publisher": { "@id": {{ _org_id | jsonify }} },
+      "inLanguage": "en-CA"
+    },
+
+    {%- comment -%} ---------- 3. THIS PAGE (always) ---------- {%- endcomment -%}
+    {
+      {%- comment -%}
+        Gains the FAQPage type when the page carries `faq:` front matter, so one
+        URL maps to exactly one page entity. See the FAQ note in the header.
+      {%- endcomment -%}
+      "@type": {% if page.faq %}["WebPage", "FAQPage"]{% else %}"WebPage"{% endif %},
+      "@id": {{ _page_id | jsonify }},
+      "url": {{ _page_url | jsonify }},
+      "name": {{ page.seo_title | default: page.title | default: site.title | jsonify }},
+      "description": {{ _desc | jsonify }},
+      "isPartOf": { "@id": {{ _site_id | jsonify }} },
+      "about": { "@id": {{ _org_id | jsonify }} },
+      "primaryImageOfPage": { "@type": "ImageObject", "url": {{ _og | jsonify }} },
+      "inLanguage": "en-CA"
+      {%- if page.date %},
+      "datePublished": {{ page.date | date_to_xmlschema | jsonify }},
+      "dateModified": {{ page.last_modified_at | default: page.date | date_to_xmlschema | jsonify }}
+      {%- endif %}
+      {%- unless page.is_home %}{%- if page.breadcrumb != false %},
+      "breadcrumb": { "@id": {{ _crumb_id | jsonify }} }
+      {%- endif %}{%- endunless %}
+      {%- if page.faq %},
+      "mainEntity": [
+        {%- for item in page.faq %}
+        {%- capture q_text %}{% include expand-years.html text=item.q %}{% endcapture -%}
+        {%- capture a_text %}{% include expand-years.html text=item.a %}{% endcapture -%}
+        {
+          "@type": "Question",
+          "name": {{ q_text | strip | jsonify }},
+          "acceptedAnswer": { "@type": "Answer", "text": {{ a_text | strip | jsonify }} }
+        }{% unless forloop.last %},{% endunless %}
+        {%- endfor %}
+      ]
+      {%- endif %}
+    }
+
+    {%- comment -%}
+      ---------- 4. BREADCRUMB TRAIL (every page except home) ----------
+      Logic moved verbatim from the standalone block that used to live in
+      default.html: walk the URL path, emit a crumb for each ancestor prefix that
+      maps to a real landing page in _data/breadcrumbs.yml, then the current page
+      last. Ancestors with no landing page (e.g. /services/) are skipped so
+      breadcrumb links never 404. `breadcrumb: false` in front matter suppresses.
+    {%- endcomment -%}
+    {%- unless page.is_home %}{%- if page.breadcrumb != false -%}
+    {%- assign _crumbs = "Home@@/" -%}
+    {%- assign _segs = page.url | split: "/" -%}
+    {%- assign _prefix = "" -%}
+    {%- for _seg in _segs -%}
+      {%- if _seg == "" -%}{%- continue -%}{%- endif -%}
+      {%- if _prefix == "" -%}{%- assign _prefix = _seg -%}{%- else -%}{%- assign _prefix = _prefix | append: "/" | append: _seg -%}{%- endif -%}
+      {%- assign _full = "/" | append: _prefix | append: "/" -%}
+      {%- if _full == page.url -%}{%- break -%}{%- endif -%}
+      {%- assign _name = site.data.breadcrumbs.sections[_prefix] -%}
+      {%- if _name -%}{%- assign _crumbs = _crumbs | append: "||" | append: _name | append: "@@" | append: _full -%}{%- endif -%}
+    {%- endfor -%}
+    {%- assign _crumbs = _crumbs | append: "||" | append: page.title | append: "@@" | append: page.url -%}
+    {%- assign _crumblist = _crumbs | split: "||" -%},
+    {
+      "@type": "BreadcrumbList",
+      "@id": {{ _crumb_id | jsonify }},
+      "itemListElement": [
+        {%- for _c in _crumblist -%}
+        {%- assign _p = _c | split: "@@" -%}
+        {
+          "@type": "ListItem",
+          "position": {{ forloop.index }},
+          "name": {{ _p[0] | jsonify }},
+          "item": {{ _p[1] | absolute_url | jsonify }}
+        }{% unless forloop.last %},{% endunless %}
+        {%- endfor %}
+      ]
+    }
+    {%- endif %}{%- endunless -%}
+
+    {%- comment -%}
+      ---------- 5. PEOPLE (opt-in via `team_schema: true` front matter) ----------
+      Emitted on /team/ only. Gives Roy, Tami and the rest machine-readable
+      identity, which is what an LLM needs to answer "who runs RIPEDA" and what
+      Google reads as E-E-A-T signal. Each Person is worksFor the one org node.
+      Source of truth is the _team collection — add a member there, not here.
+    {%- endcomment -%}
+    {%- if page.team_schema -%}
+    {%- assign _staff = site.team | sort: "weight" -%}
+    {%- for m in _staff -%},
+    {
+      "@type": "Person",
+      "@id": {{ m.url | absolute_url | append: "#person" | jsonify }},
+      "name": {{ m.title | jsonify }},
+      "jobTitle": {{ m.jobtitle | jsonify }},
+      "worksFor": { "@id": {{ _org_id | jsonify }} },
+      "url": {{ m.url | absolute_url | jsonify }}
+      {%- if m.image %},
+      "image": {{ m.image | absolute_url | jsonify }}
+      {%- endif %}
+      {%- if m.email %},
+      "email": {{ m.email | jsonify }}
+      {%- endif %}
+      {%- if m.linkedinurl %},
+      "sameAs": [{{ m.linkedinurl | jsonify }}]
+      {%- endif %}
+    }
+    {%- endfor -%}
+    {%- endif -%}
+
+  ]
+}
+</script>

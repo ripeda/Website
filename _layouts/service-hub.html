@@ -19,49 +19,67 @@ layout: default
 {% assign og_image_abs = og_image | absolute_url %}
 {% assign canonical = page.url | absolute_url %}
 
-<!-- WebPage + FAQPage JSON-LD for Google and LLM crawlers -->
+{%- comment -%}
+  Service entity for this service line. The page-level WebPage entity, the
+  breadcrumb trail, and any `faq:` entries are NOT here — they live in the
+  unified @graph in _includes/schema-org.html (inherited via default.html),
+  where the FAQ rides on the #webpage node rather than forming a second page
+  entity for the same URL. The standalone FAQPage block that used to sit here
+  was removed for that reason; do not re-add it.
+
+  This Service node references the company and the page by @id instead of
+  restating name/logo/url inline, so there is still exactly one business entity
+  and one page entity per URL.
+{%- endcomment -%}
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "Service",
+  "@id": {{ canonical | append: "#service" | jsonify }},
   "name": {{ page.title | jsonify }},
   "description": {{ page.description | jsonify }},
   "url": {{ canonical | jsonify }},
   "image": {{ og_image_abs | jsonify }},
-  "provider": {
-    "@type": "Organization",
-    "name": "RIPEDA Consulting",
-    "url": {{ site.url | jsonify }},
-    "logo": {
-      "@type": "ImageObject",
-      "url": {{ '/images/logo/logo.png' | absolute_url | jsonify }}
-    }
-  }
-}
-</script>
-
-{% if page.faq %}
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-    {% for item in page.faq %}
-    {%- capture q_text -%}{%- include expand-years.html text=item.q -%}{%- endcapture -%}
-    {%- capture a_text -%}{%- include expand-years.html text=item.a -%}{%- endcapture -%}
-    {
-      "@type": "Question",
-      "name": {{ q_text | jsonify }},
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": {{ a_text | jsonify }}
-      }
-    }{% unless forloop.last %},{% endunless %}
-    {% endfor %}
+  "provider": { "@id": {{ site.url | append: "/#organization" | jsonify }} },
+  "mainEntityOfPage": { "@id": {{ canonical | append: "#webpage" | jsonify }} },
+  {%- comment -%} Mirrors the org's service area so the Service is not scopeless. {%- endcomment -%}
+  "areaServed": [
+    { "@type": "City", "name": "Calgary" },
+    { "@type": "City", "name": "Edmonton" },
+    { "@type": "City", "name": "Red Deer" },
+    { "@type": "City", "name": "Lethbridge" },
+    { "@type": "AdministrativeArea", "name": "Alberta" }
   ]
+  {%- if page.service_type %},
+  "serviceType": {{ page.service_type | jsonify }}
+  {%- endif %}
+  {%- comment -%}
+    Optional: set `service_offers:` in front matter as a list of {name, description}
+    to emit an OfferCatalog. No prices are published — deliberately, since RIPEDA
+    quotes per engagement and publishing a price you do not honour is a liability.
+  {%- endcomment -%}
+  {%- if page.service_offers %},
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": {{ page.title | append: " options" | jsonify }},
+    "itemListElement": [
+      {%- for o in page.service_offers %}
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": {{ o.name | jsonify }}
+          {%- if o.description %},
+          "description": {{ o.description | jsonify }}
+          {%- endif %}
+        }
+      }{% unless forloop.last %},{% endunless %}
+      {%- endfor %}
+    ]
+  }
+  {%- endif %}
 }
 </script>
-{% endif %}
 
 <article class="pillar-page">
 

@@ -2,6 +2,71 @@
 layout: default
 bodyClass: "page-case-study"
 ---
+{%- comment -%}
+  Case study layout.
+
+  STRUCTURED DATA: case studies had no JSON-LD at all before 2026-08-04, which
+  was the single biggest AI-visibility gap on the site — a case study is exactly
+  the artifact an LLM reaches for when asked to substantiate a claim about who
+  does Apple fleet work in Alberta and whether they can prove it. The Article
+  node below closes that.
+
+  The Article is emitted ONLY when the page has a `date`. That guard matters:
+  case-studies.html (the /case-studies/ index) also uses this layout and has no
+  date, and marking a listing page up as an Article would misdescribe it.
+
+  Everything else — the WebPage entity, the breadcrumb trail, the company — comes
+  from the unified @graph in _includes/schema-org.html, referenced here by @id.
+
+  OPTIONAL FRONT MATTER for a richer entity (none of the current three case
+  studies set these yet; add them and the markup fills in automatically):
+    client:          "Calgary Arts Academy"     -> emits `about` as an Organization
+    client_type:     "EducationalOrganization"  -> defaults to Organization
+    client_location: "Calgary, AB"
+    client_url:      "https://..."
+{%- endcomment -%}
+{%- if page.date -%}
+{%- assign _canonical = page.url | absolute_url -%}
+{%- assign _cs_image = page.image | default: '/images/logo/ripeda-og-image.jpg' | absolute_url -%}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "@id": {{ _canonical | append: "#article" | jsonify }},
+  "headline": {{ page.title | jsonify }},
+  "description": {{ page.description | jsonify }},
+  "datePublished": {{ page.date | date_to_xmlschema | jsonify }},
+  "dateModified": {{ page.last_modified_at | default: page.date | date_to_xmlschema | jsonify }},
+  "author": { "@id": {{ site.url | append: "/#organization" | jsonify }} },
+  "publisher": { "@id": {{ site.url | append: "/#organization" | jsonify }} },
+  "mainEntityOfPage": { "@id": {{ _canonical | append: "#webpage" | jsonify }} },
+  "isPartOf": { "@id": {{ site.url | append: "/#website" | jsonify }} },
+  "image": {{ _cs_image | jsonify }},
+  "url": {{ _canonical | jsonify }},
+  "inLanguage": "en-CA",
+  "genre": "Case Study",
+  {%- comment -%} The client the case study is about, when declared in front matter. {%- endcomment -%}
+  {%- if page.client %}
+  "about": {
+    "@type": {{ page.client_type | default: "Organization" | jsonify }},
+    "name": {{ page.client | jsonify }}
+    {%- if page.client_url %},
+    "url": {{ page.client_url | jsonify }}
+    {%- endif %}
+    {%- if page.client_location %},
+    "location": {
+      "@type": "Place",
+      "name": {{ page.client_location | jsonify }}
+    }
+    {%- endif %}
+  },
+  {%- else %}
+  "about": { "@id": {{ site.url | append: "/#organization" | jsonify }} },
+  {%- endif %}
+  "mentions": { "@id": {{ site.url | append: "/#organization" | jsonify }} }
+}
+</script>
+{%- endif -%}
 
 <div class="case-study-page">
   <div class="container py-5">
