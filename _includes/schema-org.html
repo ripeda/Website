@@ -45,20 +45,33 @@ node, each carrying "ratingValue": "5". Search Console reported all four as
 critical errors — "Multiple reviews without aggregateRating object" — because
 Google requires an aggregateRating whenever an entity carries multiple reviews.
 
-They were removed rather than papered over with an aggregateRating, for two
-reasons. First, those four clients wrote TEXT testimonials; they never gave star
-ratings. The 5s originated with whoever wrote the original markup, so
-aggregating them into a 5.0 would have formalised a rating no client issued.
-Second, it would have bought nothing visible: Google has not rendered
-self-serving reviews (reviews about your own business, hosted on your own site)
-as rich results since 2019, so the stars were never going to appear regardless.
+PROVENANCE OF THOSE RATINGS — the 5s were REAL, not invented. Those four
+clients did leave 5-star reviews, on RIPEDA's profile in the Apple Consultants
+Network. Apple retired the ACN in favour of the Apple Technical Partners
+platform and removed every listing's reviews in the process, for all partners.
+RIPEDA had copied its reviews onto this site before that deletion, which is how
+they came to be duplicated in the markup here.
+
+(An earlier version of this comment claimed the clients never gave star ratings
+and that the 5s were fabricated by whoever wrote the markup. That was wrong.
+Corrected 2026-08-04 so the record is accurate.)
+
+They were still removed rather than fixed with an aggregateRating, for reasons
+that hold regardless of provenance. Google has not rendered self-serving reviews
+(reviews about your own business, hosted on your own site) as rich results since
+2019, so the stars were never going to appear in search no matter what. And the
+platform the ratings came from no longer exists, so nothing can corroborate them
+— a rating that cannot be traced to a live source is a weak claim to publish as
+structured data even when it is truthful.
 
 Nothing of value was lost. The testimonials remain in the visible carousel in
 _includes/bottom-content-section.html, which is where LLM crawlers read them
-from, and the testimonial TEXT is the asset — not the invented star values.
+from, and the testimonial TEXT was always the asset rather than the star count.
 
-If RIPEDA ever collects real, rated reviews through a platform that supplies
-them, reintroduce them WITH an aggregateRating computed from the actual ratings.
+If RIPEDA collects rated reviews through a live platform in future, reintroduce
+them WITH an aggregateRating computed from the actual ratings. Reinstating the
+four historical ACN ratings would also be defensible, since they are genuine —
+it just needs the aggregateRating alongside them to satisfy Google.
 ================================================================================
 {%- endcomment -%}
 
