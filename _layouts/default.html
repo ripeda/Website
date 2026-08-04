@@ -10,11 +10,18 @@
   <meta name="description" content="{{ page.seo_description | default: page.description | default: site.description | strip_html | truncate: 160 }}" />
   <meta name="keywords" content="{{ page.keywords | default: 'Apple Technical Partner Alberta, Apple consulting Alberta, Mac support Calgary Edmonton, Apple certified consultants Alberta, Apple Consultants Network Alberta, iPad management, Mac business support Alberta, Apple device management Calgary Edmonton Red Deer, AI training Calgary Alberta' }}" />
 
+  <!-- Social preview image. Pages may set either `og_image` (top-level pages) or
+       `image` (Insights articles, per the ripeda-insight-article spec). Check both
+       before falling back to the site-wide card, otherwise every article shares
+       the same logo preview. -->
+  {% assign social_image = page.og_image | default: page.image | default: '/images/logo/ripeda-og-image.jpg' %}
+
   <!-- Open Graph Enhanced -->
   <meta property="og:title" content="{{ page.seo_title | default: page.title | default: site.title }}"/>
-  <meta property="og:type" content="website"/>
+  <meta property="og:type" content="{% if page.collection == 'insights' %}article{% else %}website{% endif %}"/>
   <meta property="og:url" content="{{ page.url | absolute_url }}"/>
-  <meta property="og:image" content="{{ page.og_image | default: '/images/logo/ripeda-og-image.jpg' | absolute_url }}"/>
+  <meta property="og:image" content="{{ social_image | absolute_url }}"/>
+  <meta property="og:image:alt" content="{{ page.seo_title | default: page.title | default: site.title }}"/>
   <meta property="og:description" content="{{ page.seo_description | default: page.description | default: site.description | strip_html | truncate: 160 }}"/>
   <meta property="og:site_name" content="{{ site.title }}"/>
   <meta property="og:locale" content="en_CA"/>
@@ -23,7 +30,7 @@
   <meta name="twitter:card" content="summary_large_image"/>
   <meta name="twitter:title" content="{{ page.seo_title | default: page.title | default: site.title }}"/>
   <meta name="twitter:description" content="{{ page.seo_description | default: page.description | default: site.description | strip_html | truncate: 160 }}"/>
-  <meta name="twitter:image" content="{{ page.og_image | default: '/images/logo/ripeda-og-image.jpg' | absolute_url }}"/>
+  <meta name="twitter:image" content="{{ social_image | absolute_url }}"/>
 
   <!-- Local Business Schema Markup - Alberta Wide -->
   <script type="application/ld+json">
