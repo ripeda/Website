@@ -108,3 +108,114 @@ jobs:
             exit 1
           fi
           echo "All checks passed."
+
+      # Structured data is assembled by Liquid in _includes/schema-org.html, which
+      # means it is string-concatenated JSON — one misplaced comma inside a
+      # conditional and a page ships unparseable markup. Jekyll will not catch
+      # that: a broken JSON-LD block is still valid HTML, so the build stays
+      # green and the damage is invisible until Search Console reports it weeks
+      # later.
+      #
+      # These are STRUCTURAL invariants only, deliberately not content counts.
+      # Asserting "the FAQ has 34 questions" would fail the build every time
+      # someone legitimately adds a question. What must never change is the
+      # shape: one page entity per URL, one company entity site-wide.
+      - name: Verify JSON-LD structure
+        run: |
+          python3 - <<'PYEOF'
+          import glob, json, re, sys
+
+          fail, checked, skipped = 0, 0, 0
+          org_ids, page_ids = set(), set()
+
+          for path in sorted(glob.glob("_site/**/*.html", recursive=True)):
+              html = open(path, encoding="utf-8", errors="replace").read()
+              raw_blocks = re.findall(
+                  r'<script type="application/ld\+json">(.*?)</script>', html, re.S)
+
+              # Pages with no JSON-LD are expected: jekyll-redirect-from stubs and
+              # the standalone calculators do not use _layouts/default.html.
+              if not raw_blocks:
+                  skipped += 1
+                  continue
+
+              nodes, errs = [], []
+              for raw in raw_blocks:
+                  try:
+                      d = json.loads(raw)
+                  except Exception as e:
+                      errs.append(f"unparseable JSON-LD: {e}")
+                      continue
+                  nodes += d.get("@graph", [d])
+
+              def types_of(n):
+                  t = n.get("@type")
+                  return t if isinstance(t, list) else [t]
+
+              # Every schema.org type that IS a web page. Counting only "WebPage"
+              # is not enough and was a real bug in an earlier version of this
+              # check: the graph types its page node ["WebPage","FAQPage"], so a
+              # stray standalone {"@type":"FAQPage"} added alongside it went
+              # undetected — the precise regression this step exists to catch.
+              PAGE_TYPES = {
+                  "WebPage", "FAQPage", "QAPage", "CollectionPage", "AboutPage",
+                  "ContactPage", "ItemPage", "ProfilePage", "SearchResultsPage",
+                  "CheckoutPage", "MedicalWebPage", "RealEstateListing",
+              }
+              # Match on nodes, not type strings, so the combined
+              # ["WebPage","FAQPage"] node still counts exactly once.
+              pages  = [n for n in nodes if PAGE_TYPES & set(types_of(n))]
+              crumbs = [n for n in nodes if "BreadcrumbList" in types_of(n)]
+
+              # Exactly one page entity per URL. Two means something re-added a
+              # standalone FAQPage or WebPage alongside the graph's — the precise
+              # ambiguity the unified @graph exists to remove.
+              if len(pages) != 1:
+                  errs.append(f"{len(pages)} page entities (want exactly 1)")
+              if len(crumbs) > 1:
+                  errs.append(f"{len(crumbs)} BreadcrumbList nodes (want at most 1)")
+
+              for n in nodes:
+                  nid = n.get("@id")
+                  if "LocalBusiness" in types_of(n):
+                      org_ids.add(nid)
+                  if nid and "localhost" in str(nid):
+                      errs.append(f"@id points at localhost: {nid}")
+
+              # Every page entity must carry a unique @id; a collision means two
+              # URLs are claiming to be the same page.
+              for p in pages:
+                  pid = p.get("@id")
+                  if not pid:
+                      errs.append("page entity has no @id")
+                  elif pid in page_ids:
+                      errs.append(f"duplicate page @id across the site: {pid}")
+                  else:
+                      page_ids.add(pid)
+
+              checked += 1
+              if errs:
+                  fail = 1
+                  print(f"  FAIL  {path}")
+                  for e in errs:
+                      print(f"          {e}")
+
+          print(f"\n  {checked} pages with JSON-LD checked, {skipped} without (expected).")
+
+          # One company, site-wide. Before the 2026-08-04 refactor this set would
+          # have held a bare-URL @id plus untagged duplicates on every page.
+          expected_org = {"https://ripeda.com/#organization"}
+          if org_ids != expected_org:
+              print(f"  FAIL  organization @id set is {org_ids or '{}'}, want {expected_org}")
+              fail = 1
+          else:
+              print(f"  ok    single organization entity: {org_ids.pop()}")
+
+          if checked == 0:
+              print("  FAIL  no JSON-LD found anywhere — schema-org.html may not be included")
+              fail = 1
+
+          print("\nJSON-LD structure is broken. See failures above." if fail
+                else "\nJSON-LD structure checks passed.")
+          sys.exit(fail)
+          PYEOF
