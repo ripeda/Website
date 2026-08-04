@@ -6,35 +6,43 @@ layout: default
 {% assign canonical = page.url | absolute_url %}
 {% assign description = page.dek | default: page.description %}
 
-<!-- BlogPosting JSON-LD: provides structured data to Google and LLM crawlers -->
+{%- comment -%}
+  BlogPosting for this insight article. publisher and (by default) author are
+  @id references to the single company node in the unified @graph
+  (_includes/schema-org.html), instead of inline Organization objects that
+  restated the name and logo — those inline copies were part of the duplicate
+  entity problem the graph fixed. The page-level WebPage entity and breadcrumb
+  trail come from that graph too; this node just points at them.
+{%- endcomment -%}
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "BlogPosting",
+  "@id": {{ canonical | append: "#article" | jsonify }},
   "headline": {{ page.title | jsonify }},
   "description": {{ description | jsonify }},
-  "datePublished": "{{ page.date | date_to_xmlschema }}",
-  "dateModified": "{{ page.last_modified_at | default: page.date | date_to_xmlschema }}",
+  "datePublished": {{ page.date | date_to_xmlschema | jsonify }},
+  "dateModified": {{ page.last_modified_at | default: page.date | date_to_xmlschema | jsonify }},
+  {%- comment -%}
+    A named author in front matter is emitted as a Person; with no `author` set it
+    falls back to the company by @id. The old markup typed every author as an
+    Organization even when the value was a person's name.
+  {%- endcomment -%}
+  {%- if page.author %}
   "author": {
-    "@type": "Organization",
-    "name": {{ page.author | default: "RIPEDA Consulting" | jsonify }},
-    "url": {{ site.url | jsonify }}
+    "@type": "Person",
+    "name": {{ page.author | jsonify }},
+    "worksFor": { "@id": {{ site.url | append: "/#organization" | jsonify }} }
   },
-  "publisher": {
-    "@type": "Organization",
-    "name": "RIPEDA Consulting",
-    "url": {{ site.url | jsonify }},
-    "logo": {
-      "@type": "ImageObject",
-      "url": {{ '/images/logo/logo.png' | absolute_url | jsonify }}
-    }
-  },
-  "mainEntityOfPage": {
-    "@type": "WebPage",
-    "@id": {{ canonical | jsonify }}
-  },
+  {%- else %}
+  "author": { "@id": {{ site.url | append: "/#organization" | jsonify }} },
+  {%- endif %}
+  "publisher": { "@id": {{ site.url | append: "/#organization" | jsonify }} },
+  "mainEntityOfPage": { "@id": {{ canonical | append: "#webpage" | jsonify }} },
+  "isPartOf": { "@id": {{ site.url | append: "/#website" | jsonify }} },
   "image": {{ og_image_abs | jsonify }},
-  "url": {{ canonical | jsonify }}{% if page.tags %},
+  "url": {{ canonical | jsonify }},
+  "inLanguage": "en-CA"{% if page.tags %},
   "keywords": {{ page.tags | join: ", " | jsonify }}{% endif %}{% if page.reading_time %},
   "timeRequired": "PT{{ page.reading_time }}M"{% endif %}
 }

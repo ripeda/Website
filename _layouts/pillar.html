@@ -5,51 +5,22 @@ layout: default
 {% assign og_image_abs = og_image | absolute_url %}
 {% assign canonical = page.url | absolute_url %}
 
-<!-- WebPage + FAQPage JSON-LD for Google and LLM crawlers -->
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "WebPage",
-  "name": {{ page.title | jsonify }},
-  "description": {{ page.description | jsonify }},
-  "url": {{ canonical | jsonify }},
-  "image": {{ og_image_abs | jsonify }},
-  "publisher": {
-    "@type": "Organization",
-    "name": "RIPEDA Consulting",
-    "url": {{ site.url | jsonify }},
-    "logo": {
-      "@type": "ImageObject",
-      "url": {{ '/images/logo/logo.png' | absolute_url | jsonify }}
-    }
-  },
-  "datePublished": "{{ page.date | date_to_xmlschema }}",
-  "dateModified": "{{ page.last_modified_at | default: page.date | date_to_xmlschema }}"
-}
-</script>
+{%- comment -%}
+  No JSON-LD here by design. Both blocks that used to live at this spot (a
+  standalone WebPage entity and a standalone FAQPage entity) moved into the
+  unified @graph in _includes/schema-org.html, which every layout inherits via
+  default.html.
 
-{% if page.faq %}
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-    {% for item in page.faq %}
-    {%- capture q_text -%}{%- include expand-years.html text=item.q -%}{%- endcapture -%}
-    {%- capture a_text -%}{%- include expand-years.html text=item.a -%}{%- endcapture -%}
-    {
-      "@type": "Question",
-      "name": {{ q_text | jsonify }},
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": {{ a_text | jsonify }}
-      }
-    }{% unless forloop.last %},{% endunless %}
-    {% endfor %}
-  ]
-}
-</script>
-{% endif %}
+  The WebPage node there already carries this page's title, description, image,
+  canonical URL and datePublished/dateModified from `date` / `last_modified_at`.
+  FAQ entries in `faq:` front matter are read there too and ride on that same
+  #webpage node, which additionally gains the FAQPage type. Re-adding a block
+  here would declare a second page entity for one URL — the exact ambiguity the
+  graph was built to remove.
+
+  Front matter still drives everything: `title`, `description`, `image`, `date`,
+  `last_modified_at`, `faq:`, `breadcrumb: false`.
+{%- endcomment -%}
 
 <article class="pillar-page">
 

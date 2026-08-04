@@ -5,6 +5,13 @@ redirect_from:
 layout: default
 title: "Meet Our Engineering Team"
 bodyClass: "page-team"
+# Emits a Person node for every member of the _team collection, plus `employee`
+# refs on the company node, via the unified @graph in _includes/schema-org.html.
+# This is the only page that should set it. Before this the team had no
+# structured identity at all, so nothing machine-readable answered "who runs
+# RIPEDA" — the thing an LLM needs to attribute expertise to named people.
+# Add or edit people in _team/, not in the schema.
+team_schema: true
 ---
 
 <!-- Hero Section -->
