@@ -28,7 +28,7 @@ faq:
   - q: "We are a SaaS company pre-Series A. What is the right IT investment now?"
     a: "Roughly two thousand dollars a year for a ten-person team buys Apple Business Manager, Mobile Device Management, an identity provider, and a password vault. That foundation scales cleanly to one hundred and fifty staff without restructuring. Skipping it does not save money. It defers the cost and the bill arrives during the Series A audit at three to five times the price."
   - q: "Do you support law firms and accounting practices that run Windows-only software?"
-    a: "Yes. We support hybrid environments where Apple is on the desk but specific software (legal practice management, certain accounting platforms) runs in a virtualised Windows environment. We will tell you honestly which parts of your stack are better on Apple, which need a hybrid configuration, and which should stay on Windows for now."
+    a: "Yes. We support hybrid environments where Apple is on the desk but specific software (legal practice management, certain accounting platforms) runs in a virtualized Windows environment. We will tell you honestly which parts of your stack are better on Apple, which need a hybrid configuration, and which should stay on Windows for now."
   - q: "What does AI policy look like for a professional services firm?"
     a: "A working AI policy names which tools staff may use for client work, what client data classes can go through which tools, how AI-generated work product is reviewed before delivery, and who at the firm owns the policy. RIPEDA helps firms install Apple Intelligence and complementary AI tools in a way that protects client confidentiality and produces audit-grade documentation."
   - q: "How do you handle hybrid offices and remote staff?"
@@ -91,7 +91,7 @@ Knowing when to switch is its own skill. The cost of switching is real, but the 
 
 When a partner's Mac fails the morning of a closing, the time cost is large and the recovery options at a retail Apple Store are limited. A managed Apple repair relationship handles warranty and AppleCare repair in-house, with genuine parts and certified technicians, on a turnaround that fits a business operating environment rather than a consumer retail one.
 
-RIPEDA is an Apple Authorized Service Provider and a DriveSavers reseller. For managed clients, repair is part of the relationship. There is no separate vendor to negotiate with when a device breaks, and no employee putting unauthorised repair charges on a personal credit card.
+RIPEDA is an Apple Authorized Service Provider and a DriveSavers reseller. For managed clients, repair is part of the relationship. There is no separate vendor to negotiate with when a device breaks, and no employee putting unauthorized repair charges on a personal credit card.
 
 [Read more about when business Apple repair outgrows the Genius Bar →](/resources/insights/apple-repair-business-fleets/)
 
@@ -104,7 +104,7 @@ What ties these stacks together is the identity layer underneath them. The firm 
 <div class="pillar-case">
 <p class="pillar-case-eyebrow">Case study (anonymized)</p>
 <p class="pillar-case-title">SaaS company, Series A close, Alberta</p>
-<p class="pillar-case-body">An Alberta SaaS company closed Series A in February and scaled from six to ninety staff across three countries by October. Nine months in, the founder discovered the IT foundation had never been installed. RIPEDA was engaged to remediate. The work took a focused quarter: device audit, identity audit, retroactive Apple Business Manager enrolment, identity provider rollout, password vault deployment, and a written offboarding runbook. By the next board meeting, the security questionnaire from a key enterprise customer was answered in an hour. The firm passed its first compliance review the following spring.</p>
+<p class="pillar-case-body">An Alberta SaaS company closed Series A in February and scaled from six to ninety staff across three countries by October. Nine months in, the founder discovered the IT foundation had never been installed. RIPEDA was engaged to remediate. The work took a focused quarter: device audit, identity audit, retroactive Apple Business Manager enrollment, identity provider rollout, password vault deployment, and a written offboarding runbook. By the next board meeting, the security questionnaire from a key enterprise customer was answered in an hour. The firm passed its first compliance review the following spring.</p>
 </div>
 
 ## Why RIPEDA specifically
@@ -117,4 +117,4 @@ Specific to professional services, we have supported SaaS companies, law firms, 
 
 RIPEDA engagements with professional services firms follow a Discovery, Setup, and Managed Service sequence. Discovery takes one to two weeks. We audit the device fleet, the identity layer, the security posture, the licensing footprint, and the offboarding process. We document what is working, what is not, and what the next twelve to thirty-six months should look like.
 
-Setup follows Discovery on a schedule that respects client work. Mac enrolment into Apple Business Manager and MDM happens in batches. Identity provider rollout happens during a defined window. Password vault deployment happens with team-by-team rollout. Ongoing managed service starts when setup completes. Monthly per-seat pricing covers device management, monitoring, help desk, security, and routine repair. Annual agreements are how we structure the relationship.
+Setup follows Discovery on a schedule that respects client work. Mac enrollment into Apple Business Manager and MDM happens in batches. Identity provider rollout happens during a defined window. Password vault deployment happens with team-by-team rollout. Ongoing managed service starts when setup completes. Monthly per-seat pricing covers device management, monitoring, help desk, security, and routine repair. Annual agreements are how we structure the relationship.

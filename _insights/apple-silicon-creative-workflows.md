@@ -40,7 +40,7 @@ Two architectural decisions did most of the work in those five years. Unified me
 
 **Motion and 3D.** After Effects, Cinema 4D, and Blender all run native on Apple Silicon. The unified memory architecture means a render that previously needed a workstation with 64 GB of RAM and a discrete graphics card can now sit inside an M4 Max where the graphics processor addresses the same memory pool as the rest of the system. The ceilings moved.
 
-**Photography.** Lightroom Classic and Capture One are both native. The visible difference is responsiveness rather than peak throughput. AI-assisted masking, denoise, and content-aware fill run locally instead of pushing work to the cloud. Photographers we work with describe it as the catalogue finally keeping up with them.
+**Photography.** Lightroom Classic and Capture One are both native. The visible difference is responsiveness rather than peak throughput. AI-assisted masking, denoise, and content-aware fill run locally instead of pushing work to the cloud. Photographers we work with describe it as the catalog finally keeping up with them.
 
 **Design.** Figma in the browser, Adobe Creative Cloud on the desktop, Sketch where it still survives. Day-to-day design work was never the bottleneck on Intel. What changed is what designers can do alongside it without paying a performance tax: run a virtual machine for an old plugin, keep thirty browser tabs open, screen-share a high-resolution comp without the laptop choking.
 
@@ -54,7 +54,7 @@ Two architectural decisions did most of the work in those five years. Unified me
 
 If a creative team is still running 2019 to 2020 Intel hardware, the gap is now severe enough that productivity loss alone justifies the move. M-series laptops outlast Intel desktops on most creative tasks while remaining portable. That changes the seating plan.
 
-For teams already on M1 or M2, the upgrade calculus is more nuanced. M3 added hardware ray tracing, which matters for 3D and product visualisation but not for most agency work. M4 raised memory bandwidth and improved neural engine performance, which matters for AI-assisted workflows but not for traditional timeline editing. A senior editor on M1 Max may still be ahead of a designer on a base M3.
+For teams already on M1 or M2, the upgrade calculus is more nuanced. M3 added hardware ray tracing, which matters for 3D and product visualization but not for most agency work. M4 raised memory bandwidth and improved neural engine performance, which matters for AI-assisted workflows but not for traditional timeline editing. A senior editor on M1 Max may still be ahead of a designer on a base M3.
 
 The right approach is workload-mapped procurement. A motion lead and a junior designer should not be on the same machine. Apple Silicon made the spread between roles bigger, not smaller, because the headroom at the top of the lineup is significantly higher.
 

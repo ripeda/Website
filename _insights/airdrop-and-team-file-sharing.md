@@ -18,7 +18,7 @@ issue_number: 77
 original_date: "July 2025"
 tldr:
   - "AirDrop is excellent for ad-hoc file transfers between two Apple devices that are in the same room or on the same network."
-  - "It is not a file sharing system. There is no central organisation, no version control, no permissions, no audit log, and no path for Windows or external collaborators."
+  - "It is not a file sharing system. There is no central organization, no version control, no permissions, no audit log, and no path for Windows or external collaborators."
   - "When a creative team treats AirDrop as the file system, the result is scattered copies, version drift, and a slow erosion of the single source of truth."
   - "Team file sharing requires structured storage, role-based permissions, version history, external sharing controls, and cross-platform access."
   - "The right setup keeps AirDrop for what it is good at, and uses a team file system for everything else."
@@ -56,7 +56,7 @@ None of this is a failure of AirDrop. AirDrop is doing exactly what it was desig
     <h4>What team collaboration needs</h4>
     <p>Structured storage everyone works from:</p>
     <ul>
-      <li>Central organisation by project, client, and date</li>
+      <li>Central organization by project, client, and date</li>
       <li>Role-based permissions and access logging</li>
       <li>Version history and conflict resolution</li>
       <li>External sharing with expiry and passwords</li>
@@ -76,7 +76,7 @@ For Apple-first studios the options include shared storage on a Synology or QNAP
 
 ## The layered approach
 
-This is not a choice between AirDrop and a team file system. It is recognising that they solve different problems. AirDrop stays in the toolbox for the moments it is good at. The team file system handles everything that needs to survive past today.
+This is not a choice between AirDrop and a team file system. It is recognizing that they solve different problems. AirDrop stays in the toolbox for the moments it is good at. The team file system handles everything that needs to survive past today.
 
 ## When to think about this
 

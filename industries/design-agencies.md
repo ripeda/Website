@@ -26,7 +26,7 @@ faq:
   - q: "How quickly can you onboard our studio?"
     a: "Most agencies are fully under RIPEDA managed service within four to six weeks. Discovery takes one to two weeks. Migration and setup happen across two to four weekends, scheduled around your active project deadlines. Training is delivered in short sessions so the transition feels like the studio just got better tooling, not like IT just arrived."
   - q: "Do you handle Adobe Creative Cloud licensing?"
-    a: "We help studios audit, consolidate, and right-size their Creative Cloud subscriptions, and we work directly with Adobe's commercial team for team licensing. We do not resell Adobe licences. The work is making sure the studio is paying for what it is using and not paying for what it is not."
+    a: "We help studios audit, consolidate, and right-size their Creative Cloud subscriptions, and we work directly with Adobe's commercial team for team licensing. We do not resell Adobe licenses. The work is making sure the studio is paying for what it is using and not paying for what it is not."
   - q: "Which MDM do you recommend for a design agency?"
     a: "We're deliberately platform-agnostic here. What we've invested in is the scripting and automation that makes an Apple fleet run smoothly, and that carries across whichever MDM a studio lands on. We'll recommend the platform that fits your studio's size, budget, and workflow rather than pushing a single product. The MDM choice matters less than getting Apple Business Manager set up correctly underneath it."
   - q: "Can you support remote and hybrid staff?"
@@ -34,7 +34,7 @@ faq:
   - q: "What is your approach to studio storage?"
     a: "We design storage in two tiers: a fast NAS on 10 Gigabit Ethernet for active project media, and a slower archive tier (second NAS or cloud) for completed work. The split matters because edit storage and archive storage have different performance and capacity needs, and putting both jobs on the same device is the most common reason agencies outgrow their first NAS."
   - q: "Do you do Mac purchasing for the studio?"
-    a: "We help studios plan procurement and refresh cycles. Apple commercial pricing is best accessed through your Apple Business Manager tenant directly. We handle the configuration, enrolment, and deployment side, and we can recommend the right Mac model for each role and time refreshes against project density."
+    a: "We help studios plan procurement and refresh cycles. Apple commercial pricing is best accessed through your Apple Business Manager tenant directly. We handle the configuration, enrollment, and deployment side, and we can recommend the right Mac model for each role and time refreshes against project density."
   - q: "How do you handle freelancer access to studio storage?"
     a: "Freelancers (contractors) get time-limited identity provider accounts with access to the project folders they need, and that access is revoked when their engagement closes. Freelancer Macs do not get enrolled in the studio's MDM unless the studio chooses that model. The pattern keeps freelancer turnover low-friction without creating credential debt."
 ---
@@ -101,7 +101,7 @@ A working disaster recovery (DR) architecture for an agency has three layers. Ac
 
 ## The agency-specific stack
 
-The technology stack inside a design studio looks different from a typical professional services firm. Adobe Creative Cloud sits at the centre, with Figma alongside it for interface and product design work. Cinema 4D and Blender appear when motion or 3D work is part of the practice. Final Cut Pro or DaVinci Resolve handle video. Pro Tools or Logic handle audio. The Adobe stack alone shapes the storage, the network, and the Mac configuration the studio needs.
+The technology stack inside a design studio looks different from a typical professional services firm. Adobe Creative Cloud sits at the center, with Figma alongside it for interface and product design work. Cinema 4D and Blender appear when motion or 3D work is part of the practice. Final Cut Pro or DaVinci Resolve handle video. Pro Tools or Logic handle audio. The Adobe stack alone shapes the storage, the network, and the Mac configuration the studio needs.
 
 The non-creative stack matters too. Figma replaces some of what InDesign used to do for layout and prototyping. Slack handles real-time communication. Notion or Linear handles project tracking. The Mac is not the whole story. It is the foundation everything else sits on.
 
@@ -123,4 +123,4 @@ Specific to design agencies, we have supported Mac-first creative studios across
 
 RIPEDA engagements with design agencies follow a Discovery, Setup, and Managed Service sequence. Discovery takes one to two weeks. We audit the Mac fleet, the storage architecture, the network, the backup posture, and the licensing footprint. We document what is working, what is not, and what the next twelve to thirty-six months should look like.
 
-Setup follows Discovery on a schedule that respects active projects. Mac re-enrolment into ABM and MDM happens in batches. Storage migrations happen on weekends. Licensing gets cleaned up alongside the technical work. Ongoing managed service starts when setup completes. Monthly per-seat pricing covers device management, monitoring, help desk, security, and routine repair. Annual agreements are how we structure the relationship.
+Setup follows Discovery on a schedule that respects active projects. Mac re-enrollment into ABM and MDM happens in batches. Storage migrations happen on weekends. Licensing gets cleaned up alongside the technical work. Ongoing managed service starts when setup completes. Monthly per-seat pricing covers device management, monitoring, help desk, security, and routine repair. Annual agreements are how we structure the relationship.

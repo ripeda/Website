@@ -4,7 +4,7 @@
 
 ## Overview
 
-Strategy Advisory is RIPEDA's project-based consulting practice. It produces written deliverables (recommendations, roadmaps, decision memos) for organisations facing a specific Apple ecosystem decision. This playbook covers the operational mechanics of running a Strategy Advisory engagement from first call to delivery.
+Strategy Advisory is RIPEDA's project-based consulting practice. It produces written deliverables (recommendations, roadmaps, decision memos) for organizations facing a specific Apple ecosystem decision. This playbook covers the operational mechanics of running a Strategy Advisory engagement from first call to delivery.
 
 There are three engagement shapes:
 
@@ -22,7 +22,7 @@ The scoping call is free. The goal is to determine whether RIPEDA is the right p
 
 - What decision are you trying to make?
 - What is forcing the decision now (funding round, board meeting, audit, incident, hiring milestone)?
-- Who at the organisation owns the decision? Who needs to be in the room?
+- Who at the organization owns the decision? Who needs to be in the room?
 - What have you tried already? What has not worked?
 - What does success look like at the end of the engagement?
 - Are you implementing the recommendation in-house, with us, or with another vendor?
@@ -44,7 +44,7 @@ A short written scope document the client signs off on before work begins. Inclu
 
 ## Strategy Sprint (4 to 8 weeks)
 
-The standard Strategy Advisory engagement. Use this when the question has multiple moving parts (devices, identity, vendors, compliance, organisational context all matter).
+The standard Strategy Advisory engagement. Use this when the question has multiple moving parts (devices, identity, vendors, compliance, organizational context all matter).
 
 ### Week 0: Engagement kickoff
 
@@ -66,7 +66,7 @@ The week before discovery starts. Use it to prepare so Week 1 is high-yield from
 
 ### Week 1: Discovery
 
-Audit the current state, talk to the people involved, review existing documentation. The goal is to enter Week 2 with a complete picture of where the organisation is today.
+Audit the current state, talk to the people involved, review existing documentation. The goal is to enter Week 2 with a complete picture of where the organization is today.
 
 **Tasks**
 
@@ -96,7 +96,7 @@ The audit covers the layers we typically need visibility into. Adjust based on t
 - Security posture: backup, antivirus or endpoint detection and response (EDR), incident response plan
 - Vendor list and contract end dates
 - Software licensing footprint and cost
-- Compliance obligations the organisation is subject to
+- Compliance obligations the organization is subject to
 
 **Output**
 
@@ -109,7 +109,7 @@ Move from findings to recommendations. The hard work is shaping the recommendati
 **Tasks**
 
 - Map findings to options for each major decision point.
-- Evaluate vendors against the organisation's actual constraints, not the brochure.
+- Evaluate vendors against the organization's actual constraints, not the brochure.
 - Build a cost model: status quo versus recommendation, including transition costs and ongoing operational costs.
 - Draft the recommendation memo.
 - Internal peer review: another RIPEDA team member reads the draft and pushes back.
@@ -118,8 +118,8 @@ Move from findings to recommendations. The hard work is shaping the recommendati
 **Questions for the analysis phase**
 
 - Is this recommendation defensible against the cheapest alternative?
-- Does the recommendation match the organisation's size and stage, or are we over-engineering?
-- If we walked away after delivery, could the organisation execute this with its in-house team?
+- Does the recommendation match the organization's size and stage, or are we over-engineering?
+- If we walked away after delivery, could the organization execute this with its in-house team?
 - What are we ignoring that we should not be?
 
 **Output**
@@ -159,7 +159,7 @@ For longer engagements where the client wants RIPEDA to plan (not necessarily ex
 - Sequence the recommendation into phases.
 - Build a project plan with milestones, owners, and dependencies.
 - Map vendor procurement timeline against project milestones.
-- Identify decision points where the client must reauthorise.
+- Identify decision points where the client must reauthorize.
 - Document the rollback plan for high-risk steps.
 
 **Output**
@@ -198,7 +198,7 @@ Focused recommendation memo. Three to five pages, with supporting analysis.
 
 ## Quarterly Advisory Retainer (ongoing)
 
-Recurring strategic conversations for organisations that need RIPEDA's voice in the room as decisions come up.
+Recurring strategic conversations for organizations that need RIPEDA's voice in the room as decisions come up.
 
 ### Monthly cadence
 

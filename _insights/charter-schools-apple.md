@@ -36,7 +36,7 @@ This could be the procurement reality of a charter or private school. It is stru
 
 ## Why the model differs
 
-Public school boards run technology decisions at the district level. A central IT team specifies, procures, deploys, and supports devices across multiple schools. Apple's Education Reseller program serves both districts and individual recognized schools, but at the district level it is structured around volume pricing, central enrolment in Apple School Manager, and ongoing managed support designed for boards.
+Public school boards run technology decisions at the district level. A central IT team specifies, procures, deploys, and supports devices across multiple schools. Apple's Education Reseller program serves both districts and individual recognized schools, but at the district level it is structured around volume pricing, central enrollment in Apple School Manager, and ongoing managed support designed for boards.
 
 Charter and private schools do not work that way. Each school is its own decision-making unit. There is no district to absorb procurement complexity. There is no central IT team to support the deployment. The principal, the office manager, and sometimes a board chair carry the work between them. Even at a school with 400 students, there may be no full-time technology staff.
 
@@ -87,7 +87,7 @@ These two service lines fit the charter and private school model. They give the 
 
 The procurement path for a charter or private school depends on the school's standing with Apple's Education program. In Canada specifically, Apple's Education team has been increasingly active with charter and private schools over recent years. Recognized schools often have access to Apple Authorized Education Resellers or to Apple's own education ordering portal, which lets the school enrol devices into Apple School Manager (ASM) directly. Schools that do not qualify for the Education program (smaller private institutions, parent-corporation-owned schools, or some smaller post-secondary institutions outside the program) run procurement through a general Apple Authorized Reseller and use Apple Business Manager (ABM) instead.
 
-The path matters for two reasons. First, it determines who can sell the school devices that auto-enrol into the institutional tenant. Second, it determines the warranty and support relationship Apple recognises. A school setting up its first institutional ASM or ABM tenant should confirm the reseller relationship before the first device order. Devices purchased through retail channels can usually be added retroactively, but the process is friction the school does not need.
+The path matters for two reasons. First, it determines who can sell the school devices that auto-enrol into the institutional tenant. Second, it determines the warranty and support relationship Apple recognizes. A school setting up its first institutional ASM or ABM tenant should confirm the reseller relationship before the first device order. Devices purchased through retail channels can usually be added retroactively, but the process is friction the school does not need.
 
 A practical wrinkle worth knowing about: Apple Authorized Education Reseller (AAER) lead times for some Apple orders can stretch to months. Many schools maintain a primary AAER relationship for predictable bulk orders that benefit from education discount programs, alongside a general Apple Authorized Reseller relationship for urgent purchases where speed matters more than the discount. The two channels are complementary rather than competing.
 

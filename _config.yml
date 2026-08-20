@@ -170,6 +170,11 @@ exclude:
   - "skills/"
   - ".claude/"
   - "TODO.md"
+  # Short-form hook article drafts. All 18 are published: false and are not
+  # registered in _data/insights.yml, but published: false was the only thing
+  # keeping them off the live site. Excluding the directory makes that explicit.
+  # Required by skills/ripeda-hook-article/SKILL.md before the first publish.
+  - "hook-drafts/"
   # Cloudflare Worker source. Deployed to Cloudflare separately, NOT part of
   # the Jekyll build — excluded so these .js files are never published.
   - "cloudflare-workers/"

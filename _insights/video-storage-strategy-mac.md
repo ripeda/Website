@@ -38,7 +38,7 @@ Video production hits storage harder than any other creative discipline. A singl
 
 **Direct-attached storage (DAS).** A Thunderbolt drive on the desk. Fast, cheap per terabyte, and isolated to a single editor. The right call for the active edit of a single project, where speed matters and collaboration does not. Wrong call when more than one person needs the same media at the same time. A DAS is not a backup, no matter how often it gets called one. The drive on the desk needs its own backup target, because the day it fails is the day every project sitting on it is gone with it.
 
-**Network-attached storage (NAS).** Synology, QNAP, or TrueNAS over 10 Gigabit Ethernet (10GbE). The right call for multi-editor projects, shared review folders, and centralised media management. Modern NAS at 10GbE sustains real ProRes editing across multiple seats. Below 10GbE, the network throttles the work before the drives do.
+**Network-attached storage (NAS).** Synology, QNAP, or TrueNAS over 10 Gigabit Ethernet (10GbE). The right call for multi-editor projects, shared review folders, and centralized media management. Modern NAS at 10GbE sustains real ProRes editing across multiple seats. Below 10GbE, the network throttles the work before the drives do.
 
 **Cloud storage.** Backblaze B2, Wasabi, Amazon Web Services (AWS) S3, or a managed service like Frame.io. The right call for distance: remote editors, client review across cities, off-site archive that survives a studio fire. Wrong call for active editing of large media. The network and the cloud egress costs both punish that pattern.
 

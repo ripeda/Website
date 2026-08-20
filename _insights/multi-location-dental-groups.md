@@ -14,14 +14,14 @@ reading_time: 6
 author: "RIPEDA"
 tldr:
   - "Multi-location dental groups absorb operational drag every time a clinic's setup differs from the others."
-  - "The fix is not standardising on a vendor. The fix is standardising on a fleet definition: what every clinic looks like at the device, network, and identity layer."
+  - "The fix is not standardizing on a vendor. The fix is standardizing on a fleet definition: what every clinic looks like at the device, network, and identity layer."
   - "Apple Business Manager (ABM) and Mobile Device Management (MDM) make per-clinic differences visible and changeable from one admin surface."
   - "A documented clinic-setup playbook turns the next acquisition or expansion from a project into a process."
   - "The savings show up in onboarding new staff, transferring associates between locations, and audit response, not in the IT budget itself."
 related:
   - title: "Apple Consulting and Strategy Advisory"
     url: "/services/strategy-advisory/"
-    context: "How we help dental groups standardise their IT footprint across multiple clinics."
+    context: "How we help dental groups standardize their IT footprint across multiple clinics."
   - title: "Dental and Medical"
     url: "/industries/dental-medical/"
     context: "Multi-location operations sit inside the broader clinical IT stack we support."
@@ -59,7 +59,7 @@ Consistency is one layer down. It means every clinic looks the same at the devic
     <p class="insight-compare-conclusion"><strong>Result:</strong> staff cannot move between clinics without friction, and audit response varies by location.</p>
   </div>
   <div class="insight-compare-col is-strong">
-    <h4>Standardised Multi-Clinic Operations</h4>
+    <h4>Standardized Multi-Clinic Operations</h4>
     <p>The pattern that scales as the group grows:</p>
     <ul>
       <li>One device definition applies to every clinic</li>
@@ -103,6 +103,6 @@ The playbook lives in the group's documentation. Every clinic build updates it w
 
 ## When to think about this
 
-The right time to standardise is before the next clinic, not after. Multi-clinic groups that build consistency in early absorb new locations almost as fast as the legal paperwork closes. Groups that try to retrofit consistency after five clinics often spend a quarter just untangling what diverged.
+The right time to standardize is before the next clinic, not after. Multi-clinic groups that build consistency in early absorb new locations almost as fast as the legal paperwork closes. Groups that try to retrofit consistency after five clinics often spend a quarter just untangling what diverged.
 
 A consistent multi-clinic Apple footprint is not a vanity exercise. It is what lets the group scale without the IT cost scaling faster than the revenue does.

@@ -39,7 +39,7 @@ The terminology is real and it matters, but Apple does a quiet job of explaining
 
 **Apple Authorized Service Provider (AASP).** A firm certified by Apple to perform warranty and out-of-warranty repairs using genuine Apple parts and certified technicians. The work is hands-on hardware repair. AASPs serve walk-in customers and also handle fleet repair for businesses, schools, and clinics that need volume logistics rather than retail counters.
 
-**Apple Technical Partner (ATP).** A consulting firm Apple has recognised for Apple-first business consulting. The work is broader than either of the other two. It includes strategy, fleet management, identity, network, deployment, support, and incident response, with Apple devices as the centre of the practice.
+**Apple Technical Partner (ATP).** A consulting firm Apple has recognized for Apple-first business consulting. The work is broader than either of the other two. It includes strategy, fleet management, identity, network, deployment, support, and incident response, with Apple devices as the center of the practice.
 
 A single firm can hold one, two, or all three designations. The combinations matter less than knowing which kind of work the buyer actually needs. The Managed Service Provider (MSP) category sits next to all three, and many MSPs hold none of these Apple-specific designations.
 
@@ -50,7 +50,7 @@ A single firm can hold one, two, or all three designations. The combinations mat
     <ul>
       <li>Can configure individual Macs</li>
       <li>Treat Apple as one platform among several</li>
-      <li>Familiar with Windows-centred patterns by default</li>
+      <li>Familiar with Windows-centered patterns by default</li>
       <li>Mac becomes the exception case in their playbooks</li>
     </ul>
     <p class="insight-compare-conclusion"><strong>Result:</strong> the Apple environment works, but it is supported the way a non-Apple shop knows how to support it.</p>

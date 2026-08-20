@@ -20,3 +20,6 @@ Thumbs.db
 .Spotlight-V100
 .Trashes
 .idea
+
+# Local holding pen (this session could not delete files directly)
+_to_delete/

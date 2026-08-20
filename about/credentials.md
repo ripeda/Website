@@ -14,24 +14,24 @@ keywords: "RIPEDA credentials, Apple Technical Partner, Apple Authorized Service
         <div class="credentials-card">
           <p class="credentials-eyebrow">About · Credentials</p>
           <h1>Credentials and Partner Designations</h1>
-          <p class="credentials-lead">RIPEDA Consulting Corporation possesses the following partner designations, certifications, and trainings. The list reflects both company-level authorisations earned through formal partner programs and individual certifications carried by RIPEDA team members.</p>
+          <p class="credentials-lead">RIPEDA Consulting Corporation possesses the following partner designations, certifications, and trainings. The list reflects both company-level authorizations earned through formal partner programs and individual certifications carried by RIPEDA team members.</p>
 
           <h2>Apple program designations</h2>
           <ul class="credentials-list">
             <li><strong>Apple Technical Partner</strong> (since 2012). Apple's designation for consultancies meeting Apple's standards for ongoing Apple-platform delivery work.</li>
-            <li><strong>Apple Authorized Reseller</strong>. Authorised by Apple to procure and resell Apple hardware to business clients.</li>
-            <li><strong>Apple Authorized Service Provider</strong>. Authorised by Apple to perform warranty and out-of-warranty repairs on Apple hardware using genuine Apple parts and Apple-defined procedures.</li>
+            <li><strong>Apple Authorized Reseller</strong>. Authorized by Apple to procure and resell Apple hardware to business clients.</li>
+            <li><strong>Apple Authorized Service Provider</strong>. Authorized by Apple to perform warranty and out-of-warranty repairs on Apple hardware using genuine Apple parts and Apple-defined procedures.</li>
           </ul>
 
           <h2>Network and infrastructure partnerships</h2>
           <ul class="credentials-list">
-            <li><strong>Fortinet Partner</strong>. Authorised Fortinet partner, certified to design, deploy, and support the FortiGate and broader Fortinet security and network platform.</li>
+            <li><strong>Fortinet Partner</strong>. Authorized Fortinet partner, certified to design, deploy, and support the FortiGate and broader Fortinet security and network platform.</li>
             <li><strong>Ruckus Networks Premium Partner</strong>. Ruckus Premium Partner, certified to design and deploy Ruckus wireless and switching infrastructure.</li>
           </ul>
 
           <h2>Data recovery</h2>
           <ul class="credentials-list">
-            <li><strong>DriveSavers Reseller Agent</strong>. Authorised DriveSavers reseller, providing clients access to professional data recovery services at reseller-discounted pricing.</li>
+            <li><strong>DriveSavers Reseller Agent</strong>. Authorized DriveSavers reseller, providing clients access to professional data recovery services at reseller-discounted pricing.</li>
           </ul>
 
           <h2>Team-held certifications and trainings</h2>

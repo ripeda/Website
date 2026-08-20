@@ -12,7 +12,7 @@ breadcrumb: true
 # Before 2026-08-04 this page carried its own inline FAQPage script plus a second
 # hardcoded BreadcrumbList. After the unified-graph refactor those became
 # duplicates: /faq/ was declaring two page entities and two breadcrumb trails for
-# one URL. Both inline blocks were deleted in favour of the entries below.
+# one URL. Both inline blocks were deleted in favor of the entries below.
 #
 # The visible Q&A markup further down the page is separate presentation HTML --
 # if you edit an answer, update it in BOTH places, same as on the pillar and
