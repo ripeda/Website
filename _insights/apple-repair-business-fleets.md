@@ -35,9 +35,9 @@ related:
     context: "How charter and private schools handle Apple repair through us."
 ---
 
-Every Apple-first organisation eventually has the same conversation. A device breaks. The employee makes their way to the Apple Store. Somewhere between booking the appointment and getting the device back, several small problems compound into one larger one.
+Every Apple-first organization eventually has the same conversation. A device breaks. The employee makes their way to the Apple Store. Somewhere between booking the appointment and getting the device back, several small problems compound into one larger one.
 
-It might be the half day of productive time the employee loses. It might be the unexpected repair cost charged to a personal credit card because nobody anticipated a logic board replacement. It might be the realisation that IT only finds out about the repair when the expense report shows up two weeks later. None of these are Apple's fault. They are an architecture problem. A retail repair experience was designed for retail customers. Business operations need something different.
+It might be the half day of productive time the employee loses. It might be the unexpected repair cost charged to a personal credit card because nobody anticipated a logic board replacement. It might be the realization that IT only finds out about the repair when the expense report shows up two weeks later. None of these are Apple's fault. They are an architecture problem. A retail repair experience was designed for retail customers. Business operations need something different.
 
 Apple knows this, which is why two delivery models exist. Both go through Apple Authorized Repair. Both use identical parts. Both apply the same warranty and AppleCare terms. They differ only in how the repair is packaged and how it fits the buyer.
 
@@ -56,15 +56,15 @@ Apple knows this, which is why two delivery models exist. Both go through Apple 
   </div>
   <div class="insight-compare-col is-strong">
     <h4>Business Operational Support</h4>
-    <p>Apple Authorized Service Provider repair is built around organisational fit:</p>
+    <p>Apple Authorized Service Provider repair is built around organizational fit:</p>
     <ul>
       <li>Bulk device processing and fleet handling</li>
       <li>Courier pickup and delivery, no retail trip required</li>
       <li>IT department coordination and pre-approved processes</li>
-      <li>Organisational billing, not employee credit cards</li>
+      <li>Organizational billing, not employee credit cards</li>
       <li>Loaner devices and predictable repair windows</li>
     </ul>
-    <p class="insight-compare-conclusion"><strong>Ideal for:</strong> organisations of any size that depend on Apple devices being available. Streamlined process, IT visibility, minimal operational disruption.</p>
+    <p class="insight-compare-conclusion"><strong>Ideal for:</strong> organizations of any size that depend on Apple devices being available. Streamlined process, IT visibility, minimal operational disruption.</p>
   </div>
 </div>
 
@@ -80,7 +80,7 @@ The hidden costs of using consumer-grade repair for business fleets show up in s
 
 When repair is delivered through an Apple Authorized Service Provider built for business operations, the architecture changes.
 
-Repairs are handled in batches where possible, with courier pickup and delivery so employees do not lose half days to retail visits. Loaner devices keep work moving while a Mac or iPad is in for service. IT is involved from the start, with pre-approved repair processes, organisational billing, asset tracking integration, and consistent policies across the fleet. Costs are predictable because they are tied to a managed agreement rather than counter-by-counter decisions. Devices come back with documentation attached: what was repaired, what was replaced, when warranty expires.
+Repairs are handled in batches where possible, with courier pickup and delivery so employees do not lose half days to retail visits. Loaner devices keep work moving while a Mac or iPad is in for service. IT is involved from the start, with pre-approved repair processes, organizational billing, asset tracking integration, and consistent policies across the fleet. Costs are predictable because they are tied to a managed agreement rather than counter-by-counter decisions. Devices come back with documentation attached: what was repaired, what was replaced, when warranty expires.
 
 None of this changes Apple's quality standards. Same parts, same certified technicians, same warranty terms. What changes is how that quality wraps around the way a business actually runs.
 
@@ -88,6 +88,6 @@ None of this changes Apple's quality standards. Same parts, same certified techn
 
 For very small teams running a handful of Apple devices, Genius Bar service works fine. The friction is real but rare enough that the simpler model wins.
 
-Past that scale, the math turns. By the time you are managing twenty to fifty Apple devices, the cumulative cost of consumer-grade repair shows up in three places: employee productivity hours, IT visibility into the fleet, and the awkward conversations between staff and finance about unauthorised device repair charges. By fifty devices, the case is unambiguous. The repair model needs to match the operational scale.
+Past that scale, the math turns. By the time you are managing twenty to fifty Apple devices, the cumulative cost of consumer-grade repair shows up in three places: employee productivity hours, IT visibility into the fleet, and the awkward conversations between staff and finance about unauthorized device repair charges. By fifty devices, the case is unambiguous. The repair model needs to match the operational scale.
 
 Business-grade Apple repair is not a different tier of quality. It is a different operating system for the same service, wrapped around the way IT departments and operations leaders actually need to manage Apple at scale.

@@ -24,7 +24,7 @@ audience:
   what: "Practices where Apple devices sit in the operatory, run the imaging software, hold the schedule, and need to work reliably every day they are seeing patients."
 faq:
   - q: "Do you work with our practice management software?"
-    a: "Yes. RIPEDA supports practice management platforms commonly used in Canadian dental and oral surgery practices, including Curve Hero, Open Dental, Wave Ortho, and Allied Star, in both Mac-native and hybrid Windows-in-virtualisation configurations. If your practice runs Windows-only software inside a virtualised environment on Mac hardware, we work with that setup too. Tell us what you use and we will tell you whether we have direct experience with it."
+    a: "Yes. RIPEDA supports practice management platforms commonly used in Canadian dental and oral surgery practices, including Curve Hero, Open Dental, Wave Ortho, and Allied Star, in both Mac-native and hybrid Windows-in-virtualization configurations. If your practice runs Windows-only software inside a virtualized environment on Mac hardware, we work with that setup too. Tell us what you use and we will tell you whether we have direct experience with it."
   - q: "How do you handle PHIPA and PIPEDA compliance?"
     a: "Compliance is built into how RIPEDA structures the environment. Encrypted disks (FileVault on every Mac), encrypted backups with documented retention, multi-factor authentication on access to patient data, audit trails for who touched what and when, and geographic data residency you can demonstrate to an auditor. We document the setup so your privacy officer has the evidence they need on request."
   - q: "How quickly can you onboard our clinic?"
@@ -34,7 +34,7 @@ faq:
   - q: "Will Apple Authorized Repair work for our clinical iPads and Macs?"
     a: "Yes. RIPEDA is an Apple Authorized Service Provider, which means warranty and AppleCare work happens in-house with genuine parts and certified technicians. For clinical practices this means no trips to the Apple Store, no losing a clinical iPad for a week, and no employees putting repair costs on personal credit cards. Repair is part of the managed services package, not a separate transaction."
   - q: "Can you support multiple locations?"
-    a: "Yes. RIPEDA supports multi-location dental groups in Alberta with consistent device management, shared network policies, and centralised reporting across every clinic. The MDM and monitoring layer makes the location count largely invisible from an IT-operations perspective. We have current clients running across two to five clinics with the same supported experience at each."
+    a: "Yes. RIPEDA supports multi-location dental groups in Alberta with consistent device management, shared network policies, and centralized reporting across every clinic. The MDM and monitoring layer makes the location count largely invisible from an IT-operations perspective. We have current clients running across two to five clinics with the same supported experience at each."
   - q: "What if we are still on Windows and not sure about Apple?"
     a: "We help practices think through the question rather than assume the answer. If Apple is the right fit, we can plan and execute the migration over a weekend with no interruption to patient care. If Apple is not the right fit for parts of your stack (some Windows-only practice management software is genuinely better on Windows), we can support a hybrid environment and be honest about where each side wins."
 ---
@@ -73,7 +73,7 @@ A working backup architecture for a clinical practice covers the practice manage
 
 When a Mac in the operatory fails, the practice has two costs. The cost of the repair, and the cost of the staff time lost while waiting for it. The second cost is usually larger.
 
-RIPEDA is an Apple Authorized Service Provider, which means warranty and AppleCare repair happens in-house at our shop, not at an Apple Store in a mall. For a managed client this means no trip downtown, no employees putting unauthorised repair charges on personal credit cards, and predictable turnaround times that fit clinic operations. We also operate as a DriveSavers reseller, so when a Mac drive does fail catastrophically, our clients get direct access to the industry leader in data recovery.
+RIPEDA is an Apple Authorized Service Provider, which means warranty and AppleCare repair happens in-house at our shop, not at an Apple Store in a mall. For a managed client this means no trip downtown, no employees putting unauthorized repair charges on personal credit cards, and predictable turnaround times that fit clinic operations. We also operate as a DriveSavers reseller, so when a Mac drive does fail catastrophically, our clients get direct access to the industry leader in data recovery.
 
 The repair architecture is part of the managed services package, not a separate vendor relationship to negotiate every time a device breaks.
 
@@ -83,13 +83,13 @@ The repair architecture is part of the managed services package, not a separate 
 
 Clinical practices have a specific password management problem. Most clinical software still operates on per-user logins, but the workflows are shared. A hygienist needs to sign into the imaging system from any chair. A reception staff member needs to access the schedule from any workstation. Apple Passwords handles individual logins for individual users. Once you have shared credentials, role-based access, or an audit requirement, you have outgrown what it was built for.
 
-A business password platform (1Password Business is the typical fit for our clinical clients) handles shared logins with role-based access, immediate revocation when a staff member leaves, audit trails the privacy officer can produce on request, and cross-platform support for the Windows or Android device the bookkeeper might be using occasionally. It also supports single sign-on (SSO) so the directory of authorised users matches the directory of who can access patient data.
+A business password platform (1Password Business is the typical fit for our clinical clients) handles shared logins with role-based access, immediate revocation when a staff member leaves, audit trails the privacy officer can produce on request, and cross-platform support for the Windows or Android device the bookkeeper might be using occasionally. It also supports single sign-on (SSO) so the directory of authorized users matches the directory of who can access patient data.
 
 [Read more about where Apple Passwords stops scaling for teams →](/resources/insights/apple-passwords-for-business-teams/)
 
 ## Remote support that does not need a clinic visit
 
-Most clinical IT issues do not need someone on-site. A Mac that will not print, a clinical iPad that has lost its enrolment, a software update that has not applied: all of these are solvable remotely if the IT provider has the right tools in place. The difference between an IT setup that fixes problems in fifteen minutes and one that needs a clinic visit measured in hours is mostly the difference between screen sharing and proper remote management.
+Most clinical IT issues do not need someone on-site. A Mac that will not print, a clinical iPad that has lost its enrollment, a software update that has not applied: all of these are solvable remotely if the IT provider has the right tools in place. The difference between an IT setup that fixes problems in fifteen minutes and one that needs a clinic visit measured in hours is mostly the difference between screen sharing and proper remote management.
 
 A managed remote setup combines an MDM platform, a remote monitoring and management platform, and a ticketing system. Together they let the IT provider see every device, push updates, run scripts to apply fixes, and resolve most issues without ever needing to be physically present at the practice. The on-site visit is reserved for hardware work, network installs, and the situations where a hands-on presence is genuinely required.
 
@@ -97,7 +97,7 @@ A managed remote setup combines an MDM platform, a remote monitoring and managem
 
 ## The dental-specific stack
 
-The technology stack inside a clinical practice is more specialised than a typical small business. RIPEDA supports the practice management platforms most commonly used in Alberta dental and oral surgery clinics, including Curve Hero, Open Dental, Wave Ortho, and Allied Star, in both Mac-native and hybrid Windows-in-virtualisation configurations.
+The technology stack inside a clinical practice is more specialized than a typical small business. RIPEDA supports the practice management platforms most commonly used in Alberta dental and oral surgery clinics, including Curve Hero, Open Dental, Wave Ortho, and Allied Star, in both Mac-native and hybrid Windows-in-virtualization configurations.
 
 The imaging stack involves CBCT systems, panoramic units, intraoral camera sensors, and the diagnostic Macs that interpret them. The network has to carry imaging traffic without saturating. The backup has to capture imaging files at the volumes they actually generate. The retention policies have to satisfy provincial and federal privacy requirements. Each of these is its own problem with its own answer, and getting them right at the planning stage is faster and cheaper than discovering the gap during an incident.
 

@@ -63,18 +63,18 @@ In the field, we see two recurring patterns.
       <li>Redundant connections and automatic failover</li>
       <li>Proactive monitoring and preventive maintenance</li>
       <li>Multi-layered security with real threat detection</li>
-      <li>Performance optimisation and capacity planning</li>
+      <li>Performance optimization and capacity planning</li>
     </ul>
     <p class="insight-compare-conclusion"><strong>Result:</strong> technology that quietly enables productivity, protects business assets, and scales with growth.</p>
   </div>
 </div>
 
-The numbers behind this gap are not subtle. Forrester research[^forrester] finds that organisations running professional, unified network infrastructure achieve a 50% reduction in mean time to repair and a 30% gain in IT operations productivity. Professional monitoring improves incident prevention by 50% and accelerates issue resolution by 90%. These are operational metrics, but they translate directly to revenue. More time billing. More time selling. Fewer hours spent managing failure.
+The numbers behind this gap are not subtle. Forrester research[^forrester] finds that organizations running professional, unified network infrastructure achieve a 50% reduction in mean time to repair and a 30% gain in IT operations productivity. Professional monitoring improves incident prevention by 50% and accelerates issue resolution by 90%. These are operational metrics, but they translate directly to revenue. More time billing. More time selling. Fewer hours spent managing failure.
 
 <div class="insight-stat">
   <p><strong>Reliability.</strong> 99.9% uptime through redundant links and automatic failover.</p>
   <p><strong>Security.</strong> Enterprise-grade protection through Fortinet's integrated security stack.</p>
-  <p><strong>Performance.</strong> Optimised wireless and switching with quality-of-service controls.</p>
+  <p><strong>Performance.</strong> Optimized wireless and switching with quality-of-service controls.</p>
 </div>
 
 ## What "professional" actually means
@@ -85,15 +85,15 @@ When we talk about enterprise-grade network infrastructure, we mean specific thi
 
 **Security.** A multi-layered approach using Fortinet's integrated security stack, with content filtering, VPN, threat detection, and proper segmentation between guest, staff, and operational networks. Not a consumer-grade router with the default password still printed on a sticker.
 
-**Performance.** Ruckus wireless designed and tuned for the actual physical environment, with quality-of-service prioritisation for critical applications such as imaging, voice, and payment systems. Not whichever access points were cheapest when the office was furnished.
+**Performance.** Ruckus wireless designed and tuned for the actual physical environment, with quality-of-service prioritization for critical applications such as imaging, voice, and payment systems. Not whichever access points were cheapest when the office was furnished.
 
-**Management.** Centralised control through FortiGate and Ruckus controllers, with monitoring that catches problems before users notice them. Not a closet full of equipment nobody has logged into in two years.
+**Management.** Centralized control through FortiGate and Ruckus controllers, with monitoring that catches problems before users notice them. Not a closet full of equipment nobody has logged into in two years.
 
 ## Beyond connectivity
 
 A well-designed network is not just a faster pipe. It is the foundation that lets every other technology investment actually pay off. Predictable performance employees can plan around. Secure remote access that works from anywhere without inviting attackers in. Automated backup and disaster recovery. Capacity planning that anticipates growth rather than reacting to it.
 
-That foundation also pays back measurably. Organisations that invest in professional network infrastructure typically see returns within 6 to 12 months: less downtime, less emergency IT spending, fewer productivity losses to "the wifi is slow again." The exact timeframe depends on the starting point. The direction is consistent.
+That foundation also pays back measurably. Organizations that invest in professional network infrastructure typically see returns within 6 to 12 months: less downtime, less emergency IT spending, fewer productivity losses to "the wifi is slow again." The exact timeframe depends on the starting point. The direction is consistent.
 
 ## When to think about this
 

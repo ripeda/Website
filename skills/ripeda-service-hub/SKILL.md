@@ -107,7 +107,7 @@ The correct sequence for a NEW hub where spokes do not yet exist:
 
 The Strategy Advisory hub is the first service hub being built, and it inherits
 a substantial set of existing spokes (eleven at first launch). That coincidence
-does NOT generalise to the other three service hubs, which will likely need
+does NOT generalize to the other three service hubs, which will likely need
 spokes written before their hubs can be authored.
 
 When asked to write a hub for a service line, the FIRST output should be the
@@ -284,7 +284,7 @@ hero:                                                      # required, hero bloc
   cta_url: "/#contact"
 audience:                                                  # required
   who: "Founders, Operations Leads, and Practice Managers facing a specific Apple ecosystem decision."
-  what: "Organisations who want a human partner for the decision, not a vendor product brochure."
+  what: "Organizations who want a human partner for the decision, not a vendor product brochure."
 faq:                                                       # required, 5-8 entries
   - q: "Question one?"
     a: "Answer one in 50-100 words."

@@ -16,12 +16,12 @@ tldr:
   - "Staff at professional services firms are already using AI tools. A firm without a policy has policy by default, and it is rarely one the partners would have written."
   - "An effective AI policy has three parts: what is allowed, what is not, and what is logged."
   - "Client data is the line that matters most. Sending client information to a public large language model (LLM) is the failure mode most policies need to prevent."
-  - "On-device AI like Apple Intelligence changes the privacy calculus because the data does not leave the device. The policy needs to recognise that distinction."
+  - "On-device AI like Apple Intelligence changes the privacy calculus because the data does not leave the device. The policy needs to recognize that distinction."
   - "A short, current, enforceable policy beats a long aspirational one. Staff who read it once should be able to act on it."
 related:
   - title: "Apple Consulting and Strategy Advisory"
     url: "/services/strategy-advisory/"
-    context: "How we help firms write and operationalise an AI policy that fits their work."
+    context: "How we help firms write and operationalize an AI policy that fits their work."
   - title: "Professional Services"
     url: "/industries/professional-services/"
     context: "AI policy is part of the broader operational stack we support for professional firms."
@@ -48,7 +48,7 @@ An AI policy that staff can act on has three parts. Not a fifteen-page legal doc
 
 The single most important thing the policy does is name the line that client data does not cross. Everything else flows from that line.
 
-A firm without a policy has staff making this judgement individually, in real time, without training. Some staff are conservative. Others are not. The variance is the risk. With a written line, the variance collapses to something the firm can actually defend in front of a client or a regulator.
+A firm without a policy has staff making this judgment individually, in real time, without training. Some staff are conservative. Others are not. The variance is the risk. With a written line, the variance collapses to something the firm can actually defend in front of a client or a regulator.
 
 The line for most professional services firms looks like this:
 
@@ -58,15 +58,15 @@ The line for most professional services firms looks like this:
 
 **Draft legal positions or strategy.** Anything that the client would consider confidential work product. Never pasted into a public AI tool.
 
-**Generalised research and drafting.** General research, prose drafting, idea generation, public-domain content. Fine on approved AI tools.
+**Generalized research and drafting.** General research, prose drafting, idea generation, public-domain content. Fine on approved AI tools.
 
 The line is not subtle. Staff who understand it can apply it. Staff who do not have a line will sometimes apply something looser.
 
 ## Where on-device AI changes the calculus
 
-Apple Intelligence and other on-device AI capabilities change one specific part of this calculation. When the AI runs on the device, the data does not leave the device. The privacy properties of summarising a document with Apple Intelligence on a managed Mac are fundamentally different from pasting the same document into a public AI tool.
+Apple Intelligence and other on-device AI capabilities change one specific part of this calculation. When the AI runs on the device, the data does not leave the device. The privacy properties of summarizing a document with Apple Intelligence on a managed Mac are fundamentally different from pasting the same document into a public AI tool.
 
-The policy should recognise this distinction explicitly. Not because on-device AI is unlimited (it has its own constraints), but because lumping it together with public AI tools makes the policy harder to follow than it needs to be.
+The policy should recognize this distinction explicitly. Not because on-device AI is unlimited (it has its own constraints), but because lumping it together with public AI tools makes the policy harder to follow than it needs to be.
 
 <div class="insight-compare">
   <div class="insight-compare-col">

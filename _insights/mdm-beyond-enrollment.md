@@ -22,7 +22,7 @@ tldr:
   - "Automated maintenance handles software updates, compliance remediation, and policy enforcement without IT touching the device."
   - "Continuous monitoring catches drift, threats, and performance issues before users notice them."
   - "Integration with SSO and identity providers turns MDM into infrastructure, not a tool."
-  - "Forrester finds organisations realise 153% ROI on professionally-deployed Apple fleets, with 55% fewer support tickets per device."
+  - "Forrester finds organizations realize 153% ROI on professionally-deployed Apple fleets, with 55% fewer support tickets per device."
 related:
   - title: "Managed Apple IT"
     url: "/services/managed-apple-it/"
@@ -38,7 +38,7 @@ related:
     context: "What enrollment and fleet-wide MDM ownership looked like in practice for a 22-branch public library."
 ---
 
-Mobile Device Management (MDM) is the platform that defines how an organisation's Apple devices are configured, secured, and maintained at scale. Think of it as the central control plane for every Mac, iPad, and iPhone in the business: it sets the policies, deploys the apps, enforces the security rules, and keeps the fleet in line with whatever the organisation has decided "in line" means.
+Mobile Device Management (MDM) is the platform that defines how an organization's Apple devices are configured, secured, and maintained at scale. Think of it as the central control plane for every Mac, iPad, and iPhone in the business: it sets the policies, deploys the apps, enforces the security rules, and keeps the fleet in line with whatever the organization has decided "in line" means.
 
 Most discussions of MDM stop at enrollment, which is the first step. A device arrives, joins the MDM, gets its apps and policies, and is handed to the user. That is the part the IT team is asked about. The part vendors demo. The part the buyer notices when shopping for a platform. It is also the smallest part of the work.
 
@@ -50,7 +50,7 @@ In the field, three categories of post-enrollment work matter most.
 
 Software updates that ship on the schedule you set, not when each user feels like restarting. Policy changes that propagate across the fleet in minutes. Devices that drift out of compliance and are automatically pulled back. Apps that arrive on the right devices for the right users without an IT ticket. None of this requires a human in the loop once the rules are written.
 
-For organisations running thirty or more Apple devices, this is where the labour math turns. The cost of manually patching, configuring, and remediating that many devices is real. The cost of letting them drift is bigger. A properly configured MDM eliminates both.
+For organizations running thirty or more Apple devices, this is where the labor math turns. The cost of manually patching, configuring, and remediating that many devices is real. The cost of letting them drift is bigger. A properly configured MDM eliminates both.
 
 ## Continuous monitoring
 
@@ -60,7 +60,7 @@ Threat detection sits in the same layer. When an unknown configuration profile a
 
 ## Security enforcement and identity
 
-The platform's compliance rules are the floor: FileVault disk encryption on every Mac, screen lock under five minutes, operating system within the supported version range, no unmanaged apps in privileged contexts. The interesting work happens when those rules are wired into identity. Single sign-on (SSO) with Microsoft Entra ID, Okta, or Google Workspace lets one set of credentials unlock the apps a user is authorised to use. Role-based access determines which apps a clinical assistant gets versus a CFO. Conditional access revokes an unmanaged device's session the moment it goes off-policy.
+The platform's compliance rules are the floor: FileVault disk encryption on every Mac, screen lock under five minutes, operating system within the supported version range, no unmanaged apps in privileged contexts. The interesting work happens when those rules are wired into identity. Single sign-on (SSO) with Microsoft Entra ID, Okta, or Google Workspace lets one set of credentials unlock the apps a user is authorized to use. Role-based access determines which apps a clinical assistant gets versus a CFO. Conditional access revokes an unmanaged device's session the moment it goes off-policy.
 
 At this point the MDM is doing infrastructure work. It enforces, at the device layer, whatever the identity provider declares. That is what separates an Apple fleet that scales from one that becomes a liability the moment headcount doubles.
 

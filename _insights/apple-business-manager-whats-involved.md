@@ -15,7 +15,7 @@ author: "RIPEDA"
 tldr:
   - "Apple Business Manager (ABM) by itself is free and small. What makes it useful is the Mobile Device Management (MDM), identity, and reseller setup around it."
   - "The project is mostly decisions, not configuration time. The administrative side takes longer than the technical side."
-  - "Apple verifies the organisation through one of several methods (a D-U-N-S number, or one of the alternate business verification options Apple has more recently accepted), a verifier from the company's domain, and a Managed Apple Account holder are required before ABM can be activated."
+  - "Apple verifies the organization through one of several methods (a D-U-N-S number, or one of the alternate business verification options Apple has more recently accepted), a verifier from the company's domain, and a Managed Apple Account holder are required before ABM can be activated."
   - "The reseller relationship determines whether new devices flow into ABM automatically or whether each one needs manual enrollment."
   - "ABM done in isolation is a tenant that exists. ABM done with MDM and identity integration is a fleet that runs itself."
 related:
@@ -39,31 +39,31 @@ This is a map of what Apple Business Manager (ABM) rollout actually involves at 
 
 ## What ABM actually is
 
-ABM is a free Apple service that gives an organisation a tenant for managing Apple devices, Managed Apple Accounts, and content distribution. The tenant by itself does not configure or control devices. What it does is define the institutional relationship between the organisation and Apple.
+ABM is a free Apple service that gives an organization a tenant for managing Apple devices, Managed Apple Accounts, and content distribution. The tenant by itself does not configure or control devices. What it does is define the institutional relationship between the organization and Apple.
 
 Three things flow out of that institutional relationship.
 
-**Automated device enrollment.** Devices purchased through an Apple Authorized Reseller in the organisation's name appear in the ABM tenant automatically. When the device boots for the first time and reaches the internet, Apple hands it to the organisation's Mobile Device Management (MDM) without manual intervention.
+**Automated device enrollment.** Devices purchased through an Apple Authorized Reseller in the organization's name appear in the ABM tenant automatically. When the device boots for the first time and reaches the internet, Apple hands it to the organization's Mobile Device Management (MDM) without manual intervention.
 
-**Managed Apple Accounts.** Identities that belong to the organisation, not to individual staff members. Staff sign in with these accounts to access company resources, and when they leave, the access ends without affecting their personal Apple ID.
+**Managed Apple Accounts.** Identities that belong to the organization, not to individual staff members. Staff sign in with these accounts to access company resources, and when they leave, the access ends without affecting their personal Apple ID.
 
-**Volume content distribution.** A central way to purchase and distribute apps and books across the fleet. Useful for any organisation with more than five devices and more than one app license to manage.
+**Volume content distribution.** A central way to purchase and distribute apps and books across the fleet. Useful for any organization with more than five devices and more than one app license to manage.
 
 ## What setting it up actually involves
 
 The ABM rollout is mostly four threads of work that run in parallel.
 
-**Administrative and verification.** Apple verifies the organisation through one of several accepted methods. A D-U-N-S number (free from Dun & Bradstreet) is one path and was historically the only one; it nominally takes a few business days to issue but in practice can stretch up to thirty days. Apple now accepts other business verification credentials, which are often faster for Canadian organisations that already have the documentation on hand. A verifier with admin access to the organisation's domain confirms the identity. A primary Managed Apple Account holder is named, usually the IT lead or operations lead. This part runs on Apple's calendar, not the organisation's.
+**Administrative and verification.** Apple verifies the organization through one of several accepted methods. A D-U-N-S number (free from Dun & Bradstreet) is one path and was historically the only one; it nominally takes a few business days to issue but in practice can stretch up to thirty days. Apple now accepts other business verification credentials, which are often faster for Canadian organizations that already have the documentation on hand. A verifier with admin access to the organization's domain confirms the identity. A primary Managed Apple Account holder is named, usually the IT lead or operations lead. This part runs on Apple's calendar, not the organization's.
 
 **MDM selection and integration.** Mosyle, Kandji, Jamf, SimpleMDM, or Microsoft Intune. The choice is a separate decision with its own pricing and operational considerations. Once chosen, the MDM is connected to ABM via a server token. From that point onward, the MDM controls what happens to enrolled devices.
 
-**Identity integration.** Most organisations connect ABM to their existing identity provider so staff sign in with the same credentials they use elsewhere. Microsoft Entra ID, Google Workspace, and Okta all integrate. The integration is technical work but small.
+**Identity integration.** Most organizations connect ABM to their existing identity provider so staff sign in with the same credentials they use elsewhere. Microsoft Entra ID, Google Workspace, and Okta all integrate. The integration is technical work but small.
 
-**Reseller relationship.** The organisation establishes a relationship with one or more Apple Authorized Resellers and configures them to drop new device purchases directly into the ABM tenant. Without this, every new device needs manual enrollment, which defeats most of the point of ABM.
+**Reseller relationship.** The organization establishes a relationship with one or more Apple Authorized Resellers and configures them to drop new device purchases directly into the ABM tenant. Without this, every new device needs manual enrollment, which defeats most of the point of ABM.
 
 <div class="insight-stat">
   <p><strong>Apple time.</strong> Business verification (D-U-N-S or an alternate accepted method), domain verification, and Apple-side approval. Typically one to three weeks for a first-time setup, occasionally longer when the D-U-N-S path is the only option.</p>
-  <p><strong>Organisation time.</strong> MDM selection, identity integration, role profile design. Two to six weeks depending on how many decisions are pending.</p>
+  <p><strong>Organization time.</strong> MDM selection, identity integration, role profile design. Two to six weeks depending on how many decisions are pending.</p>
   <p><strong>Reseller time.</strong> Establishing the channel relationship and configuring device drop-ship to the tenant. One to two weeks the first time.</p>
 </div>
 
@@ -83,7 +83,7 @@ The setup is the smaller half of the project. The work that makes ABM useful is 
 
 **Role profiles in the MDM.** Reception, chairside, surgical, designer, motion designer, engineer, operations. Each role defines the apps, settings, restrictions, and identity bindings the MDM applies to a device assigned to that role.
 
-**Onboarding and offboarding workflows.** What happens when a new staff member arrives with a new laptop. What happens when a staff member leaves. The MDM provides the controls. The organisation defines what to do with them.
+**Onboarding and offboarding workflows.** What happens when a new staff member arrives with a new laptop. What happens when a staff member leaves. The MDM provides the controls. The organization defines what to do with them.
 
 **Lifecycle handling.** Trade-in, refresh, redeployment, retirement. Each transition has implications for the ABM record and the MDM profile.
 
@@ -91,6 +91,6 @@ These are the parts that take time, and they are the parts most worth getting ri
 
 ## When to think about this
 
-The right time to set up Apple Business Manager is before the next Apple device purchase, before the next staff growth wave, or before the first compliance question that requires the organisation to enumerate its devices.
+The right time to set up Apple Business Manager is before the next Apple device purchase, before the next staff growth wave, or before the first compliance question that requires the organization to enumerate its devices.
 
-ABM is small to enable. The value compounds as the rest of the Apple environment is built on it. The right question to ask is not how long ABM takes to set up. It is what the organisation wants ABM to enable, and whether the surrounding work is ready to take advantage of it.
+ABM is small to enable. The value compounds as the rest of the Apple environment is built on it. The right question to ask is not how long ABM takes to set up. It is what the organization wants ABM to enable, and whether the surrounding work is ready to take advantage of it.

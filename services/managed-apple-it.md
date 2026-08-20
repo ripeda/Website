@@ -7,9 +7,9 @@ redirect_from:
   - /services/
   - /software.html
 layout: service-hub
-title: "Managed Apple IT for Canadian organisations"
+title: "Managed Apple IT for Canadian organizations"
 seo_title: "Managed Apple IT Services — Calgary & Alberta | RIPEDA Consulting"
-description: "Managed Apple IT for SaaS, dental, design, and education organisations in Calgary and across Alberta. Per-seat ongoing service covering MDM, identity, security, backup, and help desk."
+description: "Managed Apple IT for SaaS, dental, design, and education organizations in Calgary and across Alberta. Per-seat ongoing service covering MDM, identity, security, backup, and help desk."
 permalink: /services/managed-apple-it/
 breadcrumb: true
 date: 2026-06-08
@@ -18,7 +18,7 @@ service: managed-apple-it
 keywords: "Managed Apple IT, Apple MSP Calgary, Apple managed services, Apple business IT, Mac fleet management, MDM operations Canada, Apple help desk, Apple consulting Calgary"
 hero:
   eyebrow: "Service · Managed Apple IT"
-  headline: "Managed Apple IT for Canadian organisations"
+  headline: "Managed Apple IT for Canadian organizations"
   dek: "Built for firms where Apple devices are the working environment and IT needs to run cleanly in the background. Per-seat ongoing service. Predictable cost. No surprises."
   badges:
     - "Apple Technical Partner since 2012"
@@ -27,8 +27,8 @@ hero:
   cta_label: "Talk to us about your environment"
   cta_url: "/#contact"
 audience:
-  who: "Founders, Chief Operating Officers, Practice Managers, Headmasters or Principals, and operations leads at Apple-first organisations."
-  what: "Organisations that need Apple IT to run as a service, not as a project. Per-seat monthly pricing, defined scope, and a predictable invoice."
+  who: "Founders, Chief Operating Officers, Practice Managers, Headmasters or Principals, and operations leads at Apple-first organizations."
+  what: "Organizations that need Apple IT to run as a service, not as a project. Per-seat monthly pricing, defined scope, and a predictable invoice."
 faq:
   - q: "What is included in per-seat Managed Apple IT?"
     a: "Mobile Device Management platform, identity provider connection, password vault, security baselines, help desk during business hours, monthly fleet health reporting, AppleCare claim handling, and ongoing security patch management are all included. Onboarding flow for new staff and offboarding flow for departures are included. Quarterly business reviews are included. Hardware and software licensing are billed at cost separately."
@@ -43,7 +43,7 @@ faq:
   - q: "Can you handle AppleCare claims for our fleet?"
     a: "Yes. AppleCare claim handling is part of the managed service. We file claims, coordinate repair logistics with our Apple Authorized Service Provider (AASP) operation, and produce documentation for fleet records. Schools, clinics, and creative agencies all use this regularly."
   - q: "How is billing structured?"
-    a: "Monthly per-seat invoicing at a defined rate. The seat count adjusts up as new staff are added and down as staff depart. The MDM, password vault, identity provider connection, and other operational software licenses are typically bundled into the inclusive seat price rather than itemised on the invoice."
+    a: "Monthly per-seat invoicing at a defined rate. The seat count adjusts up as new staff are added and down as staff depart. The MDM, password vault, identity provider connection, and other operational software licenses are typically bundled into the inclusive seat price rather than itemized on the invoice."
 ---
 
 A practice manager runs a six-chair dental clinic. A founder runs a thirty-person SaaS company. An operations lead runs a fifty-person design agency. Three different industries, three different operational shapes, one shared problem: Apple devices everywhere, and IT that needs to run reliably in the background while the team focuses on the work that pays the bills.
@@ -82,9 +82,9 @@ The setup involves Apple Business Manager (ABM) or Apple School Manager (ASM) at
 
 ## Onboarding, offboarding, and identity
 
-A new hire's Mac arrives pre-enrolled, drop-shipped to wherever the staff member sits. Day one looks like opening a laptop, signing in with the organisation's identity credentials, and watching the right apps install themselves. Ninety minutes of unattended setup later, the new hire is on the active project.
+A new hire's Mac arrives pre-enrolled, drop-shipped to wherever the staff member sits. Day one looks like opening a laptop, signing in with the organization's identity credentials, and watching the right apps install themselves. Ninety minutes of unattended setup later, the new hire is on the active project.
 
-The same architecture handles the departure side. When a staff member leaves, the identity provider revokes access in one place. The Mac wipes itself on next reboot. Shared passwords are rotated where needed. Audit logs show the timestamp of every action. The clean exit is what protects the organisation from credential debt and security exposures that linger after staff turnover.
+The same architecture handles the departure side. When a staff member leaves, the identity provider revokes access in one place. The Mac wipes itself on next reboot. Shared passwords are rotated where needed. Audit logs show the timestamp of every action. The clean exit is what protects the organization from credential debt and security exposures that linger after staff turnover.
 
 [Read more about onboarding a new designer in 90 minutes →](/resources/insights/designer-onboarding-mdm/)
 
@@ -104,7 +104,7 @@ In a Managed Apple IT engagement, the security operations run continuously. Disk
 
 ## Help desk, remote support, and visibility
 
-Most IT problems do not need someone on-site. A Mac that will not print, a clinical iPad that has lost its enrolment, a software update that has not applied: all of these are solvable remotely if the IT provider has the right tools in place. The difference between a help desk that fixes problems in fifteen minutes and one that needs an on-site visit measured in hours is mostly the difference between screen sharing and proper remote management.
+Most IT problems do not need someone on-site. A Mac that will not print, a clinical iPad that has lost its enrollment, a software update that has not applied: all of these are solvable remotely if the IT provider has the right tools in place. The difference between a help desk that fixes problems in fifteen minutes and one that needs an on-site visit measured in hours is mostly the difference between screen sharing and proper remote management.
 
 A managed remote setup combines the MDM platform, a remote monitoring and management (RMM) platform, and a ticketing system. Together they let the IT team see every device, push updates, run scripts to apply fixes, and resolve most issues without needing to be physically present. The on-site visit is reserved for hardware work, network installs, and the situations where a hands-on presence is genuinely required.
 
@@ -114,7 +114,7 @@ A managed remote setup combines the MDM platform, a remote monitoring and manage
 
 A firm has thirty staff. On any given Tuesday, eight Macs are at the office, fifteen are at staff homes, four are at client sites, and three are on planes. The IT pattern that ran the office in 2019 cannot run this firm in 2026. What does run it is a different set of assumptions about where a Mac lives, who can see it, and how the office knows it is doing what it should.
 
-Managed Apple IT engagements assume hybrid by default. Visibility, reach, and reversibility all work the same regardless of where the Mac sits. Network-dependent controls (Virtual Private Network (VPN)-only access, corporate-Wi-Fi requirements) break under hybrid. Identity-based controls scale better. For multi-location organisations (dental groups, schools running multiple campuses, agencies with a satellite office), the same architecture absorbs each new location with the same playbook.
+Managed Apple IT engagements assume hybrid by default. Visibility, reach, and reversibility all work the same regardless of where the Mac sits. Network-dependent controls (Virtual Private Network (VPN)-only access, corporate-Wi-Fi requirements) break under hybrid. Identity-based controls scale better. For multi-location organizations (dental groups, schools running multiple campuses, agencies with a satellite office), the same architecture absorbs each new location with the same playbook.
 
 [Read more about managing a hybrid office Mac fleet →](/resources/insights/hybrid-office-mac-fleet/)
 
@@ -127,7 +127,7 @@ Around these core layers sits the operational software RIPEDA uses to deliver th
 <div class="pillar-case">
 <p class="pillar-case-eyebrow">Engagement pattern</p>
 <p class="pillar-case-title">Three-clinic dental group moving to managed service</p>
-<p class="pillar-case-body">A pattern we see frequently. A three- or four-location dental group consolidates from per-clinic IT contractors to a single Managed Apple IT engagement. RIPEDA's typical onboarding is four to six weeks: device audit and re-enrolment across all clinics, identity provider consolidation, MDM standardisation, password vault deployment, and an offboarding runbook for the group. The Quarterly Business Reviews afterward become the conversation where the group plans its next clinic, its next system refresh, and any audit preparation.</p>
+<p class="pillar-case-body">A pattern we see frequently. A three- or four-location dental group consolidates from per-clinic IT contractors to a single Managed Apple IT engagement. RIPEDA's typical onboarding is four to six weeks: device audit and re-enrollment across all clinics, identity provider consolidation, MDM standardization, password vault deployment, and an offboarding runbook for the group. The Quarterly Business Reviews afterward become the conversation where the group plans its next clinic, its next system refresh, and any audit preparation.</p>
 </div>
 
 ## Why RIPEDA specifically
@@ -140,4 +140,4 @@ Specific to Managed Apple IT, our value is depth in the Apple ecosystem. We supp
 
 Managed Apple IT engagements follow a Discovery, Migration, and Managed Service sequence. Discovery takes one to two weeks. We audit the device fleet, the identity layer, the security posture, the licensing footprint, and any compliance obligations. We document what is working, what is not, and what the first ninety days of managed service should focus on.
 
-Migration follows Discovery on a schedule that respects active operations. Mac re-enrolment into ABM and MDM happens in batches. Identity provider connection happens during a defined window. Password vault rollout happens with team-by-team coverage. Managed service begins when migration completes. Monthly per-seat pricing covers device management, monitoring, help desk, security, AppleCare claim handling, and routine repair. Annual agreements are how we structure the relationship, because doing this work properly requires understanding your environment deeply, and that investment makes more sense with a real commitment on both sides.
+Migration follows Discovery on a schedule that respects active operations. Mac re-enrollment into ABM and MDM happens in batches. Identity provider connection happens during a defined window. Password vault rollout happens with team-by-team coverage. Managed service begins when migration completes. Monthly per-seat pricing covers device management, monitoring, help desk, security, AppleCare claim handling, and routine repair. Annual agreements are how we structure the relationship, because doing this work properly requires understanding your environment deeply, and that investment makes more sense with a real commitment on both sides.

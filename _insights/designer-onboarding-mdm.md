@@ -16,7 +16,7 @@ tldr:
   - "A designer's first 90 minutes should be opening the box, signing in once, and getting on with the day. Anything more is friction the agency is paying for."
   - "Mobile Device Management (MDM) and Apple Business Manager (ABM) turn first-day setup into a sign-and-go process."
   - "Asset library access, brand-tool licenses, and shared inboxes are provisioned by role, not requested by ticket."
-  - "Standardised role profiles cut the variance between hires and protect against credential creep over time."
+  - "Standardized role profiles cut the variance between hires and protect against credential creep over time."
   - "The cost of doing this badly is not first-day frustration. It is the third week, when the new hire still cannot find what they need."
 related:
   - title: "Managed Apple IT"

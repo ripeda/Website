@@ -44,7 +44,7 @@ The Series A close changes things overnight. Six in February is twenty by April,
 
 Three categories of IT decision fail quietly in that window.
 
-**Fleet visibility.** Devices issued without MDM enrolment. The company genuinely does not know how many laptops are out there or what state they are in.
+**Fleet visibility.** Devices issued without MDM enrollment. The company genuinely does not know how many laptops are out there or what state they are in.
 
 **Identity and access.** Hires get accounts created as needs arise. Departures rarely trigger full revocation. Credentials accumulate.
 
@@ -63,7 +63,7 @@ The honest answer is eight to sixteen weeks of focused work involving every staf
   <p><strong>Foundation install.</strong> ABM, MDM, identity provider, password vault, written offboarding checklist.</p>
 </div>
 
-The device audit alone often takes two to three weeks because every staff member has to confirm a serial number, surrender the device briefly for re-enrolment, and re-sign in with a managed Apple Account. Coordinating that across 150 staff in three time zones, around live product work, is a project. The identity and access audit is similar.
+The device audit alone often takes two to three weeks because every staff member has to confirm a serial number, surrender the device briefly for re-enrollment, and re-sign in with a managed Apple Account. Coordinating that across 150 staff in three time zones, around live product work, is a project. The identity and access audit is similar.
 
 The work has to happen. The customer needs the answer. The board needs the answer. The security questionnaire needs the answer. The timing is what hurts. It hits when the company can least absorb the distraction.
 

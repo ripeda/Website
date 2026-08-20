@@ -36,7 +36,7 @@ related:
 
 Most business owners discover the limits of iCloud backup at exactly the wrong moment. A server fails. A laptop is lost in transit. A ransomware attack encrypts everything reachable on the network. The IT lead reaches for the backup and finds that iCloud has done its job. Personal photos and documents are safe. The systems the business actually runs on are not.
 
-Apple has not shipped a broken product. iCloud is doing exactly what consumer backup is designed to do. The question for a business is whether consumer backup is the right tool for the job. For any organisation past a single user, it is not.
+Apple has not shipped a broken product. iCloud is doing exactly what consumer backup is designed to do. The question for a business is whether consumer backup is the right tool for the job. For any organization past a single user, it is not.
 
 <div class="insight-compare">
   <div class="insight-compare-col">
@@ -52,7 +52,7 @@ Apple has not shipped a broken product. iCloud is doing exactly what consumer ba
   </div>
   <div class="insight-compare-col is-strong">
     <h4>What business continuity actually needs</h4>
-    <p>Systems and data the organisation depends on:</p>
+    <p>Systems and data the organization depends on:</p>
     <ul>
       <li>Server and workstation full-system images</li>
       <li>Database transaction logs and point-in-time recovery</li>
@@ -60,7 +60,7 @@ Apple has not shipped a broken product. iCloud is doing exactly what consumer ba
       <li>Email archives and audit-relevant communication</li>
       <li>Compliance retention with encrypted offsite replication</li>
     </ul>
-    <p class="insight-compare-conclusion"><strong>Ideal for:</strong> any organisation past a single user, particularly regulated practices.</p>
+    <p class="insight-compare-conclusion"><strong>Ideal for:</strong> any organization past a single user, particularly regulated practices.</p>
   </div>
 </div>
 
@@ -68,7 +68,7 @@ For a solo practitioner, the gap might be acceptable. For a clinic with shared i
 
 ## Compliance is its own problem
 
-Backup is not only about restoring files. For regulated organisations, it is also about proving what happened to data, when, and who had access. Privacy laws like PHIPA (Alberta's Personal Health Information Protection Act) and PIPEDA (Canada's federal Personal Information Protection and Electronic Documents Act) expect audit trails, retention policies that run for years, and geographic data residency that can be demonstrated. iCloud provides none of these as documented business features. They are not what the service is for.
+Backup is not only about restoring files. For regulated organizations, it is also about proving what happened to data, when, and who had access. Privacy laws like PHIPA (Alberta's Personal Health Information Protection Act) and PIPEDA (Canada's federal Personal Information Protection and Electronic Documents Act) expect audit trails, retention policies that run for years, and geographic data residency that can be demonstrated. iCloud provides none of these as documented business features. They are not what the service is for.
 
 A note on Apple's own enterprise option. Apple Business Essentials adds dedicated business iCloud accounts and basic device management, but is currently only offered in the United States. Canadian businesses cannot purchase it. Even when it eventually crosses the border, the feature set is narrower than a full professional backup architecture.
 

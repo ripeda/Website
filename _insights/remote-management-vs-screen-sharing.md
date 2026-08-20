@@ -64,7 +64,7 @@ The trouble is that this is roughly five percent of what IT is supposed to do. T
   </div>
 </div>
 
-The questions remote management can answer that screen sharing cannot are the ones most businesses do not realise they should be asking. How many Macs do you actually own? Which of them are running an unsupported version of macOS? Which devices have not checked in for the last thirty days because they are sitting in a drawer? Which laptops still have FileVault disk encryption disabled despite the policy? How long is it taking, on average, to apply a critical security patch across the fleet?
+The questions remote management can answer that screen sharing cannot are the ones most businesses do not realize they should be asking. How many Macs do you actually own? Which of them are running an unsupported version of macOS? Which devices have not checked in for the last thirty days because they are sitting in a drawer? Which laptops still have FileVault disk encryption disabled despite the policy? How long is it taking, on average, to apply a critical security patch across the fleet?
 
 A help desk that operates entirely through screen sharing has no way to answer any of these questions. A managed remote platform answers all of them as a normal part of its day.
 

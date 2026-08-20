@@ -32,7 +32,7 @@ Suite 300 – 1301 8 Street SW, Calgary, AB T2R 1B7
 
 **When you submit our contact form**, we collect the details you enter — your name, contact details, company, role, and information about your IT environment and what you need help with.
 
-We use this to respond to your enquiry, understand your situation well enough to have a useful conversation, prioritise our response, and keep a record in our client management system. If you explicitly opt in, we also use your email address to send you updates.
+We use this to respond to your inquiry, understand your situation well enough to have a useful conversation, prioritize our response, and keep a record in our client management system. If you explicitly opt in, we also use your email address to send you updates.
 
 **When you browse the site**, our hosting and security providers collect standard technical information such as IP address and browser type in the course of delivering and protecting the site. Our website analytics are **cookieless** — no cookies are set, nothing is stored on your device, and you are not tracked across other websites. Analytics tell us aggregate things like which pages are read; they do not identify you.
 
@@ -40,11 +40,11 @@ Please do not send us sensitive information through this form — including heal
 
 ## 3. Consent
 
-By submitting the contact form you consent to the use described above. You can withdraw consent at any time by contacting our Privacy Officer. Withdrawing consent for marketing updates does not affect our ability to respond to an enquiry you have already made.
+By submitting the contact form you consent to the use described above. You can withdraw consent at any time by contacting our Privacy Officer. Withdrawing consent for marketing updates does not affect our ability to respond to an inquiry you have already made.
 
 ## 4. Automated assessment
 
-We may use AI-driven data enrichment, based on publicly available information, to help us assess and prioritise enquiries. A person at RIPEDA reviews every enquiry — no decision affecting you is made solely by automated means. We do not authorise this information to be used to train artificial-intelligence models.
+We may use AI-driven data enrichment, based on publicly available information, to help us assess and prioritize inquiries. A person at RIPEDA reviews every inquiry — no decision affecting you is made solely by automated means. We do not authorize this information to be used to train artificial-intelligence models.
 
 ## 5. Service providers outside Canada
 
@@ -56,11 +56,11 @@ You can obtain our written policies and practices regarding our use of service p
 
 ## 6. Protection and retention
 
-We use reasonable security arrangements to protect personal information against unauthorised access, collection, use, disclosure, copying, modification, disposal or destruction (PIPA s. 34), including encrypted transmission and access controls limiting who at RIPEDA can view enquiry records. No method of transmission or storage is completely secure.
+We use reasonable security arrangements to protect personal information against unauthorized access, collection, use, disclosure, copying, modification, disposal or destruction (PIPA s. 34), including encrypted transmission and access controls limiting who at RIPEDA can view inquiry records. No method of transmission or storage is completely secure.
 
-We keep personal information only as long as reasonably required for the purposes described or as required by law, after which we destroy it or render it non-identifying (PIPA s. 35). Enquiries that do not lead to an engagement are retained for 24 months.
+We keep personal information only as long as reasonably required for the purposes described or as required by law, after which we destroy it or render it non-identifying (PIPA s. 35). Inquiries that do not lead to an engagement are retained for 24 months.
 
-If personal information in our control is lost or accessed without authorisation and there is a real risk of significant harm, we will notify the Office of the Information and Privacy Commissioner of Alberta without unreasonable delay (PIPA s. 34.1) and notify affected individuals as required (PIPA s. 37.1).
+If personal information in our control is lost or accessed without authorization and there is a real risk of significant harm, we will notify the Office of the Information and Privacy Commissioner of Alberta without unreasonable delay (PIPA s. 34.1) and notify affected individuals as required (PIPA s. 37.1).
 
 ## 7. Your rights
 

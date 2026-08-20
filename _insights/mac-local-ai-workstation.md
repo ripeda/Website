@@ -15,7 +15,7 @@ keywords: "local AI on Mac, Apple Silicon AI workloads, run LLM locally Mac, Mac
 reading_time: 4
 tldr:
   - "AI and LLM workloads are memory- and compute-hungry, and the device now decides whether a team can run them at all."
-  - "Apple silicon's unified memory lets a laptop hold a sizeable model in memory and sustain performance without a discrete GPU or thermal throttling."
+  - "Apple silicon's unified memory lets a laptop hold a sizable model in memory and sustain performance without a discrete GPU or thermal throttling."
   - "Forrester's June 2026 study found teams adopting Mac specifically to run compute-intensive AI locally, with identical workloads taking more than three times longer on prior devices."
   - "Running AI locally keeps sensitive data on the device, cuts latency, and reduces reliance on rising cloud inference costs."
   - "The hardware is the enabler. The returns arrive when the team also knows how to use the tools."
@@ -39,7 +39,7 @@ For years the Mac-versus-PC conversation in business turned on support costs, se
 
 AI workloads are hungry for two things: memory and sustained compute. Running a model locally means loading it into memory and keeping the processor busy for minutes at a time, not seconds. This is exactly where the older device strategy runs out of room.
 
-Apple silicon handles it differently. The unified memory architecture gives the CPU, GPU, and Neural Engine access to one shared pool of memory, so a laptop can hold a sizeable model in memory without a discrete graphics card. Just as important, the chips sustain that performance under load rather than throttling back once they heat up. Forrester's interviewees described the gap in concrete terms. Identical workloads took "more than three times longer" to complete on their prior devices, constrained by CPU and GPU performance, thermal throttling, or the amount of available memory.
+Apple silicon handles it differently. The unified memory architecture gives the CPU, GPU, and Neural Engine access to one shared pool of memory, so a laptop can hold a sizable model in memory without a discrete graphics card. Just as important, the chips sustain that performance under load rather than throttling back once they heat up. Forrester's interviewees described the gap in concrete terms. Identical workloads took "more than three times longer" to complete on their prior devices, constrained by CPU and GPU performance, thermal throttling, or the amount of available memory.
 
 ## What actually runs better locally
 
@@ -51,7 +51,7 @@ The tasks that benefit are the ones teams are increasingly doing on the device r
   <p><strong>Cloud bills flatten.</strong> Work that runs locally is work you are not paying a provider to run, and inference costs add up quickly once a team moves past occasional use.</p>
 </div>
 
-Forrester counts this capability as one of the study's unquantified benefits: the composite organisation used Mac devices to run compute-intensive AI tasks locally with strong and consistent performance, reducing its reliance on centralised infrastructure where data sensitivity, latency, or cloud costs were the deciding factors.
+Forrester counts this capability as one of the study's unquantified benefits: the composite organization used Mac devices to run compute-intensive AI tasks locally with strong and consistent performance, reducing its reliance on centralized infrastructure where data sensitivity, latency, or cloud costs were the deciding factors.
 
 ## When to think about this
 

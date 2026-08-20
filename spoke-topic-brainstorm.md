@@ -54,7 +54,7 @@ Pillar URL: `/industries/dental-medical/`
 The pillar covers six topic sections via existing spokes (MDM, networks, backup, repair, passwords, remote support). New spokes should fill gaps the pillar references thinly OR go deeper into dental-specific concerns the pillar doesn't have room to cover.
 
 1. **PHIPA compliance for Apple-first dental practices** — What Alberta's Personal Health Information Protection Act actually requires for clinical IT, written for the practice manager rather than the lawyer.
-2. **Practice management software for a Mac-first clinic** — Tracker, AbelDent, Curve Hero, Dentrix, Open Dental compared on a Mac-first basis, with virtualisation notes for the Windows-only holdouts.  -- MAYBE
+2. **Practice management software for a Mac-first clinic** — Tracker, AbelDent, Curve Hero, Dentrix, Open Dental compared on a Mac-first basis, with virtualization notes for the Windows-only holdouts.  -- MAYBE
 3. **Sizing the network for a CBCT scan** — Bandwidth, switching, wireless coverage, and what fails first when a clinic outgrows consumer-grade gear. -- MAYBE
 4. **Migrating a dental practice from PC to Mac over a weekend** — The playbook, written from real engagements (anonymized until permissions resolved). -- MAYBE / REPHRASE
 5. **Apple Business Manager for clinical fleets** — Enrollment, app distribution, retired-device wipe, multi-location admin. -- YES
@@ -62,11 +62,11 @@ The pillar covers six topic sections via existing spokes (MDM, networks, backup,
 7. **What downtime actually costs a six-chair clinic** — A calculator-style article. Patient throughput, hourly chair revenue, hygienist time lost. -- YES
 8. **Shared logins and the audit trail problem** — Clinical staff credentials done right when multiple people need access to the same systems.  -- YES
 9. **Onboarding a new associate dentist in under an hour** — Fleet management for fast hiring, including license assignments and credential provisioning. -- YES
-10. **Multi-location dental groups: keeping operations consistent** — Centralised management across two, three, or five clinics. -- YES
+10. **Multi-location dental groups: keeping operations consistent** — Centralized management across two, three, or five clinics. -- YES
 11. **The case for ditching the in-clinic server** — Cloud-first dental IT, what works, what doesn't, when it makes sense.
 12. **iPad at the chair: patient-facing tech without security compromise** — Kiosk mode, MDM restrictions, what to disable, what to allow. -- MAYBE
 13. **Software patching for clinical environments** — When "wait until weekend" is not safe, and how to schedule around patient care. -- MAYBE
-14. **Building a dental practice IT budget that doesn't surprise you in year three** — TCO modelling for a clinic over 36 months. -- YES
+14. **Building a dental practice IT budget that doesn't surprise you in year three** — TCO modeling for a clinic over 36 months. -- YES
 15. **Cyber liability insurance and Apple IT** — What underwriters now ask for in dental specifically. -- NO
 16. **What changes when you grow from one clinic to three** — The IT inflection points at each scale. -- MAYBE
 17. **Choosing your dental imaging software vendor** — Questions to ask before signing, from an IT perspective. -- MAYBE
@@ -134,24 +134,24 @@ Spokes here should cluster around two clear themes: (1) network and infrastructu
 17. **From iPad cart to 1:1** — The bridge years and what changes about the IT architecture. -- NO
 18. **Apple in special education settings** — Accessibility done right with switch control, Voice Control, and AssistiveTouch. -- MAYBE (This could be a differentiator)
 19. **Bring-Your-Own-Device vs school-issued** — The trade-offs, with a focus on what private schools tend to pick and why. -- MAYBE
-20. **Refreshing legacy school infrastructure on a small budget** — What to prioritise when you cannot do everything.  -- YES
+20. **Refreshing legacy school infrastructure on a small budget** — What to prioritize when you cannot do everything.  -- YES
 
 ---
 
 ## Professional Services pillar
 
-*Tier 3. Horizontal catchall covering SaaS, accounting, consulting, legal-adjacent firms. Smaller revenue contribution per client but broader applicability. Already covered by 5-6 horizontal spokes; new ones should be specifically vertical-flavoured rather than horizontal.*
+*Tier 3. Horizontal catchall covering SaaS, accounting, consulting, legal-adjacent firms. Smaller revenue contribution per client but broader applicability. Already covered by 5-6 horizontal spokes; new ones should be specifically vertical-flavored rather than horizontal.*
 
 Pillar URL: `/industries/professional-services/`
 
 Most of the horizontal spokes already cover professional services well. New topics here should lean into specific sub-segments (SaaS, accounting, legal-adjacent) or specific decision points unique to the vertical.
 
 1. **SaaS company IT on a budget** — The Apple-first approach to a startup IT footprint that scales. -- YES
-2. **Accounting on Mac in 2026** — What software runs Mac-native, what runs in virtualisation, what still requires a Windows side-car. -- NO
+2. **Accounting on Mac in 2026** — What software runs Mac-native, what runs in virtualization, what still requires a Windows side-car. -- NO
 3. **Mac in legal-adjacent practice** — What law-adjacent firms (consulting, accounting, paralegal) need from their Apple setup, even if they're not law firms.  -- NO
 4. **Remote-first professional firms** — The Apple toolkit that works for distributed teams. -- NO
 5. **The consulting firm Apple stack** — From laptops to identity to billing. The complete picture for a 5-20 person consulting practice. -- NO
-6. **Onboarding contractors at speed** — Temporary Mac access done right, including the offboarding rigour. -- MAYBE
+6. **Onboarding contractors at speed** — Temporary Mac access done right, including the offboarding rigor. -- MAYBE
 7. **Apple device security for client data** — The trust framework that matters when client confidentiality is the deliverable. -- YES
 8. **The bookkeeper / virtual assistant cross-platform reality** — Windows and Android in an otherwise Apple firm.  -- MAYBE
 9. **Professional services and AI policy** — What to tell staff, what to write down, and what to actually enforce. -- YES

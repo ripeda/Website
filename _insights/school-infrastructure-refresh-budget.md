@@ -2,7 +2,7 @@
 layout: insight
 title: "Refreshing legacy school infrastructure on a small budget"
 dek: "Most schools cannot do everything at once. The question is which infrastructure investment buys the most working environment per dollar over the next three years."
-description: "How charter and private schools prioritise infrastructure refresh on a constrained budget. Wireless, switching, security, and the sequencing that maximises return."
+description: "How charter and private schools prioritize infrastructure refresh on a constrained budget. Wireless, switching, security, and the sequencing that maximizes return."
 image: /images/insights/school-infrastructure-refresh-budget-og.png
 date: 2026-03-17
 tags:
@@ -81,7 +81,7 @@ A useful sketch for a charter or private school with roughly seventy thousand do
 
 The numbers are illustrative. Real quotes vary by building, by carrier, and by the specific gear chosen. The structure of the plan is what stays consistent. Each phase enables the next. Each phase delivers visible operational benefit on its own.
 
-RIPEDA's typical structure for school engagements is a Network Support Seat arrangement that amortises the hardware refresh cost into a multi-year support agreement. The school does not have to assemble the full year-one capital expense upfront. The hardware lives inside an ongoing per-seat agreement that also covers monitoring, firmware updates, configuration changes, and the day-to-day network operations that keep the gear working. For schools whose capital budgets cycle differently than their operational budgets, this is usually the easier path.
+RIPEDA's typical structure for school engagements is a Network Support Seat arrangement that amortizes the hardware refresh cost into a multi-year support agreement. The school does not have to assemble the full year-one capital expense upfront. The hardware lives inside an ongoing per-seat agreement that also covers monitoring, firmware updates, configuration changes, and the day-to-day network operations that keep the gear working. For schools whose capital budgets cycle differently than their operational budgets, this is usually the easier path.
 
 ## When to think about this
 
