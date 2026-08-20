@@ -15,7 +15,7 @@ reading_time: 3
 author: "RIPEDA"
 tldr:
   - "A response time target with no stated consequence is a preference, not a commitment."
-  - "Ask who owns the tenant admin accounts, documentation and licences. If the answer is the provider, leaving is expensive by design."
+  - "Ask who owns the tenant admin accounts, documentation and licenses. If the answer is the provider, leaving is expensive by design."
   - "The sharpest scope test is asking them to name three specific things that would generate an invoice."
   - "How directly they answer matters more than the answers themselves."
 related:
@@ -30,7 +30,7 @@ related:
     context: "What Apple support looks like inside accounting, consulting and legal-adjacent firms."
 ---
 
-Most MSP evaluations end up as a demo of a dashboard nobody will open again. The questions that actually predict whether the relationship works are about contract terms and daily operating behaviour, and they rarely come up in a sales meeting unless you raise them.
+Most MSP evaluations end up as a demo of a dashboard nobody will open again. The questions that actually predict whether the relationship works are about contract terms and daily operating behavior, and they rarely come up in a sales meeting unless you raise them.
 
 They are ordered here by how much trouble each one prevents. Watch how the answers arrive as closely as what they contain, because hesitation on a contract question is itself an answer.
 
@@ -46,9 +46,9 @@ The person selling is often not the person arriving. Ask for the names of the en
 
 Every agreement has a line between included and billable, and every vendor describes it in general terms until pressed. Do not ask what is in scope. Ask them to name three specific things you might request next month that would produce a separate invoice. If three examples do not arrive quickly, the boundary has not been thought through, and you will discover it later in writing after the work is done.
 
-## 4. Who owns the documentation, licences and tenant admin accounts
+## 4. Who owns the documentation, licenses and tenant admin accounts
 
-Ask whether the Apple Business Manager tenant, the MDM instance, the domain registrar and the Microsoft 365 global admin accounts are registered to your organisation or to theirs. If the answer is theirs, leaving is expensive by design. Documentation counts too: network diagrams, device records and credentials should be yours and exportable in a usable format. Ownership is far easier to negotiate before signing than after.
+Ask whether the Apple Business Manager tenant, the MDM instance, the domain registrar and the Microsoft 365 global admin accounts are registered to your organization or to theirs. If the answer is theirs, leaving is expensive by design. Documentation counts too: network diagrams, device records and credentials should be yours and exportable in a usable format. Ownership is far easier to negotiate before signing than after.
 
 ## 5. How does offboarding work, and can you have your admin credentials on request
 
@@ -56,7 +56,7 @@ A good answer is specific. A documented handover pack, admin credentials transfe
 
 ## 6. What is their actual Apple depth
 
-A Windows-first MSP that also supports Macs and an Apple-first firm are different propositions, and both will say they support Apple. Ask what share of the devices they manage are Macs, which MDM they run daily (Jamf, Mosyle, SimpleMDM or Intune), and whether they hold Apple Consultants Network or Apple Authorised Service Provider status. Ask who renews the APNs certificate and what happens if it lapses. Firms that live in this answer quickly and without qualifying.
+A Windows-first MSP that also supports Macs and an Apple-first firm are different propositions, and both will say they support Apple. Ask what share of the devices they manage are Macs, which MDM they run daily (Jamf, Mosyle, SimpleMDM or Intune), and whether they hold Apple Consultants Network or Apple Authorized Service Provider status. Ask who renews the APNs certificate and what happens if it lapses. Firms that live in this answer quickly and without qualifying.
 
 ## 7. What does the term and the exit look like
 

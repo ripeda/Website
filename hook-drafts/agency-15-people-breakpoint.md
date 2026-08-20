@@ -13,7 +13,7 @@ keywords: "when does an agency need IT support, IT for a 15 person agency, agenc
 reading_time: 3
 author: "RIPEDA"
 tldr:
-  - "Nothing fails outright at fifteen people. The favours that carried IT at eight simply stop fitting in the margins of someone's week."
+  - "Nothing fails outright at fifteen people. The favors that carried IT at eight simply stop fitting in the margins of someone's week."
   - "Onboarding breaks first, because setting up a Mac by hand goes from twice a year to close to monthly."
   - "Access control breaks third, and it usually surfaces as a client security questionnaire rather than as an incident."
   - "The last thing to break is the person who has been doing IT alongside their actual job."
@@ -29,13 +29,13 @@ related:
     context: "How agencies structure devices, storage, and access as headcount climbs."
 ---
 
-At eight people, IT is a set of favours. Somebody configures the new MacBook over an afternoon, somebody else remembers where the client folders live, and a founder resets the odd password between meetings. At fifteen, the same work is being done by the same people, but it now happens often enough to have a shape.
+At eight people, IT is a set of favors. Somebody configures the new MacBook over an afternoon, somebody else remembers where the client folders live, and a founder resets the odd password between meetings. At fifteen, the same work is being done by the same people, but it now happens often enough to have a shape.
 
 It breaks in a consistent order, and the order is useful because it tells you what to fix next.
 
 ## Onboarding breaks first
 
-An afternoon spent configuring a Mac by hand is fine when it happens twice a year. At fifteen people, with normal agency turnover, it happens close to monthly, and it is never the same afternoon twice. Automated enrolment through Apple Business Manager and an MDM turns that afternoon into a box the new hire opens at their own desk. Until that exists, every hire costs a senior person half a day and produces a Mac configured slightly differently from the last one.
+An afternoon spent configuring a Mac by hand is fine when it happens twice a year. At fifteen people, with normal agency turnover, it happens close to monthly, and it is never the same afternoon twice. Automated enrollment through Apple Business Manager and an MDM turns that afternoon into a box the new hire opens at their own desk. Until that exists, every hire costs a senior person half a day and produces a Mac configured slightly differently from the last one.
 
 ## The file structure stops holding
 
@@ -55,4 +55,4 @@ There is always one: a founder, an ops lead, or the senior designer who is good 
 
 ## If you only do one thing
 
-Fix onboarding. Automated enrolment stops the next hire from adding to the pile, and setting it up forces the decisions about device standards and file access that the other four problems are made of.
+Fix onboarding. Automated enrollment stops the next hire from adding to the pile, and setting it up forces the decisions about device standards and file access that the other four problems are made of.

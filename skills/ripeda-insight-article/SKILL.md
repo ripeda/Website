@@ -89,9 +89,9 @@ original_date: "August 2025"                              # newsletter original 
 
 ---
 
-## Three categorisation layers - keep them distinct
+## Three categorization layers - keep them distinct
 
-Articles are categorised by THREE different mechanisms that serve different purposes. Don't conflate them.
+Articles are categorized by THREE different mechanisms that serve different purposes. Don't conflate them.
 
 | Layer | Where it lives | What it does | Audience |
 |---|---|---|---|
@@ -200,7 +200,7 @@ Strict. No exceptions without explicit Kevin approval.
 
 - **No em-dashes anywhere.** End the sentence and start a new one, or use a colon, or use parentheses.
 - **No emojis anywhere.** Not in headings, not in body, not in callouts.
-- **Canadian English throughout.** colour, centre, organise, optimised, behaviour, programme.
+- **Canadian English throughout.** colour, center, organize, optimized, behavior, program.
 - **Smart quotes** ("curly") in prose. Straight quotes (`"`) are acceptable inside code blocks.
 
 ### Banned phrases - AI tells
@@ -215,7 +215,7 @@ These phrases are tells that something was written by AI. Do not use any of them
 - "This is not an X. This is a Y!" - the contrast-trope. Avoid setting up false dichotomies for rhetorical effect.
 - "It's not just X, it's Y" - same trope, different syntax. Avoid.
 - "leverage" (as a verb)
-- "utilize" / "utilise" - use "use"
+- "utilize" / "utilize" - use "use"
 - "ensure seamless..." / "seamless experience"
 - "dive into" (the verb-form AI filler; the noun "deep dive" is acceptable, especially as a RIPEDA service-tier label)
 - "robust solution" / "robust platform"
@@ -242,9 +242,9 @@ These phrases are tells that something was written by AI. Do not use any of them
 Public-facing articles must be readable by someone who knows the business problem but not the specific technology terminology. Treat the article like a first introduction to the topic, even when most of the audience is technical.
 
 - **Spell out every acronym on first use** with the acronym in parentheses. Examples: "Mobile Device Management (MDM)", "single sign-on (SSO)", "Apple Authorized Service Provider (AASP)", "mean time to repair (MTTR)". Subsequent uses can use the acronym alone.
-- **Define jargon terms briefly on first use.** Either inline ("Single sign-on, where one set of credentials unlocks the apps a user is authorised to use") or by rewriting to avoid the jargon entirely.
-- **If the article centres on a single core concept** (an MDM article, an AASP article, a network infrastructure article), include a one-sentence definition near the top so a reader new to the topic isn't lost by the third paragraph.
-- **Brand names do not need expansion.** Fortinet, Ruckus, Jamf, Mosyle, SimpleMDM, Kandji, Okta, Microsoft Entra ID, FileVault, Apple Business Manager, Time Machine. These are recognised brand or product names.
+- **Define jargon terms briefly on first use.** Either inline ("Single sign-on, where one set of credentials unlocks the apps a user is authorized to use") or by rewriting to avoid the jargon entirely.
+- **If the article centers on a single core concept** (an MDM article, an AASP article, a network infrastructure article), include a one-sentence definition near the top so a reader new to the topic isn't lost by the third paragraph.
+- **Brand names do not need expansion.** Fortinet, Ruckus, Jamf, Mosyle, SimpleMDM, Kandji, Okta, Microsoft Entra ID, FileVault, Apple Business Manager, Time Machine. These are recognized brand or product names.
 - **Universal acronyms do not need expansion.** IT, CFO, COO, VPN, OS, ROI, URL, API. When in doubt, expand.
 - **Avoid stacking acronyms.** A sentence with three undefined acronyms in it reads as gatekeeping. Either expand them or rephrase.
 
@@ -258,7 +258,7 @@ A RIPEDA article gains credibility from real citations, not from the appearance 
 
 **2. A vendor-published price or specification.** Vendor pricing should be approximate, with a soft hedge: "Mosyle Business starts around five dollars per device per month" not "Mosyle Business costs $5.00 per device per month". Pricing changes. Validate against the vendor's current public pricing before publishing, and round.
 
-**3. An Apple-published technical figure.** Throughput numbers, memory capacities, and chip specifications can be stated when they come from Apple's spec pages or developer documentation. Link to the source page when the specific number matters. Generalise when it does not.
+**3. An Apple-published technical figure.** Throughput numbers, memory capacities, and chip specifications can be stated when they come from Apple's spec pages or developer documentation. Link to the source page when the specific number matters. Generalize when it does not.
 
 **4. An external study or report with a real, citable source.** Cited research strengthens an article when it is genuine. Forrester's Total Economic Impact (TEI) studies of Mac in enterprise (commissioned by Apple), IBM's public data on its Mac@IBM program, and similar industry research from IDC, Gartner, or comparable firms are all legitimate sources RIPEDA uses regularly. Two acceptable formats:
 
@@ -296,7 +296,7 @@ A spoke article follows this shape:
 1. **Opening hook (2-4 sentences).** Concrete scenario or observation. Not a thesis statement. Start with a story or a sharp observation, not "In today's business world..."
 2. **Frame the problem (1-2 paragraphs).** Why does this matter? What's the gap most readers don't see?
 3. **The substance (the longest section).** Use one or both of these structural blocks where helpful:
-   - **Comparison block** (`<div class="insight-compare">`) - for "X vs Y" framing. Two columns, one labelled, one marked `is-strong` for emphasis. Use when the article is about contrasting two approaches.
+   - **Comparison block** (`<div class="insight-compare">`) - for "X vs Y" framing. Two columns, one labeled, one marked `is-strong` for emphasis. Use when the article is about contrasting two approaches.
    - **Stat block** (`<div class="insight-stat">`) - for emphatic evidence or principles. Navy background, white text. Use sparingly. One per article maximum.
 4. **What "good" looks like.** Concrete description of the right approach. Named tools, real numbers if available.
 5. **When to think about this.** A practical inflection point. "Past 30 staff" or "After three incidents in a quarter." Helps the reader self-diagnose.
@@ -437,12 +437,12 @@ Before declaring the article done, verify all of these.
 
 - [ ] No em-dashes anywhere (frontmatter or body)
 - [ ] No emojis anywhere
-- [ ] Canadian English throughout (colour, centre, organise, optimised, behaviour, programme)
+- [ ] Canadian English throughout (colour, center, organize, optimized, behavior, program)
 - [ ] No banned AI-speak phrases (see full list in Voice section)
 - [ ] No "Here's what most people miss" / "Here's the real story" / "This is not X, this is Y" tropes
 - [ ] No sentence that could appear on any vendor's homepage
 - [ ] Every acronym is spelled out on first use, e.g. "Mobile Device Management (MDM)"
-- [ ] If the article centres on a single concept, a brief definition appears near the top
+- [ ] If the article centers on a single concept, a brief definition appears near the top
 - [ ] No undefined jargon stacking (e.g., a sentence with three acronyms)
 - [ ] Every external statistic, percentage, or claim is paired with a named source (Forrester, IBM, IDC, etc.) and either an inline link or a footnote
 - [ ] No fabricated statistics or unsourced "studies show" / "research indicates" phrases

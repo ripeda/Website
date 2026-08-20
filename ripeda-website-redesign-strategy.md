@@ -83,7 +83,7 @@ The premium tier. Project- and retainer-based. Decision domains RIPEDA can credi
 - Technology strategy and vendor consolidation
 - Security posture and incident response readiness
 - MDM platform selection and identity / SSO architecture
-- Infrastructure planning and lifecycle modelling
+- Infrastructure planning and lifecycle modeling
 - Apple ecosystem decisions (Apple Business Manager, MDM, device fleet planning)
 
 Engagement models to publish on the page, with starting-from pricing:
@@ -331,7 +331,7 @@ The Everbrave deck contains several recommendations worth keeping and several wo
 - Dental and design agency personas. Replace school and library personas.
 - Measurement baseline and 6- and 12-month KPIs.
 
-Everbrave remains a valued partner. The pushback is healthy client behaviour and does not change the relationship.
+Everbrave remains a valued partner. The pushback is healthy client behavior and does not change the relationship.
 
 ---
 

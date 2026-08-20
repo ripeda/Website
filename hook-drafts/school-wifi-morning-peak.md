@@ -40,7 +40,7 @@ An access point can only hold a conversation with a finite number of clients, an
 
 ## Slow clients cost everyone else airtime
 
-A device connected at a low data rate holds the radio longer to move the same amount of data, and every other client on that AP waits while it does. One ageing laptop, an old printer, or a projector sitting on 2.4GHz can absorb a share of the airtime out of all proportion to what it is actually doing. This is why replacing a handful of old devices sometimes fixes a wireless complaint that no network change did.
+A device connected at a low data rate holds the radio longer to move the same amount of data, and every other client on that AP waits while it does. One aging laptop, an old printer, or a projector sitting on 2.4GHz can absorb a share of the airtime out of all proportion to what it is actually doing. This is why replacing a handful of old devices sometimes fixes a wireless complaint that no network change did.
 
 ## The morning burst is authentication, updates, and sync all at once
 

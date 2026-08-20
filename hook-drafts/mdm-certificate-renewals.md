@@ -14,9 +14,9 @@ reading_time: 2
 author: "RIPEDA"
 tldr:
   - "Three Apple certificates expire annually: APNs, the Automated Device Enrollment server token, and the Apps and Books content token."
-  - "All three fail silently. Devices keep showing as enrolled while commands, enrolments, or app assignments stop working."
+  - "All three fail silently. Devices keep showing as enrolled while commands, enrollments, or app assignments stop working."
   - "Each must be renewed with the Apple Account that created it, which is why a technician’s personal Apple ID is an expensive shortcut."
-  - "A shared organisational account and three calendar reminders at 30 days out is the whole fix."
+  - "A shared organizational account and three calendar reminders at 30 days out is the whole fix."
 related:
   - title: "MDM beyond the enrollment screen"
     url: "/resources/insights/mdm-beyond-enrollment/"
@@ -43,8 +43,8 @@ The Automated Device Enrollment server token is what connects Apple Business Man
 
 ## 3. Renew the Apps and Books token before app assignment fails
 
-The content token (most people still call it the VPP token) authorises your MDM to assign purchased and free apps to your devices and users. Annual as well. When it lapses, assignment fails silently, new starters get a Mac without the software they need, and the console error rarely uses the word expired in a way anyone would connect to a licence they bought last year. Nothing crashes and nothing pages anyone, so the gap between the expiry date and the day somebody notices is usually measured in weeks.
+The content token (most people still call it the VPP token) authorizes your MDM to assign purchased and free apps to your devices and users. Annual as well. When it lapses, assignment fails silently, new starters get a Mac without the software they need, and the console error rarely uses the word expired in a way anyone would connect to a license they bought last year. Nothing crashes and nothing pages anyone, so the gap between the expiry date and the day somebody notices is usually measured in weeks.
 
 ## If you only do one thing
 
-Open your MDM’s certificate page today and write down three things for each of the three: the expiry date, the Apple Account that owns it, and who in your organisation can reach that account’s mailbox. If any answer is a person rather than a shared account, fix that one first.
+Open your MDM’s certificate page today and write down three things for each of the three: the expiry date, the Apple Account that owns it, and who in your organization can reach that account’s mailbox. If any answer is a person rather than a shared account, fix that one first.

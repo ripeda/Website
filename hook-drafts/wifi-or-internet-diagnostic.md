@@ -33,7 +33,7 @@ These are ordered by how easily you can observe each one on a normal working day
 
 ## 1. A wired machine is fine while the wireless ones are not
 
-Plug a laptop into a wired port, run the same task that was failing, and compare. If the wired machine is steady while wireless users stutter, the circuit into the building is doing its job and the problem is in the last thirty metres. This is the fastest single test available and it costs a cable and a dongle. Do it before anyone phones the ISP.
+Plug a laptop into a wired port, run the same task that was failing, and compare. If the wired machine is steady while wireless users stutter, the circuit into the building is doing its job and the problem is in the last thirty meters. This is the fastest single test available and it costs a cable and a dongle. Do it before anyone phones the ISP.
 
 ## 2. The problem moves with location rather than time of day
 
@@ -41,7 +41,7 @@ Circuit problems affect everyone at once and tend to correlate with the clock: a
 
 ## 3. Speed tests look good but calls still drop
 
-A speed test measures throughput in a short burst under favourable conditions. A video call cares about jitter and packet loss, neither of which a speed test reports. A connection can show a healthy number and still drop a Teams call, because the two are measuring different properties of the same link. When the numbers look fine and the experience does not, stop trusting the number.
+A speed test measures throughput in a short burst under favorable conditions. A video call cares about jitter and packet loss, neither of which a speed test reports. A connection can show a healthy number and still drop a Teams call, because the two are measuring different properties of the same link. When the numbers look fine and the experience does not, stop trusting the number.
 
 ## 4. Performance degrades as more people arrive
 
@@ -53,4 +53,4 @@ Toggling Wi-Fi off and on restores a good connection for a while, then it decays
 
 ## If you only do one thing
 
-Run the wired comparison before authorising any spend. If the wired machine is healthy, a proper site survey costs a fraction of a year on the wrong circuit, and it tells you what to actually buy.
+Run the wired comparison before authorizing any spend. If the wired machine is healthy, a proper site survey costs a fraction of a year on the wrong circuit, and it tells you what to actually buy.

@@ -31,12 +31,12 @@ related:
 # verticals: [education, mdm-security]
 ---
 
-Sign in to both portals and you would struggle to tell them apart. Same layout, same device enrolment, same Apps and Books, same federation with Microsoft Entra ID or Google Workspace. They are one platform with two feature sets, and the decision between them is made on eligibility long before it is made on features.
+Sign in to both portals and you would struggle to tell them apart. Same layout, same device enrollment, same Apps and Books, same federation with Microsoft Entra ID or Google Workspace. They are one platform with two feature sets, and the decision between them is made on eligibility long before it is made on features.
 
 <div class="insight-compare">
   <div class="insight-compare-col">
     <h4>Apple Business Manager</h4>
-    <p>Everything an organisation needs to deploy and manage Apple devices:</p>
+    <p>Everything an organization needs to deploy and manage Apple devices:</p>
     <ul>
       <li>Managed Apple Accounts for staff</li>
       <li>Automated Device Enrollment and supervision</li>
@@ -60,9 +60,9 @@ Sign in to both portals and you would struggle to tell them apart. Same layout, 
 
 Eligibility is the real gate. Apple School Manager is for accredited educational institutions, and Apple checks. A private or charter school with provincial accreditation almost always qualifies. A corporate training company, a coding bootcamp, or a daycare almost always does not, however much their use of iPad looks like a classroom.
 
-The second constraint is that a domain belongs to one portal. You cannot verify the same domain in both, so a school with a separate commercial arm has to think about domains before it thinks about features. Moving an existing organisation from one portal to the other is a coordinated exercise with Apple involving device records, account migration, and MDM reconfiguration. It is not a setting you flip on a Tuesday afternoon.
+The second constraint is that a domain belongs to one portal. You cannot verify the same domain in both, so a school with a separate commercial arm has to think about domains before it thinks about features. Moving an existing organization from one portal to the other is a coordinated exercise with Apple involving device records, account migration, and MDM reconfiguration. It is not a setting you flip on a Tuesday afternoon.
 
-So the question is not which one sounds more appropriate for the organisation. It is narrower than that: do you need Shared iPad and class rosters? If several people share one iPad and each needs their own apps, files, and settings, or if your MDM needs to know which students are in which class, you need Apple School Manager and you need to qualify for it. If neither is true, Apple Business Manager does the whole job, including for the staff side of a school that also runs Apple School Manager.
+So the question is not which one sounds more appropriate for the organization. It is narrower than that: do you need Shared iPad and class rosters? If several people share one iPad and each needs their own apps, files, and settings, or if your MDM needs to know which students are in which class, you need Apple School Manager and you need to qualify for it. If neither is true, Apple Business Manager does the whole job, including for the staff side of a school that also runs Apple School Manager.
 
 ## If you only do one thing
 

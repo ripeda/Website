@@ -15,7 +15,7 @@ author: "RIPEDA"
 tldr:
   - "Most consumer-grade wireless fails at business density because it is sold on coverage, not capacity. The two are different problems."
   - "A thirty-person office runs fifty to eighty wireless devices. A forty-iPad classroom runs fifty to sixty in a single room. Consumer gear is not built for that."
-  - "Enterprise wireless (Ruckus, Cisco Meraki, Aruba) uses density-aware radio, centralised management, and hardware sized for the load."
+  - "Enterprise wireless (Ruckus, Cisco Meraki, Aruba) uses density-aware radio, centralized management, and hardware sized for the load."
   - "A working deployment starts with a site survey, runs on business-grade access points and Power-over-Ethernet switching, and gets ongoing tuning after commissioning."
   - "Wi-Fi is the network layer users notice. Designing for capacity is the difference between a network that works and one staff complains about."
 related:
@@ -24,7 +24,7 @@ related:
     context: "How RIPEDA designs and deploys business-grade wireless across offices, schools, and clinics."
   - title: "Apple Infrastructure"
     url: "/industries/professional-services/"
-    context: "Wireless design sits inside the broader infrastructure work we do for Apple-first organisations."
+    context: "Wireless design sits inside the broader infrastructure work we do for Apple-first organizations."
   - title: "Why business networks need more than connectivity"
     url: "/resources/insights/business-network-infrastructure/"
     context: "The wider strategic case for business-grade network infrastructure."
@@ -49,11 +49,11 @@ A consumer access point handles a handful of devices well. At twenty active devi
 
 Three architectural choices set business-grade wireless apart from consumer gear.
 
-**Density-aware radio.** Enterprise platforms (Ruckus, Cisco Meraki, Aruba) include radio technology designed specifically for high-density environments. Ruckus BeamFlex is the version we deploy most often: the access point shapes its signal to favour devices that are actively transmitting, rather than broadcasting a single omni-directional signal that every device on the floor has to compete for.
+**Density-aware radio.** Enterprise platforms (Ruckus, Cisco Meraki, Aruba) include radio technology designed specifically for high-density environments. Ruckus BeamFlex is the version we deploy most often: the access point shapes its signal to favor devices that are actively transmitting, rather than broadcasting a single omni-directional signal that every device on the floor has to compete for.
 
-**Wireless controllers and centralised management.** Multi-access-point deployments need a controller that coordinates channel assignment, transmit power, and client roaming behaviour. Consumer mesh products do a simplified version of this. Enterprise gear does a serious version, and exposes the radio-frequency picture to the IT team via a real management console.
+**Wireless controllers and centralized management.** Multi-access-point deployments need a controller that coordinates channel assignment, transmit power, and client roaming behavior. Consumer mesh products do a simplified version of this. Enterprise gear does a serious version, and exposes the radio-frequency picture to the IT team via a real management console.
 
-**Hardware that handles the load.** A consumer access point is built around a low-power chip with limited memory. An enterprise access point has the processor, memory, and antenna design to handle a hundred concurrent associations without dropping frames. The cost is higher. The behaviour under load is fundamentally different.
+**Hardware that handles the load.** A consumer access point is built around a low-power chip with limited memory. An enterprise access point has the processor, memory, and antenna design to handle a hundred concurrent associations without dropping frames. The cost is higher. The behavior under load is fundamentally different.
 
 ## What a proper deployment looks like
 
@@ -61,7 +61,7 @@ A working business-grade wireless deployment starts with a site survey. The surv
 
 The deployment itself involves business-grade access points (Ruckus is the platform we deploy most often), a controller (cloud-managed or on-premises depending on the client), structured cabling that supports Power-over-Ethernet (PoE), and PoE switching with enough power budget to feed every access point on the network.
 
-After commissioning, the network needs ongoing tuning. Wi-Fi is the most volatile layer of the network stack. New devices, new physical obstructions, neighbouring networks all change the radio picture over time. A managed network service that reviews wireless health monthly catches most of these before they become user-visible problems.
+After commissioning, the network needs ongoing tuning. Wi-Fi is the most volatile layer of the network stack. New devices, new physical obstructions, neighboring networks all change the radio picture over time. A managed network service that reviews wireless health monthly catches most of these before they become user-visible problems.
 
 ## When to think about this
 

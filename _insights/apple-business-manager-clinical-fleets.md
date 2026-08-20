@@ -1,7 +1,7 @@
 ---
 layout: insight
 title: "Apple Business Manager for clinical fleets"
-dek: "A dental or medical practice's iPads and Macs cross more access points than most owners realise. Apple Business Manager is what makes the fleet behave like one fleet."
+dek: "A dental or medical practice's iPads and Macs cross more access points than most owners realize. Apple Business Manager is what makes the fleet behave like one fleet."
 description: "Apple Business Manager (ABM) for dental and medical clinics. Enrollment, app distribution, retired-device wipe, and multi-location admin, written for practice managers."
 image: /images/insights/apple-business-manager-clinical-fleets-og.png
 date: 2026-03-06
@@ -36,7 +36,7 @@ This is the gap Apple Business Manager closes. The alternative to Apple Business
 
 ## What Apple Business Manager actually is
 
-ABM is the enrollment layer Apple provides to organisations that own multiple Apple devices. It does not manage devices directly. It tells Apple which devices belong to the practice so that when a device boots for the first time, Apple hands it to the clinic's Mobile Device Management (MDM) automatically.
+ABM is the enrollment layer Apple provides to organizations that own multiple Apple devices. It does not manage devices directly. It tells Apple which devices belong to the practice so that when a device boots for the first time, Apple hands it to the clinic's Mobile Device Management (MDM) automatically.
 
 ABM does enrollment. MDM does day-to-day management. Both are needed.
 
@@ -64,7 +64,7 @@ ABM addresses all three by making enrollment automatic, identity-managed, and ce
 
 For a clinic that has not yet enrolled, the setup is a four-step exercise.
 
-**Register the clinic in ABM.** Apple verifies the practice as a legitimate organisation before issuing the tenant. A D-U-N-S number (free from Dun & Bradstreet) is one accepted path and was historically the only one. Apple has since broadened the program to accept other forms of business verification, so the right path depends on the documentation the practice already has. A verifier with admin access to the clinic's domain confirms the registration. Usually a half-day exercise spread across two days for the verification step.
+**Register the clinic in ABM.** Apple verifies the practice as a legitimate organization before issuing the tenant. A D-U-N-S number (free from Dun & Bradstreet) is one accepted path and was historically the only one. Apple has since broadened the program to accept other forms of business verification, so the right path depends on the documentation the practice already has. A verifier with admin access to the clinic's domain confirms the registration. Usually a half-day exercise spread across two days for the verification step.
 
 **Configure and connect the MDM.** The clinic picks a vendor (Mosyle, Jamf, Kandji, SimpleMDM). The vendor provides a server token that ABM accepts. From that point forward, ABM hands new devices to the MDM automatically.
 

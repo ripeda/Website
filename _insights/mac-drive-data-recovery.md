@@ -14,7 +14,7 @@ reading_time: 5
 author: "RIPEDA"
 tldr:
   - "A failed drive does not always mean lost data. The work that determines whether the files come back starts in the first hour after the failure."
-  - "DriveSavers is the industry-leading data recovery service for Mac drives. RIPEDA is an authorised DriveSavers reseller, not just a referral source."
+  - "DriveSavers is the industry-leading data recovery service for Mac drives. RIPEDA is an authorized DriveSavers reseller, not just a referral source."
   - "Recovery odds depend on the failure mode. Mechanical, controller, water, electrical, and accidental-deletion failures all have different recovery paths."
   - "The wrong thing to do is keep trying to access a failing drive. Powering it down and shipping it intact is the move that protects the chance of recovery."
   - "A working backup is still the cheapest data recovery strategy. DriveSavers is the second-best option, not the first."
@@ -50,9 +50,9 @@ DriveSavers operates a clean-room lab where Mac drives (solid-state drives, trad
 
 **Apple Silicon storage failure.** This is the new variable. Apple Silicon Macs have storage controllers integrated into the System on Chip (SoC), which makes some failure modes effectively unrecoverable. DriveSavers can sometimes work around this with very specific techniques, but the success rate is lower than for traditional drive failures, and the cost is typically higher.
 
-## RIPEDA's role: authorised reseller, not referral source
+## RIPEDA's role: authorized reseller, not referral source
 
-There is a meaningful difference between an IT provider that refers you to DriveSavers and one that is an authorised reseller. RIPEDA is the latter, and the practical effects show up across the recovery process.
+There is a meaningful difference between an IT provider that refers you to DriveSavers and one that is an authorized reseller. RIPEDA is the latter, and the practical effects show up across the recovery process.
 
 Faster intake. The drive does not sit in transit while a third party handles paperwork. Direct relationship with DriveSavers technicians. The conversation about what kind of failure happened, what recovery is plausible, and what the cost will look like happens between people who already know each other. Coordinated logistics. For older Macs with separable storage, the drive can be sent to DriveSavers while the Mac stays at RIPEDA for any Apple Authorized Repair (AAR) work the device needs. For Apple Silicon Macs with storage integrated into the System on Chip (SoC), the whole unit usually has to go to DriveSavers, whose work is sanctioned by Apple and does not void manufacturer warranty. Pricing discount. The recovery itself bills directly from DriveSavers to the client, with a 10% discount applied through RIPEDA's reseller relationship.
 
@@ -73,6 +73,6 @@ What not to do:
 
 ## When to think about this
 
-The right time to think about data recovery is before you need it, because the work that prevents the need (backup architecture, off-site replication, tested restores) is cheaper than the work that recovers data after the fact. A working backup is the first line of defence. DriveSavers is what happens when the backup has gaps and the data on the failed drive is genuinely needed.
+The right time to think about data recovery is before you need it, because the work that prevents the need (backup architecture, off-site replication, tested restores) is cheaper than the work that recovers data after the fact. A working backup is the first line of defense. DriveSavers is what happens when the backup has gaps and the data on the failed drive is genuinely needed.
 
 For most RIPEDA clients, the conversation about data recovery comes up in two contexts: as a defensive measure (how to think about it, what would happen if), and as an emergency (the call where the drive has failed and the data matters). Both conversations are easier when we have already worked together to make sure the foundation is in place.

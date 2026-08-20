@@ -47,7 +47,7 @@ If a draft does not serve at least one of those three, it should be a spoke inst
 
 Not every hook belongs to a vertical. "5 things to do with a Mac before you sell or trade it in" is useful to a dentist, a designer, a school, and a stranger from Google. Force-fitting it into `professional-services` dilutes that vertical's page for no benefit.
 
-**Rule:** if a hook is genuinely useful to three or more verticals, or to none of them specifically, tag it `quick-reads` and leave it there. Standalone is a legitimate outcome, not a failure to categorise.
+**Rule:** if a hook is genuinely useful to three or more verticals, or to none of them specifically, tag it `quick-reads` and leave it there. Standalone is a legitimate outcome, not a failure to categorize.
 
 Add to the `verticals:` block in `_data/insights.yml`:
 
@@ -107,7 +107,7 @@ Pick one deliberately. Mixing patterns inside a single article is the most commo
 ### Body rules
 
 - **Every item is an `##` heading**, not a bold line inside a paragraph. The headings become the on-page anchors and get picked up as a featured snippet list.
-- **Item headings are imperative and specific.** "Reclaim the Adobe licence" beats "Software licences." "Check Activation Lock before money changes hands" beats "Activation Lock."
+- **Item headings are imperative and specific.** "Reclaim the Adobe license" beats "Software licenses." "Check Activation Lock before money changes hands" beats "Activation Lock."
 - **2-4 sentences per item. Hard ceiling.** If an item needs five, it is a spoke section wearing a hook's clothes.
 - **Order matters and should be defensible.** For post-event hooks, order by urgency. For mistakes hooks, order by frequency. Say so in the orienting sentence if it is not obvious.
 - **Name real things.** FileVault, Activation Lock, ABM, the APNs certificate, Jamf, Mosyle. A hook that could have been written by someone who has never touched the tool is worthless.
@@ -274,7 +274,7 @@ Run in addition to the spoke checklist's voice and frontmatter sections.
 - [ ] At least one `/services/` link present
 - [ ] Every related entry has a `context:` line
 
-### Categorisation
+### Categorization
 
 - [ ] Vertical is an existing one, or `quick-reads` for standalones
 - [ ] `format: hook` present in the data file entry (publish mode only)

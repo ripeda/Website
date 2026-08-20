@@ -45,9 +45,9 @@ Devices bought through a reseller only appear in Apple Business Manager if that 
 
 An account with one administrator is one resignation, one lost phone, or one long holiday away from being unreachable. Apple’s recovery path for an orphaned Apple Business Manager account is slow and evidence heavy, and it does not run on your timeline. Name at least two administrators, and if IT is a single person, make the second one someone in operations or finance.
 
-## 4. Create the APNs certificate under a shared organisational account
+## 4. Create the APNs certificate under a shared organizational account
 
-The Apple Push Notification service certificate is what lets your MDM speak to every managed device, and it must be renewed each year by the same Apple Account that created it. Created under a technician’s personal Apple ID, that renewal becomes impossible the week they leave, and a lapsed APNs certificate means re-enrolling the whole fleet by hand. Use a shared organisational account tied to a monitored mailbox that more than one person can reach.
+The Apple Push Notification service certificate is what lets your MDM speak to every managed device, and it must be renewed each year by the same Apple Account that created it. Created under a technician’s personal Apple ID, that renewal becomes impossible the week they leave, and a lapsed APNs certificate means re-enrolling the whole fleet by hand. Use a shared organizational account tied to a monitored mailbox that more than one person can reach.
 
 ## 5. Audit for username collisions before turning on federation
 
@@ -55,7 +55,7 @@ Federated authentication with Microsoft Entra ID or Google Workspace is worth ha
 
 ## 6. Keep Managed Apple Accounts distinct from personal Apple IDs
 
-A Managed Apple Account is created and owned by your organisation. A personal Apple ID belongs to the individual and leaves with them, along with their App Store purchases and whatever else is in that iCloud account. Staff who sign in to a company Mac with a personal Apple ID leave the device tied to their Find My, which is how Activation Lock ends up in the name of someone who left in March. Set the expectation at onboarding, not at exit.
+A Managed Apple Account is created and owned by your organization. A personal Apple ID belongs to the individual and leaves with them, along with their App Store purchases and whatever else is in that iCloud account. Staff who sign in to a company Mac with a personal Apple ID leave the device tied to their Find My, which is how Activation Lock ends up in the name of someone who left in March. Set the expectation at onboarding, not at exit.
 
 ## 7. Put the annual renewals in a shared calendar
 
@@ -63,4 +63,4 @@ The APNs certificate, the Automated Device Enrollment server token, and the Apps
 
 ## If you only do one thing
 
-Check which Apple Account owns your APNs certificate. If it is a personal Apple ID, move the certificate to a shared organisational account before the next renewal, because once it lapses the recovery is re-enrolling every device you manage.
+Check which Apple Account owns your APNs certificate. If it is a personal Apple ID, move the certificate to a shared organizational account before the next renewal, because once it lapses the recovery is re-enrolling every device you manage.

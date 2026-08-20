@@ -26,7 +26,7 @@ Everything currently published is a 4–6 minute pillar-support spoke: broad sco
 |---|---|---|
 | *Top N things to do after [event]* | Reader has just had the event | "5 things to do with a Mac after an employee leaves" |
 | *The N most common [X] mistakes* | Fear of already having made it | "The 6 most common Apple Business Manager setup mistakes" |
-| *What breaks first when [scale event]* | Reader recognises their own growth | "What breaks first when your office hits 25 Macs" |
+| *What breaks first when [scale event]* | Reader recognizes their own growth | "What breaks first when your office hits 25 Macs" |
 | *N questions to ask before [purchase]* | Pre-purchase, high intent | "7 questions to ask an MSP before you sign" |
 | *[Thing] vs [Thing] in 60 seconds* | Comparison, fast | "Apple Business Manager vs Apple School Manager" |
 | *The N-minute check* | Actionable, no commitment | "The 10-minute Mac security check" |
@@ -47,7 +47,7 @@ Everything currently published is a 4–6 minute pillar-support spoke: broad sco
 6. **Your MDM token expires every year. Here's the calendar entry to make.** — APNs, VPP, DEP renewal dates and what breaks when each lapses.
 7. **6 settings to check before you call your first MDM deployment "done"** — FileVault escrow, activation lock bypass, update deferral, kernel extension policy.
 8. **What "Automated Device Enrollment" actually means when the box arrives** — 300 words on why the Mac should never be set up by hand.
-9. **5 signs your MDM is enrolled but not actually managing anything** — The compliance theatre checklist.
+9. **5 signs your MDM is enrolled but not actually managing anything** — The compliance theater checklist.
 10. **The 10-minute Mac security check any manager can run** — Not for IT. For the owner who wants to know.
 
 ### Post-event / situational (highest hook potential)
@@ -72,7 +72,7 @@ Everything currently published is a 4–6 minute pillar-support spoke: broad sco
 23. **The 5-minute monitor calibration check** — Does your studio actually match print?
 24. **6 files you should never keep only in Creative Cloud** — Parent: where iCloud stops and business backup begins.
 25. **What breaks first when an agency hits 15 people** — Naming, permissions, storage, onboarding — usually in that order.
-26. **5 things to hand over when a designer leaves** — Files, fonts, licences, client access, and the one everyone forgets (domain registrar).
+26. **5 things to hand over when a designer leaves** — Files, fonts, licenses, client access, and the one everyone forgets (domain registrar).
 27. **Mac Studio or Mac mini: a 3-question decision tree** — Short-form version of the full spoke.
 28. **The 4 external drive mistakes that eat a video project** — Bus power, format, single copy, no verification.
 

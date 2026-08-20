@@ -31,7 +31,7 @@ One thing to separate out first. If the file is very large, AirDrop being slow a
 
 ## 1. The receiving Mac is set to Contacts Only
 
-This accounts for more AirDrop failures than the other three combined. Contacts Only requires both people to be signed into iCloud, and each person's Apple Account email address to be saved in the other person's Contacts card. When any part of that chain is missing, the sending Mac shows nothing at all rather than telling you why. Open Control Centre on the receiving machine and set AirDrop to Everyone for 10 Minutes.
+This accounts for more AirDrop failures than the other three combined. Contacts Only requires both people to be signed into iCloud, and each person's Apple Account email address to be saved in the other person's Contacts card. When any part of that chain is missing, the sending Mac shows nothing at all rather than telling you why. Open Control Center on the receiving machine and set AirDrop to Everyone for 10 Minutes.
 
 ## 2. Bluetooth or Wi-Fi is off on one of the machines
 

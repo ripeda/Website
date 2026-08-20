@@ -93,7 +93,7 @@ The one exception is when converting an existing set of horizontal business-IT s
 (MDM, networks, backup, repair, identity, remote support) into a first-pass pillar for
 a vertical where those topics happen to apply. The Dental & Medical pillar fit this case
 because the seven converted newsletters happened to cover six of its needed sections.
-That coincidence does NOT generalise to other pillars.
+That coincidence does NOT generalize to other pillars.
 
 When asked to write a pillar for a vertical, the FIRST output should be the section
 plan and the spoke-mapping. Only after Kevin confirms the plan (and any missing spokes

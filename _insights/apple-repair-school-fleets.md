@@ -30,13 +30,13 @@ related:
     context: "The broader case for AASP at fleet scale, applicable across industries."
 ---
 
-A private K-9 school in Calgary has 240 iPads across the building. By February of any given year, the repair log shows roughly forty cracked screens, eight devices with charging-port damage, and three with bent enclosures from being sat on or otherwise crushed. The Apple Store at the local mall takes most of these in for repair, one at a time, with a parent or staff member dropping them off and picking them up a day or two later. The math works at low volume. At forty devices per term, the math starts costing the school more in labour and downtime than the parts themselves.
+A private K-9 school in Calgary has 240 iPads across the building. By February of any given year, the repair log shows roughly forty cracked screens, eight devices with charging-port damage, and three with bent enclosures from being sat on or otherwise crushed. The Apple Store at the local mall takes most of these in for repair, one at a time, with a parent or staff member dropping them off and picking them up a day or two later. The math works at low volume. At forty devices per term, the math starts costing the school more in labor and downtime than the parts themselves.
 
 This is the operational gap that an Apple Authorized Service Provider (AASP) relationship closes. The school does not need an AASP because the Apple Store cannot do the work. The school needs an AASP because the Apple Store retail model is not structured for fleet volume. AASPs are.
 
 ## What an AASP actually is
 
-An AASP is a service provider Apple has certified to perform warranty and out-of-warranty repairs using genuine Apple parts, diagnostic tools, and procedures. Repairs at an AASP preserve the device warranty. Repairs at an unauthorised third-party shop usually do not.
+An AASP is a service provider Apple has certified to perform warranty and out-of-warranty repairs using genuine Apple parts, diagnostic tools, and procedures. Repairs at an AASP preserve the device warranty. Repairs at an unauthorized third-party shop usually do not.
 
 For a school fleet, the meaningful differences from the Apple Store retail experience are:
 
@@ -74,11 +74,11 @@ Three operational details matter more than headline repair pricing. All three de
 
 **Loaner and swap inventory.** Two complementary pools cover repair gaps. The AASP keeps a small reserve for the cases where on-site swap is not practical. The school keeps its own swap pool, typically four to six spare units for a 240-iPad fleet, sized to cover the gap between when a device breaks and when the next courier run picks it up. A device that breaks on a Friday afternoon does not wait until the Tuesday pickup to be replaced if the school has a spare on the shelf. The math is modest: one to two percent of the fleet on hand is usually enough for routine turnover.
 
-**Shipping and pickup logistics.** A scheduled twice-weekly pickup of damaged devices, with return of the previous batch at the same time, is more efficient than ad-hoc parent runs. The school IT lead or office manager assembles the batch on a known cadence. The AASP plans its repair workflow around the same cadence. Together this means no school staff member is making one-off trips to a service centre for individual devices.
+**Shipping and pickup logistics.** A scheduled twice-weekly pickup of damaged devices, with return of the previous batch at the same time, is more efficient than ad-hoc parent runs. The school IT lead or office manager assembles the batch on a known cadence. The AASP plans its repair workflow around the same cadence. Together this means no school staff member is making one-off trips to a service center for individual devices.
 
 ## Where this fits in a school
 
-An AASP relationship is not a full IT contract. It is a focused service line that handles fleet repair and device lifecycle without requiring the school to also outsource its day-to-day technology operations. For charter and private schools without an in-house IT lead, that focus is what makes the relationship useful. The school keeps internal control of the things only the school can decide. The AASP handles the things only an Apple-authorised partner can do.
+An AASP relationship is not a full IT contract. It is a focused service line that handles fleet repair and device lifecycle without requiring the school to also outsource its day-to-day technology operations. For charter and private schools without an in-house IT lead, that focus is what makes the relationship useful. The school keeps internal control of the things only the school can decide. The AASP handles the things only an Apple-authorized partner can do.
 
 ## When to think about this
 

@@ -2,7 +2,7 @@
 layout: insight
 title: "5 things to check before you buy a used Mac"
 dek: "A private Mac sale carries almost no mechanical risk and quite a lot of administrative risk, and all of it is checkable with the seller sitting in front of you."
-description: "Activation Lock, MDM enrolment, storage config, and two more checks that decide whether a used Mac is a bargain or a paperweight. Do them before you pay."
+description: "Activation Lock, MDM enrollment, storage config, and two more checks that decide whether a used Mac is a bargain or a paperweight. Do them before you pay."
 date: 2026-08-11
 tags:
   - Procurement
@@ -21,7 +21,7 @@ tldr:
 related:
   - title: "Managed Apple IT"
     url: "/services/managed-apple-it/"
-    context: "How second-hand Macs get brought into a managed fleet without inheriting the previous owner's enrolment."
+    context: "How second-hand Macs get brought into a managed fleet without inheriting the previous owner's enrollment."
   - title: "Apple Authorized Repair"
     url: "/services/apple-authorized-repair/"
     context: "What a battery or display replacement on an out-of-warranty Mac actually involves."
@@ -39,11 +39,11 @@ Activation Lock ties a Mac to the seller's Apple Account, and a locked machine c
 
 ## 2. Ask whether it was ever a company machine
 
-A Mac enrolled in an organisation's Apple Business Manager receives its MDM configuration during setup, and erasing the disk does not remove that. It will re-enrol on the next run through Setup Assistant and ask for credentials the seller cannot provide. Only the original organisation can release the serial from ABM, which a former employee has no ability to do. If a Remote Management screen appears during setup, or the listing mentions a previous workplace, stop there.
+A Mac enrolled in an organization's Apple Business Manager receives its MDM configuration during setup, and erasing the disk does not remove that. It will re-enrol on the next run through Setup Assistant and ask for credentials the seller cannot provide. Only the original organization can release the serial from ABM, which a former employee has no ability to do. If a Remote Management screen appears during setup, or the listing mentions a previous workplace, stop there.
 
 ## 3. Run the serial number through Apple's coverage checker
 
-Apple's Check Coverage page takes the serial from About This Mac and returns the model, the warranty status, and whether AppleCare+ is still running. Two results end the conversation: a serial Apple does not recognise, and a serial that describes a different model than the one on the table. If coverage is still live, ask whether the seller will transfer the AppleCare+ plan, because it can follow the device but the transfer does not happen on its own.
+Apple's Check Coverage page takes the serial from About This Mac and returns the model, the warranty status, and whether AppleCare+ is still running. Two results end the conversation: a serial Apple does not recognize, and a serial that describes a different model than the one on the table. If coverage is still live, ask whether the seller will transfer the AppleCare+ plan, because it can follow the device but the transfer does not happen on its own.
 
 ## 4. Confirm storage and RAM against the listing
 

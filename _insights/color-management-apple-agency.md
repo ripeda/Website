@@ -54,7 +54,7 @@ Three things drift independently. Each one is worth knowing about on its own.
 
 The studios that have solved this share three habits.
 
-**Standardised displays per role.** Designers and art directors on the same display model, calibrated on the same cadence. The display does not have to be expensive. It has to be the same. Apple Studio Display and the M-series MacBook Pro internal display both work as primaries. Mixing displays across the team adds a variable nobody needs.
+**Standardized displays per role.** Designers and art directors on the same display model, calibrated on the same cadence. The display does not have to be expensive. It has to be the same. Apple Studio Display and the M-series MacBook Pro internal display both work as primaries. Mixing displays across the team adds a variable nobody needs.
 
 **Monthly calibration discipline.** A hardware calibration probe (X-Rite i1Display Pro, Calibrite, or equivalent) and a recurring calendar reminder. Each designer calibrates their own display on the first of the month. The whole exercise takes ten minutes per machine. The result is a fleet that holds colour parity quarter over quarter.
 

@@ -48,7 +48,7 @@ Ask a twenty-person firm to list every Mac it owns, who currently holds it, and 
 
 ## Onboarding and offboarding stop being events
 
-At eight people a new hire happens twice a year and someone improvises. At twenty, hiring is continuous enough that improvising costs the better part of a day per person and still misses something. Offboarding is worse because the failures are silent: an account left active, a licence still billing monthly, a device nobody chased. Both need to become a written checklist rather than a memory, and that transition is the actual work.
+At eight people a new hire happens twice a year and someone improvises. At twenty, hiring is continuous enough that improvising costs the better part of a day per person and still misses something. Offboarding is worse because the failures are silent: an account left active, a license still billing monthly, a device nobody chased. Both need to become a written checklist rather than a memory, and that transition is the actual work.
 
 ## The first client security questionnaire arrives
 

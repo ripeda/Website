@@ -3,7 +3,7 @@ layout: insight
 published: false
 title: "5 things to do with a school iPad cart in July"
 dek: "July is the only month the fleet holds still, and every item on this list is cheaper now than it will be in the first week of September."
-description: "A July reset for school iPad carts: inventory, damage triage, iPadOS support, re-enrolment through Apple School Manager, and the carts themselves."
+description: "A July reset for school iPad carts: inventory, damage triage, iPadOS support, re-enrollment through Apple School Manager, and the carts themselves."
 date: 2026-08-11
 verticals: [education]
 tags:
@@ -27,7 +27,7 @@ related:
     context: "Genuine parts, Apple diagnostics, and turnaround on batches of school devices."
   - title: "Apple IT for Education"
     url: "/industries/education/"
-    context: "How charter and private schools handle repair, enrolment, and classroom networks."
+    context: "How charter and private schools handle repair, enrollment, and classroom networks."
 ---
 
 The carts come back from the last week of classes and get pushed into a storage room. What happens to them between then and the first staff day in September decides how much of your fall is spent on triage.
@@ -44,7 +44,7 @@ Sort the damaged units into three piles: covered under AppleCare or warranty, wo
 
 ## 3. Check which models have aged out of iPadOS support
 
-Match every model in the fleet against the current iPadOS release and mark the ones that can no longer take it. Devices stuck on an older major version stop getting security updates and start falling out of compatibility with the classroom apps, and you want that list before enrolment rather than after a teacher reports an app that will not install. It is also the list that justifies next year's purchase request.
+Match every model in the fleet against the current iPadOS release and mark the ones that can no longer take it. Devices stuck on an older major version stop getting security updates and start falling out of compatibility with the classroom apps, and you want that list before enrollment rather than after a teacher reports an app that will not install. It is also the list that justifies next year's purchase request.
 
 ## 4. Wipe and re-enrol through Apple School Manager
 

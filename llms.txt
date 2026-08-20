@@ -22,7 +22,7 @@ America and into Asia.
 
 ## Services
 
-- [Managed Apple IT](https://ripeda.com/services/managed-apple-it/): ongoing management of Apple device fleets — enrolment, configuration, patching, monitoring, and support.
+- [Managed Apple IT](https://ripeda.com/services/managed-apple-it/): ongoing management of Apple device fleets — enrollment, configuration, patching, monitoring, and support.
 - [Strategy Advisory](https://ripeda.com/services/strategy-advisory/): technology planning and advisory engagements, independent of any single vendor's roadmap.
 - [Network Infrastructure](https://ripeda.com/services/network-infrastructure/): design and deployment of business wireless and wired networks, including Ruckus and Fortinet builds.
 - [Apple Authorized Repair](https://ripeda.com/services/apple-authorized-repair/): in-warranty and out-of-warranty Apple hardware repair as an authorized service provider.

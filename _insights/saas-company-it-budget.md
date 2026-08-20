@@ -90,6 +90,6 @@ None of this is expensive. None of this requires an IT lead. All of it scales cl
 
 The right time to set up Apple-first SaaS IT is between hire three and hire ten. Earlier than that, the team is too small to justify the small investment. Later than that, the retrofit is already harder than the original setup would have been.
 
-When RIPEDA engages with a SaaS team at this stage, the MDM, password vault, identity provider connection, and other operational software licenses are typically bundled into an inclusive per-seat agreement rather than itemised on the invoice. The founder pays one predictable monthly number per staff member that covers the platform stack alongside the consulting and support. The numbers above are useful for understanding the underlying cost shape. They are not how most of our clients see the bill.
+When RIPEDA engages with a SaaS team at this stage, the MDM, password vault, identity provider connection, and other operational software licenses are typically bundled into an inclusive per-seat agreement rather than itemized on the invoice. The founder pays one predictable monthly number per staff member that covers the platform stack alongside the consulting and support. The numbers above are useful for understanding the underlying cost shape. They are not how most of our clients see the bill.
 
 The SaaS companies that arrive at Series A with clean IT are not the ones who outsourced it. They are the ones who treated it as a structural decision in their first twenty hires.

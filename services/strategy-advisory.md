@@ -2,7 +2,7 @@
 layout: service-hub
 title: "Apple consulting and strategy advisory"
 seo_title: "Apple IT Consulting & Strategy — Calgary, Alberta | RIPEDA Consulting"
-description: "Apple consulting and strategy advisory for Calgary and Alberta organisations. Foundation decisions, AI policy, procurement strategy, vendor selection, operations."
+description: "Apple consulting and strategy advisory for Calgary and Alberta organizations. Foundation decisions, AI policy, procurement strategy, vendor selection, operations."
 permalink: /services/strategy-advisory/
 breadcrumb: true
 date: 2026-05-25
@@ -12,7 +12,7 @@ keywords: "Apple consulting Calgary, Apple strategy advisory, Apple Business Man
 hero:
   eyebrow: "Service · Strategy Advisory"
   headline: "Apple consulting and strategy advisory"
-  dek: "Built for organisations facing a specific Apple ecosystem decision: device foundation, AI policy, vendor selection, multi-location operations, or procurement strategy. Engagements are scoped, time-bounded, and lead to a written deliverable the team can act on."
+  dek: "Built for organizations facing a specific Apple ecosystem decision: device foundation, AI policy, vendor selection, multi-location operations, or procurement strategy. Engagements are scoped, time-bounded, and lead to a written deliverable the team can act on."
   badges:
     - "Apple Technical Partner since 2012"
     - "%YEARS_SINCE_2012% years of Apple-first business advisory"
@@ -20,28 +20,28 @@ hero:
   cta_label: "Talk to us about your environment"
   cta_url: "/#contact"
 audience:
-  who: "Founders, Chief Operating Officers, Practice Managers, Headmasters or Principals, and operations leads at Apple-first organisations."
-  what: "Organisations facing a specific Apple ecosystem decision who want a human partner for the call, not a vendor product brochure."
+  who: "Founders, Chief Operating Officers, Practice Managers, Headmasters or Principals, and operations leads at Apple-first organizations."
+  what: "Organizations facing a specific Apple ecosystem decision who want a human partner for the call, not a vendor product brochure."
 faq:
   - q: "How is a Strategy Advisory engagement scoped?"
-    a: "A Strategy Advisory engagement starts with a free scoping conversation. We ask what decision the organisation is trying to make, what context shapes it (industry, size, stage, urgency), and what shape of deliverable would be most useful. The result is a written scope document with a defined timeline and price. We do not start work until that scope is approved. Most engagements run four to eight weeks; some are a single intense week and some are quarterly retainers."
+    a: "A Strategy Advisory engagement starts with a free scoping conversation. We ask what decision the organization is trying to make, what context shapes it (industry, size, stage, urgency), and what shape of deliverable would be most useful. The result is a written scope document with a defined timeline and price. We do not start work until that scope is approved. Most engagements run four to eight weeks; some are a single intense week and some are quarterly retainers."
   - q: "What does a typical engagement timeline look like?"
     a: "A typical strategy sprint runs four to eight weeks. Week one is discovery: audits, conversations with the team, document review. Weeks two and three are analysis and recommendation drafting. Week four is review and revision. Longer engagements add implementation planning. The deliverable is always a written document, often supplemented by a workshop presentation. We deliver on the timeline we scope."
-  - q: "Do you work with organisations outside of Alberta?"
+  - q: "Do you work with organizations outside of Alberta?"
     a: "Our primary client base is in Alberta and Western Canada. We have done strategy engagements remotely with clients in other Canadian provinces, in the United States, and occasionally internationally. The work is done by the same team regardless of location. Implementation work that requires physical presence (network installs, on-site repair) is scoped separately and limited to our service area."
   - q: "How do you bill for Strategy Advisory work?"
     a: "Strategy Advisory engagements bill at a defined project rate established during scoping. Single-question deep dives are typically a fixed price. Strategy sprints are scoped against a project price and timeline. Quarterly retainers are billed monthly at a defined retainer rate. We do not bill hourly against ambiguous deliverables, because the value of strategy work is in the recommendation, not the hours spent producing it."
   - q: "What happens at the end of the engagement?"
-    a: "The engagement ends with the delivery of the written assessment and a closing review meeting. From there, the organisation can choose to implement the recommendations with their own team, with RIPEDA, or with a separate vendor. We do not gate the recommendation behind a follow-on contract. If RIPEDA is the right implementation partner, we offer a separate scope for that work. If we are not, we say so."
+    a: "The engagement ends with the delivery of the written assessment and a closing review meeting. From there, the organization can choose to implement the recommendations with their own team, with RIPEDA, or with a separate vendor. We do not gate the recommendation behind a follow-on contract. If RIPEDA is the right implementation partner, we offer a separate scope for that work. If we are not, we say so."
   - q: "Will the engagement push us toward your other services?"
     a: "No. The recommendation is what the recommendation is. If the right answer involves Managed Apple IT, Network Infrastructure, or Apple Authorized Repair, we will say so. If the right answer is to stay with your current vendor or to engage a different vendor entirely, we will say that. The advisory relationship is more valuable when we are honest about it, including the times we are not the right partner for the implementation."
   - q: "What if we just have one question rather than a full strategy review?"
-    a: "That is the single-question deep dive engagement. One to two weeks of focused work on one decision. Common examples: which identity provider to standardise on, whether to enrol in Apple Business Manager directly or through a reseller, whether the team is ready for a hardware refresh, or how to handle a specific compliance question. Smaller scope, focused deliverable, faster turnaround."
+    a: "That is the single-question deep dive engagement. One to two weeks of focused work on one decision. Common examples: which identity provider to standardize on, whether to enrol in Apple Business Manager directly or through a reseller, whether the team is ready for a hardware refresh, or how to handle a specific compliance question. Smaller scope, focused deliverable, faster turnaround."
 ---
 
 A pre-Series A SaaS founder asks one question. A dental group is preparing for their fourth clinic. An independent school is evaluating their first network refresh in seven years. A design agency has just lost a client meeting over colour drift across the studio. In each of these moments, the decision is not technical. It is strategic. Which platform. Which vendor. Which order. Which timing. And the cost of getting these decisions wrong is paid for years afterward.
 
-This is the work Strategy Advisory does. Time-bounded engagements that produce written deliverables: a memo a board can read, a roadmap a partner can act on, a recommendation the founder can defend in a budget conversation. RIPEDA's strategy practice runs across SaaS, dental, design, education, and professional services. Each engagement is shaped to the question rather than to a service catalogue.
+This is the work Strategy Advisory does. Time-bounded engagements that produce written deliverables: a memo a board can read, a roadmap a partner can act on, a recommendation the founder can defend in a budget conversation. RIPEDA's strategy practice runs across SaaS, dental, design, education, and professional services. Each engagement is shaped to the question rather than to a service catalog.
 
 The sections below describe the most common Strategy Advisory engagements RIPEDA runs. Each section links to a deeper article that walks through the underlying decision in detail.
 
@@ -49,9 +49,9 @@ The sections below describe the most common Strategy Advisory engagements RIPEDA
 
 A six-person SaaS team closes Series A in February. By October they are at ninety staff across three time zones, and the founder discovers the IT foundation never got built. The remediation is roughly a quarter of expensive work involving every staff member, every device, and every system. The foundation that would have prevented it costs less than one senior engineer week per year.
 
-Strategy Advisory's most common engagement at SaaS companies is the pre-Series A foundation install. Apple Business Manager, Mobile Device Management (MDM), an identity provider, and a password vault. Identity at the centre. Devices that enrol automatically. Offboarding that removes access in one place. The work is small at twenty staff and unaffordable at one hundred and fifty.
+Strategy Advisory's most common engagement at SaaS companies is the pre-Series A foundation install. Apple Business Manager, Mobile Device Management (MDM), an identity provider, and a password vault. Identity at the center. Devices that enrol automatically. Offboarding that removes access in one place. The work is small at twenty staff and unaffordable at one hundred and fifty.
 
-The companion engagement is the post-Series A remediation. The pattern is well-rehearsed: device audit, identity audit, retroactive Apple Business Manager (ABM) enrolment, identity provider rollout, password vault deployment, written offboarding runbook. A quarter of focused work to bring the company to a state it could have been in from day twenty.
+The companion engagement is the post-Series A remediation. The pattern is well-rehearsed: device audit, identity audit, retroactive Apple Business Manager (ABM) enrollment, identity provider rollout, password vault deployment, written offboarding runbook. A quarter of focused work to bring the company to a state it could have been in from day twenty.
 
 [Read more about SaaS company IT on a budget →](/resources/insights/saas-company-it-budget/)
 
@@ -91,11 +91,11 @@ The Apple Technical Partner (ATP) designation is one signal among several to loo
 
 [Read more about what an Apple Technical Partner actually does →](/resources/insights/apple-technical-partner-explained/)
 
-## Multi-location and independent-organisation strategy
+## Multi-location and independent-organization strategy
 
 A three-clinic dental group adds a fourth practice. A hygienist moves over for a Tuesday rotation, signs in to the chairside iPad at the new location, and discovers her credentials do not work the same way, the intake form is configured differently, and the shared drive is mounted at a different path. By end of day she has filed three small tickets and the owner asks the right question: why does any of this differ at all?
 
-Strategy Advisory engagements with multi-location dental groups (and structurally similar organisations like charter or private schools running multiple campuses) focus on the operational consistency layer. Every clinic looks the same at the device, network, and identity layer that staff interact with daily. A documented playbook for new-location standup. A central admin surface that makes per-location differences visible and changeable.
+Strategy Advisory engagements with multi-location dental groups (and structurally similar organizations like charter or private schools running multiple campuses) focus on the operational consistency layer. Every clinic looks the same at the device, network, and identity layer that staff interact with daily. A documented playbook for new-location standup. A central admin surface that makes per-location differences visible and changeable.
 
 For independent charter and private schools specifically, the engagement looks slightly different. The school is a single operational unit, but its IT decisions get made by a smaller team without district scaffolding to lean on. Strategy Advisory helps the principal, business manager, and IT lead make Apple ecosystem decisions that do not require central infrastructure the school does not have.
 
@@ -129,12 +129,12 @@ Specific to Strategy Advisory, our value is the combination of {{ site.time | da
 
 ## How an engagement works
 
-Strategy Advisory engagements are project-based and time-bounded. Each engagement starts with a scoped conversation about the question the organisation needs to answer. From there, three engagement shapes are common.
+Strategy Advisory engagements are project-based and time-bounded. Each engagement starts with a scoped conversation about the question the organization needs to answer. From there, three engagement shapes are common.
 
 **Strategy sprint.** Four to eight weeks of focused work on a defined question. Device platform strategy, network refresh planning, AI policy authoring, vendor selection. Deliverable: a written assessment with recommendations and a sequenced action plan.
 
-**Single-question deep dive.** One to two weeks. The organisation has a specific decision to make: which identity provider, when to refresh the device fleet, how to handle a compliance question, or what an AI policy needs to cover. Deliverable: a focused recommendation with supporting analysis.
+**Single-question deep dive.** One to two weeks. The organization has a specific decision to make: which identity provider, when to refresh the device fleet, how to handle a compliance question, or what an AI policy needs to cover. Deliverable: a focused recommendation with supporting analysis.
 
-**Quarterly advisory retainer.** Ongoing relationship for organisations that need a strategic Apple voice in the room as decisions come up. Deliverable: scheduled check-ins, ad-hoc decision support, written follow-ups.
+**Quarterly advisory retainer.** Ongoing relationship for organizations that need a strategic Apple voice in the room as decisions come up. Deliverable: scheduled check-ins, ad-hoc decision support, written follow-ups.
 
 All three structures bill at a defined project rate or retainer rate established at engagement scope. Strategy Advisory is not billed by the hour against ambiguous deliverables.

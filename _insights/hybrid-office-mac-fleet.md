@@ -38,7 +38,7 @@ Hybrid work changed something fundamental about device management. The old patte
 
 **Mobile Device Management (MDM).** The control surface for the fleet. Configures the Mac the same way regardless of where it sits. Pushes apps, settings, security profiles, and updates over the internet. Mosyle, Kandji, Jamf, and SimpleMDM all do this. The difference between vendors is interface and pricing, not capability for the core job.
 
-**Identity-managed sign-in.** Microsoft Entra ID, Google Workspace, Okta, or Apple's own setup with Managed Apple Accounts. The identity provider is what tells the Mac who its user is, what they have access to, and what should happen when they leave the firm. Without identity at the centre, access management becomes a per-device exercise that does not scale past about fifteen staff.
+**Identity-managed sign-in.** Microsoft Entra ID, Google Workspace, Okta, or Apple's own setup with Managed Apple Accounts. The identity provider is what tells the Mac who its user is, what they have access to, and what should happen when they leave the firm. Without identity at the center, access management becomes a per-device exercise that does not scale past about fifteen staff.
 
 **Remote support tooling.** The path to actually fix something when a staff member is at home and a Mac will not boot. Built into most modern MDM platforms as remote screen and command line access. Used carefully (with consent and with logging), this is what turns a remote device into one IT can actually help.
 
@@ -72,7 +72,7 @@ None of these reports are complicated. The discipline is running them and acting
 
 Some firms resist hybrid management because they read the visibility tooling as surveillance. That framing misreads what the tooling is for. The MDM does not let IT read a staff member's emails or open their browser tabs. The MDM lets IT confirm that the Mac is encrypted, patched, and running the corporate apps the staff member needs to do their work.
 
-The architecture is the firm's defence against a lost laptop, a departing staff member who keeps their access for three months by accident, or a ransomware incident that needs to be contained before it spreads through the fleet. The team is not the problem. The lack of visibility into the fleet is the problem.
+The architecture is the firm's defense against a lost laptop, a departing staff member who keeps their access for three months by accident, or a ransomware incident that needs to be contained before it spreads through the fleet. The team is not the problem. The lack of visibility into the fleet is the problem.
 
 ## When to think about this
 

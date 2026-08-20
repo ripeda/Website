@@ -2,14 +2,14 @@
 layout: insight
 title: "5 things to do with a Mac the day an employee leaves"
 dek: "What you do in the first few hours decides whether offboarding a Mac is a ten-minute task or a problem you find six weeks later on an invoice."
-description: "A five-step offboarding checklist for a company Mac, in urgency order: identity, remote lock or wipe, Activation Lock, licences, and shared credentials."
+description: "A five-step offboarding checklist for a company Mac, in urgency order: identity, remote lock or wipe, Activation Lock, licenses, and shared credentials."
 date: 2026-08-11
 published: false
 tags:
   - Lifecycle
   - Security
   - MDM
-keywords: "what to do when an employee leaves with a company macbook, mac offboarding checklist, how to remove activation lock from a company mac, remote wipe a mac after an employee leaves, reclaiming software licences offboarding, Apple Business Manager device removal, Mac fleet management, Apple IT Calgary"
+keywords: "what to do when an employee leaves with a company macbook, mac offboarding checklist, how to remove activation lock from a company mac, remote wipe a mac after an employee leaves, reclaiming software licenses offboarding, Apple Business Manager device removal, Mac fleet management, Apple IT Calgary"
 reading_time: 2
 author: "RIPEDA"
 tldr:
@@ -45,7 +45,7 @@ Check in your MDM (Jamf, Mosyle, Kandji, SimpleMDM) that the device has checked 
 
 If the person ever signed in to Find My with a personal Apple ID, that Mac is Activation Locked to them. Cleared through Apple Business Manager or your MDM before the account is untangled, it takes a minute. Discovered after the fact, it becomes a documentation exercise with Apple involving original proof of purchase, and until it is resolved the Mac cannot be set up by anyone else.
 
-## 4. Reclaim the assigned software licences
+## 4. Reclaim the assigned software licenses
 
 Adobe Creative Cloud, Microsoft 365, Figma, and most design and project tools keep billing for an assigned seat whether or not anyone signs in to it. Unassign the person in each admin console on the same day and record where the seat went. A seat that has been quietly renewing for a year is a credit conversation with a vendor, not a refund.
 

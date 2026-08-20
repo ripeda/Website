@@ -11,7 +11,7 @@ Source for the two Cloudflare Workers behind the ripeda.com contact form.
 
 ## What they do
 
-**Receiver** — accepts the form POST, checks the honeypot, verifies the Cloudflare Turnstile token, then creates a prospect **Opportunity** in HaloPSA on the **Lead** type (ticket type `27`). Deliberately an Opportunity rather than a Ticket: a plain Halo ticket requires a Client/Site/User, so a client-less website enquiry fails with `400 "Please select a valid Client/Site/User"`.
+**Receiver** — accepts the form POST, checks the honeypot, verifies the Cloudflare Turnstile token, then creates a prospect **Opportunity** in HaloPSA on the **Lead** type (ticket type `27`). Deliberately an Opportunity rather than a Ticket: a plain Halo ticket requires a Client/Site/User, so a client-less website inquiry fails with `400 "Please select a valid Client/Site/User"`.
 
 **Enrichment** — finds Lead opportunities flagged `Pending`, researches each using Claude with web search, scores it against RIPEDA's lead rubric, writes the results into Halo custom fields, and posts a brief to Slack.
 
