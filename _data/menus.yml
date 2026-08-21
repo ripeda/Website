@@ -27,7 +27,7 @@ main:
       - name: "Dental and Medical"
         url: "/industries/dental-medical/"
         weight: 1
-      - name: "Design Agencies"
+      - name: "Design & Marketing"
         url: "/industries/design-agencies/"
         weight: 2
       - name: "Education"

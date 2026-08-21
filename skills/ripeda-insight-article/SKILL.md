@@ -35,18 +35,25 @@ If any of these are missing, ASK before drafting. Do not guess.
 - **Vertical(s).** Which of the eight verticals does this article belong to? One is normal, multiple is allowed when the content genuinely applies across categories. Always ask, even when the answer seems obvious.
 - **Anything specific about positioning.** Is this an Education-for-Repair piece? A Dental clinic piece? A Strategy-Advisory piece? Context shapes voice and the related-reading links.
 
-The eight verticals (defined in `_data/insights.yml`):
+The seven verticals (defined in `_data/insights.yml`):
 
 | id | label | scope |
 |---|---|---|
 | `dental-medical` | Dental & Medical | Clinics, dental, oral surgery, healthcare, PHIPA/PIPEDA, imaging |
-| `design-agencies` | Design Agencies | Creative studios, marketing-adjacent design, Mac-default creative shops |
+| `design-agencies` | Design & Marketing | Creative studios, design shops, marketing and communications agencies, Mac-default creative teams |
 | `education` | Education | Charter and private schools (RIPEDA does not target public schools). Repair, networks, AASP work |
 | `professional-services` | Professional Services | SaaS, accounting, consulting, legal-adjacent, professional firms |
-| `marketing-agencies` | Marketing Agencies | Marketing and communications firms specifically (broader than design agencies) |
 | `mdm-security` | MDM & Security | Cross-industry technical content on device management, security, identity |
 | `infrastructure` | Apple Infrastructure | Networks, servers, storage, DNS, VPN, the layer under devices |
 | `ai-productivity` | AI & Productivity | Apple Intelligence, Apple Silicon, Shortcuts, AI rollout (cross-references getanhourback.com) |
+
+There used to be a separate `marketing-agencies` vertical. It was merged into
+`design-agencies` on 2026-08-21: it had a label and a description but never a
+single article, so it rendered a filter tab that led straight to the empty
+state, and the two audiences overlap almost completely for this content. The id
+`design-agencies` was kept rather than minting a merged one, because it owns
+/industries/design-agencies/ and is deep-linked as `#design-agencies`. Do not
+re-add a marketing vertical without writing articles for it first.
 
 ---
 

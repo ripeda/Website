@@ -4,8 +4,8 @@ verticals:
     description: "Apple IT for clinics, dental practices, and healthcare environments. PHIPA compliance, digital imaging workflows, secure remote access, and device management — written for Practice Managers and Owners."
 
   - id: design-agencies
-    label: "Design Agencies"
-    description: "The Mac is already on every desk. These articles help design studios and creative agencies get more out of it — storage strategy, AI-assisted workflows, MDM for onboarding, and collaboration without friction."
+    label: "Design & Marketing"
+    description: "The Mac is already on every desk. These articles help design studios, creative shops, and marketing agencies get more out of it — storage strategy, AI-assisted workflows, MDM for onboarding, campaign asset management, and collaboration without friction."
 
   - id: education
     label: "Education"
@@ -15,9 +15,15 @@ verticals:
     label: "Professional Services"
     description: "Apple in law firms, accounting practices, SaaS companies, and consulting shops. Focused on data protection, staff onboarding, and keeping a lean IT footprint without sacrificing security."
 
-  - id: marketing-agencies
-    label: "Marketing Agencies"
-    description: "Fast-moving teams, tight deadlines, and an Apple-first culture. Articles covering campaign asset management, remote collaboration, and the IT decisions that let marketing teams stay in flow."
+  # NOTE: `marketing-agencies` was merged into `design-agencies` on 2026-08-21.
+  # It was defined here with a full label and description but never carried a
+  # single article, so it rendered a filter tab that led straight to the empty
+  # state. The two audiences overlap almost completely for this content, and
+  # `design-agencies` is the id that is load-bearing elsewhere: it owns
+  # /industries/design-agencies/, which is linked from index.html and
+  # _data/menus.yml, and pillar pages deep-link the hub as #design-agencies.
+  # So the id stayed and only the label widened. Do not re-add a separate
+  # marketing vertical without writing articles for it first.
 
   - id: mdm-security
     label: "MDM & Security"
@@ -74,7 +80,7 @@ articles:
   # ── Design Agencies ─────────────────────────────────────────────────
 
   - title: 5 things to check about your clinic's backup this month
-    verticals: [dental-medical, professional-services, design-agencies]
+    verticals: [dental-medical]
     vertical: dental-medical
     read_time: 3
     format: hook
@@ -270,8 +276,8 @@ articles:
     published: true
 
   - title: What breaks first when an agency hits 15 people
-    verticals: [professional-services, design-agencies, mdm-security]
-    vertical: professional-services
+    verticals: [design-agencies, professional-services, mdm-security]
+    vertical: design-agencies
     read_time: 3
     format: hook
     date: "Aug 2026"
@@ -385,7 +391,7 @@ articles:
     published: true
 
   - title: 5 things to check before you buy a used Mac
-    verticals: [mdm-security]
+    verticals: [mdm-security, professional-services]
     vertical: mdm-security
     read_time: 3
     format: hook
@@ -413,8 +419,8 @@ articles:
     published: true
 
   - title: Apple Business Manager vs Apple School Manager in 60 seconds
-    verticals: [mdm-security, dental-medical, design-agencies, education, professional-services]
-    vertical: mdm-security
+    verticals: [education, mdm-security]
+    vertical: education
     read_time: 2
     format: hook
     date: "Aug 2026"
@@ -453,8 +459,8 @@ articles:
     published: true
 
   - title: Why the school Wi-Fi dies at 8:45 and works fine at 10
-    verticals: [infrastructure, dental-medical, design-agencies, education, professional-services]
-    vertical: infrastructure
+    verticals: [education, infrastructure]
+    vertical: education
     read_time: 3
     format: hook
     date: "Aug 2026"
