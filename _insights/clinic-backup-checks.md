@@ -5,7 +5,7 @@ dek: "A backup job that reports success every night is not the same as a backup 
 description: "Five checks for a dental or medical clinic backup, ordered by what fails most often in the field. Restore testing, imaging data, offline copies, and retention."
 image: /images/insights/clinic-backup-checks-og.png
 date: 2026-08-11
-verticals: [dental-medical, professional-services, design-agencies]
+verticals: [dental-medical]
 tags:
   - Backup
   - Data Recovery

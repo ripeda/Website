@@ -85,8 +85,10 @@ CLOSING_HEADING = "if you only do one thing"
 
 VALID_VERTICALS = {
     "dental-medical", "design-agencies", "education", "professional-services",
-    "marketing-agencies", "mdm-security", "infrastructure", "ai-productivity",
+    "mdm-security", "infrastructure", "ai-productivity",
 }
+# NOTE: "marketing-agencies" was merged into "design-agencies" (label
+# "Design & Marketing") on 2026-08-21 - it never carried an article.
 # NOTE: "quick-reads" was removed on 2026-08-21. Length is a format, not an
 # industry, and a hook tagged quick-reads disappeared from every industry tab.
 # Hooks now inherit their parent spoke's verticals; format: hook carries length.

@@ -5,7 +5,7 @@ dek: "The morning peak is a density problem, not a bandwidth problem, and the di
 description: "School Wi-Fi that fails at the morning bell is usually a client density problem. Why client count per access point matters more than internet bandwidth."
 image: /images/insights/school-wifi-morning-peak-og.png
 date: 2026-08-11
-verticals: [infrastructure, dental-medical, design-agencies, education, professional-services]
+verticals: [education, infrastructure]
 tags:
   - Wi-Fi
   - Networks

@@ -45,13 +45,19 @@ If a draft does not serve at least one of those three, it should be a spoke inst
 
 ## Verticals: inherit from the parent spoke
 
-**A hook takes its parent spoke's `verticals` verbatim.** Not a subset, not a judgment call. If the parent is tagged `[mdm-security, dental-medical, education]`, so is the hook.
+**Start from the parent spoke's `verticals`, then narrow to the audience the hook's own title actually addresses.** If the parent is tagged `[mdm-security, dental-medical, education]` and the hook is equally broad, it takes all three.
 
-This is the whole rule, and it exists because the alternative was tried and rejected. There was once a `quick-reads` vertical. It was removed on 2026-08-21. **Do not reintroduce it.**
+The narrowing half is not optional, and skipping it caused a real bug. Spokes are written wide; hooks are frequently written narrow, and inheriting wide tags onto a narrow piece files it under industries it has nothing to say to. `business-backup-beyond-icloud` genuinely serves clinics, firms, and studios, so it is tagged for all three. Its hook is titled "5 things to check about your clinic's backup this month". Inheriting verbatim put that article under Design Agencies, where a reader has no clinic. Four other hooks had the same defect, corrected on 2026-08-21.
+
+**The test:** if the title names a setting — clinic, school, firm, agency — the hook is tagged for that setting and the topic verticals that still apply, and nothing else. If the title names no setting, the parent's full list is usually right. A dead Mac drive does not care what industry you are in; a school iPad cart does.
+
+The inherit half exists because the alternative was tried and rejected. There was once a `quick-reads` vertical. It was removed on 2026-08-21. **Do not reintroduce it.**
 
 The reason: the filter row on `/resources/insights/` is single-select over industry verticals. A hook tagged `quick-reads` instead of an industry vanishes the moment a reader clicks "Education" — and the two-minute answer is precisely what that reader wants most. Length is not an industry, so it does not belong on an axis that means industry.
 
 Length lives on its own axis instead: `format: hook` in the data file entry drives a "Quick read" pill on the card and a separate All / Quick reads / Deep dives toggle above the grid. That toggle ANDs with the industry tabs, so "Education + Quick reads" is a view a reader can actually reach.
+
+The seven verticals are listed in `skills/ripeda-insight-article/SKILL.md`. Note that `design-agencies` is labelled "Design & Marketing" and covers marketing agencies; the old `marketing-agencies` id was merged into it and no longer exists.
 
 **Standalone hooks.** If no spoke is a sensible parent, pick the one or two industry verticals the piece genuinely serves and lead `related` with a service page. Standalone is about the *parent link*, not about the tagging. `buying-a-used-mac-checklist` is the current example: no parent spoke, tagged `mdm-security` because Activation Lock and ABM enrollment are its actual subject.
 
@@ -273,7 +279,8 @@ Run in addition to the spoke checklist's voice and frontmatter sections.
 
 ### Categorization
 
-- [ ] Verticals match the parent spoke exactly (or, for standalones, are real industry verticals)
+- [ ] Verticals start from the parent spoke's, narrowed to the audience the title names
+- [ ] If the title names a clinic, school, firm or agency, no unrelated industry is tagged
 - [ ] `format: hook` present in the data file entry (publish mode only)
 - [ ] TL;DR has 3-4 bullets
 

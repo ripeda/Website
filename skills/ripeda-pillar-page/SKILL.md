@@ -37,8 +37,9 @@ not collection items.
 If any are missing, ASK before drafting:
 
 - **The vertical.** One of: dental-medical, design-agencies, education, professional-services.
-  (Marketing-agencies and the topic verticals like mdm-security, infrastructure, ai-productivity
-  are spoke-only categories and do not get pillar pages.)
+  (The topic verticals — mdm-security, infrastructure, ai-productivity — are spoke-only
+  categories and do not get pillar pages. `design-agencies` covers marketing agencies too;
+  its label is "Design & Marketing" and the old `marketing-agencies` id no longer exists.)
 - **Available case studies.** Named clients with permission to publish, anonymized client
   stories, or "no case studies yet, use placeholder language."
 - **Tier (Tier 1 vs Tier 2 vs Tier 3).** Tier 1 verticals (Dental, Design) get the full

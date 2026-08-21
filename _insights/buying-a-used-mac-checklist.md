@@ -12,7 +12,7 @@ tags:
 keywords: "how to check activation lock before buying a used mac, what to check when buying a used macbook, used mac battery cycle count check, is this used mac enrolled in mdm, used MacBook buying checklist, Apple consulting Calgary, Mac support"
 reading_time: 3
 author: "RIPEDA"
-verticals: [mdm-security]
+verticals: [mdm-security, professional-services]
 tldr:
   - "Activation Lock is the only item here that can cost you the entire purchase price, so it goes first and it goes before the money moves."
   - "A Mac that was once a company machine can be enrolled in someone else's Apple Business Manager, and erasing it does not clear that."

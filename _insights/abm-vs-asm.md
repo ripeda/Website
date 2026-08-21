@@ -12,7 +12,7 @@ tags:
 keywords: "apple business manager vs apple school manager, which apple school manager eligibility rules apply, do i need apple school manager or business manager, shared ipad and class rosters, Managed Apple Accounts for students, Apple School Manager migration, Apple IT for schools Calgary, Apple device deployment"
 reading_time: 2
 author: "RIPEDA"
-verticals: [mdm-security, dental-medical, design-agencies, education, professional-services]
+verticals: [education, mdm-security]
 tldr:
   - "Apple School Manager is the same platform as Apple Business Manager with a classroom layer added on top."
   - "The additions that matter are Shared iPad, class rosters, and integration with Classroom and Schoolwork."

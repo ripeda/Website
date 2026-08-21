@@ -1,18 +1,18 @@
 ---
 layout: pillar
-title: "Apple IT for design studios and creative agencies"
-seo_title: "Apple IT for Design Studios and Creative Agencies | RIPEDA Consulting"
-description: "Apple IT for Calgary and Western Canadian design and creative agencies. Storage, MDM, onboarding, AI workflows, and disaster recovery for Mac-first studios."
+title: "Apple IT for design, creative, and marketing agencies"
+seo_title: "Apple IT for Design, Creative, and Marketing Agencies | RIPEDA Consulting"
+description: "Apple IT for Calgary and Western Canadian design, creative, and marketing agencies. Storage, MDM, onboarding, AI workflows, and disaster recovery for Mac-first studios."
 permalink: /industries/design-agencies/
 breadcrumb: true
 date: 2026-05-22
 last_modified_at: 2026-05-22
 vertical: design-agencies
-keywords: "Apple IT for design agencies, Mac IT design studio, agency NAS storage, creative team MDM, designer onboarding Mac, Apple Silicon creative work, design agency disaster recovery, Apple consulting Calgary"
+keywords: "Apple IT for design agencies, Apple IT for marketing agencies, Mac IT design studio, agency NAS storage, creative team MDM, designer onboarding Mac, Apple Silicon creative work, design agency disaster recovery, Apple consulting Calgary"
 hero:
-  eyebrow: "Industry · Design Agencies"
-  headline: "Apple IT for design studios and creative agencies"
-  dek: "Built for studios where Macs sit on every desk and creative output is the product. Storage that holds the work, device management that does not get in the way, and an IT partner that knows the difference between a print queue and a render queue."
+  eyebrow: "Industry · Design & Marketing"
+  headline: "Apple IT for design, creative, and marketing agencies"
+  dek: "Built for studios and agencies where Macs sit on every desk and the creative output is the product. Storage that holds the work, device management that does not get in the way, and an IT partner that knows the difference between a print queue and a render queue."
   badges:
     - "Apple Technical Partner since 2012"
     - "Apple Authorized Service Provider"
