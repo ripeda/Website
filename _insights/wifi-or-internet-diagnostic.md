@@ -1,11 +1,10 @@
 ---
 layout: insight
-published: false
 title: "5 signs your office Wi-Fi is the problem, not your internet"
 dek: "Five checks that separate a wireless problem from a circuit problem, before anyone signs an order for more bandwidth."
 description: "Five signs your office Wi-Fi is the problem rather than your internet circuit, ordered by how easily you can check each one on an ordinary working day."
 date: 2026-08-11
-verticals: [infrastructure, quick-reads]
+verticals: [infrastructure, dental-medical, design-agencies, education, professional-services]
 tags:
   - Wi-Fi
   - Networks

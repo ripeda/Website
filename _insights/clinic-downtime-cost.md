@@ -1,6 +1,5 @@
 ---
 layout: insight
-published: false
 title: "What one hour of clinic downtime actually costs"
 dek: "The obvious number is lost chair time. The real number is usually two to three times that, and it is the one worth comparing against prevention."
 description: "How to work out what an hour of clinic downtime costs your practice: lost chair hours, staff paid either way, and the recovery tail nobody counts."

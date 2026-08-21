@@ -11,8 +11,7 @@ tags:
 keywords: "what to do when a work laptop is stolen, how to remote wipe a stolen macbook, lost laptop data breach checklist, does filevault protect a stolen mac, Alberta PIPA breach notification, MDM remote lock Mac, Apple IT Calgary, Mac fleet management"
 reading_time: 3
 author: "RIPEDA"
-published: false
-verticals: [quick-reads, mdm-security, professional-services]
+verticals: [professional-services, mdm-security]
 tldr:
   - "Lock the device first. Marking it lost or pushing a remote lock costs nothing and can be undone."
   - "Suspending the user's identity account matters more than the hardware, because a signed-in session is a working key to mail and files."

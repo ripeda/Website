@@ -230,6 +230,63 @@
     align-self: flex-start;
   }
 
+  // ── Format pill ──────────────────────────────────────────────────
+  // Marks a 2-3 minute hook apart from a 4-6 minute spoke. Deliberately slate
+  // rather than $primary so it reads as metadata and does not compete with the
+  // industry tags, which own the brand blue.
+  .insight-format {
+    display: inline-block;
+    font-size: 0.65rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: #475569;
+    background: #f1f5f9;
+    border: 1px solid #e2e8f0;
+    padding: 0.15rem 0.45rem;
+    border-radius: 4px;
+    line-height: 1.35;
+  }
+
+  // ── Count + format toggle row ────────────────────────────────────
+  .insights-toolbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+  }
+
+  .insights-format-toggle {
+    display: inline-flex;
+    background: #f1f5f9;
+    border: 1px solid #e2e8f0;
+    border-radius: 6px;
+    padding: 2px;
+
+    .format-btn {
+      background: none;
+      border: none;
+      border-radius: 4px;
+      padding: 0.35rem 0.7rem;
+      font-size: 0.78rem;
+      font-weight: 500;
+      color: #64748b;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: background 0.15s ease, color 0.15s ease;
+
+      &:hover { color: $primary; }
+
+      &.active {
+        background: #fff;
+        color: $primary;
+        font-weight: 600;
+        box-shadow: 0 1px 2px rgba(15, 23, 42, 0.08);
+      }
+    }
+  }
+
   .insight-card-tags {
     display: flex;
     flex-wrap: wrap;

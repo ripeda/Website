@@ -1,6 +1,5 @@
 ---
 layout: insight
-published: false
 title: "5 things to do with a school iPad cart in July"
 dek: "July is the only month the fleet holds still, and every item on this list is cheaper now than it will be in the first week of September."
 description: "A July reset for school iPad carts: inventory, damage triage, iPadOS support, re-enrollment through Apple School Manager, and the carts themselves."

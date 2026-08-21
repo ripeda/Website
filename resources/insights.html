@@ -97,7 +97,20 @@ bodyClass: "page-insights"
   </div>
 
   <!-- Count -->
-  <div class="insights-count" id="insights-count">{{ articles | size }} articles</div>
+  <div class="insights-toolbar">
+    <div class="insights-count" id="insights-count">{{ articles | size }} articles</div>
+    {%- comment -%}
+      Format is a second, orthogonal axis to the vertical tabs above. A hook is a
+      2-3 minute quick read; a spoke is the 4-6 minute deep dive it hangs off.
+      Deliberately NOT a vertical: filtering "Education" must still surface the
+      education quick reads, which is exactly what a `quick-reads` tab would break.
+    {%- endcomment -%}
+    <div class="insights-format-toggle" id="format-toggle" role="group" aria-label="Filter by article length">
+      <button class="format-btn active" data-format="all">All</button>
+      <button class="format-btn" data-format="hook">Quick reads</button>
+      <button class="format-btn" data-format="spoke">Deep dives</button>
+    </div>
+  </div>
 
   <!-- Grid -->
   <div class="insights-grid" id="insights-grid">
@@ -118,7 +131,7 @@ bodyClass: "page-insights"
       {% assign vertical_list = article.vertical %}
     {% endif %}
     {% if article.published and article.slug %}
-    <a class="insight-card insight-card--published" href="/resources/insights/{{ article.slug }}/" data-vertical="{{ primary_vertical }}" data-verticals="{{ vertical_list }}" data-title="{{ article.title | downcase }}">
+    <a class="insight-card insight-card--published" href="/resources/insights/{{ article.slug }}/" data-vertical="{{ primary_vertical }}" data-verticals="{{ vertical_list }}" data-format="{{ article.format | default: 'spoke' }}" data-title="{{ article.title | downcase }}">
       <div class="insight-card-top">
         <div class="insight-card-tags">
           {% for vid in article_verticals %}
@@ -130,6 +143,7 @@ bodyClass: "page-insights"
       </div>
       <h3 class="insight-title">{{ article.title }}</h3>
       <div class="insight-meta">
+        {%- if article.format == 'hook' %}<span class="insight-format">Quick read</span>{% endif %}
         <span>{{ article.read_time }} min read</span>
         <span class="meta-sep"></span>
         <span>{{ article.date }}</span>
@@ -137,7 +151,7 @@ bodyClass: "page-insights"
       <div class="insight-cta">Read article <span class="arrow">→</span></div>
     </a>
     {% else %}
-    <div class="insight-card" data-vertical="{{ primary_vertical }}" data-verticals="{{ vertical_list }}" data-title="{{ article.title | downcase }}">
+    <div class="insight-card" data-vertical="{{ primary_vertical }}" data-verticals="{{ vertical_list }}" data-format="{{ article.format | default: 'spoke' }}" data-title="{{ article.title | downcase }}">
       <div class="insight-card-tags">
         {% for vid in article_verticals %}
           {% assign v = verticals | where: "id", vid | first %}
@@ -146,6 +160,7 @@ bodyClass: "page-insights"
       </div>
       <h3 class="insight-title">{{ article.title }}</h3>
       <div class="insight-meta">
+        {%- if article.format == 'hook' %}<span class="insight-format">Quick read</span>{% endif %}
         <span>{{ article.read_time }} min read</span>
         <span class="meta-sep"></span>
         <span>{{ article.date }}</span>
@@ -165,12 +180,14 @@ bodyClass: "page-insights"
 
   // ── State ─────────────────────────────────────────────────────────
   var activeFilter = 'all';
+  var activeFormat = 'all';
   var activeSearch = '';
 
   // ── Elements ──────────────────────────────────────────────────────
   var scrollEl   = document.getElementById('filter-scroll');
   var wrap       = scrollEl.parentElement;
   var btns       = document.querySelectorAll('.filter-btn');
+  var fmtBtns    = document.querySelectorAll('.format-btn');
   var cards      = document.querySelectorAll('.insight-card');
   var descs      = document.querySelectorAll('[data-desc]');
   var countEl    = document.getElementById('insights-count');
@@ -199,7 +216,11 @@ bodyClass: "page-insights"
       var cardVerticals = (card.dataset.verticals || card.dataset.vertical || '').split(',');
       var verticalMatch = activeFilter === 'all' || cardVerticals.indexOf(activeFilter) !== -1;
       var searchMatch   = !searching || card.dataset.title.includes(activeSearch);
-      var show = verticalMatch && searchMatch;
+      // Format is independent of vertical: a hook stays visible under its
+      // industry tab, and "Quick reads" narrows within whatever tab is active.
+      var cardFormat    = card.dataset.format || 'spoke';
+      var formatMatch   = activeFormat === 'all' || cardFormat === activeFormat;
+      var show = verticalMatch && searchMatch && formatMatch;
       card.classList.toggle('hidden', !show);
       if (show) visible++;
     });
@@ -238,6 +259,16 @@ bodyClass: "page-insights"
       btns.forEach(function (b) { b.classList.remove('active'); });
       btn.classList.add('active');
       activeFilter = btn.dataset.filter;
+      render();
+    });
+  });
+
+  // ── Format toggle ─────────────────────────────────────────────────
+  fmtBtns.forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      fmtBtns.forEach(function (b) { b.classList.remove('active'); });
+      btn.classList.add('active');
+      activeFormat = btn.dataset.format;
       render();
     });
   });

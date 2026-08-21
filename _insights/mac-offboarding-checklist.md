@@ -4,7 +4,6 @@ title: "5 things to do with a Mac the day an employee leaves"
 dek: "What you do in the first few hours decides whether offboarding a Mac is a ten-minute task or a problem you find six weeks later on an invoice."
 description: "A five-step offboarding checklist for a company Mac, in urgency order: identity, remote lock or wipe, Activation Lock, licenses, and shared credentials."
 date: 2026-08-11
-published: false
 tags:
   - Lifecycle
   - Security
@@ -12,6 +11,7 @@ tags:
 keywords: "what to do when an employee leaves with a company macbook, mac offboarding checklist, how to remove activation lock from a company mac, remote wipe a mac after an employee leaves, reclaiming software licenses offboarding, Apple Business Manager device removal, Mac fleet management, Apple IT Calgary"
 reading_time: 2
 author: "RIPEDA"
+verticals: [professional-services, design-agencies, mdm-security]
 tldr:
   - "Suspend the identity account first. It cuts mail, files, and sign-ins in one move and makes every other step easier."
   - "Lock or wipe the Mac while it is still reachable. A command issued after the device goes offline may never land."
@@ -28,7 +28,6 @@ related:
     url: "/industries/professional-services/"
     context: "How firms handle device turnover when the people leaving had access to client data."
 
-# verticals: [quick-reads, mdm-security]
 ---
 
 The exit conversation is at two o’clock and the MacBook comes back at four. What happens between those two hours is the difference between a device you can reissue on Monday and one that sits in a drawer for a month while somebody argues with a support queue. In order of urgency.

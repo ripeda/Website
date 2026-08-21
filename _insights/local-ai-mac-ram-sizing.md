@@ -1,11 +1,10 @@
 ---
 layout: insight
-published: false
 title: "How much RAM you actually need to run AI locally on a Mac"
 dek: "On Apple Silicon the GPU addresses system memory, so total RAM decides which models you can run at all."
 description: "How much RAM you need to run AI models locally on a Mac, with sizing bands from 16GB to 96GB and why memory bandwidth matters separately from capacity."
 date: 2026-08-11
-verticals: [ai-productivity]
+verticals: [ai-productivity, professional-services]
 tags:
   - Apple Silicon
   - Performance
@@ -15,7 +14,7 @@ reading_time: 3
 author: "RIPEDA"
 tldr:
   - "Apple Silicon uses unified memory, so usable model size is governed by total RAM rather than a separate video memory pool."
-  - "A quantised model needs slightly more memory than its file size, plus headroom for macOS and everything else open."
+  - "A quantized model needs slightly more memory than its file size, plus headroom for macOS and everything else open."
   - "16GB runs small models for light use and is genuinely constrained. 48GB and up is where larger models become comfortable."
   - "Memory bandwidth varies by chip tier and affects speed independently of how much RAM is installed."
 related:
@@ -35,14 +34,14 @@ On a machine with a discrete GPU, a model has to fit in video memory, which is a
 
 ## Sizing by band
 
-A quantised model needs a little more memory than its file size on disk, because the weights load and then context and working allocations sit on top. After that it is headroom: macOS with a browser, an editor and a video call already consumes a meaningful share of a 16GB machine before a model loads at all.
+A quantized model needs a little more memory than its file size on disk, because the weights load and then context and working allocations sit on top. After that it is headroom: macOS with a browser, an editor and a video call already consumes a meaningful share of a 16GB machine before a model loads at all.
 
 | Installed RAM | Model scale that fits | Realistic use |
 |---|---|---|
-| 16GB | Small models, 7-8B class, quantised | Drafting, summarizing, text cleanup. One model at a time with little else open. Works, and genuinely constrained. |
-| 24-32GB | 7-8B comfortably, 13-14B class quantised | A daily driver alongside a browser and an editor. Longer conversations without hitting memory pressure. |
-| 48-64GB | 30B+ class quantised | Better reasoning and code work, longer context, room to keep a model resident all day. |
-| 96GB and up | 70B class quantised | The largest locally practical models, or several smaller ones loaded at once. |
+| 16GB | Small models, 7-8B class, quantized | Drafting, summarizing, text cleanup. One model at a time with little else open. Works, and genuinely constrained. |
+| 24-32GB | 7-8B comfortably, 13-14B class quantized | A daily driver alongside a browser and an editor. Longer conversations without hitting memory pressure. |
+| 48-64GB | 30B+ class quantized | Better reasoning and code work, longer context, room to keep a model resident all day. |
+| 96GB and up | 70B class quantized | The largest locally practical models, or several smaller ones loaded at once. |
 
 The 16GB band deserves an honest note: it runs small models, it is genuinely useful, and it is also where the ceiling shows up first. A longer conversation, a second application, or a slightly larger model pushes the system into memory pressure, and performance falls off sharply rather than degrading gently.
 

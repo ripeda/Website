@@ -11,8 +11,7 @@ tags:
 keywords: "mac wont boot what to do, how to tell if a mac hard drive has failed, boot apple silicon mac to recovery mode, disk utility does not see the drive, Mac Sharing Mode target disk mode, Mac data recovery Calgary, Apple support Calgary"
 reading_time: 3
 author: "RIPEDA"
-published: false
-verticals: [quick-reads]
+verticals: [mdm-security, dental-medical, design-agencies, education, professional-services]
 tldr:
   - "A Mac that seems dead is often a Mac that is running with no picture, so cables and displays come before anything else."
   - "Recovery mode and Disk Utility answer the only question that matters early: can the machine see the disk at all?"
