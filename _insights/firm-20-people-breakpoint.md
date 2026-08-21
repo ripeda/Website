@@ -3,6 +3,7 @@ layout: insight
 title: "What breaks first when a firm hits 20 people"
 dek: "The founder-does-IT model works at eight people and quietly stops working at twenty, usually without anyone deciding to change it."
 description: "What breaks first when a firm reaches 20 staff: founder-run IT, access control, device tracking, onboarding, and the first client security questionnaire."
+image: /images/insights/firm-20-people-breakpoint-og.png
 date: 2026-08-11
 verticals: [professional-services, mdm-security]
 tags:

@@ -3,6 +3,7 @@ layout: insight
 title: "The 3 Apple certificates that expire and take your MDM down"
 dek: "None of the three announce themselves when they lapse, which is why the failure is usually discovered by a new starter rather than by IT."
 description: "The three Apple certificates that expire every year, what each one breaks when it lapses, and why all three fail quietly enough that nobody in IT notices."
+image: /images/insights/mdm-certificate-renewals-og.png
 date: 2026-08-11
 tags:
   - MDM

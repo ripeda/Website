@@ -3,6 +3,7 @@ layout: insight
 title: "7 questions to ask an MSP before you sign"
 dek: "The questions that predict whether a managed services relationship works are contractual and operational, not technical."
 description: "Seven contract and operating questions to ask a managed service provider before you sign, ordered by how much trouble each one prevents down the line."
+image: /images/insights/questions-to-ask-an-msp-og.png
 date: 2026-08-11
 verticals: [professional-services, mdm-security]
 tags:

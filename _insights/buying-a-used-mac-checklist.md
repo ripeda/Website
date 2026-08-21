@@ -3,6 +3,7 @@ layout: insight
 title: "5 things to check before you buy a used Mac"
 dek: "A private Mac sale carries almost no mechanical risk and quite a lot of administrative risk, and all of it is checkable with the seller sitting in front of you."
 description: "Activation Lock, MDM enrollment, storage config, and two more checks that decide whether a used Mac is a bargain or a paperweight. Do them before you pay."
+image: /images/insights/buying-a-used-mac-checklist-og.png
 date: 2026-08-11
 tags:
   - Procurement

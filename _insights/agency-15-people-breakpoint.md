@@ -3,6 +3,7 @@ layout: insight
 title: "What breaks first when an agency hits 15 people"
 dek: "The IT work that was invisible at eight people becomes a part-time job at fifteen and a real cost at twenty-five."
 description: "Onboarding, file structure, access control, and device visibility break in a predictable order as an agency grows from eight people to fifteen and beyond."
+image: /images/insights/agency-15-people-breakpoint-og.png
 date: 2026-08-11
 tags:
   - Operations

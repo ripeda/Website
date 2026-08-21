@@ -3,6 +3,7 @@ layout: insight
 title: "How much RAM you actually need to run AI locally on a Mac"
 dek: "On Apple Silicon the GPU addresses system memory, so total RAM decides which models you can run at all."
 description: "How much RAM you need to run AI models locally on a Mac, with sizing bands from 16GB to 96GB and why memory bandwidth matters separately from capacity."
+image: /images/insights/local-ai-mac-ram-sizing-og.png
 date: 2026-08-11
 verticals: [ai-productivity, professional-services]
 tags:

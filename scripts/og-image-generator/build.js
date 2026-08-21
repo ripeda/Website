@@ -61,37 +61,46 @@ function loadVerticalLabels() {
   return labels;
 }
 
-function loadArticleVerticals() {
+function loadArticleMeta() {
+  // Reads the per-article vertical, format and read_time out of
+  // _data/insights.yml. That file is the source of truth for all three: none of
+  // them live in the article's own front matter, and `format: hook` is the only
+  // thing distinguishing a short-form hook from a spoke.
   const raw = fs.readFileSync(DATA_FILE, 'utf-8');
   const map = {};
   const lines = raw.split('\n');
   let inArticles = false;
-  let currentSlug = null;
-  let currentVertical = null;
-  let currentVerticalsArray = null;
+  let cur = null;
+  const blank = () => ({ slug: null, vertical: null, verticals: null, format: null, readTime: null });
+  let pending = blank();
   const flush = () => {
-    if (currentSlug) {
-      map[currentSlug] = currentVertical
-        || (currentVerticalsArray && currentVerticalsArray[0])
-        || null;
+    if (pending.slug) {
+      map[pending.slug] = {
+        vertical: pending.vertical || (pending.verticals && pending.verticals[0]) || null,
+        format: pending.format,
+        readTime: pending.readTime,
+      };
     }
-    currentSlug = null;
-    currentVertical = null;
-    currentVerticalsArray = null;
+    pending = blank();
   };
   for (const line of lines) {
     if (line.startsWith('articles:')) { inArticles = true; continue; }
     if (!inArticles) continue;
     if (/^\s*-\s+title:/.test(line)) { flush(); continue; }
-    const verticalMatch = line.match(/^\s+vertical:\s*(\S+)/);
-    if (verticalMatch) { currentVertical = verticalMatch[1].replace(/['"]/g, '').replace(/#.*$/, '').trim(); continue; }
-    const verticalsMatch = line.match(/^\s+verticals:\s*\[([^\]]+)\]/);
-    if (verticalsMatch) {
-      currentVerticalsArray = verticalsMatch[1].split(',').map(s => s.trim());
-      continue;
+    let m;
+    if ((m = line.match(/^\s+vertical:\s*(\S+)/))) {
+      pending.vertical = m[1].replace(/['"]/g, '').replace(/#.*$/, '').trim(); continue;
     }
-    const slugMatch = line.match(/^\s+slug:\s*(\S+)/);
-    if (slugMatch) { currentSlug = slugMatch[1]; continue; }
+    if ((m = line.match(/^\s+verticals:\s*\[([^\]]+)\]/))) {
+      pending.verticals = m[1].split(',').map(s => s.trim()); continue;
+    }
+    if ((m = line.match(/^\s+format:\s*(\S+)/))) {
+      pending.format = m[1].replace(/['"]/g, '').trim(); continue;
+    }
+    if ((m = line.match(/^\s+read_time:\s*(\d+)/))) {
+      pending.readTime = parseInt(m[1], 10); continue;
+    }
+    if ((m = line.match(/^\s+slug:\s*(\S+)/))) { pending.slug = m[1]; continue; }
   }
   flush();
   return map;
@@ -128,11 +137,22 @@ async function renderArticle(page, article, verticalLabels) {
   const verticalLabel = verticalLabels[article.vertical] || article.vertical || '';
   const verticalUpper = verticalLabel.toUpperCase();
 
+  // Hooks get the blue gradient accent bar and a QUICK READ chip; spokes keep
+  // the navy bar and a bare vertical eyebrow. See template.html for why both
+  // treatments are needed rather than one.
+  const isHook = article.format === 'hook';
+  const formatClass = isHook ? 'is-hook' : '';
+  const chip = isHook
+    ? `<div class="chip">Quick Read${article.readTime ? ` &middot; ${article.readTime} min` : ''}</div>`
+    : '';
+
   const templateRaw = fs.readFileSync(TEMPLATE_PATH, 'utf-8');
   const html = templateRaw
     .replace(/\{\{VERTICAL\}\}/g, escapeHtml(verticalUpper))
     .replace(/\{\{TITLE\}\}/g, escapeHtml(article.title))
     .replace(/\{\{DEK\}\}/g, escapeHtml(article.dek))
+    .replace(/\{\{FORMAT_CLASS\}\}/g, formatClass)
+    .replace(/\{\{CHIP\}\}/g, chip)
     .replace(/\{\{LOGO_SRC\}\}/g, getLogoDataUri());
 
   await page.setContent(html, { waitUntil: 'networkidle0' });
@@ -151,14 +171,15 @@ async function renderArticle(page, article, verticalLabels) {
 // ─── Article reading and frontmatter update ─────────────────────────────────
 
 function readArticles() {
-  const slugToVertical = loadArticleVerticals();
+  const meta = loadArticleMeta();
   const files = fs.readdirSync(INSIGHTS_DIR).filter(f => f.endsWith('.md'));
   return files.map(f => {
     const slug = f.replace(/\.md$/, '');
     const fullPath = path.join(INSIGHTS_DIR, f);
     const parsed = matter(fs.readFileSync(fullPath, 'utf-8'));
     const fm = parsed.data;
-    const vertical = slugToVertical[slug] || fm.vertical
+    const m = meta[slug] || {};
+    const vertical = m.vertical || fm.vertical
       || (Array.isArray(fm.verticals) ? fm.verticals[0] : null);
     return {
       slug,
@@ -168,6 +189,8 @@ function readArticles() {
       title: fm.title || '',
       dek: fm.dek || '',
       vertical,
+      format: m.format || null,
+      readTime: m.readTime || fm.reading_time || null,
       hasImageField: 'image' in fm,
     };
   });

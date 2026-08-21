@@ -3,6 +3,7 @@ layout: insight
 title: "The first 5 things to do after a laptop goes missing"
 dek: "The hour after a MacBook disappears decides how much of this becomes an incident and how much stays an inconvenience."
 description: "The first hour after a MacBook goes missing decides how bad it gets: lock the device, suspend the account, work out what was on it, then decide about the wipe."
+image: /images/insights/lost-laptop-first-steps-og.png
 date: 2026-08-11
 tags:
   - Security

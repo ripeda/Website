@@ -3,6 +3,7 @@ layout: insight
 title: "5 things to do with a Mac the day an employee leaves"
 dek: "What you do in the first few hours decides whether offboarding a Mac is a ten-minute task or a problem you find six weeks later on an invoice."
 description: "A five-step offboarding checklist for a company Mac, in urgency order: identity, remote lock or wipe, Activation Lock, licenses, and shared credentials."
+image: /images/insights/mac-offboarding-checklist-og.png
 date: 2026-08-11
 tags:
   - Lifecycle

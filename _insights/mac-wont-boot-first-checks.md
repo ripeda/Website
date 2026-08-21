@@ -3,6 +3,7 @@ layout: insight
 title: "4 things to try before you assume a Mac drive is dead"
 dek: "A Mac that will not boot gets diagnosed as a dead drive far more often than it actually is one, and the wrong first move can make a recoverable disk unrecoverable."
 description: "Four checks before you write off a Mac drive, ordered from least invasive first: cables and display, Recovery mode, copying data off, and Mac Sharing Mode."
+image: /images/insights/mac-wont-boot-first-checks-og.png
 date: 2026-08-11
 tags:
   - Data Recovery

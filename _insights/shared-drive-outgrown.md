@@ -3,6 +3,7 @@ layout: insight
 title: "5 signs your shared drive has outgrown itself"
 dek: "The drive still works, but the amount of human effort sitting between a person and the file they need has quietly gone up."
 description: "Five signs a shared drive has stopped scaling, from filenames doing version control to new hires needing a person instead of a structure to find anything."
+image: /images/insights/shared-drive-outgrown-og.png
 date: 2026-08-11
 tags:
   - File Sharing

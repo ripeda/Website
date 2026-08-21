@@ -3,6 +3,7 @@ layout: insight
 title: "The 7 most common Apple Business Manager setup mistakes"
 dek: "Most Apple Business Manager accounts are set up in an afternoon, and the gaps only surface months later at the worst possible moment."
 description: "The seven Apple Business Manager setup mistakes we see most often, from skipped domain verification to certificate renewals nobody owns, and how to avoid each."
+image: /images/insights/abm-setup-mistakes-og.png
 date: 2026-08-11
 tags:
   - Apple Business Manager

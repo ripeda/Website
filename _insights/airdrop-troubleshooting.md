@@ -3,6 +3,7 @@ layout: insight
 title: "4 reasons AirDrop keeps failing between two Macs in the same room"
 dek: "AirDrop fails quietly: rarely an error, usually just an empty share sheet where a name should be."
 description: "Why AirDrop shows nothing between two Macs on the same desk, ordered by how often we see it: Contacts Only, radios off, firewall and MDM policy, and sleep."
+image: /images/insights/airdrop-troubleshooting-og.png
 date: 2026-08-11
 tags:
   - File Sharing

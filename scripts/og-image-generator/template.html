@@ -5,10 +5,23 @@
   headless Chrome to a 1200x630 PNG. The placeholders below are replaced by
   the generator with each article's actual content:
 
-    {{VERTICAL}}  - uppercase vertical label (e.g. "DENTAL & MEDICAL")
-    {{TITLE}}     - article title
-    {{DEK}}       - article dek
-    {{LOGO_SRC}}  - file:// path to the RIPEDA logo
+    {{VERTICAL}}      - uppercase vertical label (e.g. "DENTAL & MEDICAL")
+    {{TITLE}}         - article title
+    {{DEK}}           - article dek
+    {{LOGO_SRC}}      - data: URI for the RIPEDA logo
+    {{FORMAT_CLASS}}  - "is-hook" for short-form hooks, empty for spokes
+    {{CHIP}}          - the QUICK READ chip markup for hooks, empty for spokes
+
+  Two formats, one card. A spoke keeps the navy accent bar and a plain vertical
+  eyebrow. A hook gets the brand-blue gradient bar and a filled QUICK READ chip
+  ahead of the vertical.
+
+  That split is deliberate and covers two viewing sizes. Close up in a link
+  preview the chip carries the meaning, stating both the format and the minute
+  cost. At feed thumbnail width the chip text is too small to resolve and the
+  12px accent bar is the only element left that reads, so the bar colour has to
+  carry the signal on its own. Either treatment alone fails at one of the two
+  sizes.
 
   The template can also be opened directly in a browser for design iteration;
   the placeholders simply render as visible text in that case.
@@ -35,6 +48,10 @@
     height: 12px;
     background: #1B3C6E;
   }
+  /* Hook: brand-blue gradient bar, legible at thumbnail size where the chip is not. */
+  body.is-hook .accent {
+    background: linear-gradient(90deg, #609BC3, #79C5F8);
+  }
   .content {
     position: absolute;
     top: 72px;
@@ -42,13 +59,30 @@
     right: 80px;
     bottom: 130px;
   }
+  .eyebrow {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 28px;
+  }
   .vertical {
     color: #1B3C6E;
     font-size: 22px;
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 3.5px;
-    margin-bottom: 28px;
+  }
+  .chip {
+    background: #609BC3;
+    color: #ffffff;
+    font-size: 20px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2.5px;
+    padding: 8px 16px;
+    border-radius: 6px;
+    line-height: 1;
+    white-space: nowrap;
   }
   .title {
     color: #1B3C6E;
@@ -87,10 +121,10 @@
   }
 </style>
 </head>
-<body>
+<body class="{{FORMAT_CLASS}}">
   <div class="accent"></div>
   <div class="content">
-    <div class="vertical">{{VERTICAL}}</div>
+    <div class="eyebrow">{{CHIP}}<div class="vertical">{{VERTICAL}}</div></div>
     <h1 class="title">{{TITLE}}</h1>
     <p class="dek">{{DEK}}</p>
   </div>

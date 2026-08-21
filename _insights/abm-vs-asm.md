@@ -3,6 +3,7 @@ layout: insight
 title: "Apple Business Manager vs Apple School Manager in 60 seconds"
 dek: "Same platform, two feature sets, and a choice that is settled by eligibility rather than preference."
 description: "Apple Business Manager vs Apple School Manager: what Apple School Manager adds, who is eligible for it, and why you cannot run both on the same domain."
+image: /images/insights/abm-vs-asm-og.png
 date: 2026-08-11
 tags:
   - Apple Business Manager
