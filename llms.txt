@@ -48,8 +48,8 @@ America and into Asia.
 - [Insights](https://ripeda.com/resources/insights/): articles on Apple fleet management, IT strategy, and infrastructure practice.
 - [Resources hub](https://ripeda.com/resources/): index of published guides and reference material.
 - [FAQ](https://ripeda.com/faq/): direct answers to common questions about services, coverage, and engagement models.
-- [Mac vs PC total-cost calculator](https://ripeda.com/calculators/mac_vs_pc_calculator.html): models the cost of switching a fleet to Mac, based on published IBM and Forrester total-cost-of-ownership research.
-- [IT downtime cost calculator](https://ripeda.com/calculators/msp_cost_calculator.html): estimates the hourly business cost of IT outages.
+- [Mac vs PC total-cost calculator](https://ripeda.com/calculators/mac-vs-pc-tco/): models the cost of switching a fleet to Mac, based on published IBM and Forrester total-cost-of-ownership research.
+- [IT downtime cost calculator](https://ripeda.com/calculators/it-downtime-cost/): estimates the hourly business cost of IT outages.
 
 ## Company
 

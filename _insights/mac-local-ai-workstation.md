@@ -36,6 +36,8 @@ The request usually comes from the engineering side first. A developer or a data
 
 For years the Mac-versus-PC conversation in business turned on support costs, security posture, and residual value. Those arguments still hold, and the same study puts numbers on them: a 153% return on investment and roughly $760 in total cost of ownership savings per Mac over five years. What is new is that the hardware itself has become a gating factor for a category of work that more teams are picking up every quarter.
 
+{% include calculator-callout.html id="mac-vs-pc" note="A 153% return and $760 a Mac are the study's composite figures. Put your own headcount, hardware prices and refresh cycle in to see what the same model says about your fleet." %}
+
 ## Why the hardware matters now
 
 AI workloads are hungry for two things: memory and sustained compute. Running a model locally means loading it into memory and keeping the processor busy for minutes at a time, not seconds. This is exactly where the older device strategy runs out of room.

@@ -405,9 +405,9 @@ function openModal(modalId) {
     // On mobile, redirect to calculator page directly
     let calculatorUrl;
     if (modalId === 'mspModal') {
-      calculatorUrl = '/calculators/msp_cost_calculator.html';
+      calculatorUrl = '/calculators/it-downtime-cost/';
     } else if (modalId === 'macModal') {
-      calculatorUrl = '/calculators/mac_vs_pc_calculator.html';
+      calculatorUrl = '/calculators/mac-vs-pc-tco/';
     }
 
     // Open in new tab/window on mobile for better experience
@@ -422,9 +422,9 @@ function openModal(modalId) {
 
   // Desktop behavior - load in iframe
   if (modalId === 'mspModal') {
-    document.getElementById('mspFrame').src = '/calculators/msp_cost_calculator.html';
+    document.getElementById('mspFrame').src = '/calculators/it-downtime-cost/';
   } else if (modalId === 'macModal') {
-    document.getElementById('macFrame').src = '/calculators/mac_vs_pc_calculator.html';
+    document.getElementById('macFrame').src = '/calculators/mac-vs-pc-tco/';
   }
 
   // Prevent body scroll
@@ -454,9 +454,9 @@ function closeModal(modalId) {
 function openCalculator(type) {
   // Always open in new tab for better user experience
   if (type === 'mac') {
-    window.open('/calculators/mac_vs_pc_calculator.html', '_blank');
+    window.open('/calculators/mac-vs-pc-tco/', '_blank');
   } else if (type === 'msp') {
-    window.open('/calculators/msp_cost_calculator.html', '_blank');
+    window.open('/calculators/it-downtime-cost/', '_blank');
   }
 }
 

@@ -361,6 +361,59 @@ Standard Markdown handles everything else: headings (`##` and `###`), paragraphs
 
 ---
 
+## Linking a calculator
+
+RIPEDA has two calculators. Link one whenever an article does cost arithmetic
+the calculator does, or cites the research the calculator is built on.
+
+| include id | Page | Use when |
+|---|---|---|
+| `downtime` | /calculators/it-downtime-cost/ | The article prices an outage, lost hours, or the cost of something being unavailable |
+| `mac-vs-pc` | /calculators/mac-vs-pc-tco/ | The article discusses total cost of ownership, refresh cycles, or cites the IBM / Forrester Mac TCO figures |
+
+Drop it in the body, at the point the arithmetic happens:
+
+```liquid
+{% include calculator-callout.html id="downtime" %}
+{% include calculator-callout.html id="mac-vs-pc" note="Article-specific one-liner." %}
+```
+
+Pass `note` to phrase the invitation in the article's own terms — naming the
+placeholder figures the reader just saw is what makes it land.
+
+**Do not put a calculator in `related:`.** That block is capped at 2-3 entries
+and must contain one `/services/` and one `/industries/` link, so a calculator
+either trips the count check or displaces a required link. It also belongs
+beside the arithmetic rather than in a footer list: the reader wants the tool
+at the moment they see the method.
+
+Placement is a judgment call, not a rule, and the bar is higher than "this
+article mentions cost". Ask whether the calculator answers *the question the
+reader is holding at that moment*. If it does not, the callout is noise and
+costs more than it earns.
+
+Four articles carry one as of 2026-08-21: clinic-downtime-cost and
+apple-repair-business-fleets (`downtime`), mac-local-ai-workstation and
+mdm-beyond-enrollment (`mac-vs-pc`).
+
+Four candidates were considered and rejected, which is the more useful list:
+
+- `saas-company-it-budget` and `saas-series-a-it-debt` price the management
+  stack — ABM, MDM, identity, vault, "roughly two thousand dollars a year for a
+  ten-person team". Neither calculator computes that. Mac vs PC compares
+  hardware platforms, and these readers are not choosing a platform.
+- `mac-pro-studio-mini-creative-teams` is Mac mini versus Studio Max versus
+  Ultra. That is a Mac-versus-Mac decision; the reader settled Mac versus PC
+  long before opening it.
+- `school-infrastructure-refresh-budget` is network and infrastructure spend,
+  not device total cost of ownership.
+
+The gap those four expose: several articles discuss recurring stack cost per
+head, and no calculator serves that question. If a third calculator is ever
+built, that is the one.
+
+---
+
 ## Related-reading recipe
 
 Every article ends with 2-3 "Related reading" links. Standard recipe:

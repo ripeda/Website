@@ -281,7 +281,11 @@ def validate_article(article_path, repo_root=None):
 
     # ─── Content (body) ───
     r.section("Content")
-    plain_body = re.sub(r'<[^>]+>', ' ', body)
+    # Strip Liquid before HTML, same reasoning: an include's parameters are
+    # template markup, not words the reader reads.
+    plain_body = re.sub(r'\{%.*?%\}', ' ', body, flags=re.S)
+    plain_body = re.sub(r'\{\{.*?\}\}', ' ', plain_body, flags=re.S)
+    plain_body = re.sub(r'<[^>]+>', ' ', plain_body)
     plain_body = re.sub(r'\{[^}]+\}', ' ', plain_body)
     words = plain_body.split()
     wc = len(words)
