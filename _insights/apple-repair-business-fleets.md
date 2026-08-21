@@ -90,4 +90,6 @@ For very small teams running a handful of Apple devices, Genius Bar service work
 
 Past that scale, the math turns. By the time you are managing twenty to fifty Apple devices, the cumulative cost of consumer-grade repair shows up in three places: employee productivity hours, IT visibility into the fleet, and the awkward conversations between staff and finance about unauthorized device repair charges. By fifty devices, the case is unambiguous. The repair model needs to match the operational scale.
 
+{% include calculator-callout.html id="downtime" note="Productivity hours are the layer that is easiest to wave away and easiest to price. Put in how many people a bench visit takes offline and for how long, and the first of those three costs stops being a feeling." %}
+
 Business-grade Apple repair is not a different tier of quality. It is a different operating system for the same service, wrapped around the way IT departments and operations leaders actually need to manage Apple at scale.
