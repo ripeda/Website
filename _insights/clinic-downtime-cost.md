@@ -56,6 +56,8 @@ Four operatories, average production of $400 per chair per hour, six clinical an
 
 That is roughly $3,000 against an obvious figure of $1,600.
 
+{% include calculator-callout.html id="downtime" note="Four operatories and $400 a chair are placeholders. Put your own chair count, production rate, staff cost and recovery tail in and the same three layers give you the figure for your practice." %}
+
 ## If you only do one thing
 
-Work your own number out once, on paper, and keep it where budget decisions get made. An hour of downtime priced honestly is the only figure that makes a prevention spend easy to argue.
+Work your own number out once, with the calculator above or on paper, and keep it where budget decisions get made. An hour of downtime priced honestly is the only figure that makes a prevention spend easy to argue.

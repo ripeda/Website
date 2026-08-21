@@ -1,0 +1,45 @@
+{%- comment -%}
+  Calculator callout — an in-article pointer to one of RIPEDA's two calculators.
+
+  Usage, at the point in the body where the article does cost arithmetic:
+
+    {% include calculator-callout.html id="downtime" %}
+    {% include calculator-callout.html id="mac-vs-pc" note="Custom one-liner." %}
+
+  Params:
+    id    (required)  "downtime" or "mac-vs-pc"
+    note  (optional)  overrides the default blurb, so each article can phrase
+                      the invitation in its own voice
+
+  Why this exists as an include rather than a `related:` entry: the related
+  block is capped at 2-3 links by validate-article.py and must contain one
+  /services/ and one /industries/ link, so a calculator either trips the count
+  or displaces a required link. It also belongs next to the arithmetic, not in
+  a footer list — the reader wants the tool at the moment they see the method,
+  not after they have finished reading.
+
+  Styling lives with the other in-article components in _layouts/insight.html.
+{%- endcomment -%}
+
+{%- case include.id -%}
+{%- when "downtime" -%}
+  {%- assign calc_url   = "/calculators/it-downtime-cost/" -%}
+  {%- assign calc_name  = "IT Downtime Cost Calculator" -%}
+  {%- assign calc_note  = "Run the same three layers against your own numbers instead of the illustrative ones." -%}
+  {%- assign calc_cta   = "Work out your hourly cost" -%}
+{%- when "mac-vs-pc" -%}
+  {%- assign calc_url   = "/calculators/mac-vs-pc-tco/" -%}
+  {%- assign calc_name  = "Mac vs PC TCO Calculator" -%}
+  {%- assign calc_note  = "Model the published IBM and Forrester figures against your own fleet size and refresh cycle." -%}
+  {%- assign calc_cta   = "Model your own fleet" -%}
+{%- endcase -%}
+
+{%- if calc_url -%}
+{%- if include.note %}{% assign calc_note = include.note %}{% endif -%}
+<div class="insight-calc">
+  <p class="insight-calc-label">Try it with your numbers</p>
+  <p class="insight-calc-name">{{ calc_name }}</p>
+  <p class="insight-calc-note">{{ calc_note }}</p>
+  <a class="insight-calc-link" href="{{ calc_url }}">{{ calc_cta }} <span class="arrow">&rarr;</span></a>
+</div>
+{%- endif -%}

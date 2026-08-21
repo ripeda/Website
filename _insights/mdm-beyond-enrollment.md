@@ -70,6 +70,8 @@ At this point the MDM is doing infrastructure work. It enforces, at the device l
   <p><strong>Day-one productivity.</strong> Zero-touch deployment with a properly configured MDM gets a new hire working on day one, not day three.</p>
 </div>
 
+{% include calculator-callout.html id="mac-vs-pc" note="Those are the study's composite numbers across its interviewed organizations. The calculator runs the same model against your own fleet size and refresh cycle." %}
+
 ## When your MDM is underperforming
 
 You can tell. Symptoms include a help desk that spends most of its day on routine fixes that should be automated, an IT team that does not know which devices are out of compliance until audit time, security incidents that surface first in the news rather than in alerts, and onboarding that takes more than an hour per new hire.

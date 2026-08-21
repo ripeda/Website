@@ -319,6 +319,13 @@ def validate_hook(path, repo_root=None, quiet=False):
         # counting, or any sizing table reads as a dozen run-on sentences.
         plain = "\n".join(ln for ln in sec.splitlines()
                           if not ln.strip().startswith("|"))
+        # Liquid template tags are markup, not prose. HTML tags are already
+        # stripped on the line below for exactly this reason: a component the
+        # article embeds is not a sentence the reader parses as body copy.
+        # Without this, `{% include calculator-callout.html note="..." %}`
+        # counts its parameters toward the ceiling and fails the section.
+        plain = re.sub(r'\{%.*?%\}', ' ', plain, flags=re.S)
+        plain = re.sub(r'\{\{.*?\}\}', ' ', plain, flags=re.S)
         plain = re.sub(r'<[^>]+>', ' ', plain)
         sentences = [s for s in re.split(r'(?<=[.!?])\s+', plain.strip()) if len(s.split()) > 2]
         if len(sentences) > 4:
@@ -341,7 +348,11 @@ def validate_hook(path, repo_root=None, quiet=False):
 
     # ─── Content ───
     r.section("Content")
-    plain_body = re.sub(r'<[^>]+>', ' ', body)
+    # Strip Liquid before HTML, same reasoning: an include's parameters are
+    # template markup, not words the reader reads.
+    plain_body = re.sub(r'\{%.*?%\}', ' ', body, flags=re.S)
+    plain_body = re.sub(r'\{\{.*?\}\}', ' ', plain_body, flags=re.S)
+    plain_body = re.sub(r'<[^>]+>', ' ', plain_body)
     plain_body = re.sub(r'\{[^}]+\}', ' ', plain_body)
     wc = len(plain_body.split())
     if 350 <= wc <= 700:
