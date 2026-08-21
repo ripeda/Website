@@ -86,8 +86,10 @@ CLOSING_HEADING = "if you only do one thing"
 VALID_VERTICALS = {
     "dental-medical", "design-agencies", "education", "professional-services",
     "marketing-agencies", "mdm-security", "infrastructure", "ai-productivity",
-    "quick-reads",
 }
+# NOTE: "quick-reads" was removed on 2026-08-21. Length is a format, not an
+# industry, and a hook tagged quick-reads disappeared from every industry tab.
+# Hooks now inherit their parent spoke's verticals; format: hook carries length.
 
 
 # ─── Colour output ───
@@ -458,11 +460,9 @@ def validate_hook(path, repo_root=None, quiet=False):
                     r.ok(f"Vertical(s): {', '.join(verts)}")
                 else:
                     r.fail("No vertical(s) declared")
-            # quick-reads vertical must be defined before use
-            defined = {v.get("id") for v in data.get("verticals", [])}
+            # quick-reads was retired on 2026-08-21; flag any reappearance
             if entry and "quick-reads" in (entry.get("verticals") or [entry.get("vertical")]):
-                if "quick-reads" not in defined:
-                    r.fail("Article uses 'quick-reads' but the vertical is not defined in insights.yml")
+                r.fail("Uses the retired 'quick-reads' vertical - inherit the parent spoke's verticals instead")
         except Exception as e:
             r.fail(f"Could not read data file: {e}")
     else:
@@ -518,9 +518,25 @@ def main():
 
     if args.all or args.batch:
         root = Path(args.repo_root) if args.repo_root else Path.cwd()
+        # Unpublished drafts still sit in hook-drafts/. Published hooks have been
+        # moved into _insights/ alongside the spokes, where the only thing marking
+        # them as hooks is `format: hook` in _data/insights.yml. Scan both, or
+        # --all silently stops covering every hook the moment one is published.
         targets = sorted((root / "hook-drafts").glob("*.md"))
+        data_file = root / "_data" / "insights.yml"
+        if data_file.exists():
+            try:
+                entries = yaml.safe_load(data_file.read_text(encoding="utf-8")) or {}
+                for e in (entries.get("articles") or []):
+                    if e.get("format") == "hook" and e.get("slug"):
+                        pub = root / "_insights" / f"{e['slug']}.md"
+                        if pub.exists():
+                            targets.append(pub)
+            except Exception:
+                pass
+        targets = sorted(set(targets))
         if not targets:
-            print(red(f"No hook drafts found in {root}/hook-drafts/"))
+            print(red(f"No hooks found in {root}/hook-drafts/ or registered in _data/insights.yml"))
             sys.exit(2)
         results = [validate_hook(t, root) for t in targets]
         if args.batch:

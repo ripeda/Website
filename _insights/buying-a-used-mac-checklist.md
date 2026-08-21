@@ -3,6 +3,7 @@ layout: insight
 title: "5 things to check before you buy a used Mac"
 dek: "A private Mac sale carries almost no mechanical risk and quite a lot of administrative risk, and all of it is checkable with the seller sitting in front of you."
 description: "Activation Lock, MDM enrollment, storage config, and two more checks that decide whether a used Mac is a bargain or a paperweight. Do them before you pay."
+image: /images/insights/buying-a-used-mac-checklist-og.png
 date: 2026-08-11
 tags:
   - Procurement
@@ -11,8 +12,7 @@ tags:
 keywords: "how to check activation lock before buying a used mac, what to check when buying a used macbook, used mac battery cycle count check, is this used mac enrolled in mdm, used MacBook buying checklist, Apple consulting Calgary, Mac support"
 reading_time: 3
 author: "RIPEDA"
-published: false
-verticals: [quick-reads]
+verticals: [mdm-security]
 tldr:
   - "Activation Lock is the only item here that can cost you the entire purchase price, so it goes first and it goes before the money moves."
   - "A Mac that was once a company machine can be enrolled in someone else's Apple Business Manager, and erasing it does not clear that."
@@ -26,7 +26,6 @@ related:
     url: "/services/apple-authorized-repair/"
     context: "What a battery or display replacement on an out-of-warranty Mac actually involves."
 
-# STANDALONE: no parent spoke, quick-reads only
 ---
 
 A used M2 MacBook Air at a good price is a genuinely good buy, right up until it turns out to still belong to someone else's Apple Account. Very little of the risk in a private Mac sale is mechanical. Most of it is administrative, and all of it can be checked in about ten minutes while the seller is still in the room.

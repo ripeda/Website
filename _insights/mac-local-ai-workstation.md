@@ -13,6 +13,7 @@ tags:
   - Strategy
 keywords: "local AI on Mac, Apple Silicon AI workloads, run LLM locally Mac, Mac vs PC AI performance, Apple Silicon unified memory, business AI hardware, Mac support Calgary, Apple Technical Partners"
 reading_time: 4
+author: "RIPEDA"
 tldr:
   - "AI and LLM workloads are memory- and compute-hungry, and the device now decides whether a team can run them at all."
   - "Apple silicon's unified memory lets a laptop hold a sizable model in memory and sustain performance without a discrete GPU or thermal throttling."

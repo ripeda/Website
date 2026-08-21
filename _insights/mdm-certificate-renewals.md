@@ -3,8 +3,8 @@ layout: insight
 title: "The 3 Apple certificates that expire and take your MDM down"
 dek: "None of the three announce themselves when they lapse, which is why the failure is usually discovered by a new starter rather than by IT."
 description: "The three Apple certificates that expire every year, what each one breaks when it lapses, and why all three fail quietly enough that nobody in IT notices."
+image: /images/insights/mdm-certificate-renewals-og.png
 date: 2026-08-11
-published: false
 tags:
   - MDM
   - Security
@@ -12,6 +12,7 @@ tags:
 keywords: "apple mdm certificate expiry, what happens when the APNs certificate expires, how to renew the automated device enrollment token, VPP token expired app assignment failing, apple push notification certificate renewal, MDM certificate management, Mac fleet management, Apple IT Calgary"
 reading_time: 2
 author: "RIPEDA"
+verticals: [mdm-security, dental-medical, education]
 tldr:
   - "Three Apple certificates expire annually: APNs, the Automated Device Enrollment server token, and the Apps and Books content token."
   - "All three fail silently. Devices keep showing as enrolled while commands, enrollments, or app assignments stop working."
@@ -28,7 +29,6 @@ related:
     url: "/services/strategy-advisory/"
     context: "Why Apple account ownership belongs in an IT plan rather than in one person’s inbox."
 
-# verticals: [mdm-security, quick-reads]
 ---
 
 Nothing about an expired Apple certificate looks like an outage. The MDM console stays up, the devices stay listed as enrolled, and the only symptom is that what you ask them to do quietly does not happen. Three certificates behave this way, all renewed annually, all easy to miss. Each is renewed with the Apple Account that created it, which is the reason a technician’s personal Apple ID is such an expensive shortcut.

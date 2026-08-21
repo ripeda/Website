@@ -1,9 +1,9 @@
 ---
 layout: insight
-published: false
 title: "5 signs your shared drive has outgrown itself"
 dek: "The drive still works, but the amount of human effort sitting between a person and the file they need has quietly gone up."
 description: "Five signs a shared drive has stopped scaling, from filenames doing version control to new hires needing a person instead of a structure to find anything."
+image: /images/insights/shared-drive-outgrown-og.png
 date: 2026-08-11
 tags:
   - File Sharing
@@ -12,6 +12,7 @@ tags:
 keywords: "signs your shared drive is too small, shared drive version control problems, why can't anyone find files on the shared drive, agency file server, shared storage for creative teams, Mac file sharing Calgary, design agency IT"
 reading_time: 2
 author: "RIPEDA"
+verticals: [design-agencies, mdm-security]
 tldr:
   - "A shared drive rarely fails outright. It degrades into a system that only works because people compensate for it by hand."
   - "The earliest sign is version control living in filenames. The most expensive is institutional knowledge living in one person's head."

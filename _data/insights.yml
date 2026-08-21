@@ -52,6 +52,16 @@ articles:
     slug: multi-location-dental-groups
     published: true
 
+  - title: What one hour of clinic downtime actually costs
+    verticals: [dental-medical]
+    vertical: dental-medical
+    read_time: 3
+    format: hook
+    date: "Aug 2026"
+    services: [strategy-advisory]
+    slug: clinic-downtime-cost
+    published: true
+
   - title: "Where iCloud stops and business backup begins"
     verticals: [dental-medical, professional-services, design-agencies]
     vertical: dental-medical
@@ -62,6 +72,16 @@ articles:
     published: true
 
   # ── Design Agencies ─────────────────────────────────────────────────
+
+  - title: 5 things to check about your clinic's backup this month
+    verticals: [dental-medical, professional-services, design-agencies]
+    vertical: dental-medical
+    read_time: 3
+    format: hook
+    date: "Aug 2026"
+    services: [managed-apple-it]
+    slug: clinic-backup-checks
+    published: true
 
   - title: "Storage strategy for video production on Mac"
     verticals: [design-agencies, infrastructure]
@@ -117,6 +137,16 @@ articles:
     slug: airdrop-and-team-file-sharing
     published: true
 
+  - title: 4 reasons AirDrop keeps failing between two Macs in the same room
+    verticals: [design-agencies, professional-services, mdm-security]
+    vertical: design-agencies
+    read_time: 2
+    format: hook
+    date: "Aug 2026"
+    services: [managed-apple-it]
+    slug: airdrop-troubleshooting
+    published: true
+
   - title: "Asset management when shared drives stop working"
     verticals: [design-agencies, mdm-security]
     vertical: design-agencies
@@ -124,6 +154,16 @@ articles:
     date: "Mar 2026"
     services: [strategy-advisory]
     slug: asset-management-agency-scale
+    published: true
+
+  - title: 5 signs your shared drive has outgrown itself
+    verticals: [design-agencies, mdm-security]
+    vertical: design-agencies
+    read_time: 2
+    format: hook
+    date: "Aug 2026"
+    services: [managed-apple-it]
+    slug: shared-drive-outgrown
     published: true
 
   - title: "Colour management across an Apple-only agency"
@@ -142,6 +182,16 @@ articles:
     date: "Apr 2026"
     services: [apple-authorized-repair]
     slug: apple-repair-school-fleets
+    published: true
+
+  - title: 5 things to do with a school iPad cart in July
+    verticals: [education]
+    vertical: education
+    read_time: 3
+    format: hook
+    date: "Aug 2026"
+    services: [apple-authorized-repair]
+    slug: school-ipad-cart-summer-reset
     published: true
 
   - title: "Refreshing legacy school infrastructure on a small budget"
@@ -181,6 +231,16 @@ articles:
     slug: saas-series-a-it-debt
     published: true
 
+  - title: What breaks first when a firm hits 20 people
+    verticals: [professional-services, mdm-security]
+    vertical: professional-services
+    read_time: 3
+    format: hook
+    date: "Aug 2026"
+    services: [strategy-advisory]
+    slug: firm-20-people-breakpoint
+    published: true
+
   - title: "SaaS company IT on a budget: the Apple-first approach"
     verticals: [professional-services, mdm-security]
     vertical: professional-services
@@ -199,6 +259,26 @@ articles:
     slug: hybrid-office-mac-fleet
     published: true
 
+  - title: 5 things to do with a Mac the day an employee leaves
+    verticals: [professional-services, design-agencies, mdm-security]
+    vertical: professional-services
+    read_time: 2
+    format: hook
+    date: "Aug 2026"
+    services: [managed-apple-it]
+    slug: mac-offboarding-checklist
+    published: true
+
+  - title: What breaks first when an agency hits 15 people
+    verticals: [professional-services, design-agencies, mdm-security]
+    vertical: professional-services
+    read_time: 3
+    format: hook
+    date: "Aug 2026"
+    services: [strategy-advisory]
+    slug: agency-15-people-breakpoint
+    published: true
+
   - title: "Apple device security for client data"
     verticals: [professional-services, mdm-security]
     vertical: professional-services
@@ -208,6 +288,16 @@ articles:
     slug: apple-device-security-client-data
     published: true
 
+  - title: The first 5 things to do after a laptop goes missing
+    verticals: [professional-services, mdm-security]
+    vertical: professional-services
+    read_time: 3
+    format: hook
+    date: "Aug 2026"
+    services: [managed-apple-it]
+    slug: lost-laptop-first-steps
+    published: true
+
   - title: "Five signs it is time to switch Apple IT vendors"
     verticals: [professional-services, mdm-security]
     vertical: professional-services
@@ -215,6 +305,16 @@ articles:
     date: "Mar 2026"
     services: [strategy-advisory]
     slug: it-vendor-switch-signs
+    published: true
+
+  - title: 7 questions to ask an MSP before you sign
+    verticals: [professional-services, mdm-security]
+    vertical: professional-services
+    read_time: 3
+    format: hook
+    date: "Aug 2026"
+    services: [strategy-advisory]
+    slug: questions-to-ask-an-msp
     published: true
 
   - title: "When business Apple repair outgrows the Genius Bar"
@@ -235,6 +335,16 @@ articles:
     date: "Jun 2026"
     services: [apple-authorized-repair]
     slug: mac-drive-data-recovery
+    published: true
+
+  - title: 4 things to try before you assume a Mac drive is dead
+    verticals: [mdm-security, dental-medical, design-agencies, education, professional-services]
+    vertical: mdm-security
+    read_time: 3
+    format: hook
+    date: "Aug 2026"
+    services: [apple-authorized-repair, managed-apple-it]
+    slug: mac-wont-boot-first-checks
     published: true
 
   - title: "The shape of a Managed Apple IT month"
@@ -264,6 +374,26 @@ articles:
     slug: mdm-beyond-enrollment
     published: true
 
+  - title: The 3 Apple certificates that expire and take your MDM down
+    verticals: [mdm-security, dental-medical, education]
+    vertical: mdm-security
+    read_time: 2
+    format: hook
+    date: "Aug 2026"
+    services: [managed-apple-it, strategy-advisory]
+    slug: mdm-certificate-renewals
+    published: true
+
+  - title: 5 things to check before you buy a used Mac
+    verticals: [mdm-security]
+    vertical: mdm-security
+    read_time: 3
+    format: hook
+    date: "Aug 2026"
+    services: [managed-apple-it, apple-authorized-repair]
+    slug: buying-a-used-mac-checklist
+    published: true
+
   - title: "Where Apple Passwords stops scaling for teams"
     verticals: [mdm-security, dental-medical, design-agencies, education, professional-services]
     vertical: mdm-security
@@ -280,6 +410,26 @@ articles:
     date: "Feb 2026"
     services: [managed-apple-it]
     slug: apple-business-manager-whats-involved
+    published: true
+
+  - title: Apple Business Manager vs Apple School Manager in 60 seconds
+    verticals: [mdm-security, dental-medical, design-agencies, education, professional-services]
+    vertical: mdm-security
+    read_time: 2
+    format: hook
+    date: "Aug 2026"
+    services: [managed-apple-it]
+    slug: abm-vs-asm
+    published: true
+
+  - title: The 7 most common Apple Business Manager setup mistakes
+    verticals: [mdm-security, dental-medical, design-agencies, education, professional-services]
+    vertical: mdm-security
+    read_time: 3
+    format: hook
+    date: "Aug 2026"
+    services: [managed-apple-it, strategy-advisory]
+    slug: abm-setup-mistakes
     published: true
 
   - title: "What an Apple Technical Partner actually does"
@@ -302,6 +452,16 @@ articles:
     slug: wireless-density-office-classroom
     published: true
 
+  - title: Why the school Wi-Fi dies at 8:45 and works fine at 10
+    verticals: [infrastructure, dental-medical, design-agencies, education, professional-services]
+    vertical: infrastructure
+    read_time: 3
+    format: hook
+    date: "Aug 2026"
+    services: [network-infrastructure]
+    slug: school-wifi-morning-peak
+    published: true
+
   - title: "Network refresh as a project: site survey to commissioning"
     verticals: [infrastructure, dental-medical, design-agencies, education, professional-services]
     vertical: infrastructure
@@ -322,6 +482,16 @@ articles:
 
   # ── AI & Productivity ────────────────────────────────────────────────
 
+  - title: 5 signs your office Wi-Fi is the problem, not your internet
+    verticals: [infrastructure, dental-medical, design-agencies, education, professional-services]
+    vertical: infrastructure
+    read_time: 2
+    format: hook
+    date: "Aug 2026"
+    services: [network-infrastructure]
+    slug: wifi-or-internet-diagnostic
+    published: true
+
   - title: "Why local AI workloads run best on a Mac"
     verticals: [ai-productivity, professional-services]
     vertical: ai-productivity
@@ -329,4 +499,14 @@ articles:
     date: "Jul 2026"
     services: [managed-apple-it]
     slug: mac-local-ai-workstation
+    published: true
+
+  - title: How much RAM you actually need to run AI locally on a Mac
+    verticals: [ai-productivity, professional-services]
+    vertical: ai-productivity
+    read_time: 3
+    format: hook
+    date: "Aug 2026"
+    services: [strategy-advisory]
+    slug: local-ai-mac-ram-sizing
     published: true

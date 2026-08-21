@@ -416,6 +416,27 @@ def main():
             print(red(f"_insights/ not found in {repo_root}"))
             sys.exit(2)
         articles = sorted(insights_dir.glob("*.md"))
+        # Short-form hooks live in _insights/ alongside spokes but are graded by
+        # a different rulebook (350-700 words, 2-3 min, no /industries/ link
+        # required). Grading them here produces failures that are correct for a
+        # spoke and meaningless for a hook, which trains everyone to ignore the
+        # output. Registration in _data/insights.yml with `format: hook` is what
+        # marks them; use validate-hook.py for those.
+        hook_slugs = set()
+        data_file = repo_root / "_data" / "insights.yml"
+        if data_file.exists():
+            try:
+                entries = yaml.safe_load(data_file.read_text(encoding="utf-8")) or {}
+                hook_slugs = {
+                    e.get("slug") for e in (entries.get("articles") or [])
+                    if e.get("format") == "hook" and e.get("slug")
+                }
+            except Exception:
+                pass
+        skipped = [a for a in articles if a.stem in hook_slugs]
+        articles = [a for a in articles if a.stem not in hook_slugs]
+        if skipped:
+            print(f"Skipping {len(skipped)} hook article(s) - run validate-hook.py for those.\n")
         if not articles:
             print(red("No articles found in _insights/"))
             sys.exit(2)

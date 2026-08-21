@@ -1,9 +1,9 @@
 ---
 layout: insight
-published: false
 title: "4 reasons AirDrop keeps failing between two Macs in the same room"
 dek: "AirDrop fails quietly: rarely an error, usually just an empty share sheet where a name should be."
 description: "Why AirDrop shows nothing between two Macs on the same desk, ordered by how often we see it: Contacts Only, radios off, firewall and MDM policy, and sleep."
+image: /images/insights/airdrop-troubleshooting-og.png
 date: 2026-08-11
 tags:
   - File Sharing
@@ -11,6 +11,7 @@ tags:
 keywords: "why is AirDrop not working between two Macs, AirDrop not showing other Mac, AirDrop contacts only not working, fix AirDrop on Mac, AirDrop blocked by MDM, Mac support Calgary, Apple IT for agencies"
 reading_time: 2
 author: "RIPEDA"
+verticals: [design-agencies, professional-services, mdm-security]
 tldr:
   - "AirDrop failures are almost always discovery failures. The file never gets a chance to move because the receiving Mac never appears."
   - "Contacts Only is the most common cause, and it shows nothing rather than an error when the conditions are not met."

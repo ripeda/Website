@@ -3,6 +3,7 @@ layout: insight
 title: "4 things to try before you assume a Mac drive is dead"
 dek: "A Mac that will not boot gets diagnosed as a dead drive far more often than it actually is one, and the wrong first move can make a recoverable disk unrecoverable."
 description: "Four checks before you write off a Mac drive, ordered from least invasive first: cables and display, Recovery mode, copying data off, and Mac Sharing Mode."
+image: /images/insights/mac-wont-boot-first-checks-og.png
 date: 2026-08-11
 tags:
   - Data Recovery
@@ -11,8 +12,7 @@ tags:
 keywords: "mac wont boot what to do, how to tell if a mac hard drive has failed, boot apple silicon mac to recovery mode, disk utility does not see the drive, Mac Sharing Mode target disk mode, Mac data recovery Calgary, Apple support Calgary"
 reading_time: 3
 author: "RIPEDA"
-published: false
-verticals: [quick-reads]
+verticals: [mdm-security, dental-medical, design-agencies, education, professional-services]
 tldr:
   - "A Mac that seems dead is often a Mac that is running with no picture, so cables and displays come before anything else."
   - "Recovery mode and Disk Utility answer the only question that matters early: can the machine see the disk at all?"

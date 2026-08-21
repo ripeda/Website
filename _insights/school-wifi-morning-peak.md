@@ -1,11 +1,11 @@
 ---
 layout: insight
-published: false
 title: "Why the school Wi-Fi dies at 8:45 and works fine at 10"
 dek: "The morning peak is a density problem, not a bandwidth problem, and the difference decides whether the money you spend fixes anything."
 description: "School Wi-Fi that fails at the morning bell is usually a client density problem. Why client count per access point matters more than internet bandwidth."
+image: /images/insights/school-wifi-morning-peak-og.png
 date: 2026-08-11
-verticals: [education, infrastructure]
+verticals: [infrastructure, dental-medical, design-agencies, education, professional-services]
 tags:
   - Wi-Fi
   - Networks

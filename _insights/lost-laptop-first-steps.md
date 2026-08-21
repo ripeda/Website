@@ -3,6 +3,7 @@ layout: insight
 title: "The first 5 things to do after a laptop goes missing"
 dek: "The hour after a MacBook disappears decides how much of this becomes an incident and how much stays an inconvenience."
 description: "The first hour after a MacBook goes missing decides how bad it gets: lock the device, suspend the account, work out what was on it, then decide about the wipe."
+image: /images/insights/lost-laptop-first-steps-og.png
 date: 2026-08-11
 tags:
   - Security
@@ -11,8 +12,7 @@ tags:
 keywords: "what to do when a work laptop is stolen, how to remote wipe a stolen macbook, lost laptop data breach checklist, does filevault protect a stolen mac, Alberta PIPA breach notification, MDM remote lock Mac, Apple IT Calgary, Mac fleet management"
 reading_time: 3
 author: "RIPEDA"
-published: false
-verticals: [quick-reads, mdm-security, professional-services]
+verticals: [professional-services, mdm-security]
 tldr:
   - "Lock the device first. Marking it lost or pushing a remote lock costs nothing and can be undone."
   - "Suspending the user's identity account matters more than the hardware, because a signed-in session is a working key to mail and files."

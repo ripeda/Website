@@ -37,27 +37,23 @@ If a draft does not serve at least one of those three, it should be a spoke inst
 | Headline | Descriptive | Contains a number or a direct question |
 | TL;DR bullets | 4-6 | 3-4 |
 | Related links | Service + industry + optional sibling | Parent spoke + service (industry optional) |
-| Verticals | 1-2 industry or topic verticals | Existing vertical, or `quick-reads` if standalone |
+| Verticals | 1-2 industry or topic verticals | Inherited from the parent spoke |
 | `format` field | omitted | `format: hook` in `_data/insights.yml` |
 | Written | One at a time | In batches of 4-6 |
 
 ---
 
-## Standalone hooks and the `quick-reads` vertical
+## Verticals: inherit from the parent spoke
 
-Not every hook belongs to a vertical. "5 things to do with a Mac before you sell or trade it in" is useful to a dentist, a designer, a school, and a stranger from Google. Force-fitting it into `professional-services` dilutes that vertical's page for no benefit.
+**A hook takes its parent spoke's `verticals` verbatim.** Not a subset, not a judgment call. If the parent is tagged `[mdm-security, dental-medical, education]`, so is the hook.
 
-**Rule:** if a hook is genuinely useful to three or more verticals, or to none of them specifically, tag it `quick-reads` and leave it there. Standalone is a legitimate outcome, not a failure to categorize.
+This is the whole rule, and it exists because the alternative was tried and rejected. There was once a `quick-reads` vertical. It was removed on 2026-08-21. **Do not reintroduce it.**
 
-Add to the `verticals:` block in `_data/insights.yml`:
+The reason: the filter row on `/resources/insights/` is single-select over industry verticals. A hook tagged `quick-reads` instead of an industry vanishes the moment a reader clicks "Education" — and the two-minute answer is precisely what that reader wants most. Length is not an industry, so it does not belong on an axis that means industry.
 
-```yaml
-  - id: quick-reads
-    label: "Quick Reads"
-    description: "Two-minute answers to the questions that come up between the big decisions. Checklists, common mistakes, and what to do first when something goes wrong."
-```
+Length lives on its own axis instead: `format: hook` in the data file entry drives a "Quick read" pill on the card and a separate All / Quick reads / Deep dives toggle above the grid. That toggle ANDs with the industry tabs, so "Education + Quick reads" is a view a reader can actually reach.
 
-A hook may also carry both: `verticals: [dental-medical, quick-reads]` when it is clinic-specific but still belongs in the quick-reads browse.
+**Standalone hooks.** If no spoke is a sensible parent, pick the one or two industry verticals the piece genuinely serves and lead `related` with a service page. Standalone is about the *parent link*, not about the tagging. `buying-a-used-mac-checklist` is the current example: no parent spoke, tagged `mdm-security` because Activation Lock and ABM enrollment are its actual subject.
 
 ---
 
@@ -166,7 +162,7 @@ Two or three head terms (`Apple IT Calgary`, `Mac fleet management`) round it ou
 
 Every hook's `related` block starts with its parent spoke. That is the point of the format. If no published spoke is a sensible parent, either:
 
-1. The hook is standalone. Use `quick-reads`, and lead `related` with a service page instead. Note it in the draft so Kevin knows.
+1. The hook is standalone. Tag it with the one or two industry verticals it genuinely serves, lead `related` with a service page instead, and note it in the draft so Kevin knows.
 2. The spoke should be written first, and the hook queued behind it.
 
 ---
@@ -210,8 +206,8 @@ Once Kevin approves a draft.
 
 ```yaml
 - title: "5 things to do with a Mac the day an employee leaves"
-  verticals: [quick-reads, mdm-security]
-  vertical: quick-reads
+  verticals: [professional-services, design-agencies, mdm-security]
+  vertical: professional-services
   read_time: 2
   format: hook
   date: "Aug 2026"
@@ -230,7 +226,7 @@ Hooks are written in batches. That is most of the economic argument for the form
 
 1. **Confirm the batch.** Which titles, from `hook-articles-brainstorm.md` or from Kevin directly.
 2. **Confirm mode.** Draft or publish. Default to draft.
-3. **Map parents.** For each title, name the parent spoke. Flag any that have no parent as standalone `quick-reads` candidates.
+3. **Map parents.** For each title, name the parent spoke — it supplies the hook's verticals. Flag any that have no parent as standalone, and propose industry verticals for those.
 4. **Check for overlap.** Two hooks in the same batch must not answer the same question from different angles. If they do, merge them.
 5. **Assign patterns.** One of the seven, per article. Write it down before drafting.
 6. **Draft.** All of them, then review as a set. Consistency across the batch matters more than perfecting any single one.
@@ -239,16 +235,17 @@ Hooks are written in batches. That is most of the economic argument for the form
 
 ---
 
-## Site changes required before first publish
+## Site wiring
 
-These are one-time, and are **not** the drafting agent's job to do silently. Flag them and confirm with Kevin.
+Done on 2026-08-21, when the first 18 hooks were published. Recorded here so nobody redoes it or undoes it.
 
-1. **Add the `quick-reads` vertical** to `_data/insights.yml` (block above).
-2. **Add `quick-reads` to the filter tabs** in `resources/insights.html`.
-3. **Handle the `format: hook` flag** in the hub template. Minimum viable: render the read-time badge with a visual distinction so a 2-minute read is legible as such next to a 6-minute one. Better: a "Quick reads" strip above the main grid.
-4. **Decide on hook OG images.** Hooks share more than spokes do, so the default fallback card is a bigger loss here. Worth a simple numbered template.
+1. ~~Add the `quick-reads` vertical~~ — **rejected.** See "Verticals: inherit from the parent spoke" above. Length is not an industry.
+2. **Format axis, not a tab.** `resources/insights.html` renders `format: hook` as a "Quick read" pill on the card, and carries an All / Quick reads / Deep dives toggle that ANDs with the industry tabs. Cards expose `data-format`; `render()` combines `verticalMatch && searchMatch && formatMatch`.
+3. **Validator scoping.** `validate-article.py --all` skips anything registered `format: hook`; `validate-hook.py --all` scans `hook-drafts/` *and* published hooks in `_insights/`. Neither grades the other's articles. Keep that true if either script is edited.
 
-Until 1-3 are done, hooks can be drafted but should not be published.
+### Still open
+
+**Hook OG images.** There are 32 in `images/insights/`, one per spoke, and none for any hook. Hooks get shared more than spokes do, so the site-wide fallback card costs more here. A numbered template would cover all 18 cheaply.
 
 ---
 
@@ -276,7 +273,7 @@ Run in addition to the spoke checklist's voice and frontmatter sections.
 
 ### Categorization
 
-- [ ] Vertical is an existing one, or `quick-reads` for standalones
+- [ ] Verticals match the parent spoke exactly (or, for standalones, are real industry verticals)
 - [ ] `format: hook` present in the data file entry (publish mode only)
 - [ ] TL;DR has 3-4 bullets
 

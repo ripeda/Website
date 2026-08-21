@@ -3,8 +3,8 @@ layout: insight
 title: "The 7 most common Apple Business Manager setup mistakes"
 dek: "Most Apple Business Manager accounts are set up in an afternoon, and the gaps only surface months later at the worst possible moment."
 description: "The seven Apple Business Manager setup mistakes we see most often, from skipped domain verification to certificate renewals nobody owns, and how to avoid each."
+image: /images/insights/abm-setup-mistakes-og.png
 date: 2026-08-11
-published: false
 tags:
   - Apple Business Manager
   - Deployment
@@ -12,6 +12,7 @@ tags:
 keywords: "apple business manager setup mistakes, how to set up apple business manager correctly, apple business manager domain verification, linking a reseller to apple business manager, APNs certificate renewal, Managed Apple Accounts, Apple IT Calgary, Mac deployment"
 reading_time: 3
 author: "RIPEDA"
+verticals: [mdm-security, dental-medical, design-agencies, education, professional-services]
 tldr:
   - "Almost every Apple Business Manager problem we inherit traces back to the first hour of setup, not to anything that happened since."
   - "The expensive ones are a personal Apple Account on the APNs certificate, a missing reseller link, and a single administrator."
@@ -28,7 +29,6 @@ related:
     url: "/services/strategy-advisory/"
     context: "Where identity, federation, and Apple account ownership fit into a wider IT plan."
 
-# verticals: [mdm-security, quick-reads]
 ---
 
 Apple Business Manager takes about twenty minutes to sign up for and considerably longer to set up correctly. Most of the accounts we inherit were created in a hurry by whoever happened to be free that afternoon, and the gaps stay invisible until a device order fails to appear or a certificate lapses. These are the seven we find most often, ordered from most common to least.

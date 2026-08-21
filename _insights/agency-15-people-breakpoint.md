@@ -1,9 +1,9 @@
 ---
 layout: insight
-published: false
 title: "What breaks first when an agency hits 15 people"
 dek: "The IT work that was invisible at eight people becomes a part-time job at fifteen and a real cost at twenty-five."
 description: "Onboarding, file structure, access control, and device visibility break in a predictable order as an agency grows from eight people to fifteen and beyond."
+image: /images/insights/agency-15-people-breakpoint-og.png
 date: 2026-08-11
 tags:
   - Operations
@@ -12,6 +12,7 @@ tags:
 keywords: "when does an agency need IT support, IT for a 15 person agency, agency onboarding new Mac setup, when to hire managed IT services, agency growth IT problems, Mac fleet management, Apple IT Calgary"
 reading_time: 3
 author: "RIPEDA"
+verticals: [professional-services, design-agencies, mdm-security]
 tldr:
   - "Nothing fails outright at fifteen people. The favors that carried IT at eight simply stop fitting in the margins of someone's week."
   - "Onboarding breaks first, because setting up a Mac by hand goes from twice a year to close to monthly."

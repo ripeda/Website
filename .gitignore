@@ -23,3 +23,6 @@ Thumbs.db
 
 # Local holding pen (this session could not delete files directly)
 _to_delete/
+
+# FUSE mount artifacts left by in-place edits over the desktop bridge
+.fuse_hidden*
