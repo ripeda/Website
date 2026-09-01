@@ -38,10 +38,10 @@ is_home: true
   <div class="partner-strip-container">
     <p class="partner-strip-tagline">Delivering Technology Solutions for Alberta Businesses since 2011</p>
     <div class="partner-strip-logos">
-      <img src="{{ '/images/logo/AppleAuth.svg' | relative_url }}" alt="Apple Technical Partner, Authorized Repair, Authorized Reseller" class="partner-strip-logo apple-strip-logo">
-      <img src="{{ '/images/logo/RUCKUS-Partner-2025_Partner-Levels-Certified.svg' | relative_url }}" alt="Ruckus Certified Partner" class="partner-strip-logo">
-      <img src="{{ '/images/logo/fortinet-logo-rgb-black-red.svg' | relative_url }}" alt="Fortinet Partner" class="partner-strip-logo">
-      <img src="{{ '/images/logo/DriveSavers.png' | relative_url }}" alt="DriveSavers Data Recovery Partner" class="partner-strip-logo">
+      <img src="{{ '/images/logo/AppleAuth.svg' | relative_url }}" width="405" height="65" alt="Apple Technical Partner, Authorized Repair, Authorized Reseller" class="partner-strip-logo apple-strip-logo">
+      <img src="{{ '/images/logo/RUCKUS-Partner-2025_Partner-Levels-Certified.svg' | relative_url }}" width="220" height="108" alt="Ruckus Certified Partner" class="partner-strip-logo">
+      <img src="{{ '/images/logo/fortinet-logo-rgb-black-red.svg' | relative_url }}" width="585" height="160" alt="Fortinet Partner" class="partner-strip-logo">
+      <img src="{{ '/images/logo/DriveSavers.png' | relative_url }}" width="261" height="260" alt="DriveSavers Data Recovery Partner" class="partner-strip-logo">
     </div>
   </div>
 </section>
@@ -1913,6 +1913,13 @@ document.addEventListener('DOMContentLoaded', function() {
     margin: 0;
 }
 
+/* three.js injects its <canvas> here after load. A canvas is display:inline by
+   default, so the line-height descender nudges .hero-visual's height and
+   registers as layout shift. Force block. */
+#globeContainer canvas {
+    display: block;
+}
+
 .globe-caption {
     text-align: center;
     background: none;
@@ -1964,5 +1971,5 @@ document.addEventListener('DOMContentLoaded', function() {
 }
 </style>
 
-<script src="{{ '/assets/js/three.min.js' | relative_url }}"></script>
-<script src="{{ '/assets/js/interactive-globe.js' | relative_url }}"></script>
+<script src="{{ '/assets/js/three.min.js' | relative_url }}" defer></script>
+<script src="{{ '/assets/js/interactive-globe.js' | relative_url }}" defer></script>

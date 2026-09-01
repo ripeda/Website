@@ -17,7 +17,21 @@ extra_css: /assets/css/case-studies.css
 <div class="cs-index-grid">
 
   <a class="cs-card" href="{{ '/case-studies/river-valley-school/' | relative_url }}">
-    <img class="cs-hero-image" style="height:180px" src="{{ '/images/case-studies/river-valley-school/river-valley-school-exterior.jpg' | relative_url }}" alt="River Valley School exterior">
+    <picture>
+      <source type="image/webp"
+              srcset="{{ '/images/case-studies/river-valley-school/river-valley-school-exterior-600.webp' | relative_url }} 600w,
+              {{ '/images/case-studies/river-valley-school/river-valley-school-exterior-900.webp' | relative_url }} 900w,
+              {{ '/images/case-studies/river-valley-school/river-valley-school-exterior.webp' | relative_url }} 1538w"
+              sizes="(max-width: 1040px) 50vw, 470px">
+      <img class="cs-hero-image" style="height:180px"
+           src="{{ '/images/case-studies/river-valley-school/river-valley-school-exterior.jpg' | relative_url }}"
+           srcset="{{ '/images/case-studies/river-valley-school/river-valley-school-exterior-600.jpg' | relative_url }} 600w,
+              {{ '/images/case-studies/river-valley-school/river-valley-school-exterior-900.jpg' | relative_url }} 900w,
+              {{ '/images/case-studies/river-valley-school/river-valley-school-exterior.jpg' | relative_url }} 1538w"
+           sizes="(max-width: 1040px) 50vw, 470px"
+           width="1538" height="1024" loading="lazy" decoding="async"
+           alt="River Valley School exterior">
+    </picture>
     <div class="cs-card-body">
       <span class="cs-eyebrow">Education &middot; K&ndash;6 Elementary</span>
       <h3>River Valley School</h3>
