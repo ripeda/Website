@@ -41,7 +41,21 @@ extra_css: /assets/css/case-studies.css
     </div>
   </div>
 
-  <img class="cs-hero-image" src="{{ '/images/case-studies/river-valley-school/river-valley-school-exterior.jpg' | relative_url }}" alt="River Valley School exterior">
+  <picture>
+    <source type="image/webp"
+            srcset="{{ '/images/case-studies/river-valley-school/river-valley-school-exterior-600.webp' | relative_url }} 600w,
+              {{ '/images/case-studies/river-valley-school/river-valley-school-exterior-900.webp' | relative_url }} 900w,
+              {{ '/images/case-studies/river-valley-school/river-valley-school-exterior.webp' | relative_url }} 1538w"
+            sizes="(max-width: 1040px) 100vw, 1000px">
+    <img class="cs-hero-image"
+         src="{{ '/images/case-studies/river-valley-school/river-valley-school-exterior.jpg' | relative_url }}"
+         srcset="{{ '/images/case-studies/river-valley-school/river-valley-school-exterior-600.jpg' | relative_url }} 600w,
+              {{ '/images/case-studies/river-valley-school/river-valley-school-exterior-900.jpg' | relative_url }} 900w,
+              {{ '/images/case-studies/river-valley-school/river-valley-school-exterior.jpg' | relative_url }} 1538w"
+         sizes="(max-width: 1040px) 100vw, 1000px"
+         width="1538" height="1024" fetchpriority="high" decoding="async"
+         alt="River Valley School exterior">
+  </picture>
 
   <!-- Challenge -->
   <div class="cs-sect cs-pagebreak">

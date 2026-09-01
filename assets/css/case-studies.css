@@ -169,6 +169,10 @@
   margin-top: 2px;
 }
 
+.case-study-page picture {
+  display: block;
+}
+
 .case-study-page .cs-hero-image {
   width: 100%;
   height: 300px;
