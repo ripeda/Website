@@ -9,7 +9,7 @@
   },
   "dependencies": {
     "gray-matter": "^4.0.3",
-    "puppeteer": "^23.0.0"
+    "puppeteer": "^25.10.0"
   },
   "license": "Proprietary"
 }
