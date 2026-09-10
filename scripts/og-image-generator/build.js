@@ -240,7 +240,7 @@ async function main() {
 
   console.log(`Launching headless Chrome...`);
   const browser = await puppeteer.launch({
-    headless: 'new',
+    headless: true, // puppeteer 24+ removed 'new'; `true` is now the new-headless mode
     args: ['--no-sandbox', '--disable-setuid-sandbox'],
   });
   const page = await browser.newPage();
