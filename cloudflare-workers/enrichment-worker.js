@@ -27,7 +27,7 @@
 
 // Bump this on every deploy. It is echoed by ?debug=1 and in every log line,
 // so "did my deploy actually land?" is never a guess.
-const BUILD = "2026-07-30a-gated-endpoints";
+const BUILD = "2026-09-28a-spam-signals";
 
 const LEAD_OPPORTUNITY_TYPE_ID = 27;
 const MODEL = "claude-sonnet-5";            // primary: best judgement
@@ -180,6 +180,154 @@ function errorMessage(err) {
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 
 /**
+ * SPAM / IMPERSONATION SIGNALS — computed in code, not by the model.
+ *
+ * Why: lead 44848 (Sept 2026) used a real co-founder's name at a real company,
+ * sent from a throwaway domain (northmail.web.id) with a lure link in the
+ * message. The model confirmed the PERSON exists and scored reachability 5/5 —
+ * it never checked that the person actually SENT the form, even though the
+ * rubric already said a non-matching email domain scores 1. So these checks
+ * are deterministic and cap the score regardless of what the model returns.
+ *
+ * Weights: domain mismatch 2, link in message 2, risky TLD 1. A total of 4+ is
+ * "likely spam". Mismatch alone is only a caution — abbreviations and parent
+ * company domains produce false positives, so it never condemns a lead alone.
+ */
+const FREE_EMAIL_DOMAINS = new Set([
+  "gmail.com", "googlemail.com", "outlook.com", "hotmail.com", "live.com", "msn.com",
+  "yahoo.com", "yahoo.ca", "ymail.com", "icloud.com", "me.com", "mac.com", "aol.com",
+  "proton.me", "protonmail.com", "pm.me", "gmx.com", "gmx.net", "mail.com", "zoho.com",
+  "shaw.ca", "telus.net", "rogers.com", "sympatico.ca", "bell.net",
+]);
+
+// TLDs that show up disproportionately in throwaway sender domains.
+const RISKY_TLDS = [
+  ".web.id", ".xyz", ".top", ".online", ".site", ".click", ".icu", ".shop",
+  ".buzz", ".cfd", ".sbs", ".rest", ".monster", ".cyou", ".store",
+];
+
+// Words that say nothing about WHICH company it is.
+const GENERIC_COMPANY_WORDS = new Set([
+  "the", "and", "group", "groupe", "inc", "ltd", "llc", "llp", "corp", "corporation",
+  "company", "co", "services", "service", "solutions", "consulting", "consultants",
+  "partners", "associates", "canada", "canadian", "international", "holdings",
+  "enterprises", "limited", "incorporated", "technologies", "technology", "le", "la", "les", "de", "des",
+]);
+
+// Second-level labels that aren't part of the brand (co.uk, web.id, com.au ...).
+const NON_BRAND_LABELS = new Set(["co", "com", "net", "org", "web", "ac", "gov", "edu", "or", "ne"]);
+
+const LINK_PATTERN =
+  /\b(?:https?:\/\/|www\.)\S+|\b[a-z0-9-]+\.(?:com|net|org|online|io|co|ca|xyz|site|link|me|app|page|info|ly|to)\/\S*/i;
+
+function normalizeName(value) {
+  return String(value || "")
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .toLowerCase();
+}
+
+function emailDomain(email) {
+  const m = String(email || "").trim().toLowerCase().match(/@([a-z0-9.-]+\.[a-z]{2,})$/);
+  return m ? m[1] : "";
+}
+
+function hostOf(url) {
+  const m = String(url || "").toLowerCase().match(/^(?:https?:\/\/)?(?:www\.)?([a-z0-9.-]+)/);
+  return m ? m[1] : "";
+}
+
+/** Does this sender domain plausibly belong to this company? */
+function domainMatchesCompany(domain, company, website) {
+  if (!domain) return true; // nothing to judge
+  const site = hostOf(website);
+  if (site && (domain === site || domain.endsWith("." + site))) return true;
+
+  const labels = domain.split(".").slice(0, -1).filter((l) => !NON_BRAND_LABELS.has(l));
+  const words = normalizeName(company).split(/[^a-z0-9]+/).filter(Boolean);
+  const squashed = words.join("");
+  const brandWords = words.filter((w) => w.length >= 3 && !GENERIC_COMPANY_WORDS.has(w));
+  const initials = brandWords.map((w) => w[0]).join("");
+  if (!squashed) return true; // no company given — can't call it a mismatch
+
+  return labels.some((label) => {
+    const l = label.replace(/-/g, "");
+    if (l.length >= 3 && squashed.includes(l)) return true;          // acmedental.ca ↔ Acme Dental Group
+    if (brandWords.some((w) => w.length >= 4 && l.includes(w))) return true; // agiledss.com ↔ Groupe agileDSS
+    if (initials.length >= 3 && l.includes(initials)) return true;   // omsgroup.ca ↔ Oral Maxillofacial Surgery
+    return false;
+  });
+}
+
+function spamSignals(lead) {
+  const flags = [];
+  const domain = emailDomain(lead.email);
+  const free = FREE_EMAIL_DOMAINS.has(domain);
+  let domainMismatch = false;
+
+  if (domain && free) {
+    flags.push({ code: "free_email", weight: 0, text: `free/ISP email address (${domain})` });
+  } else if (domain && !domainMatchesCompany(domain, lead.company, lead.website)) {
+    domainMismatch = true;
+    flags.push({
+      code: "domain_mismatch",
+      weight: 2,
+      text: `email domain ${domain} doesn't match company "${lead.company}"`,
+    });
+  }
+  const tld = RISKY_TLDS.find((t) => domain.endsWith(t));
+  if (tld) flags.push({ code: "risky_tld", weight: 1, text: `sender domain uses ${tld}, common for throwaway addresses` });
+
+  const link = String(lead.requirements || "").match(LINK_PATTERN);
+  if (link) {
+    flags.push({
+      code: "link_in_message",
+      weight: 2,
+      text: `message contains a link (${link[0].slice(0, 80)}) — do not open it before checking`,
+    });
+  }
+
+  const weight = flags.reduce((n, f) => n + f.weight, 0);
+  return { flags, weight, domainMismatch, likelySpam: weight >= 4 };
+}
+
+/** Cap the axes the signals undermine, then recompute the total. */
+function applySignalCaps(score, signals) {
+  const out = { ...score, capped: [] };
+  if (!signals || !signals.flags.length) return out;
+
+  if (out.axesMissing) {
+    if (signals.likelySpam && out.total > 6) {
+      out.capped.push(`total ${out.total}→6 (likely spam)`);
+      out.total = 6;
+    }
+    return out;
+  }
+
+  const cap = (axis, max, why) => {
+    if (out[axis] > max) {
+      out.capped.push(`${axis} ${out[axis]}→${max} (${why})`);
+      out[axis] = max;
+    }
+  };
+  if (signals.likelySpam) {
+    // Fit too: the company may be real, but it isn't who sent this.
+    cap("fit", 1, "likely spam");
+    cap("reachability", 1, "likely spam");
+    cap("intent", 1, "likely spam");
+  } else if (signals.domainMismatch) {
+    cap("reachability", 2, "email domain doesn't match company");
+  }
+  out.total =
+    out.fit * SCORE_WEIGHTS.fit + out.intent * SCORE_WEIGHTS.intent + out.reachability * SCORE_WEIGHTS.reachability;
+  return out;
+}
+
+function signalsSummary(signals) {
+  return (signals?.flags || []).map((f) => f.text).join("; ");
+}
+
+/**
  * The prompt deliberately separates two different kinds of output:
  *
  *   GROUNDED IN THE FORM  — priority_score, deal_size_estimate, pain_points.
@@ -191,7 +339,7 @@ const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
  * attached, which invited the model to invent a research summary. Anything that
  * cannot be sourced must now say so explicitly.
  */
-function leadPrompt(lead) {
+function leadPrompt(lead, signals) {
   return (
     `You are a B2B sales analyst for RIPEDA, an Apple-focused managed IT ` +
     `provider based in Alberta, Canada. Assess this inbound website lead.\n\n` +
@@ -265,7 +413,18 @@ function leadPrompt(lead) {
     `6. Obviously fake or placeholder submissions (test data, nonsense names, ` +
     `malformed domains) should be reported as such, with a low score.\n` +
     `7. Output PLAIN TEXT inside the JSON values. No citation markup, no ` +
-    `<cite> tags, no markdown links, no HTML. Sources are captured separately.\n\n` +
+    `<cite> tags, no markdown links, no HTML. Sources are captured separately.\n` +
+    `8. Confirming that a person exists is NOT confirming they sent this form. ` +
+    `If the email domain does not belong to the company, say so in ` +
+    `contact_verification (e.g. "person exists, but submission came from an ` +
+    `unrelated domain — possible impersonation") and score reachability 1-2. ` +
+    `A message that pitches RIPEDA or points to an external link is a sales or ` +
+    `phishing attempt, not a request for service — score intent 1.\n\n` +
+    (signals && signals.flags.length
+      ? `AUTOMATED CHECKS (computed before you ran; treat as fact):\n` +
+        signals.flags.map((f) => `- ${f.text}`).join("\n") +
+        `\n\n`
+      : "") +
     `Return ONLY valid JSON, no markdown, with exactly these keys:\n` +
     `- company_verified: "confirmed" | "not_found" | "ambiguous" | "appears_fake"\n` +
     `- fit_score: integer 1-5 per the FIT anchors above\n` +
@@ -545,8 +704,8 @@ async function callModel(env, model, prompt) {
  * A terminal error is NOT retried on the fallback — a bad API key or malformed
  * request will fail the same way and only burns time.
  */
-async function researchLead(env, lead) {
-  const prompt = leadPrompt(lead);
+async function researchLead(env, lead, signals) {
+  const prompt = leadPrompt(lead, signals);
   const chain = [MODEL, FALLBACK_MODEL].filter(Boolean);
 
   let lastTransient;
@@ -581,6 +740,8 @@ async function researchLead(env, lead) {
  * Compose the Halo research field so provenance travels with the content.
  * If nothing was verified, that is stated up front rather than buried.
  */
+const s0 = (r) => r._score || null;
+
 function researchFieldValue(r) {
   const findings = (r.findings || "").trim();
   if (!findings && !r.company_verified) return "";
@@ -588,6 +749,14 @@ function researchFieldValue(r) {
   const verified = r.company_verified || "unknown";
   const searches = r._searches ?? 0;
   const lines = [];
+
+  const sig = r._signals;
+  if (sig?.likelySpam) {
+    lines.push(`[LIKELY SPAM: ${signalsSummary(sig)}]`);
+  } else if (sig?.flags?.some((f) => f.weight > 0)) {
+    lines.push(`[CHECK: ${signalsSummary(sig)}]`);
+  }
+  if (s0(r)?.capped?.length) lines.push(`[score capped: ${r._score.capped.join("; ")}]`);
 
   if (verified === "appears_fake") {
     lines.push("[FLAGGED: submission appears to be test or placeholder data]");
@@ -662,7 +831,8 @@ async function postSlack(env, lead, r) {
   // Thresholds are on the /30 scale now: >= 20 is RIPEDA's "work first" line.
   // An unverified or fake-looking lead is red regardless of score, so it can't
   // be mistaken for a hot prospect at a glance.
-  const suspect = verified === "appears_fake" || verified === "not_found";
+  const sig = r._signals || { flags: [] };
+  const suspect = verified === "appears_fake" || verified === "not_found" || sig.likelySpam;
   const color = suspect
     ? "#e01e5a"
     : score >= SCORE_WORK_FIRST
@@ -671,7 +841,7 @@ async function postSlack(env, lead, r) {
         ? "#ecb22e"
         : "#e01e5a";
 
-  const badge = VERIFY_BADGE[verified] || "❓ unverified";
+  const badge = sig.likelySpam ? "🚩 likely spam" : VERIFY_BADGE[verified] || "❓ unverified";
   const sourceLine = cites.length
     ? cites.slice(0, 5).map((c) => `<${c.url}|${c.title}>`).join("\n")
     : searches > 0
@@ -692,6 +862,15 @@ async function postSlack(env, lead, r) {
           : "sub-scores unavailable",
       short: false,
     },
+    ...(sig.flags.length
+      ? [{
+          title: sig.likelySpam ? "🚩 Spam checks — likely spam" : "Spam checks",
+          value:
+            sig.flags.map((f) => `• ${f.text}`).join("\n") +
+            (s.capped?.length ? `\n_Score capped: ${s.capped.join("; ")}_` : ""),
+          short: false,
+        }]
+      : []),
     { title: "Platform today", value: r.platform_today || "unknown", short: true },
     { title: "Score basis", value: r.score_basis || "—", short: false },
     { title: "Contact authority (from submitted title)", value: r.contact_authority || "—", short: false },
@@ -1092,11 +1271,21 @@ async function run(env) {
 
     try {
       console.log(`[enrichment] researching opportunity ${o.id} (${lead.company})`);
-      const raw = await researchLead(env, lead);
+      const signals = spamSignals(lead);
+      if (signals.flags.length) {
+        console.log(
+          `[enrichment] ${o.id} signals weight=${signals.weight}` +
+            `${signals.likelySpam ? " LIKELY SPAM" : ""}: ${signalsSummary(signals)}`
+        );
+      }
+      const raw = await researchLead(env, lead, signals);
 
-      // Trust the axes, not the model's addition.
-      const score = computeScore(raw);
-      const r = { ...raw, priority_score: score.total, _score: score };
+      // Trust the axes, not the model's addition — then apply the spam caps.
+      const score = applySignalCaps(computeScore(raw), signals);
+      const r = { ...raw, priority_score: score.total, _score: score, _signals: signals };
+      if (score.capped.length) {
+        console.log(`[enrichment] ${o.id} score capped: ${score.capped.join("; ")}`);
+      }
       if (score.axesMissing) {
         summary.notes.push(`opportunity ${o.id}: model omitted sub-scores, used its total`);
         console.log(`[enrichment] WARNING ${o.id} returned no sub-scores`);

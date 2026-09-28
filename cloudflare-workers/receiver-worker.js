@@ -28,6 +28,9 @@
  *   company_size, industry, current_challenge, device_count,
  *   inquiry_type (array or comma string), additional_info, newsletter_opt_in,
  *   website  (honeypot: must be empty)
+ *
+ * The opening entry (details) also gets a "Submission metadata" block — IP,
+ * Cloudflare geo/network, browser, referrer, time — for spam triage.
  */
 
 // "Lead" opportunity type — Configuration > Sales > Opportunity Types.
@@ -185,6 +188,27 @@ export default {
       return json({ error: "Verification failed" }, 403, origin);
     }
 
+    // 3b. Submission metadata — who actually sent this, as Cloudflare saw it.
+    //     Appended to the bottom of the opening entry so a human can spot spam
+    //     at a glance (e.g. a "Calgary" company submitted from an overseas
+    //     hosting network). Not typed by the sender, so it can't be faked in
+    //     the form. Not written to any custom field or sent to the AI.
+    const cfInfo = request.cf || {};
+    const submittedAt = new Date().toLocaleString("en-CA", {
+      timeZone: "America/Edmonton",
+      dateStyle: "medium",
+      timeStyle: "short",
+    });
+    const metadata =
+      `\n\n----------\n` +
+      `Submission metadata (captured by the receiver, not typed by the sender):\n` +
+      `Submitted: ${submittedAt} (Calgary time)\n` +
+      `IP address: ${request.headers.get("CF-Connecting-IP") || "unknown"}\n` +
+      `Location: ${[cfInfo.city, cfInfo.region, cfInfo.country].filter(Boolean).join(", ") || "unknown"}\n` +
+      `Network: ${[cfInfo.asOrganization, cfInfo.asn ? `AS${cfInfo.asn}` : ""].filter(Boolean).join(" · ") || "unknown"}\n` +
+      `Browser: ${clean(request.headers.get("User-Agent"), 300) || "unknown"}\n` +
+      `Sent from: ${clean(request.headers.get("Referer") || origin, 300) || "unknown"}`;
+
     // 4. Get a HaloPSA access token (client credentials)
     let accessToken;
     try {
@@ -240,7 +264,8 @@ export default {
       `Interested in: ${inquiry}\n` +
       `Biggest challenge: ${challenge}\nDevice count: ${deviceCount}\n` +
       `Newsletter opt-in: ${newsletterOptIn ? "Yes" : "No"}\n\n` +
-      `Additional info:\n${additionalInfo}`;
+      `Additional info:\n${additionalInfo}` +
+      metadata;
 
     // 7. Custom fields, referenced by name.
     //    Reused from the existing Lead form: CFOppSize 167, CFCompanyType 164,
