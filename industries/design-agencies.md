@@ -49,7 +49,7 @@ RIPEDA has supported Apple-first design and creative agencies in Calgary and Wes
 
 A design agency does not need every Mac to be the same Mac. The art director's machine is doing different work than the operations manager's, and both are doing different work than the editing suite. Choosing the right device for each role saves money on the desk that does not need a top-tier machine and prevents the bottleneck on the desk that does.
 
-Apple Silicon changed the conversation in 2020 and the next chapter (the M4 and M5 generations) has continued it. A Mac Studio with 64 gigabytes of unified memory now does work that needed a tower workstation five years ago. A Mac mini handles ninety percent of operations and accounts roles. The Mac Pro is no longer in the lineup, and for almost every creative agency role its absence does not change the procurement decision.
+Apple Silicon changed the conversation in 2020 and the next chapter (the M5 and M6 generations) has continued it. A Mac Studio with 64 gigabytes of unified memory now does work that needed a tower workstation five years ago. A Mac mini handles ninety percent of operations and accounts roles. The Mac Pro is no longer in the lineup, and for almost every creative agency role its absence does not change the procurement decision.
 
 The procurement decision is rarely made by the IT team alone. It is a conversation between operations, the creative leads, and finance. The right answer depends on the actual workloads in the studio, not on benchmarks from a review site.
 

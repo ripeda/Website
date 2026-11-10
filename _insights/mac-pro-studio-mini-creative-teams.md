@@ -5,6 +5,7 @@ dek: "The desktop Mac lineup is now two tiers. The Mac Studio handles the heavie
 description: "Mac Studio or Mac mini for a creative agency. A workload-to-Mac mapping for design, video, motion, and operations roles, written for procurement leads."
 image: /images/insights/mac-pro-studio-mini-creative-teams-og.png
 date: 2026-04-17
+last_modified_at: 2026-11-10
 tags:
   - Procurement
   - Apple Silicon
@@ -36,9 +37,9 @@ The desktop Mac lineup in 2026 is a two-tier conversation. Apple removed the Mac
 
 ## What each tier is actually for
 
-**Mac mini (M4 and M4 Pro).** The most underestimated Mac in the lineup. With 24 to 64 GB of unified memory in the M4 Pro variant, the Mac mini handles Figma, Adobe Creative Cloud, Lightroom, light Premiere editing, and operations work without breaking a sweat. It belongs on the desks of designers, account managers, project leads, and the front-of-house roles where the budget should go to a good display, not the box behind it.
+**Mac mini (M6 and M5 Pro).** The most underestimated Mac in the lineup. The M6 model starts at 16 GB and tops out at 32 GB. The M5 Pro variant goes up to 64 GB of unified memory with nearly double the memory bandwidth, and adds Thunderbolt 5. With that headroom, the Mac mini handles Figma, Adobe Creative Cloud, Lightroom, light Premiere editing, and operations work without breaking a sweat. It belongs on the desks of designers, account managers, project leads, and the front-of-house roles where the budget should go to a good display, not the box behind it.
 
-**Mac Studio (M4 Max and M4 Ultra).** The senior creative workhorse and now the top of the desktop lineup. Premiere and DaVinci Resolve editing of 4K and 6K timelines without proxies, After Effects with multiple composites open, Cinema 4D scenes that would have needed a render farm five years ago. The Max variant covers the bulk of senior creative roles. The Ultra variant doubles bandwidth and memory ceiling for the largest motion, 3D, and render-heavy desks: heads of post, lead motion designers, and the seat where a render queue lives. For most agencies, a few Max-tier Studios and one Ultra cover every role the Pro used to.
+**Mac Studio (M5 Max and M5 Ultra).** The senior creative workhorse and now the top of the desktop lineup. Premiere and DaVinci Resolve editing of 4K and 6K timelines without proxies, After Effects with multiple composites open, Cinema 4D scenes that would have needed a render farm five years ago. The Max variant covers the bulk of senior creative roles. The Ultra variant doubles bandwidth and raises the memory ceiling from 128 GB to as much as 512 GB for the largest motion, 3D, and render-heavy desks: heads of post, lead motion designers, and the seat where a render queue lives. For most agencies, a few Max-tier Studios and one Ultra cover every role the Pro used to.
 
 <div class="insight-compare">
   <div class="insight-compare-col">
@@ -73,11 +74,11 @@ For an agency planning a refresh in 2026, the Mac Pro question is mostly histori
 
 A useful starting frame for a thirty-person creative agency:
 
-**Mac mini, M4 Pro, 48 to 64 GB.** Designers, art directors who are mostly in Figma and Adobe Creative Cloud, project managers, account leads, operations. Roughly half the desks in most agencies.
+**Mac mini, M5 Pro, 48 to 64 GB.** Designers, art directors who are mostly in Figma and Adobe Creative Cloud, project managers, account leads, operations. Roughly half the desks in most agencies.
 
-**Mac Studio, M4 Max, 64 to 96 GB.** Video editors, motion designers, 3D artists, senior creative leads who push the largest composites and timelines. Usually a quarter to a third of the desks.
+**Mac Studio, M5 Max, 64 to 128 GB.** Video editors, motion designers, 3D artists, senior creative leads who push the largest composites and timelines. Usually a quarter to a third of the desks.
 
-**Mac Studio, M4 Ultra, 128 GB or more.** Heads of post, lead motion designers running large Cinema 4D scenes, anyone who explicitly hits memory ceilings on the Max. Rare. One or two seats in most agencies, often a shared render-and-export station rather than a dedicated desk.
+**Mac Studio, M5 Ultra, 256 GB or more.** Heads of post, lead motion designers running large Cinema 4D scenes, anyone who explicitly hits memory ceilings on the Max. Rare. One or two seats in most agencies, often a shared render-and-export station rather than a dedicated desk.
 
 The reason this mapping matters is the same reason Apple Silicon now matters more between models than it did in the Intel era. The headroom between the base of the lineup and the top is significantly higher than it used to be. Sending a senior video editor to a Mac mini is leaving real productivity on the table. Sending an operations lead to a Mac Studio Ultra is leaving real money on the table.
 

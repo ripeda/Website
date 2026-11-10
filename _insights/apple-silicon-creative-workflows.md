@@ -5,6 +5,7 @@ dek: "Five years in, the move from Intel to M-series Macs has reshaped video, mo
 description: "Apple Silicon reshaped creative work in ways the launch-day benchmarks missed. Where M-series Macs actually pay off in video, motion, and design pipelines."
 image: /images/insights/apple-silicon-creative-workflows-og.png
 date: 2026-05-05
+last_modified_at: 2026-11-10
 tags:
   - Apple Silicon
   - Performance
@@ -13,7 +14,7 @@ keywords: "Apple Silicon for creative agencies, M-series Mac performance, video 
 reading_time: 5
 author: "RIPEDA"
 tldr:
-  - "Apple Silicon is now in its fifth generation. The Intel comparison still gets cited, but M1 to M4 is the more useful one to make."
+  - "Apple Silicon is now in its sixth generation. The Intel comparison still gets cited, but M1 to M6 is the more useful one to make."
   - "Unified memory and the media engine reshape video and motion workflows more than raw CPU benchmarks suggest."
   - "Adobe and Blackmagic have rebuilt their pipelines around the architecture. Non-native creative software is now visibly behind."
   - "Battery life on laptops changed where and how creative work happens. The studio is no longer the only place a designer can be productive."
@@ -38,7 +39,7 @@ Two architectural decisions did most of the work in those five years. Unified me
 
 **Video.** ProRes encode and decode are handled in hardware on every M-series chip. A timeline that would have stuttered on an Intel laptop scrubs cleanly on a base-model M3 Pro. DaVinci Resolve and Final Cut Pro both treat the media engine as a primary path. Adobe Premiere caught up by version 24. Multi-stream 4K editing on a laptop is now a desk-from-anywhere reality, not a marketing claim.
 
-**Motion and 3D.** After Effects, Cinema 4D, and Blender all run native on Apple Silicon. The unified memory architecture means a render that previously needed a workstation with 64 GB of RAM and a discrete graphics card can now sit inside an M4 Max where the graphics processor addresses the same memory pool as the rest of the system. The ceilings moved.
+**Motion and 3D.** After Effects, Cinema 4D, and Blender all run native on Apple Silicon. The unified memory architecture means a render that previously needed a workstation with 64 GB of RAM and a discrete graphics card can now sit inside an M5 Max where the graphics processor addresses the same memory pool as the rest of the system. The ceilings moved.
 
 **Photography.** Lightroom Classic and Capture One are both native. The visible difference is responsiveness rather than peak throughput. AI-assisted masking, denoise, and content-aware fill run locally instead of pushing work to the cloud. Photographers we work with describe it as the catalog finally keeping up with them.
 
@@ -54,7 +55,7 @@ Two architectural decisions did most of the work in those five years. Unified me
 
 If a creative team is still running 2019 to 2020 Intel hardware, the gap is now severe enough that productivity loss alone justifies the move. M-series laptops outlast Intel desktops on most creative tasks while remaining portable. That changes the seating plan.
 
-For teams already on M1 or M2, the upgrade calculus is more nuanced. M3 added hardware ray tracing, which matters for 3D and product visualization but not for most agency work. M4 raised memory bandwidth and improved neural engine performance, which matters for AI-assisted workflows but not for traditional timeline editing. A senior editor on M1 Max may still be ahead of a designer on a base M3.
+For teams already on M1 or M2, the upgrade calculus is more nuanced. M3 added hardware ray tracing, which matters for 3D and product visualization but not for most agency work. M4 raised memory bandwidth and improved neural engine performance. M5 put Neural Accelerators inside every GPU core, and M6 moved the base chip to a 12-core CPU and GPU. Those gains matter most for AI-assisted workflows, less for traditional timeline editing. A senior editor on M1 Max may still be ahead of a designer on a base M6.
 
 The right approach is workload-mapped procurement. A motion lead and a junior designer should not be on the same machine. Apple Silicon made the spread between roles bigger, not smaller, because the headroom at the top of the lineup is significantly higher.
 
